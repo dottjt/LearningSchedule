@@ -1,0 +1,32 @@
+.header__color__container {
+		width: 100%;
+}
+
+.header__color {
+	float: left;
+	width: 20%;	
+	height: 0.5rem;
+}
+
+.header__color1 {
+	background-color: #FF6600;
+}
+
+.header__color2 {
+	background-color: #07FAA0;
+
+}
+
+.header__color3 {
+	background-color: #6699FF;
+}
+
+.header__color4 {
+	background-color: #F7AE84;
+
+}
+
+.header__color5 {
+	background-color: #F5EDE3;
+	
+}

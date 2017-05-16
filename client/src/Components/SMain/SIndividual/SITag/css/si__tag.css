@@ -1,0 +1,60 @@
+.si__tag__outer {
+      
+}
+
+.si__tag__container {
+      margin-left: 6.9rem;
+      margin-bottom: 2rem;
+      width: 42rem;
+      float: left;
+}
+
+.si__tag__inner {
+      margin-left: 1rem;
+}
+
+.si__tag__group {
+      float: left;
+      border: 1px solid black;
+      border-radius: 2px;
+      width: 9.5rem;
+      height: 1.4rem;
+      margin: 2px;
+}
+
+
+.si__tag__title__field {
+      font-size: 0.8rem;
+      float: right; 
+      margin-top: 0.2rem;
+      border: none;
+      outline: none;
+      overflow: hidden;
+      resize: none;
+
+      z-index: -200;
+}
+
+.si__tag__remove {
+      font-size: 0.9rem;
+      font-family: Arial;
+      float: left;  
+      background-color: white;
+      z-index: -9999;
+      border: none;
+      outline: none;
+      overflow: hidden;
+      resize: none;
+
+}
+
+#field_disabled_style_si__tag {
+      display: none;
+}
+
+.si__tag__add {
+        float: left;     
+        outline: none;
+
+        border-bottom: 1px solid darkgrey;
+}

@@ -1,0 +1,542 @@
+/*
+		 HOMEPAGE
+						*/
+
+* {
+    font-family: 'Nunito', sans-serif;
+		color: #47525d;
+		/*background-color: #FCF2E8;*/
+		box-sizing: border-box; 
+}
+
+body {
+	width: 100%;
+	/*border: 10px solid black;*/
+}
+
+/*
+.timeline {
+	position: absolute;
+	left: 1rem;
+	background-color: black;
+	width: 2px;
+	height: 225rem;
+	z-index: 800;
+}
+
+.timeline-event__one {
+	position: absolute;
+	top: 49rem;
+	background-color: black;
+
+	height: 0.2rem;
+	width: 2rem;
+
+}
+
+.timeline-event__one {
+	position: absolute;
+	top: 49rem;
+	background-color: black;
+
+	height: 0.2rem;
+	width: 2rem;
+
+}
+*/
+
+.navbar__container {
+	/*border-bottom: 1px solid black;*/
+	height: 4rem;
+}
+
+.navbar__logo {
+	float: left;
+	margin-top: 1rem;
+	margin-left: 1rem;
+	font-size: 2rem;
+}
+
+.navbar__buttons {
+	margin-top: 1rem;
+	float: right;
+	width: 16rem;
+	height: 4rem;
+}
+
+.navbar__signup {
+	width: 6rem;
+	height: 2.2rem;
+	float: left;
+	margin-right: 1.5rem;
+}
+
+.navbar__login {
+	width: 6rem;
+	height: 2.2rem;
+	float: left;
+}
+
+.header__main {
+	/*background-color: #fcfcfc;*/
+	height: 40rem;
+} 
+
+.header__title {
+	text-align: center;
+	font-size: 5rem;
+	margin-top: 12rem;
+}
+
+.header__title_secondary {
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 5.5rem;
+	text-align: center;
+	font-size: 1.5rem;
+	margin-bottom: 3.5rem;
+}
+
+.header__title_third {
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 3.5rem;
+	text-align: center;
+	font-size: 1.1rem;
+	margin-bottom: 2rem;
+}
+
+.header__buttons {
+	margin: 0 auto; 
+	width: 400px;
+}
+
+.header__login {
+	float: left;
+	width: 6.8rem;
+	height: 2.3rem;
+	border: 1px solid black;
+	border-radius: 3px;
+
+	background-color: white;
+	margin-left: 3.7rem; 
+}
+
+
+
+.header__color__container {
+		margin-top: 1rem;
+		width: 100%;
+}
+
+.header__color {
+	float: left;
+	width: 20%;	
+	height: 1rem;
+}
+
+.header__color1 {
+	background-color: #FF6600;
+}
+
+.header__color2 {
+	background-color: #07FAA0;
+
+}
+
+.header__color3 {
+	background-color: #6699FF;
+}
+
+.header__color4 {
+	background-color: #F7AE84;
+
+}
+
+.header__color5 {
+	background-color: #F5EDE3;
+	
+}
+
+
+.header__form {
+	margin: 0 auto;
+	width: 500px;
+}
+
+.header__form-group {
+	float: left;
+	width: 245px;
+	margin-right: 5px;
+	margin-bottom: 1rem;
+}
+
+.header__form-input {
+	height: 41px;
+}
+
+.header__form-auth {
+	width: 400px;
+}
+
+.header__form-control {
+
+}
+
+.header__form_line_height {
+	position: relative;
+}
+
+
+
+.main__container {
+	margin-top: 9rem;
+}
+
+
+.feature__container {
+	/*border-top: 1px solid black;*/
+	margin-top: 2rem;
+	margin-bottom: 5rem;
+}
+
+.feature__pre_intro {
+	margin-top: 1.5rem;
+	margin-left: 1rem;
+	text-decoration: underline;
+	font-size: 1.4rem;
+}
+
+.feature__intro {
+	width: 100%;
+	margin: 0 auto;
+	font-size: 2.2rem;
+	line-height: 2.8rem;
+	text-align: center;
+}
+
+.feature_image_1 {
+	width: 65%;
+	display: block;
+	margin: 0 auto;
+	margin-top: 2rem;
+	text-align: center;
+}
+
+.feature_image_2 {
+	position: relative;
+	bottom: 16rem;
+
+	width: 70%;
+	display: block;
+	margin: 0 auto;
+	margin-top: 2rem;
+	text-align: center;
+}
+
+.feature_image_3 {
+	position: relative;
+	bottom: 16rem;
+
+	width: 70%;
+	display: block;
+	margin: 0 auto;
+	margin-top: 2rem;
+	text-align: center;
+}
+
+
+
+.feature__title {
+	padding: 2rem;
+	font-size: 2.5rem;
+	text-align: center;
+	margin-top: 4rem;
+	margin-bottom: 1rem;
+
+}
+
+.feature__text {
+	width: 70%;
+	margin: 0 auto;
+	/*margin-left: 2.5rem;*/
+	font-size: 1.05rem;
+	line-height: 1.6rem;
+	text-align: center;
+	margin-bottom: 4rem;
+}
+
+.feature__box {
+	height: 300px;
+}
+
+.feature__box1 {
+	background-color: #FF6600;
+	width: 670px;
+	margin-top: 2rem;
+	margin-left: 2.5rem;
+}
+
+.feature__box2 {
+	background-color: #07FAA0;
+	width: 760px;
+	margin-top: 2rem;
+	margin-left: 2.5rem;
+}
+
+.feature__box3 {
+	background-color: #6699FF;
+	width: 678px;
+	margin-top: 2rem;
+	margin-left: 2.5rem;
+}
+
+.feature__box4 {
+	background-color: #F7AE84;
+	width: 780px;
+	margin-top: 2rem;
+	margin-left: 2.5rem;
+}
+
+.feature__box5 {
+	background-color: #F5EDE3;
+	width: 650px;
+	margin-top: 2rem;
+	margin-left: 2.5rem;
+}
+
+
+
+
+
+
+.closing__container {
+	margin-top: 20rem;
+	margin-left: 8rem;
+
+}
+
+.closing__quote {
+	margin-top: 6rem;
+	font-size: 2.2rem;
+}
+
+.closing__quote_secondary {
+	margin-top: 3rem;
+	margin-bottom: 10rem;
+	font-size: 1.8rem;
+}
+
+.closing__quote_secondary__two {
+	margin-top: 4rem;
+	font-size: 2.5rem;
+	text-align: center;
+}
+
+
+.sample__container {
+		margin-top: 28rem;
+		margin-left: 8rem;
+		margin-bottom: 25rem;
+}
+
+.sample__title {
+		margin-top: 3rem; 
+		margin-bottom: 2rem;
+		font-size: 2.2rem;
+}
+
+.sample {
+	border: 1px solid black;
+	width: 600px;
+	height: 200px;
+}
+
+
+
+
+.plan__container {
+	margin-top: 3rem;
+	border-top: 1px solid black;
+	height: 30rem;
+	margin-bottom: 5rem;
+}
+
+.plan__header {
+	margin-top: 3rem;
+	text-align: center;
+	font-size: 2.2rem;
+}
+
+.plan__header__two__container {
+	margin: 0 auto;
+	width: 600px;
+}
+
+.plan__header__two {
+	margin-top: 3rem;
+	text-align: center;
+	font-size: 1rem;
+	margin-bottom: 3rem;
+	line-height: 2rem;
+}
+
+.plan__container__plans {
+	border: 1px solid black;
+}
+
+.plan__features {
+	border: 1px solid black;
+	margin: 0 auto;	
+}
+
+.plan__title {
+ margin-top: 5rem;
+ text-align: center;
+ font-size: 1.5rem;
+}
+
+.plan__title__plus {
+	position: relative;
+	right: 1.55rem;
+}
+
+.plan__ul {
+	position: relative;
+	left: 4.5rem;
+
+	padding-top: 2rem;
+	margin: 0 auto;	
+	margin-bottom: 4rem;
+	width: 450px;
+}
+
+.plan__li {
+	margin-top: 1rem;
+}
+
+
+
+.signup__container {
+	margin-top: 3rem;
+	border-top: 1px solid black;
+	margin-bottom: 10rem;
+}
+
+.signup__header {
+	margin-top: 8rem;
+
+	text-align: center; 
+	font-size: 3rem;	
+}
+
+.signup__header__two {
+	margin-top: 2rem;
+	text-align: center; 
+	font-size: 1rem;	
+	margin-bottom: 4rem;
+
+}
+
+
+.signup__form {
+	margin: 0 auto;
+	width: 600px;
+}
+
+.form-group {
+	margin: 0 auto;
+	width: 400px;
+	margin-bottom: 2rem;
+}
+
+.signup__form__submit { 
+	margin: 0 auto;
+	width: 100px;
+}
+
+.register__form_submit {
+	width: 495px;
+	height: 45px;
+  }
+
+.register__form_submit--bottom {
+	width: 400px;
+	height: 45px;
+  }
+
+
+
+
+
+.footer {
+	border-top: 1px solid black;
+}
+
+
+/*
+		  LOGIN
+						*/
+
+
+.login__container {
+	width: 100%;
+}
+
+.login__title {
+	font-size: 3rem;
+	text-align: center;
+}
+
+.login__form {
+	border: 1px solid black;
+
+	height: 15rem;
+	width: 30rem;
+
+	margin: 0 auto;
+	margin-top: 4rem;
+}
+
+.login__field {
+	margin-top: 2rem;
+
+	height: 2rem;
+	width: 18rem;
+}
+
+.login__field__container {
+	text-align: center;
+
+}
+
+.login__submit {
+	height: 2.5rem;
+	width: 6rem;
+}
+
+.navbar-collapse.collapse {
+  display: block!important;
+}
+
+.navbar-nav>li, .navbar-nav {
+  float: left !important;
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: -15px !important;
+}
+
+.navbar-right {
+  float: right!important;
+}
+
+.navbar-links {
+	margin-right: 0.5rem;
+	margin-top: 0.5rem;
+	font-size: 1.2rem;
+}
+
+.navbar-links-right {
+	margin-right: 1.6rem;
+}

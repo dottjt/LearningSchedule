@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Julius Reade">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./static/reset.css">
+    <link rel="stylesheet" type="text/css" href="./static/sign_up.css">
+
+    <title>Learning Schedule | Login</title>
+    <link rel="shortcut icon" href="favicon.ico">
+
+  </head>
+
+  <body>
+
+	<header class="navbar__container">
+		<h2 class="navbar__logo">Learning Schedule</h2>
+
+		<div class="navbar__buttons">
+			<button class="navbar__signup" type="submit" action="">Sign Up</button>
+			<button class="navbar__login" type="submit" action="">Login</button>
+		</div>
+	</header><!-- /header -->
+
+
+    <div class="login__container">
+
+          <form class="login__form" method="post" action="auth/register" accept-charset="utf-8">
+            <h1 class="login__title">Learning Schedule</h1>
+
+            <fieldset class="login__field__container">
+              <input class="login__field" type="text" name="email" placeholder="email">
+            </fieldset>
+
+            <fieldset class="login__field__container">
+              <input class="login__field" type="password" name="password" placeholder="password">
+            </fieldset>
+
+            <button type="submit" class="login__submit">
+              Login
+            </button>
+
+          </form>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,287 @@
+
+/* middle navbar */
+
+.st__midbar__container {
+
+    width: 40rem;
+    height: 16rem;
+    
+    padding: 1rem;
+    margin: 0 auto;
+
+    margin-top: 5rem;
+    margin-bottom: 2.5rem;
+}
+
+.st__midbar__top {
+    
+    height: 7rem;
+    width: 100%;
+    float: left; 
+    margin-left: 3rem;
+    margin-bottom: 1.4rem;
+
+}
+
+.st__midbar__react__dropzone {
+    width: 7rem;
+    height: 7rem;
+    
+    display: block; 
+    float: left;
+}
+.dropzone__overlay {
+    width: 7rem;
+    height: 7rem;
+    
+    display: block; 
+    float: left;
+    
+    border-radius: 50%;
+    background-color:rgba(0, 0, 0, 0.55);
+    position: absolute;
+}
+
+.dropzone__plus {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: white;
+    bottom: 4.4rem;
+    left: 3.2rem;
+}
+
+.st__midbar__profile_picture {
+    display: block; 
+    
+    border-radius: 50%;
+    float: left;
+    width: 7rem;
+    height: 7rem;
+}
+
+
+/* right of profile picture */
+
+.st__midbar__top__right {
+    float: left;
+    width: 300px;
+    margin-top: 0.7rem;
+    margin-left: 1.8rem;
+}
+
+.st__midbar__top__top {
+    width: 100%;
+}
+
+.st__midbar__website {
+    color: none;
+
+    font-size: 1.3rem;
+    margin-left: 1.5rem;
+}
+
+.st__midbar__website__link {
+    color: cyan;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+
+}
+
+.st__midbar__edit__button {
+    position: relative;
+    left: 6rem;
+    bottom: 1rem;
+    
+    height: 1.4rem;
+    width: 4rem;
+    border: 1px solid;
+    border-radius: 2rem; 
+
+    background-color: white; 
+    float: right;
+    margin-left: 4rem;
+
+}
+
+.st__midbar__edit__button--na {
+    position: relative;
+    left: 6rem;
+    bottom: 1rem;
+    
+    height: 1.4rem;
+    width: 4rem;
+    border: none;
+    border-radius: 2rem; 
+
+
+    background-color: white; 
+    float: right;
+    margin-left: 4rem;
+
+
+}
+
+.st__midbar__profile_username {
+
+    float: left;
+    width: 600px;
+    margin-left: 1.6rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 2.8rem;
+    
+    color: #242526;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+
+
+}
+
+
+
+
+.st__midbar__bottom {
+    margin-left: 3rem;
+    width: 100%;
+    float: left; 
+}
+
+.st__midbar__social_icons__container {
+    position: relative;
+    right: 0.6rem;
+    bottom: 0.5rem;
+
+    float: left;
+    height: 6rem;
+}
+
+.st__midbar__social_icons {
+    width: 2rem;
+    height: 2rem;
+    
+    margin-right: 0.8rem;
+    float: left;
+}
+
+.st__midbar__summary { 
+    float: left; 
+    width: 400px;
+
+    margin-left: 1rem;
+}
+
+.st__midbar__summary_li {
+    margin-bottom: 0.5rem;
+    float: left;
+}
+
+.st__summary__outer__container {
+  margin-left: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.st__summary__text {
+  font-size: 1rem; 
+  margin-bottom: 0.9rem;
+  width: 100%; 
+  list-style-type: katakana-iroha;
+  font-family: times;
+/*
+    color: #242526;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;*/
+
+}
+
+.summary__style {
+
+}
+
+
+
+/* bottom bar topbar__container*/
+
+.st__bottombar__container {
+    position: relative;
+    left: 1rem;
+
+    margin: 0 auto;
+    width: 40rem;
+    height: 4rem;
+    border-top: 1px solid darkgrey;
+
+}
+
+.st__bottombar__links__container {
+    padding-top: 2.6rem;
+    text-align: center;
+}
+
+.st__bottombar__link {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+}
+
+.st__bottombar__link__active {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    border-left: 1px solid darkgrey;
+    border-right: 1px solid darkgrey;
+
+}
+
+.st__bottombar__link--a {
+    font-size: 1.3rem;
+	color: #242526;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+
+}
+/*
+.st__bottombar__link--a:hover {
+    border-left: 2px solid #242526;
+    padding: 1px;
+    font-size: 1.3rem;
+	color: #242526;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+}
+*/
+
+
+
+.header__color__container {
+		width: 100%;
+        margin: 0;
+}
+
+.header__color {
+	float: left;
+	width: 20%;	
+	height: 0.5rem;
+}
+
+.header__color1 {
+	background-color: #FF6600;
+}
+
+.header__color2 {
+	background-color: #07FAA0;
+
+}
+
+.header__color3 {
+	background-color: #6699FF;
+}
+
+.header__color4 {
+	background-color: #F7AE84;
+
+}
+
+.header__color5 {
+	background-color: #F5EDE3;
+	
+}

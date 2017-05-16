@@ -1,0 +1,17 @@
+
+.sm__tag__outer__container {
+    float: left;
+    list-style-type: none;
+    margin-bottom: 3rem;
+    margin-left: 10rem;
+}
+
+.sm__tag__text {
+    color: #00ebff;
+    display: inline-block;
+    margin-top: 1rem;
+    width: 8rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 100;
+ }

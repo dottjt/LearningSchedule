@@ -1,0 +1,170 @@
+
+/*
+	   SI TITLE TOP
+								*/
+
+
+.si__title__container {
+    width: 50rem;
+	float: left; 
+}
+
+/* 	profile picture - username 	*/
+
+.si__title__top_layer {
+	width: 20rem;
+	float: left; 
+	margin-left: 3.5rem;
+	margin-bottom: 3.45rem;
+}
+
+.si__title__profile_picture {
+  float: left;
+	display: block;
+	width: 3.5rem;
+	height: 3.5rem;
+}
+
+.si__title__profile_picture__right {
+	margin-top: 0.2rem;
+	float: left; 
+}
+
+
+.si__title__username {
+  	float: left;
+	margin-top: 0.1rem;
+	margin-left: 1rem;
+	font-size: 1.1rem;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 300;
+	color: #242526;
+
+}
+
+.si__title__username__link {
+    color: black;
+}
+
+
+.si__title__start_date__container {
+	margin-top: 1.5rem;
+	margin-left: 1rem; 
+	color: darkgrey;
+	font-size: 0.9rem;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 300; 
+	color: #242526;
+
+}
+
+
+
+
+
+.si__title__top_layer__right {
+	float: left;
+	width: 25rem;
+}
+
+.si__title__remove__schedule {
+	position: relative;
+	top: 1.2rem;
+	float: right;
+}
+
+.si__title__remove__schedule--na {
+	position: relative;
+	top: 1.2rem;	
+	float: right;   
+    display: block;
+}
+
+
+
+
+.si__title__fields__container {
+	font-size: 2rem;
+	margin: 0;
+	margin-left: 8rem; 
+	margin-bottom: 4rem; 
+	width: 10rem;
+
+}
+
+
+
+
+
+
+/*
+	   SCHEDULE TITLE FIELD
+								*/
+
+
+
+.si__title__schedule_title__field {
+	font-size: 2rem;
+	width: 42rem;
+	outline: none;
+	border: 0;
+	border-bottom: 1px solid white;
+
+	font-family: 'Nunito', sans-serif;
+	font-weight: 300;
+
+}
+
+.si__title__schedule_title__field:hover {
+	border-bottom: 1px solid darkgrey;
+
+}
+
+
+
+/*
+		SCHEDULE SUMMARY FIELD
+								  */
+
+
+.si__title__summary__container {
+    width: 800px;
+    font-size: 1.05rem;
+    line-height: 1.8rem; 
+    float: left;
+    outline: none;
+    margin-bottom: 1.5rem;
+	margin-top: 2rem;
+    right: 60px; 
+    padding-left: 62px;
+    position: relative;
+}
+
+.si__title__summary__field {
+	font-size: 1.1rem;
+	font-weight: 100;
+	line-height: 1.6rem;
+	font-family: 'Nunito', sans-serif;
+
+	height: 6rem;
+	width: 42rem;
+
+	border: none;
+	resize: none;
+
+}
+
+.si__title__summary__field:active {
+	/*border-bottom: 1px solid black;*/
+
+}
+
+
+.clear {
+	clear: both;
+}
+
+#field_disabled_style_si__title {
+	color: black;	
+}
+

@@ -1,0 +1,5 @@
+--compilers ts:ts-node/register
+--compilers tsx:ts-node/register
+--require src/test/setup.js
+--watch-extensions tsx,ts
+src/test/**/*.spec.@(ts|tsx)

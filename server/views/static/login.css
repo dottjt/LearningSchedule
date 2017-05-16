@@ -1,0 +1,70 @@
+
+.navbar__container {
+	/*border-bottom: 1px solid black;*/
+	height: 4rem;
+}
+
+.navbar__logo {
+	float: left;
+	margin-top: 1rem;
+	margin-left: 1rem;
+	font-size: 2rem;
+}
+
+.navbar__buttons {
+	margin-top: 1rem;
+	float: right;
+	width: 16rem;
+	height: 4rem;
+}
+
+.navbar__signup {
+	width: 6rem;
+	height: 2.2rem;
+	float: left;
+	margin-right: 1.5rem;
+}
+
+.navbar__login {
+	width: 6rem;
+	height: 2.2rem;
+	float: left;
+}
+
+
+
+.login__container {
+	width: 100%;
+}
+
+.login__title {
+	font-size: 3rem;
+	text-align: center;
+}
+
+.login__form {
+	border: 1px solid black;
+
+	height: 15rem;
+	width: 30rem;
+
+	margin: 0 auto;
+	margin-top: 4rem;
+}
+
+.login__field {
+	margin-top: 2rem;
+
+	height: 2rem;
+	width: 18rem;
+}
+
+.login__field__container {
+	text-align: center;
+
+}
+
+.login__submit {
+	height: 2.5rem;
+	width: 6rem;
+}

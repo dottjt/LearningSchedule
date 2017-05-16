@@ -1,0 +1,50 @@
+
+/* bottom bar topbar__container*/
+
+.st__bottombar__container {
+    position: relative;
+    left: 1rem;
+
+    margin: 0 auto;
+    width: 40rem;
+    height: 4rem;
+    border-top: 1px solid darkgrey;
+
+}
+
+.st__bottombar__links__container {
+    padding-top: 2.6rem;
+    text-align: center;
+}
+
+.st__bottombar__link {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+}
+
+.st__bottombar__link__active {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    border-left: 1px solid darkgrey;
+    border-right: 1px solid darkgrey;
+
+}
+
+.st__bottombar__link--a {
+    font-size: 1.3rem;
+	color: #242526;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+
+}
+/*
+.st__bottombar__link--a:hover {
+    border-left: 2px solid #242526;
+    padding: 1px;
+    font-size: 1.3rem;
+	color: #242526;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+}
+*/

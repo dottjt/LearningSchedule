@@ -1,0 +1,132 @@
+
+
+
+
+
+
+.sm__title__container {
+		margin-top: 2rem;
+    	width: 100%;
+		float: left; 
+}
+
+/* 	profile picture - username 	*/
+
+.sm__title__top_layer {
+	width: 50rem;
+	float: left; 
+	margin-bottom: 1.8rem;
+}
+
+.sm__title__profile_picture {
+  float: left;
+	display: block;
+	width: 3.5rem;
+	height: 3.45rem;
+}
+
+.sm__title__top_layer__right {
+	margin-top: 0.2rem;
+	margin-left: 0.5rem;
+	float: left; 
+}
+
+.sm__title__top_layer__updates {
+	float: right;
+}
+
+.sm__title__top_layer__updates__link {
+	position: relative;
+	top: 0.1rem;
+	right: 4rem;
+
+	margin-right: 1rem;
+	display: inline-block;
+	color: #242526;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+	font-size: 0.9rem;
+
+
+}
+
+.sm__title__username {
+  	float: left;
+	margin-top: 0.35rem;
+	margin-left: 1rem;
+	font-size: 1rem;
+	color: #242526;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+}
+
+.sm__title__username__link {
+	color: #242526;
+}
+
+
+
+
+/* 	start date 	*/
+
+.sm__title__start_date__container {
+	margin-top: 2rem;
+	margin-left: 1rem; 
+	font-size: 0.8rem;
+	color: #5e6266;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+
+}
+
+
+/* 	title 	*/
+
+.sm__title__container {
+	font-size: 2rem;
+	font-family: arial;
+	margin-left: 5rem; 
+	margin-bottom: 2rem; 
+	width: 40rem;
+}
+
+.sm__title__a--link {
+	color: #242526;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+	text-decoration: none;
+}
+
+.sm__title__a--link:hover {
+	text-decoration: none;
+	color: black;
+}
+
+.title__schedule_title__field {
+	font-size: 2rem;
+
+	width: 40rem;
+	outline: none;
+	border: 0;
+}
+
+.sm__title__schedule__summary {
+	float: left;
+	font-size: 1.1rem;
+	margin-bottom: 1.5rem; 
+	margin-left: 5rem;
+	width: 40rem;
+	line-height: 1.6rem;
+
+	color: #242526;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+
+}
+
+
+
+
+.clear {
+	clear: both;
+}

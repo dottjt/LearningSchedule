@@ -1,0 +1,30 @@
+.st__login__container {
+
+}
+
+.st__login__email {
+    /*margin-right: 0.1rem;*/
+    width: 130px;
+    height: 18px;
+    border: 1px solid darkgrey;
+    border-radius: 2px;
+
+}
+
+.st__login__password {
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    width: 130px;
+    height: 18px;
+    border: 1px solid darkgrey;
+    border-radius: 2px;
+
+}
+
+.st__login__submit {
+    width: 70px;
+    height: 22px;
+    border: 1px solid darkgrey;
+    border-radius: 6px;
+    background-color: white;
+}

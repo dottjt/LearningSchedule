@@ -1,0 +1,194 @@
+
+
+.sm__individual__container {
+		position: relative;
+		bottom: 14.5rem;
+		left: 4rem;
+		margin-left: 4rem;
+        width: 800px;
+        float: left;
+		background-color: white;
+}
+
+.sm__tag__outer__container {
+    list-style-type: none;
+    margin-bottom: 3rem;
+    margin-left: 10rem;
+}
+
+.sm__tag__text {
+    color: #00ebff;
+    display: inline-block;
+    margin-top: 1rem;
+    width: 8rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 100;
+ }
+
+
+
+
+
+
+
+
+.sm__title__container {
+		margin-top: 2rem;
+    	width: 100%;
+		float: left; 
+}
+
+/* 	profile picture - username 	*/
+
+.sm__title__top_layer {
+	width: 100%;
+	float: left; 
+	margin-bottom: 1.8rem;
+}
+
+.sm__title__profile_picture {
+  float: left;
+	display: block;
+	width: 3.5rem;
+	height: 3.45rem;
+}
+
+.sm__title__top_layer__right {
+	margin-top: 0.2rem;
+	margin-left: 0.5rem;
+	float: left; 
+}
+
+.sm__title__top_layer__updates {
+	float: right;
+}
+
+.sm__title__top_layer__updates__link {
+	position: relative;
+	top: 0.1rem;
+	right: 4rem;
+
+	margin-right: 1rem;
+	display: inline-block;
+	color: #242526;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+	font-size: 0.9rem;
+
+
+}
+
+.sm__title__username {
+  	float: left;
+	margin-top: 0.35rem;
+	margin-left: 1rem;
+	font-size: 1rem;
+	color: #242526;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+}
+
+.sm__title__username__link {
+	color: #242526;
+}
+
+
+
+
+/* 	start date 	*/
+
+.sm__title__start_date__container {
+	margin-top: 2rem;
+	margin-left: 1rem; 
+	font-size: 0.8rem;
+	color: #5e6266;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+
+}
+
+
+/* 	title 	*/
+
+.sm__title__container {
+	font-size: 2rem;
+	font-family: arial;
+	margin-left: 5rem; 
+	margin-bottom: 2rem; 
+}
+
+.sm__title__a--link {
+	color: #242526;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+
+}
+.sm__title__a--link:hover {
+	text-decoration: none;
+	color: black;
+}
+
+.title__schedule_title__field {
+	font-size: 2rem;
+
+	width: 40rem;
+	outline: none;
+	border: 0;
+}
+
+.sm__title__schedule__summary {
+	font-size: 1.1rem;
+	margin-bottom: 1.5rem; 
+	margin-left: 5rem;
+	width: 40rem;
+	line-height: 1.6rem;
+
+	color: #242526;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+
+}
+
+
+
+
+.clear {
+	clear: both;
+}
+
+
+.sm__update__outer__container {
+      margin-left: 4rem;
+      width: 100%;
+      float: left;
+}
+
+.sm__update__text {
+    width: 750px;
+    font-size: 1.05rem;
+    line-height: 1.8rem; 
+    float: left;
+    outline: none;
+    margin-bottom: 1.5rem;
+    margin-left: 1rem;
+    
+    position: relative;
+    padding-left: 62px;
+
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+
+}
+
+.sm__update__text__yolo {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+.sm__update__text:hover {
+    padding-left: 60px;
+    border-left: 2px solid darkgrey;
+
+}

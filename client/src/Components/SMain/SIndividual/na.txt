@@ -1,0 +1,509 @@
+// this is a copy of index.tsx 
+
+
+import * as React from 'react';
+import SITitle from './SITitle';
+import SIUpdate from './SIUpdate';
+import './css/si.css';
+import '../css/index.css';
+import { Map } from 'immutable';
+var getSlug = require('speakingurl');
+
+
+class SIndividual extends React.Component<SIndividualProps & SIndividualPassedProps, SIndividualState> {
+
+
+// own props - user, schedules, tags, updates
+// passed props - NA 
+
+
+/*
+          COMPONENT STATE LOGIC
+                                      */
+
+
+    constructor(props) {
+        super(props);
+        this.handleSummaryActive = this.handleSummaryActive.bind(this);
+        this.state = { topbar_active: true }
+    }
+
+    handleSummaryActive() {
+        this.setState({ topbar_active: !this.state.topbar_active })
+    }
+
+
+
+
+/*
+            COMPONENT LOGIC
+                                      */
+
+
+
+    render() {
+
+      var { topbar_active } = this.state; 
+      var { schedules, updates, requestChangeSchedule } = this.props; 
+      var pre_schedule_url = location.pathname.split('/'); // 
+
+      var schedule_url = pre_schedule_url[3]; // this.props.match.params.article_title
+      var schedule_url_array = schedule_url.split('-');
+      var schedule_id, updates_id, tags_id, slug_schedule, slug_updates, sititle, siupdate;       
+
+
+
+
+
+
+// functions needed IF retrieving an existing schedule
+
+      // works - get schecule_url
+      var retrieveScheduleUrl = (schedule_url: string) => {
+          return schedules.filter(schedule => schedule.get('schedule_url') === schedule_url).getIn([0, 'schedule_url']); // .get('schedule_url')
+      };  // returns schedule_url from this.props.schedules
+
+      // works - get schedule_id 
+      var retrieveScheduleId = (schedule_url: string) => {
+          return schedules.filter(schedule => schedule.get('schedule_url') === schedule_url).getIn([0, 'schedule_id']); // .get('schedule_id')
+      };  
+
+      // works - get updates_id
+      var retrieveUpdatesId = (schedule_url: string) => {
+          return schedules.filter(schedule => schedule.get('schedule_url') === schedule_url).getIn([0, 'updates_id']); // .get('updates_id')
+      };
+
+
+
+      // works retrieves a Map - but not sure if it's he right format. 
+      var getAllRelevantSchedules = (schedule_url: string) => {
+          return schedules.filter(schedule => schedule.get('schedule_url') === schedule_url).get(0); // this creates a Map{}
+      }; 
+
+      // 
+      var getAllRelevantUpdates = (schedule_url: string) => {
+          return Map({updates: updates.filter(update => update.get('schedule_url') === schedule_url)});
+      };
+
+
+
+
+
+
+
+      var changeSchedule = (value) => {
+    
+        var schedule_url_obj = { schedule_url: schedule_url };
+
+            schedule_url = getSlug(value.schedule_title);
+            // okay, maybe I need to make this into a state object.
+
+        const values = Object.assign({}, value, schedule_url_obj);
+        requestChangeSchedule(values);
+      }
+
+
+
+
+
+
+      if (schedules.toJS().length > 0 ) {
+
+        if ( schedule_url.length === 36 && schedule_url[8] === '-' && schedule_url[13] === '-') {
+            // if created new
+            schedule_id = schedule_url_array[4];
+            updates_id = schedule_url_array[0];
+            tags_id = schedule_url_array[1] + schedule_url_array[2];
+
+
+            // do I have to make the components here? 
+
+            sititle = <SITitle
+                        form={schedule_id}  
+                        initialValues={undefined}
+                        topbar_active={topbar_active}
+                        match={this.props.match}
+
+                        changeSchedule={changeSchedule}
+                        
+                        schedule_url={schedule_url}
+                        />
+
+            siupdate = <SIUpdate
+                         form={updates_id} 
+                         initialValues={undefined}
+                         schedule_id={schedule_id}
+                         schedule_url={schedule_url}
+
+                         topbar_active={topbar_active}
+                        />
+
+
+
+        } else {
+            // if existing 
+            let schedule_urlAlready = retrieveScheduleUrl(schedule_url); // returns schedule_url
+
+            schedule_url = schedule_urlAlready
+            
+            // console.log("schedule url IF ");
+            // console.log(schedules.toJS())
+            // console.log(schedule_urlAlready)
+            schedule_id = retrieveScheduleId(schedule_urlAlready); // this works - 987654321
+            updates_id = retrieveUpdatesId(schedule_urlAlready); // this works - 98765432
+            slug_schedule = getAllRelevantSchedules(schedule_urlAlready); // produces a map 
+            slug_updates = getAllRelevantUpdates(schedule_urlAlready); // produces a map 
+
+            // console.log(schedule_id)
+            // console.log(updates_id)
+
+            // console.log(slug_schedule)
+            // console.log(slug_updates)
+
+
+            sititle = <SITitle
+                        form={schedule_id}  
+                        initialValues={slug_schedule}
+                        topbar_active={topbar_active}
+                        match={this.props.match}
+                        
+                        schedule_url={schedule_url}
+                        />
+
+            siupdate = <SIUpdate
+                         form={updates_id} 
+                         initialValues={slug_updates}
+                         schedule_id={schedule_id}
+                         schedule_url={schedule_url}
+                         topbar_active={topbar_active}
+                         />
+
+        }
+
+
+      }
+
+
+
+
+    //   if ( slug_schedule !== undefined) {
+    //     slug_schedule = Map({})
+    //   }
+
+    //   if ( slug_updates !== undefined) {
+    //     slug_
+    //   }
+
+
+      // so it's affecting the SMProps for events that DON'T have a schedule_url.
+      // when it recieves props based on the schedule URL, based on a property that doesn't yet exist, it says it doesn't exist. 
+    
+      // schedule and update calculating. 
+
+
+
+        // this is a map or object, and needs to be converted to something useful. aka not a list. 
+        // find out what initalValues wants.
+        // you'll have the shitty url.
+        // and the randomly generated url. 
+        // it needs to be able to tell the difference between the two. 
+
+
+    //   console.log(scheduleIdWithSlugURL(schedule_url))
+    //   console.log(updatesIdWithSlugUrl(schedule_url))
+
+    //   console.log(this.props.match.params.article_title)
+
+
+
+/*
+            COMPONENT VIEW
+                                      */
+
+      return (
+
+        <div className="container si__container">
+
+        {/* SIndividual Edit Button */}
+            
+            {topbar_active ? (
+                <button className="navbar__edit_schedule" onClick={this.handleSummaryActive}>edit</button>
+                ) : (
+                <button className="navbar__edit_schedule--na" onClick={this.handleSummaryActive}>save</button>
+                )
+            }   
+
+
+        {/* SIndividual SITitle Component */}
+            
+            {sititle}
+
+        {/* SIndividual SIUpdate Component */}
+
+            {siupdate}   
+
+        </div> // si__container end
+        )
+    };
+};
+
+
+
+
+
+/*
+                START OF CONTAINER 
+                                            */
+
+import { requestChangeSchedule } from '../../../arcss/schedules_ar';
+
+import { connect } from 'react-redux';
+
+// const mapStateToProps = state => {
+//     return {
+//         schedules: state.get('schedules'),
+//         updates: state.get('updates'),
+//         tags: state.get('tags'),
+//         user: state.get('user') 
+//     };
+// };
+
+const mapDispatchToProps = dispatch => { return { requestChangeSchedule: (data) => dispatch(requestChangeSchedule(data)) } };
+
+
+
+export default connect<{}, {}, SIndividualPassedProps>(undefined, mapDispatchToProps)(SIndividual);
+
+
+/*
+
+
+      const removeSchedule = (schedule_id) => {
+		  console.log(schedule_id);
+		  this.props.requestRemoveSchedule(schedule_id);
+      }
+
+
+            <SITitle
+                form={schedule.get('schedule_id')} 
+                initialValues={schedule}
+                
+                display_name={user.get('display_name')}
+                avatar_url={user.get('avatar_url')}
+
+                updates={updateWithScheduleId(schedule.get('updates_id'))}
+                tags={tagWithScheduleId(schedule.get('tags_id'))}
+                />
+
+					<RemoveSchedule onClick={(event) => { event.preventDefault(); removeSchedule(this.props.form);}}></RemoveSchedule>
+
+/*************************************************
+
+            UNUSED COMPONENTS
+
+**************************************************/
+
+/*
+
+                    {this.props.updates.map(
+                    update => {
+                        if(update.get('schedule_id') === schedule.get('schedule_id')) {
+                            <SchedulesUpdate
+                                form={schedule.get('schedule_id')}
+                                initialValues={update}
+                            />
+                        }
+                    }
+                    )// end of props.updates.map (one below) 
+                    }
+
+
+
+                    <SchedulesUpdate
+                        form={schedule.get('schedule_id')}
+                        initialValues={
+                            this.props.updates.map( update => {
+                                if(update.get('schedule_id') === schedule.get('schedule_id')) {
+                                    return update
+                                }
+                            })
+                        }
+                    />
+
+                    {
+                        this.props.requestInitialUpdates('schedule_id');
+
+                        // how to dynamically create new updates. 
+                        // would you create a new updates object in the state? If so, it's genius, because then it's also flat. 
+                    }
+
+
+
+                    <SchedulesUpdate
+                        form={schedule.get('schedule_id')}
+                        updates={this.props.updates}
+                    />
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// this is a copy of minimal index.tsx
+
+import * as React from 'react';
+import SI_HomeLink from './SI_HomeLink';
+import './css/si.css';
+import '../css/index.css';
+import { Map } from 'immutable';
+// var getSlug = require('speakingurl');
+
+
+class SIndividual extends React.Component<SIndividualPassedProps, SIndividualState> {
+
+
+// own props - user, schedules, tags, updates
+// passed props - NA 
+
+
+/*
+          COMPONENT STATE LOGIC
+                                      */
+
+
+
+
+/*
+            COMPONENT LOGIC
+                                      */
+
+
+
+    render() {
+
+      var { edit_active } = this.state; 
+
+      var { schedules, updates, match } = this.props; 
+
+
+/*
+            COMPONENT VIEW
+                                      */
+
+      return (
+
+            <div>
+
+                <Route path={`${match.url}`} render={() => <SI_HomeLink match={match} schedules={schedules} updates={updates} tags={tags} summaries={summaries} user={user} auth={auth} />  } />
+
+            </div>
+
+
+        )
+    };
+};
+
+
+
+
+
+/*
+                START OF CONTAINER 
+                                            */
+
+
+
+export default SIndividual;
+
+
+/*
+
+
+      const removeSchedule = (schedule_id) => {
+		  console.log(schedule_id);
+		  this.props.requestRemoveSchedule(schedule_id);
+      }
+
+
+            <SITitle
+                form={schedule.get('schedule_id')} 
+                initialValues={schedule}
+                
+                display_name={user.get('display_name')}
+                avatar_url={user.get('avatar_url')}
+
+                updates={updateWithScheduleId(schedule.get('updates_id'))}
+                tags={tagWithScheduleId(schedule.get('tags_id'))}
+                />
+
+					<RemoveSchedule onClick={(event) => { event.preventDefault(); removeSchedule(this.props.form);}}></RemoveSchedule>
+
+/*************************************************
+
+            UNUSED COMPONENTS
+
+**************************************************/
+
+/*
+
+                    {this.props.updates.map(
+                    update => {
+                        if(update.get('schedule_id') === schedule.get('schedule_id')) {
+                            <SchedulesUpdate
+                                form={schedule.get('schedule_id')}
+                                initialValues={update}
+                            />
+                        }
+                    }
+                    )// end of props.updates.map (one below) 
+                    }
+
+
+
+                    <SchedulesUpdate
+                        form={schedule.get('schedule_id')}
+                        initialValues={
+                            this.props.updates.map( update => {
+                                if(update.get('schedule_id') === schedule.get('schedule_id')) {
+                                    return update
+                                }
+                            })
+                        }
+                    />
+
+                    {
+                        this.props.requestInitialUpdates('schedule_id');
+
+                        // how to dynamically create new updates. 
+                        // would you create a new updates object in the state? If so, it's genius, because then it's also flat. 
+                    }
+
+
+
+                    <SchedulesUpdate
+                        form={schedule.get('schedule_id')}
+                        updates={this.props.updates}
+                    />
+*/
+
+

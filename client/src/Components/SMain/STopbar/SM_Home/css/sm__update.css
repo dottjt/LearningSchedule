@@ -1,0 +1,39 @@
+.sm__update__outer__container {
+      margin-left: 4rem;
+      width: 42rem;
+      float: left;
+}
+
+.sm__update__text {
+    width: 44rem;
+    font-size: 1.05rem;
+    line-height: 1.8rem; 
+    float: left;
+    outline: none;
+    margin-bottom: 1.5rem;
+    margin-left: 1rem;
+    
+    position: relative;
+    padding-left: 62px;
+
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+
+}
+
+.sm__update__text__yolo {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+.sm__update__text:hover .sm__update__text__yolo {
+    border-bottom: 1px solid #c9c9c9;
+
+}
+
+.sm__update__text:hover {
+    padding-left: 60px;
+    border-left: 2px solid darkgrey;
+
+}

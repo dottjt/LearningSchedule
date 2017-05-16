@@ -1,0 +1,421 @@
+
+
+
+
+
+
+.si__update__container {
+    width: 20rem;
+    margin-left: 8rem;
+	float: left; 
+}
+
+
+.update__outer__container {
+
+}
+
+
+.si__update__top__container {
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+
+}
+
+.si__update__individual__container {
+    width: 600px;
+
+    float: left;
+    margin-bottom: 2rem;
+}
+
+.si__update__add {
+    margin-left: 0.8rem;
+}
+
+
+.si__update__inner {
+    /*border: 1px solid black;*/
+    float: left;
+    margin-bottom: 2rem;
+
+}
+
+.si__update__remove {
+    position: relative;
+    font-size: 1.2rem;
+    background: white;
+    border: 1px solid black; 
+    border-radius: 1px;
+
+    top: 3.38rem;
+    left: 39rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+.si__update__title {
+    float: left; 
+    padding: 1rem;
+    font-size: 2rem; 
+}
+
+.si__update__date {
+    width: 7rem;
+    font-size: 1.05rem;
+    line-height: 1.8rem; 
+    float: left;
+    outline: none;
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+    height: 1.6rem;
+
+}
+
+.si__update__date__underline {
+    text-decoration: underline;
+}
+
+.si__update__title__field {
+    width: 30rem;
+    font-size: 1.05rem;
+    line-height: 1.8rem; 
+    float: left;
+    outline: none;
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+    
+    height: 1.6rem;
+    position: relative;
+    bottom: 0.1rem;
+}
+
+.si__update__text__container {
+    width: 44rem;
+    font-size: 1.05rem;
+    line-height: 1.8rem; 
+    float: left;
+    outline: none;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    
+    position: relative;
+    padding-left: 2px;
+
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+}
+
+
+.si__update__text__container:hover {
+    padding-left: 0px;
+    border-left: 2px solid white;
+    /* this has been turned off in favour for the other style*/
+}
+
+
+/*
+
+        SIUPDATE LINK
+                            */
+
+
+.si__update__link__container {
+    width: 44rem;
+    font-size: 1.05rem;
+    line-height: 1.8rem; 
+    float: left;
+    outline: none;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    
+    position: relative;
+    padding-left: 2px;
+
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+
+}
+
+
+.si__update__link__field {
+    font-size: 1.05rem;
+    line-height: 1.8rem; 
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+
+    border:none;
+    background-image:none;
+    background-color:transparent;
+    box-shadow: none;
+    resize: none;
+
+    float: left; 
+    height: 1.8rem;
+    width: 40rem;
+    font-weight: 600;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.si__update__text__field {
+    font-size: 1.05rem;
+    line-height: 1.8rem; 
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+
+    height: 8rem;
+    width: 42rem;
+
+    border: none;
+  	outline: none;
+    overflow: hidden;
+    resize: none;
+
+    /*min-height: 6rem;
+    overflow: hidden;*/
+}
+
+.update__text__field:hover {
+    text-decoration: underline;
+}
+
+
+.update__text__field:focus {
+    text-decoration: none;
+}
+
+.update__start__date {
+    margin-left: 4rem; 
+	margin-bottom: 2rem; 
+
+}
+
+.update__start__date__field {
+   	font-size: 2rem;
+	width: 40rem; 
+}
+
+.sm__updatelink__update {
+    margin-top: 2rem;
+    margin-left: 4rem;
+}
+
+
+
+
+
+
+
+.si__update__single__container {
+    /*border: 1px solid black;*/
+    /*border-radius: 2px;*/
+
+    width: 40.3rem;
+    margin-bottom: 2rem;
+
+}
+
+.update__single__field__container {
+}
+
+.update__single__title__field {
+    font-size: 1.05rem;
+    line-height: 1.8rem; 
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+
+    float: left;
+    margin-top: 0.8rem;
+    width: 40rem;
+    height: 2rem;
+
+}
+
+
+.update__single__text__field {
+    font-size: 1.05rem;
+    line-height: 1.8rem; 
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+
+    float: left;
+    
+    margin-top: 0.8rem;
+    width: 40rem;
+    height: 8rem;
+
+
+    resize: none;
+    border: none;
+}
+
+
+/*
+
+    SIUPDATE SINGLE LINK
+
+                            */
+
+.update__single__link__container {
+    float: left;
+    margin-top: 0.8rem;
+    width: 40.2rem;
+    height: 8rem;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+
+}
+.update__single__link__field {
+    font-size: 1.05rem;
+    line-height: 1.8rem; 
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;    
+
+    height: 2rem;
+    width: 40.8rem; 
+
+    resize: none;
+    border: none;
+
+
+}
+
+
+/*
+
+    SIUPDATE SINGLE MILESTONE
+
+                            */
+
+
+.update__single__milestone__container {
+    float: left;
+    margin-top: 0.8rem;
+    width: 40.2rem;
+    height: 8rem;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+.update__single__milestone__field {
+    font-size: 1.05rem;
+    line-height: 1.8rem; 
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+
+    float: left;
+    margin-top: 0.8rem;
+    width: 40rem;
+    height: 2rem;
+
+    resize: none;
+    border: none;
+
+}
+
+
+
+.si__update__milestone__container {
+    width: 44rem;
+    font-size: 1.05rem;
+    line-height: 1.8rem; 
+    float: left;
+    outline: none;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    
+    position: relative;
+    padding-left: 2px;
+
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+
+}
+
+
+
+
+.si__update__milestone__field {
+    font-size: 1.05rem;
+    line-height: 1.8rem; 
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+
+    border:none;
+    background-image:none;
+    background-color:transparent;
+    box-shadow: none;
+    resize: none;
+
+    float: left;
+    height: 1.8rem;
+    width: 40rem;
+
+}
+
+
+
+#field_disabled_style_si__update {
+    display: none;
+}
+
+
+.si__update__tag__individual__container {
+}
+
+
+.si__update__tag__inner {
+      margin-left: 0.2rem;
+}
+
+.si__update__tag__group {
+      float: left;
+      border: 1px solid black;
+      border-radius: 2px;
+      width: 9.5rem;
+      height: 1.4rem;
+      margin: 2px;
+
+}
+
+.si__update__relevant_tags {
+    float: left; 
+
+    font-size: 1.05rem;
+    line-height: 1.8rem; 
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+
+    margin-right: 0.2rem;
+
+}
+
+
+.clear {
+    clear: both;
+}
+
