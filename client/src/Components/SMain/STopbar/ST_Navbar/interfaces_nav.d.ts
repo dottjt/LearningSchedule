@@ -11,5 +11,6 @@ interface ST_NavbarPassedProps {
 
 
 interface ST_NavbarState {
-    url_slug: any
+    url_slug: any,
+    showProfileDrop: boolean
 }

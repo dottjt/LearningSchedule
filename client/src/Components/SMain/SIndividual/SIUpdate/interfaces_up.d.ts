@@ -24,7 +24,8 @@ interface SIUpdatePassedProps {
 }
 
 interface SIUpdateState {
-    fd: any
+    fd: any,
+    showEmoji: any
 }
 
 
@@ -67,10 +68,12 @@ interface SIUpdateTagRenderProps {
     fields: any,
     requestRemoveTag(data: any): any,
     requestAddTag(data: any): any
+    requestChangeTag(data: any): any
 }
 
 interface SIUpdateTagRenderPassedProps {
     schedule_id: any,
+    schedule_url: any,
     updates_id: any,
     username: any,
     fields: any,

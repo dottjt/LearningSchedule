@@ -35,7 +35,7 @@ class STDisplayActive extends React.Component<STDisplayActiveProps, undefined> {
 
 
 
-		<form onBlur={handleSubmit(values => this.changeDisplay(values))}>
+		<form className="st__midbar__profile_username__container" onBlur={handleSubmit(values => this.changeDisplay(values))}>
 
             {/* STDisplayActive Display Name */}
                 <Field className="st__midbar__profile_username" 

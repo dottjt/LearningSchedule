@@ -11,11 +11,10 @@ import SIUpdateTagRender from './SIUpdateTagRender';
 class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRenderPassedProps, SIUpdateRenderState> {
 
 
-
-
 // own props - user
 // own props - requestRemoveUpdate
-// passed props - schedule_id, form, topbar_active update_tags
+// passed props - schedule_id, form, topbar_active
+
 
 
 /*
@@ -26,13 +25,36 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
 
     constructor(props) {
         super(props);
-        // this.handleSummaryActive = this.handleSummaryActive.bind(this);
+        this.removeUpdate = this.removeUpdate.bind(this);
+        this.requestChange = this.requestChange.bind(this);
+        this.createUpdateTagRenderProps = this.createUpdateTagRenderProps.bind(this);
     }
 
-    // handleSummaryActive() { this.setState({ topbar_active: !this.state.topbar_active }) }
+    removeUpdate(index) { 
+        const { requestRemoveUpdate, fields } = this.props;
+        requestRemoveUpdate(fields.get(index).get('update_id')); fields.remove(index); 
+    }
 
+    requestChange(index) { 
+        const { requestChangeUpdate, fields } = this.props;
+        requestChangeUpdate(fields.get(index)); 
+    }
 
+    createUpdateTagRenderProps(index) {
+        let { fields, si__update__display__none, si__update__border__none, fieldDis } = this.props;
+        let { schedule_url, schedule_id, updates_id, username } = this.props;
 
+        return {
+            currentUpdate: fields.get(index),
+            si__update__display__none: si__update__display__none,
+            si__update__border__none: si__update__border__none,
+            fieldDis: fieldDis,
+            schedule_url: schedule_url,
+            schedule_id: schedule_id, 
+            updates_id: updates_id,
+            username: username
+        }
+    }
 /*
              COMPONENT LOGIC
 
@@ -40,37 +62,9 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
 
     render() {
 
-        const { fields } = this.props; 
-        const { requestRemoveUpdate, requestChangeUpdate } = this.props;
         const {  si__update__display__none, si__update__border__none, fieldDis } = this.props;
-                //       schedule_id, updates_id, username,  
-        const { schedule_url } = this.props;                                                                        
-        const removeUpdate = (index) => { requestRemoveUpdate(fields.get(index).get('update_id')); fields.remove(index); }
+        const { fields } = this.props;                                                                        
 
-        const requestChange = (index) => { requestChangeUpdate(fields.get(index)); }
-
-
-
-        const updateTagRenderProps = (index) => {
-            return {
-                currentUpdate: fields.get(index),
-                si__update__display__none: si__update__display__none,
-                si__update__border__none: si__update__border__none,
-                fieldDis: fieldDis,
-                schedule_url: schedule_url
-
-            }
-        }
-
-        // let updateTagRenderProps = {
-        //     schedule_id,
-        //     updates_id,
-        //     username,
-        //     si__update__display__none,
-        //     si__update__border__none,
-        //     fieldDis,
-        //     currentUpdate
-        // }
 
 /*
              COMPONENT VIEW
@@ -87,7 +81,7 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                     <div className="si__update__inner" key={index}> 
 
                         {/* SIUpdate Remove Button */}
-                            <button id={si__update__display__none} className="si__update__remove" title="Remove Update" onClick={(event) => { event.preventDefault(); removeUpdate(index) } }><span className="si__update__remove__x">x</span></button>
+                            <button id={si__update__display__none} className="si__update__remove" title="Remove Update" onClick={(event) => { event.preventDefault(); this.removeUpdate(index) } }><span className="si__update__remove__x">x</span></button>
 
                             <div className="border__left"></div>
 
@@ -96,10 +90,10 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                 <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
                                     <p id={si__update__border__none} className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
                                     
-                                    <Field id={si__update__border__none} className="si__update__title__field" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => requestChange(index)} disabled={fieldDis}/>
+                                    <Field id={si__update__border__none} className="si__update__title__field" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
 
                                     <div className="si__update__text__container">
-                                        <Field id={si__update__border__none} className="si__update__text__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => requestChange(index)} disabled={fieldDis}/>
+                                        <Field id={si__update__border__none} className="si__update__text__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
                                     </div>
                                     <div className="clear"></div>
                                 </div>
@@ -110,11 +104,15 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                 <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
                                     <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
                                     
-                                    <Field id={si__update__border__none}  className="si__update__title__field" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => requestChange(index)} disabled={fieldDis}/>
+                                    <Field id={si__update__border__none}  className="si__update__title__field" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
 
                                     <div className="si__update__link__container">
-                                        <Field id={si__update__border__none}  className="si__update__link__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => requestChange(index)} disabled={fieldDis}/>
+                                        <Field id={si__update__border__none}  className="si__update__link__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
                                     </div>
+                                    <div className="si__update__link__summary__container">
+                                        <Field id={si__update__border__none}  className="si__update__link__summary__field" name={`${update}.update_summary`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                    </div>
+
                                 </div>
                             }
 
@@ -123,39 +121,16 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                 <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
                                     <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
                                     
-                                    <Field id={si__update__border__none} className="si__update__title__field" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => requestChange(index)} disabled={fieldDis}/>
+                                    <Field id={si__update__border__none} className="si__update__title__field" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
 
                                     <div className="si__update__milestone__container">
-                                        <Field id={si__update__border__none} className="si__update__milestone__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => requestChange(index)} disabled={fieldDis}/>
+                                        <Field id={si__update__border__none} className="si__update__milestone__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
                                     </div>
                                 </div>
                             }
 
-                            {/*<SIUpdateTagRender schedule_id={schedule_id}/>*/}
 
-                                <FieldArray name="update_tags" component={SIUpdateTagRender} props={updateTagRenderProps(index)} />
-
-
-        {/* maybe implement something to this effect */}
-        
-        {/*<div className="si__tag__container">
-            <form>
-                <FieldArray name="tags" component={SITagRender} props={propsObject}/>
-            </form>
-        </div>*/}
-
-
-
-                            
-                            {/*<SIUpdateTagRender
-                                updates_id={updates_id}
-                                username={username}
-                                si__update__display__none={si__update__display__none }
-                                si__update__border__none={ si__update__border__none}
-                                fieldDis={fieldDis}
-                                update_tags={update_tags}
-   
-                             /> */}
+                                <FieldArray name="update_tags" component={SIUpdateTagRender} props={this.createUpdateTagRenderProps(index)} />
 
                     </div> // SIUpdate inner container end 
                 )}

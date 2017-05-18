@@ -4,12 +4,6 @@
 
 
 
-.sm__title__container {
-		margin-top: 2rem;
-    	width: 100%;
-		float: left; 
-}
-
 /* 	profile picture - username 	*/
 
 .sm__title__top_layer {
@@ -83,12 +77,15 @@
 /* 	title 	*/
 
 .sm__title__container {
+	float: left;
 	font-size: 2rem;
 	font-family: arial;
+	margin-top: 2rem;
 	margin-left: 5rem; 
 	margin-bottom: 2rem; 
 	width: 40rem;
 }
+
 
 .sm__title__a--link {
 	color: #242526;

@@ -113,6 +113,9 @@ export function* addScheduleSaga(action): SagaIterator {
         type: ADD_SCHEDULE_SUCCEEDED, 
         data: {schedule_id, updates_id, tags_id, schedule_title, schedule_url, username }              
     }
+
+
+    
     
 //    if (token) { }
 

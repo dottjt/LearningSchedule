@@ -111,8 +111,6 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
                         schedule_id={schedule_id}
                         user={user}
                         login_status_var={login_status_var}
-
-                        update_tags={undefined}
                         />
 
         sitag = <SITag
@@ -169,7 +167,6 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
 
                         login_status_var={login_status_var}
 
-                        update_tags={relevant_updates}
                         // this comes in a map, maybe not okay. 
                         />
 
@@ -241,6 +238,7 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
         if (schedules.toJS().length > 0 && url !== undefined ) {  
 
             if ( url.length === 36 && url[8] === '-' && url[13] === '-') {
+                // the problem is that this is ALWAYS the case because the url doesn't change. 
 
                 var { sititle, siupdate, sitag } = this.createElementsIfNewSchedule(url, login_status_var);
                 

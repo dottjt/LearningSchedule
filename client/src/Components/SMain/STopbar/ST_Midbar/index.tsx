@@ -142,7 +142,7 @@ class ST_Midbar extends React.Component<ST_MidbarProps & ST_MidbarPassedProps, S
 
                                 {/* STopbar Edit Button */}
                                     {login_status_var ? (
-                                        <button className="st__midbar__edit__button" onClick={this.handleSummaryActive}>edit</button>
+                                        <button className="st__midbar__edit__button" onClick={this.handleSummaryActive}><span className="st__midbar__edit__button__text">edit</span></button>
                                         ) : (
                                         <button className="st__midbar__edit__button--na"></button>
                                         )

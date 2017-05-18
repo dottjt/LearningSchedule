@@ -74,16 +74,21 @@
 
     font-size: 1.2rem;
     background: white;
-    border: 1px solid black; 
+    border: 1px solid darkgrey; 
     border-radius: 1px;
 
     width: 10rem;
     height: 2rem;
-	font-size: 1rem;
+	font-size: 0.9rem;
 
 }
 
+.si__title__remove__schedule:hover {
+    border: 1px solid black; 
+}
+
 .si__title__remove__schedule__text {
+	font-size: 0.85rem;
 }
 
 .si__title__remove__schedule--na {
@@ -93,7 +98,11 @@
     display: block;
 }
 
-
+.si__title__remove__schedule__x {
+	font-size: 0.95;
+	position: relative; 
+	top: 1px;
+}
 
 
 .si__title__fields__container {

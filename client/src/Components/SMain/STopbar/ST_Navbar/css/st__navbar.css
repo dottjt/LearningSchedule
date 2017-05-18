@@ -36,6 +36,13 @@
     color: black;
 }
 
+.st__navbar__profile__container {
+  float: right; 
+  margin-left: 0.3rem;
+  position: relative;
+  bottom: 0.3rem;
+  width: 120px;
+}
 
 .st__navbar__profile {
     width: 3rem;
@@ -45,6 +52,32 @@
     float: right;
 }
 
+.st__navbar__profile__ul {
+    background: white;
+    border: 1px solid black;
+    border-radius: 2px;
+    width: 100px;
+    list-style-type: none;
+}
+
+.st__navbar__profile__li {
+    margin-top: 1rem;
+    border-bottom: 1px solid darkgrey;
+    padding: 3px;
+}
+
+
+#true-update_profile {
+    display: inline;
+    position: absolute;
+    top: 4rem;
+    right: 2rem;
+}
+
+#false-update_profile {
+    display: none;
+}
+
 .st__navbar__form__container {
     margin-top: 1.4rem; 
     margin-left: 1rem;
@@ -52,15 +85,38 @@
     float: left; 
 }
 
+.st__navbar__add__container {
+    margin-top: 1rem;
+    margin-right: 1.5rem;
+    width: 9.5rem;
+    height: 2rem;
+    border: 1px solid darkgrey; 
+    border-radius: 1px;
+    float: right;
+}
+
+.st__navbar__add__container:hover {
+    border: 1px solid black; 
+}
 
 .st__navbar__add {
+    margin-left: 0.9rem;
     font-family: 'Nunito', sans-serif;
-    margin-top: 1.4rem;
-    margin-right: 2.5rem;
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 100;
-    float: right;
+    color: black;
+	position: relative;
+	top: 0.3rem;
+
+	font-size: 1rem;
+    
+}
+
+.st__navbar__add__plus {
+    position: relative;
+	font-size: 1.3rem;
+    font-weight: 100;
 }
 
 
@@ -68,4 +124,5 @@
 .schedule {
     display: none; 
 }
+
 

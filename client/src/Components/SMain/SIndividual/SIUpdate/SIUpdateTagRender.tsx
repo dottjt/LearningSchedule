@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Field } from 'redux-form/immutable';
 import { Map } from 'immutable';
-
+var uuid = require('uuid') ;
 import './css/si__update.css';
 import '../SITag/css/si__tag.css';
 
@@ -20,20 +20,22 @@ class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdat
 	}
 
     addTag = (e) => {
-        let { fields, schedule_id, form, username, schedule_url, requestAddTag } = this.props; 
+        let { fields, currentUpdate, schedule_id, username, schedule_url, requestAddTag } = this.props; 
 
         e.preventDefault();
 
         let tag_id = uuid();
-        let tags_id = form;
+        let tags_id = ""; // I don't think we have this attribute for 
         let tag_text = "";
 
         let fieldLength = fields.get().length;
         let tag_index = fieldLength + 1;
 
-        let update_tag = false;
-        let update_tags_id = ""
+        let update_tag = true;
+        let update_tags_id = currentUpdate.get('update_tags_id'); // will need this one.... 
         // let update_tags_id = fields.get(index).get('update_tags_id');
+
+        console.log(schedule_url)
 
         requestAddTag(Map({
             schedule_id,
@@ -57,7 +59,6 @@ class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdat
 
         let { fields, schedule_id, schedule_url, username, requestChangeTag } = this.props; 
 
-        console.log(fields.get(index).toJS())
         // currently there is no tag_index property 
         // also need tag_id
         
@@ -71,7 +72,7 @@ class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdat
         if (tag_text.length > 0 && tag_text.indexOf('#') !== 0 ) {
             tag_text = "#" + tag_text;
         }
-
+        
         requestChangeTag(Map({
             schedule_id,
             schedule_url,
@@ -124,16 +125,12 @@ class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdat
         const { fields } = this.props; 
         const { currentUpdate } = this.props;
         const { si__update__display__none, si__update__border__none, fieldDis } = this.props;
-        
 
-
-
-/*
+/*  
              COMPONENT VIEW
 
                                       */
 
-        console.log(fields)
 
         return (
                 <div className="si__update__tag__individual__container">                
@@ -157,7 +154,7 @@ class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdat
                             )
                         } else {
                             return (
-                                <div className="si__update__tag__inner">
+                                <div className="si__update__tag__inner" key={index}>
 
                                 </div>
                             )

@@ -52,35 +52,19 @@ router.get('/tags', authHelpers.usernameParamsRequired, function(req, res, next)
 
 // N
 router.post('/tags', authHelpers.loginAccessUser, function(req, res, next) {
-  // let schedule_id = req.body.schedule_id; 
-  // let tags_id = req.body.tags_id;
-  // let tag_text = req.body.tag_text;
-  // let username = req.session.username;
-  // let tag_index = 3;    // this needs to change. 
-  // let tag_id = uuid(); 
-
-  //  // is there a way to retrieve this via sessions? Probably, yes :) 
-
-  // let combined = {
-  //   schedule_id,
-  //   tag_id,
-  //   tags_id,
-  //   username,
-  //   tag_text,
-  //   tag_index
-  // }
 
   console.log(req.body)
 
   tag_queries.addTag(req.body)  // previously, req.body
   
   .then(function(tag_id_array) {
-    return tag_queries.getSingleTag(tag_id_array[0]);
+    tag_queries.getSingleTag(tag_id_array[0]);
   })
   .then(function(tag) {
     res.status(200).json(tag);
   })
   .catch(function(error) {
+    console.log(error)
     next(error);
   });
 });

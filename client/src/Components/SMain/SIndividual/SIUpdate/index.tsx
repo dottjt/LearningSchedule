@@ -4,10 +4,13 @@ import * as React from 'react';
 import { Field, FieldArray, reduxForm, formValueSelector } from 'redux-form/immutable';
 import { Map } from 'immutable';
 import SIUpdateRender from './SIUpdateRender';
+import EmojiPicker from 'emojione-picker';
+import {emojify} from 'react-emojione';
 var uuid = require('uuid');
 
 import './css/si__update__single.css';
 import './css/si__update.css';
+import './css/picker.css';
 
 
 class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
@@ -25,7 +28,10 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
 	constructor() {
 	super();
 		this.addUpdate = this.addUpdate.bind(this);
-		this.state = {fd: "yolo"}
+		this.createUpdateTagsProps = this.createUpdateTagsProps.bind(this);
+		this.showEmojiPicker = this.showEmojiPicker.bind(this);
+
+		this.state = {fd: "yolo", showEmoji: false}
 	}
 
     addUpdate(values) { 
@@ -46,12 +52,29 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
         })); 
     }
 
+    createUpdateTagsProps(si__update__display__none, si__update__border__none, fieldDis) {
+        let { schedule_id, schedule_url, form, user } = this.props;
+
+        return {
+            schedule_id: schedule_id, 
+            schedule_url: schedule_url,
+            updates_id: form, 
+            username: user.get('username'),
+            si__update__display__none: si__update__display__none,
+            si__update__border__none: si__update__border__none,
+            fieldDis: fieldDis
+        }
+    }
+
+
+    showEmojiPicker(e) {
+        e.preventDefault();
+        this.setState({ showEmoji: !this.state.showEmoji})
+    }
 
     render() {
 
-        const { handleSubmit, schedule_id, form, user, login_status_var, update_type_value, update_tags } = this.props;
-                            // form is updates_id, I think?
-
+        let { handleSubmit, login_status_var, update_type_value } = this.props;
 		let si__update__display__none, si__update__border__none, fieldDis;  // style to disable forms. 
 		
 		if (login_status_var === false) {
@@ -59,16 +82,6 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
             si__update__border__none = "si__update__border__none"; // this one for making border disappear?
 			fieldDis = true;
 		}
-
-        const updateTagsProps = {
-            schedule_id: schedule_id, 
-            updates_id: form, 
-            username: user.get('username'),
-            si__update__display__none: si__update__display__none,
-            si__update__border__none: si__update__border__none,
-            fieldDis: fieldDis,
-            update_tags: update_tags
-        }
 
 
 /*
@@ -83,7 +96,7 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
 
                     <div className="si__update__single__container">
                         
-                        <div id={si__update__display__none}>
+                        <div id={si__update__display__none} className="si__update__select__container">
                             <Field className="si__update__select" name="update_type" component="select">
                                 <option value="text">Text</option>
                                 <option value="link">Link</option>
@@ -92,6 +105,17 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
 
                         {/* SIUpdate Add Button */}
                             <button className="si__update__add" type="button" onClick={ handleSubmit(values => this.addUpdate(values)) }>Add Update</button>
+                            
+                            <div className="emoji-picker-container-reade">
+                                <a className="emoji-picker-button" onClick={(e) => this.showEmojiPicker(e)}>{emojify(":)")}</a>
+
+                                <div id={`${this.state.showEmoji}-update_emoji`}>
+                                    <EmojiPicker className="emojipicker-reade" 
+                                                onChange={function(data){
+                                                            console.log(data)
+                                                                    }} />
+                                </div>
+                            </div>
 
                             <div className="update__single__field__container">
                                 <Field className="update__single__title__field" 
@@ -143,7 +167,7 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
                             </div> {/* end of update */}
                         </div>
 
-                        <FieldArray name="updates" component={SIUpdateRender} props={updateTagsProps} />
+                        <FieldArray name="updates" component={SIUpdateRender} props={this.createUpdateTagsProps(si__update__display__none, si__update__border__none, fieldDis)} />
                        
                     </div>  {/* si__update__single__container */}
                 </form>

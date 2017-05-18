@@ -62,6 +62,8 @@ class SITagRender extends React.Component<SITagRenderProps & SITagRenderPassedPr
         let update_tag = fields.get(index).get('update_tag');
         let update_tags_id = fields.get(index).get('update_tags_id');
         
+        console.log(tag_text.indexOf('#'))
+
         if (tag_text.length > 0 && tag_text.indexOf('#') !== 0 ) {
             tag_text = "#" + tag_text;
         }

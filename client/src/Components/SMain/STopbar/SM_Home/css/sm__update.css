@@ -27,9 +27,24 @@
 }
 
 
+.sm__update__link__yolo a {
+    /*border-bottom: 1px solid #e0e0e0;*/
+    color: cyan;
+    /*text-decoration: underline #242526;*/
+}
+
+.sm__update__milestone__yolo {
+    font-weight: 500;
+    /*border-bottom: 1px solid #e0e0e0;*/
+}
+
+
+
+
+
+
 .sm__update__text:hover .sm__update__text__yolo {
     border-bottom: 1px solid #c9c9c9;
-
 }
 
 .sm__update__text:hover {
@@ -37,3 +52,4 @@
     border-left: 2px solid darkgrey;
 
 }
+

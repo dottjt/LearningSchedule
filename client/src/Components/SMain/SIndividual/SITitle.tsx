@@ -45,8 +45,6 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 
 		let si__title__display__none, si__title__border__none;  // style to disable forms. 
 		let fieldDis;
-
-		console.log("login_status", login_status_var)
 		
 		if (login_status_var === false) {
 			si__title__display__none = "si__title__display__none"; // this one for making div disappear?
@@ -108,7 +106,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 										name="schedule_title" 
 										component="input" 
 										type="text" 
-										placeholder="Name Me!"
+										placeholder="Schedule Title."
 										disabled={fieldDis}
 										/>
               
@@ -118,7 +116,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 											name="schedule_summary" 
 											component="textarea" 
 											type="text" 
-											placeholder="Here is where I commend you to write a lovely overview."
+											placeholder="Schedule Overview."
 											disabled={fieldDis}
 
 											/>

@@ -32,7 +32,7 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
         this.loginStatus = this.loginStatus.bind(this);
         this.getCookie = this.getCookie.bind(this);
 
-        this.state = { url_slug: uuid() };
+        this.state = { url_slug: uuid(), showProfileDrop: false};
     }
 
    getCookie(name) {
@@ -60,6 +60,11 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
     changeUuid() { 
         let uuid_var = uuid(); 
         this.setState({ url_slug: uuid_var }) 
+    }
+
+    showProfileDropdown(e) {
+        e.preventDefault();
+        this.setState({ showProfileDrop: !this.state.showProfileDrop})
     }
 
     addSchedule = (schedule_url, username) => {            
@@ -94,9 +99,19 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
 
         if (user.get('avatar_url') !== undefined) {
            srci = "/avatars/" + user.get('avatar_url');
-           image = <img className="st__navbar__profile" src={srci} alt=""/>
-        }  
+           image = <div className="st__navbar__profile__container">
+                        <a  onClick={(e) => this.showProfileDropdown(e)}><img className="st__navbar__profile" src={srci} alt=""/></a>
 
+                        <div id={`${this.state.showProfileDrop}-update_profile`}>
+                            <ul className="st__navbar__profile__ul">
+                                <li className="st__navbar__profile__li" >schedules</li>
+                                <li className="st__navbar__profile__li">published</li>
+                            </ul>
+                        </div>
+                    </div>
+
+        }  
+    
 
 
 
@@ -156,7 +171,7 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
 
                         {/* STopbar Add Schedule */}
                             {login_status_var ? (
-                                <Link className="st__navbar__add" onClick={() => this.addSchedule(url_slug, user.get('username'))} to={"/" +  user.get('username') + "/schedule/" + url_slug}>New Schedule</Link> 
+                                <div className="st__navbar__add__container"><Link className="st__navbar__add" onClick={() => this.addSchedule(url_slug, user.get('username'))} to={"/" +  user.get('username') + "/schedule/" + url_slug}>New Schedule <span className="st__navbar__add__plus">+</span></Link></div>
                                 ) : (
                                 <a><h3 className="st__navbar__add"></h3></a>
                                 )

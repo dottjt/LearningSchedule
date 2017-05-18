@@ -205,7 +205,7 @@ export function* removeTagSaga(action) {
 
     yield call(apiRemoveTag, tag_id);
 
-    yield put(removeTagSucceeded(action.tag_id));
+    yield put(removeTagSucceeded(action.data));
 
   }
   catch (err) {
@@ -303,7 +303,7 @@ export function tags(state = List(), action) {
             });
 
         case REMOVE_TAG_SUCCEEDED:
-            return fromJS(state).filter(tag => tag.get('tag_id') !== action.tag_id);
+            return fromJS(state).filter(tag => tag.get('tag_id') !== action.data);
 
         default:
             return state;

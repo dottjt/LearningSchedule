@@ -6,11 +6,11 @@ exports.up = function(knex, Promise) {
       table.string('schedule_url').notNullable(); 
       
       table.string('schedule_id').notNullable();
-      table.string('tags_id').notNullable();
+      table.string('tags_id'); // only necessary for normal tags. 
       table.string('tag_id').notNullable().unique();
       
       table.boolean('update_tag').notNullable(); 
-      table.string('update_tags_id') //.notNullable(); not necessary for normal tags. will segment one day :) 
+      table.string('update_tags_id'); //.notNullable(); only necessary for update tags. 
       
       
       table.string('tag_text'); //.notNullable();

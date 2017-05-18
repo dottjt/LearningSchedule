@@ -19,6 +19,7 @@
 .sm__see_more__link {
         float: left;
         display: block;
+        width: 40rem;
         font-size: 1.1rem;
         color: cyan;
 }       

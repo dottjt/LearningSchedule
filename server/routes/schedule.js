@@ -77,26 +77,26 @@ router.post('/schedules', authHelpers.loginAccessUser, function(req, res, next) 
   // }
    
 
-  // for creation of tags.
-  let schedule_id = req.body.schedule_id;
-  let schedule_url = req.body.schedule_url;
-  let tags_id = req.body.tags_id;
-  let tag_id = uuid();
-  let username = req.body.username;
-  let updateTag = false;
-  let tag_text = "";
+  // // for creation of tags.
+  // let schedule_id = req.body.schedule_id;
+  // let schedule_url = req.body.schedule_url;
+  // let tags_id = req.body.tags_id;
+  // let tag_id = uuid();
+  // let username = req.body.username;
+  // let updateTag = false;
+  // let tag_text = "";
 
-  let tagObject = {
-    schedule_id,
-    schedule_url,
-    tags_id,
-    tag_id,
-    tag_text,
-    updateTag,
-    username
-  }
+  // let tagObject = {
+  //   schedule_id,
+  //   schedule_url,
+  //   tags_id,
+  //   tag_id,
+  //   tag_text,
+  //   updateTag,
+  //   username
+  // }
 
-  tags_queries.addTag(tagObject);
+  // tags_queries.addTag(tagObject);
 
   console.log("tags being sent?")
   schedule_queries.addSchedule(req.body)

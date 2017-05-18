@@ -81,35 +81,43 @@
     margin-left: 1.5rem;
 }
 
+
 .st__midbar__website__form {
-    
+    margin-left: 1.5rem;
 }
 
 .st__midbar__website__link {
+    display: block;
     color: cyan;
 	font-family: 'Nunito', sans-serif;
 	font-weight: 100;
     font-size: 1.3rem;
-
-
 }
 
 .st__midbar__edit__button {
     position: relative;
-    left: 6rem;
-    bottom: 1rem;
+    left: 9rem;
+    bottom: 1.4rem;
     
-    height: 1.4rem;
-    width: 4rem;
-    border: 1px solid;
-    border-radius: 2rem; 
-
+    height: 1.95rem;
+    width: 5rem;
+    border: 1px solid darkgrey;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+    font-size: 1rem;
     background-color: white; 
     float: right;
-    margin-left: 4rem;
-
 }
 
+.st__midbar__edit__button:hover {
+    border: 1px solid black;
+}
+
+.st__midbar__edit__button__text {
+    position: relative;
+    top: 1px;
+}
+ 
 .st__midbar__edit__button--na {
     position: relative;
     left: 6rem;
@@ -120,22 +128,26 @@
     border: none;
     border-radius: 2rem; 
 
-
     background-color: white; 
     float: right;
-    margin-left: 4rem;
 
 
 }
 
-.st__midbar__profile_username {
+.st__midbar__profile_username__container {
     float: left;
     width: 600px;
     margin-left: 1.6rem;
-    margin-top: 0rem;
     margin-bottom: 2rem;
+    position: relative;
+    bottom: 1rem;
+}
+
+.st__midbar__profile_username {
     font-size: 2.8rem;
-    
+    float: left;
+    width: 600px;
+
     color: #242526;
 	font-family: 'Nunito', sans-serif;
 	font-weight: 100;

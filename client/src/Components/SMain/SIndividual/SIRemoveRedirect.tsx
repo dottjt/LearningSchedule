@@ -30,7 +30,7 @@ class SIRedirect extends React.Component<SIRedirectPassedProps, SIRedirectState>
       return <Redirect className="si__title__remove__schedule btn-danger btn-sm" to={"/" + user.get('username')} />;
     }
 
-    return <button className="si__title__remove__schedule btn-danger btn-sm" onClick={this.handleOnClick} type="button"><span className="si__title__remove__schedule__text">Delete Schedule</span>     X</button>;
+    return <button className="si__title__remove__schedule btn-danger btn-sm" onClick={this.handleOnClick} type="button"><span className="si__title__remove__schedule__text">Delete Schedule</span><span className="si__title__remove__schedule__x">   X</span></button>;
   }
 
 }   

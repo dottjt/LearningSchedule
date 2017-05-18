@@ -139,10 +139,20 @@ module.exports = {
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
+
+
+      // the original 
+
+      // {
+      //   test: /\.json$/,
+      //   loader: 'json'
+      // },
+
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: "json-loader"
       },
+
       // "file" loader for svg
       {
         test: /\.svg$/,
