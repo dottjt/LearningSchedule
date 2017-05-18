@@ -22,11 +22,12 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 
 	changeSchedule = (values) => {
 	// values is a map with all relevant data from the selected schedule.
-		let { schedule_url, schedule_id, requestChangeSchedule } = this.props;
+		let { schedule_url, form /* schedule_id */, requestChangeSchedule } = this.props;
 		
 		values = values.set('schedule_url', schedule_url)
-					   .set('schedule_id', schedule_id)
+						.set('schedule_id', form)
 
+		console.log(values.toJS())
 		requestChangeSchedule(values);
 	}
 
@@ -42,13 +43,14 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 		
 		const { handleSubmit, user, login_status_var, requestRemoveSchedule, form /* schedule_id */ } = this.props;
 
-		let field_disable_id;  // style to disable forms. 
+		let si__title__display__none, si__title__border__none;  // style to disable forms. 
 		let fieldDis;
 
 		console.log("login_status", login_status_var)
 		
 		if (login_status_var === false) {
-			field_disable_id = "field_disabled_style_si__title";
+			si__title__display__none = "si__title__display__none"; // this one for making div disappear?
+            si__title__border__none = "si__title__border__none"; // this one for making border disappear?
 			fieldDis = true;
 		}
 		// true means you're logged in. 
@@ -72,7 +74,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 							<div className="si__title__profile_picture__right">
 
 									{/* Username */}
-									<a className="si__title__username__link" href={"/" + user.get('display_name') }>
+									<a className="si__title__username__link" href={"/" + user.get('username') }>
 										<h4 className="si__title__username">
 											{user.get('display_name')}
 										</h4>
@@ -102,7 +104,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 						{/* Schedule Title */}
 						<div className="si__title__fields__container">
 							
-							<Field id={field_disable_id} className="si__title__schedule_title__field" 
+							<Field id={si__title__border__none} className="si__title__schedule_title__field" 
 										name="schedule_title" 
 										component="input" 
 										type="text" 
@@ -112,7 +114,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
               
 							<div className="si__title__summary__container">
 
-								<Field id={field_disable_id} className="si__title__summary__field" 
+								<Field id={si__title__border__none} className="si__title__summary__field" 
 											name="schedule_summary" 
 											component="textarea" 
 											type="text" 

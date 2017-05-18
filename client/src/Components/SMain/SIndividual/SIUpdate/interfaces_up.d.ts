@@ -14,13 +14,13 @@ interface SIUpdateProps {
     fieldDisabled: any
     login_status_var: any,
     
-    updateTypeValue: any,
+    update_type_value: any,
     requestAddUpdate: any
     handleSubmit: any
 }
 
 interface SIUpdatePassedProps {
-    update_tags: any
+    update_tags: any,
 }
 
 interface SIUpdateState {
@@ -44,32 +44,19 @@ interface SIUpdateRenderPassedProps {
     schedule_id: any,
     updates_id: any,
     username: any,
-    field_disable_id: any,
-    fieldDis: any
+    currentUpdate: any,
+    schedule_url: any,
+
+    si__update__display__none: any,
+    si__update__border__none: any,
+    fieldDis: any,
+
 }
 
 interface SIUpdateRenderState {
     topbar_active: boolean
 }
 
-
-/*
-      SIUpdateSingle Component 
-                                    */
-
-interface SIUpdateSingleProps {
-    updateTypeValue: any,
-    requestAddUpdate: any
-    handleSubmit: any
-}
-
-interface SIUpdateSinglePassedProps {
-    form: any,
-    initialValues: any,
-    schedule_id: any,
-    schedule_url: any, 
-    user: any
-}
 
 /*
       SIUpdateTagRender Component 
@@ -87,7 +74,10 @@ interface SIUpdateTagRenderPassedProps {
     updates_id: any,
     username: any,
     fields: any,
-    field_disable: any,
+    currentUpdate: any
+
+    si__update__display__none: any,
+    si__update__border__none: any,
     fieldDis: any
 
 }

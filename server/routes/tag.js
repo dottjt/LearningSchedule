@@ -16,7 +16,6 @@ router.get('/tag/:schedule_url', function(req, res, next) {
 });
 
 
-
 // S - GET a single tag
 router.get('/tag/:tag_id', function(req, res, next) {
 
@@ -53,25 +52,27 @@ router.get('/tags', authHelpers.usernameParamsRequired, function(req, res, next)
 
 // N
 router.post('/tags', authHelpers.loginAccessUser, function(req, res, next) {
-  let schedule_id = req.body.schedule_id; 
-  let tags_id = req.body.tags_id;
-  let tag_text = req.body.tag_text;
-  let username = req.session.username;
-  let tag_index = 3;    // this needs to change. 
-  let tag_id = uuid(); 
+  // let schedule_id = req.body.schedule_id; 
+  // let tags_id = req.body.tags_id;
+  // let tag_text = req.body.tag_text;
+  // let username = req.session.username;
+  // let tag_index = 3;    // this needs to change. 
+  // let tag_id = uuid(); 
 
-   // is there a way to retrieve this via sessions? Probably, yes :) 
+  //  // is there a way to retrieve this via sessions? Probably, yes :) 
 
-  let combined = {
-    schedule_id,
-    tag_id,
-    tags_id,
-    username,
-    tag_text,
-    tag_index
-  }
+  // let combined = {
+  //   schedule_id,
+  //   tag_id,
+  //   tags_id,
+  //   username,
+  //   tag_text,
+  //   tag_index
+  // }
 
-  tag_queries.addTag(combined)  // previously, req.body
+  console.log(req.body)
+
+  tag_queries.addTag(req.body)  // previously, req.body
   
   .then(function(tag_id_array) {
     return tag_queries.getSingleTag(tag_id_array[0]);

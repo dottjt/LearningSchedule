@@ -1,16 +1,16 @@
 .si__tag__outer {
-      
+
 }
 
 .si__tag__container {
-      margin-left: 6.9rem;
+      margin-left: 8rem; /*6.9*/
       margin-bottom: 2rem;
       width: 42rem;
       float: left;
 }
 
 .si__tag__inner {
-      margin-left: 1rem;
+      margin-top: 0.1rem;
 }
 
 .si__tag__group {
@@ -48,13 +48,24 @@
 
 }
 
-#field_disabled_style_si__tag {
-      display: none;
+.si__tag__add {
+      margin-left: 0.2rem;
+      position: relative;
+      top: 0.1rem;
+      float: left;     
+      outline: none;
+
+      border-bottom: 1px solid darkgrey;
+
+      border: none;
+      outline: none;
+      overflow: hidden;
+      resize: none;
+      width: 4rem;
+      height: 1.6rem;
 }
 
-.si__tag__add {
-        float: left;     
-        outline: none;
 
-        border-bottom: 1px solid darkgrey;
+#si__tag__display__none {
+      display: none;
 }

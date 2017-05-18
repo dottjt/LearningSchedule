@@ -50,9 +50,14 @@
     border-radius: 1px;
 
     top: 3.38rem;
-    left: 39rem;
-    width: 2rem;
+    left: 39.8rem;
+    width: 2.12rem;
     height: 2rem;
+}
+
+.si__update__remove__x {
+    position: relative;
+    bottom: 2px;
 }
 
 .si__update__title {
@@ -163,7 +168,14 @@
 }
 
 
-
+.si__update__select {
+      /*float: left;
+      border: 1px solid black;
+      border-radius: 2px;
+      width: 5.5rem;
+      height: 1.2rem;
+      margin: 2px;*/
+}
 
 
 
@@ -249,6 +261,13 @@
 }
 
 
+.update__single__text__container {
+    float: left;
+    margin-top: 0.8rem;
+    width: 40rem;
+    height: 8rem;
+}
+
 .update__single__text__field {
     font-size: 1.05rem;
     line-height: 1.8rem; 
@@ -256,9 +275,6 @@
     font-family: 'Nunito', sans-serif;
     font-weight: 100;
 
-    float: left;
-    
-    margin-top: 0.8rem;
     width: 40rem;
     height: 8rem;
 
@@ -279,27 +295,32 @@
     margin-top: 0.8rem;
     width: 40.2rem;
     height: 8rem;
-    display: flex;
+    /*display: flex;
     align-items: center; 
-    justify-content: center;
+    justify-content: center;*/
 
 }
 .update__single__link__field {
+    float: left; 
     font-size: 1.05rem;
     line-height: 1.8rem; 
     color: #242526;
     font-family: 'Nunito', sans-serif;
-    font-weight: 100;    
+    font-weight: 100;   
+    display: block; 
 
     height: 2rem;
     width: 40.8rem; 
 
     resize: none;
     border: none;
-
+    
 
 }
 
+.update__single__link__field__bottom {
+    margin-top: 1rem;
+}
 
 /*
 
@@ -378,7 +399,7 @@
 
 
 
-#field_disabled_style_si__update {
+#si__update__display__none {
     display: none;
 }
 
@@ -419,3 +440,7 @@
     clear: both;
 }
 
+
+#si__update__border__none {
+    border: none;
+}

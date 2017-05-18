@@ -23,6 +23,8 @@
 	display: block;
 	width: 3.5rem;
 	height: 3.5rem;
+	margin-right: 0.5rem;
+
 }
 
 .si__title__profile_picture__right {
@@ -33,13 +35,12 @@
 
 .si__title__username {
   	float: left;
-	margin-top: 0.1rem;
+	margin-top: 0.35rem;
 	margin-left: 1rem;
-	font-size: 1.1rem;
-	font-family: 'Nunito', sans-serif;
-	font-weight: 300;
+	font-size: 1rem;
 	color: #242526;
-
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
 }
 
 .si__title__username__link {
@@ -48,13 +49,12 @@
 
 
 .si__title__start_date__container {
-	margin-top: 1.5rem;
+	margin-top: 2rem;
 	margin-left: 1rem; 
-	color: darkgrey;
-	font-size: 0.9rem;
+	font-size: 0.8rem;
+	color: #5e6266;
 	font-family: 'Nunito', sans-serif;
-	font-weight: 300; 
-	color: #242526;
+	font-weight: 100;
 
 }
 
@@ -69,8 +69,21 @@
 
 .si__title__remove__schedule {
 	position: relative;
-	top: 1.2rem;
+	top: 0.5rem;
 	float: right;
+
+    font-size: 1.2rem;
+    background: white;
+    border: 1px solid black; 
+    border-radius: 1px;
+
+    width: 10rem;
+    height: 2rem;
+	font-size: 1rem;
+
+}
+
+.si__title__remove__schedule__text {
 }
 
 .si__title__remove__schedule--na {
@@ -116,7 +129,7 @@
 }
 
 .si__title__schedule_title__field:hover {
-	border-bottom: 1px solid darkgrey;
+	/*border-bottom: 1px solid darkgrey;*/
 
 }
 
@@ -154,17 +167,19 @@
 
 }
 
-.si__title__summary__field:active {
-	/*border-bottom: 1px solid black;*/
-
-}
 
 
 .clear {
 	clear: both;
 }
 
-#field_disabled_style_si__title {
+#si__title__border__none {
 	color: black;	
+	text-decoration: none;
 }
+
+#si__title__border__none:hover {
+	/*border-bottom: 1px solid white;*/
+}
+
 

@@ -137,6 +137,8 @@ export function* changeWebsiteSaga(action) {
   try {
 
     // let token = localStorage.getItem('id_token') || null;
+
+    console.log(action.data.toJS())
     let website = action.data.get('website');
 
     // if (token) {    }

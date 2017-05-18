@@ -92,16 +92,22 @@ export const addUpdateFailed = err => ({type: ADD_UPDATE_FAILED, err});
 
             // okay, so it sends an { updates: [array]}
             // need a helper funciton that sorts through the array and gets the right data. 
-export function apiAddUpdate(schedule_id, schedule_url, updates_id, update_id) {
+export function apiAddUpdate(schedule_id, schedule_url, updates_id, update_id, update_title, update_text, update_summary, update_type, update_tags_id, username) {
     
     return axios({
             method: 'post',
             url: 'api/v1/updates',
             data: {
-                schedule_id: schedule_id,
-                schedule_url: schedule_url,
-                updates_id: updates_id,
-                update_id: update_id
+                schedule_id,
+                schedule_url,
+                updates_id,
+                update_id,
+                update_title,
+                update_text,
+                update_summary,
+                update_type,
+                update_tags_id,
+                username
             }
             // headers: { 'Authorization': 'Bearer ' + token }
         });
@@ -110,26 +116,28 @@ export function apiAddUpdate(schedule_id, schedule_url, updates_id, update_id) {
 export function* addUpdateSaga(action): SagaIterator {
   try {
 
+
+
+    console.log(action.data.toJS())
+
     // let token = localStorage.getItem('id_token') || null
+    // if (token) {    }
+
     let schedule_id = action.data.get('schedule_id');
     let schedule_url = action.data.get('schedule_url');
     let updates_id = action.data.get('updates_id');
     let update_id = action.data.get('update_id');
+    let update_tags_id = action.data.get('update_id');
     
+    let update_title = action.data.get('update_text');
+    let update_text = action.data.get('update_text');
+    let update_type = action.data.get('update_type');
+    let update_summary = action.data.get('update_summary');
+    let username = action.data.get('username');
 
-    // object that returns IS 
-    // let update_text = action.data.get('');
-    // let updateTags = action.data.get('');
-    // let updateType = action.data.get('update_type');
-    // updateTags should be their own schedule and datathign. 
+    yield call(apiAddUpdate, schedule_id, schedule_url, updates_id, update_id, update_title, update_text, update_summary, update_type, update_tags_id, username);
 
-    // if (token) {    }
-
-      yield call(apiAddUpdate, schedule_id, schedule_url, updates_id, update_id);
-
-      console.log('sent to server')
-      
-      yield put(addUpdateSucceeded(action.data));
+    yield put(addUpdateSucceeded(action.data));
 
   }
   catch (err) {
@@ -182,7 +190,7 @@ export const removeUpdateFailed = err => ({type: REMOVE_UPDATE_FAILED, err});
 
 export function apiRemoveUpdate(update_id: string) {
     
-    return axios.delete('api/v1/updates/' + update_id,
+    return axios.delete('api/v1/updates/' + update_id
     // {
     //     headers: { 'Authorization': 'Bearer ' + token }
     // }
@@ -231,7 +239,7 @@ export const changeUpdateFailed = err => ({type: CHANGE_UPDATE_FAILED, err});
                                                 */
 
 
-export function apiChangeUpdate(update_id: string, update_title: string, update_text: string, update_date: string) {
+export function apiChangeUpdate(update_id: string, update_title: string, update_text: string, update_summary: string) {
     // check to see if this is okay.
         axios({
             method: 'put',
@@ -239,7 +247,7 @@ export function apiChangeUpdate(update_id: string, update_title: string, update_
             data: {
                update_title,
                update_text,
-               update_date
+               update_summary
             }
             // headers: { 'Authorization': 'Bearer ' + token }
         
@@ -250,16 +258,14 @@ export function* changeUpdateSaga(action) {
   try {
 
   // let token = localStorage.getItem('id_token') || null
+  // if (token) {  }
   let update_id = action.data.get('update_id');
   let update_title = action.data.get('update_title');
   let update_text = action.data.get('update_text');
-  let update_date = action.data.get('update_date');
+  let update_summary = action.data.get('update_summary');
 
-
-  // if (token) {  }
-
-  yield call(apiChangeUpdate, update_id, update_title, update_text, update_date);
-  
+  console.log('this far? ')
+  yield call(apiChangeUpdate, update_id, update_title, update_text, update_summary);  
 
   yield put(changeUpdateSucceeded(action.data));
   // from action 
@@ -291,8 +297,9 @@ export function updates(state = List(), action) {
             return state = fromJS(state).map(update => {
                 if (update.get('update_id') === action.data.get('update_id')) {
                     return update.set('update_title', action.data.get('update_title'))
-                               .set('update_text', action.data.get('update_text'))
-                               .set('update_date', action.data.get('update_date'))
+                                  .set('update_text', action.data.get('update_text'))
+                                  .set('update_summary', action.data.get('update_summary'))
+                               
                 };
                 return update;
             });

@@ -1,11 +1,10 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
 import { SagaIterator } from 'redux-saga';
-import { Map } from 'immutable';
 import axios from 'axios';
 
 
 
-/* 
+/*
                     OVERVIEW
                                                 */
 
@@ -75,17 +74,31 @@ export const addTagFailed = err => ({type: ADD_TAG_FAILED, err});
 
                                                 // okay, so it sends an { tags: [array]}
                                                 // need a helper funciton that sorts through the array and gets the right data. 
-export function apiAddTag(schedule_id: string, tags_id: string, username: string, tag_text: string) {
+export function apiAddTag(  tag_text,
+                            schedule_id,
+                            schedule_url,
+                            tag_index,
+                            tag_id,
+                            tags_id,
+                            username,
+                            update_tag,
+                            update_tags_id
+                            ) {
     // check to see if this is okay.
     
     return axios({
             method: 'post',
             url: 'api/v1/tags',
             data: {
+                tag_text,
                 schedule_id,
+                schedule_url,
+                tag_index,
+                tag_id,
                 tags_id,
                 username,
-                tag_text
+                update_tag,
+                update_tags_id
             }
             // headers: { 'Authorization': 'Bearer ' + token }
         });
@@ -96,32 +109,32 @@ export function* addTagSaga(action): SagaIterator {
   try {
 
     // let token = localStorage.getItem('id_token') || null
+    //    if (token) {   }
 
-    let tag_text = action.data.get('tag_text_value'); 
+    let tag_text = action.data.get('tag_text'); 
     let schedule_id = action.data.get('schedule_id');
-    let tags_id = action.data.get('form');
+    let schedule_url = action.data.get('schedule_url');
+
+    let tag_index = action.data.get('tag_index');
+    let tag_id = action.data.get('tag_id');
+    let tags_id = action.data.get('tags_id');
     let username = action.data.get('username');
+    let update_tag = action.data.get('update_tag');
+    let update_tags_id = action.data.get('update_tags_id');
+            
 
-    if (tag_text.indexOf('#') !== 0) {
-        tag_text = "#" + tag_text;
-    }
+    yield call(apiAddTag,
+                tag_text, 
+                schedule_id,
+                schedule_url,
+                tag_index,
+                tag_id,
+                tags_id,
+                username,
+                update_tag,
+                update_tags_id );
 
-//    if (token) {   }
-
-    yield call(apiAddTag, schedule_id, tags_id, username, tag_text);
-
-
-    let newAction = Object.assign({}, action, {
-        data: Map({
-        tag_text: tag_text,
-        schedule_id: schedule_id,
-        tags_id: tags_id,
-        username: username
-    })
-    })
-
-    yield put(addTagSucceeded(newAction.data));
-
+    yield put(addTagSucceeded(action.data));
 
 }
   catch (err) {
@@ -186,9 +199,9 @@ export function* removeTagSaga(action) {
   try {
 
     // let token = localStorage.getItem('id_token') || null
-    let tag_id = action.data;
+    //    if (token) {   }
 
-//    if (token) {   }
+    let tag_id = action.data;
 
     yield call(apiRemoveTag, tag_id);
 
@@ -241,13 +254,14 @@ export function* changeTagSaga(action) {
   try {
 
     // let token = localStorage.getItem('id_token') || null
+    // if (token) {    }
+
     let tag_id = action.data.get('tag_id');
     let tag_text = action.data.get('tag_text');
     let tag_index = action.data.get('tag_index');
     
-    // if (token) {    }
-
     yield call(apiChangeTag, tag_id, tag_text, tag_index);
+
 
     yield put(changeTagSucceeded(action.data));
 
@@ -279,10 +293,10 @@ export function tags(state = List(), action) {
             return state = fromJS(action.tags);
 
         case CHANGE_TAG_SUCCEEDED: 
-            return fromJS(state).map(tag => {
-                if (tag.get('tag_id') === action.data.tag_id) {
-                    return tag.set('tag_text', action.data.tag_text)
-                              .set('tag_index', action.data.tag_index);
+            return state = fromJS(state).map(tag => {
+                if (tag.get('tag_id') === action.data.get('tag_id')) {
+                    return tag = tag.set('tag_text', action.data.get('tag_text'))
+                                    .set('tag_index', action.data.get('tag_index'))
                               
                 };
                 return tag;
@@ -296,19 +310,3 @@ export function tags(state = List(), action) {
             
     }; 
 }; 
-
-/*
-[
-    {
-      tag_id: "1234091283570938409128341234",
-      tag_title: "We have everything!",
-      tag_username: "juliusreade"
-    },
-    {
-      tag_id: "3000000033333339392922939239",
-      tag_title: "I know you like it",
-      tag_username: "juliusreade"
-    }
-]
-
-*/

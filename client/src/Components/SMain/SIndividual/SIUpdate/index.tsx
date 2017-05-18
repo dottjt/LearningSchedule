@@ -4,7 +4,6 @@ import * as React from 'react';
 import { Field, FieldArray, reduxForm, formValueSelector } from 'redux-form/immutable';
 import { Map } from 'immutable';
 import SIUpdateRender from './SIUpdateRender';
-// import SIUpdateSingle from './SIUpdateSingle';
 var uuid = require('uuid');
 
 import './css/si__update__single.css';
@@ -33,31 +32,31 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
 
         const {schedule_url, schedule_id, user, form, requestAddUpdate} = this.props;
 
-        const requestAddObject = Map({ 
+        requestAddUpdate(Map({ 
             schedule_id: schedule_id, 
             updates_id: form, // form is updates_id
             schedule_url: schedule_url,
             username: user.get('username'),
             update_id: uuid(),
-            update_title: "",
-            update_text: ""
-        });
-
-        console.log("add Update sending"); 
-        console.log(values.toJS()); 
-        requestAddUpdate(requestAddObject); 
+            update_tags_id: uuid(),
+            update_title: values.get('update_title'),
+            update_text: values.get('update_text'),
+            update_summary: values.get('update_summary'),
+            update_type: values.get('update_type')
+        })); 
     }
 
 
     render() {
 
-        const { handleSubmit, schedule_id, form, user, login_status_var, updateTypeValue } = this.props;
+        const { handleSubmit, schedule_id, form, user, login_status_var, update_type_value, update_tags } = this.props;
                             // form is updates_id, I think?
 
-		let field_disable_id, fieldDis;  // style to disable forms. 
+		let si__update__display__none, si__update__border__none, fieldDis;  // style to disable forms. 
 		
 		if (login_status_var === false) {
-			field_disable_id = "field_disabled_style_si__update";
+			si__update__display__none = "si__update__display__none"; // this one for making div disappear?
+            si__update__border__none = "si__update__border__none"; // this one for making border disappear?
 			fieldDis = true;
 		}
 
@@ -65,8 +64,10 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
             schedule_id: schedule_id, 
             updates_id: form, 
             username: user.get('username'),
-            field_disable_id: field_disable_id,
-            fieldDis: fieldDis
+            si__update__display__none: si__update__display__none,
+            si__update__border__none: si__update__border__none,
+            fieldDis: fieldDis,
+            update_tags: update_tags
         }
 
 
@@ -82,11 +83,11 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
 
                     <div className="si__update__single__container">
                         
-                        <div id={field_disable_id}>
-                            <Field name="updateType" component="select">
-                                <option value="text">Text update</option>
-                                <option value="link">Post a link</option>
-                                <option value="milestone">Learning milestone</option>
+                        <div id={si__update__display__none}>
+                            <Field className="si__update__select" name="update_type" component="select">
+                                <option value="text">Text</option>
+                                <option value="link">Link</option>
+                                <option value="milestone">Milestone</option>
                             </Field>
 
                         {/* SIUpdate Add Button */}
@@ -101,8 +102,8 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
                                         maxLength={300}
                                         />
 
-                            {updateTypeValue === "text" && 
-                                    <div>
+                            {update_type_value === "text" && 
+                                    <div className="update__single__text__container">
                                         <Field className="update__single__text__field" 
                                                 name="update_text" 
                                                 component="textarea" 
@@ -112,25 +113,31 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
                                                 />
                                     </div> }
 
-                                {updateTypeValue === "link" && 
+                                {update_type_value === "link" && 
                                     <div className="update__single__link__container">
-                                        <Field className="update__single__link__field" 
-                                                name="update_text" 
+                                            <Field className="update__single__link__field" 
+                                                    name="update_text" 
+                                                    component="input" 
+                                                    type="text" 
+                                                    placeholder="Link."
+                                                    />
+                                        <Field className="update__single__link__field update__single__link__field__bottom" 
+                                                name="update_summary" 
                                                 component="input" 
                                                 type="text" 
-                                                placeholder="Link."
+                                                placeholder="Link Summary."
                                                 />
                                     </div>
                                 }
 
-                                {updateTypeValue === "milestone" && 
+                                {update_type_value === "milestone" && 
                                     <div className="update__single__milestone__container">
                                         <Field 
                                             className="update__single__milestone__field" 
                                             name="update_text" 
                                             component="input" 
                                             type="text" 
-                                            placeholder="Achievement."
+                                            placeholder="Milestone."
                                             />
                                     </div> }
                             </div> {/* end of update */}
@@ -159,7 +166,7 @@ const selector = (form, ...other) => (formValueSelector(form))(...other);
 const mapStateToProps = (state, initialProps) => {
     // const updateTypeValue = selector(state, 'updateType')
     return {
-      updateTypeValue: selector(initialProps.form, state, 'updateType'),
+      update_type_value: selector(initialProps.form, state, 'update_type'),
     }
 }
 
@@ -171,10 +178,10 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-let SIUpdatePropsComponent = connect<{}, {}, SIUpdateSinglePassedProps>(mapStateToProps, mapDispatchToProps)(SIUpdate as any)
+let SIUpdatePropsComponent = connect<{}, {}, SIUpdateRenderPassedProps>(mapStateToProps, mapDispatchToProps)(SIUpdate as any)
 
 
-export default reduxForm({ enableReinitialize : true, form: '22345678' })(SIUpdatePropsComponent);
+export default reduxForm({ enableReinitialize : true })(SIUpdatePropsComponent);
 
 
 

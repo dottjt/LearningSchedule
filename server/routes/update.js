@@ -44,38 +44,16 @@ router.post('/updates', authHelpers.loginAccessUser, function(req, res, next) {
 
   console.log(req.body)
 
-  let schedule_id = req.body.schedule_id; 
-  let updates_id = req.body.updates_id;
-  let schedule_url = req.body.schedule_url;
-  let username = req.session.username;
-  let update_id = req.body.update_id;
-  // from body or middleware 
-
-  let update_title = '';
-  let update_text = '';
-  // generated on server 
-
-  // update_date not needed
-
-  let combined = {
-    schedule_id: schedule_id,
-    update_id: update_id,
-    updates_id: updates_id,
-    schedule_url: schedule_url,
-    username: username,
-    update_title: update_title,
-    update_text: update_text
-  }
-
-  update_queries.addUpdate(combined)  // previously, req.body
+  return update_queries.addUpdate(req.body)
   
   .then(function(update_id_array) {
-    return update_queries.getSingleUpdate(update_id_array[0]);
+     update_queries.getSingleUpdate(update_id_array[0]);
   })
   .then(function(update) {
     res.status(200).json(update);
   })
   .catch(function(error) {
+    console.log(error)
     next(error);
   });
 });

@@ -10,8 +10,10 @@ exports.up = function(knex, Promise) {
       table.string('tag_id').notNullable().unique();
       
       table.boolean('update_tag').notNullable(); 
+      table.string('update_tags_id') //.notNullable(); not necessary for normal tags. will segment one day :) 
       
-      table.string('tag_text').notNullable();
+      
+      table.string('tag_text'); //.notNullable();
       table.string('tag_index');
     })
 };	

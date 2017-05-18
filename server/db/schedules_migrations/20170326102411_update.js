@@ -12,7 +12,10 @@ exports.up = (knex, Promise) => {
       table.string('update_type').notNullable();
       table.string('update_title');
       table.text('update_text');
-      
+      table.text('update_summary');
+
+      table.string('update_tags_id').notNullable();
+
 
       table.date('update_date').defaultTo(knex.raw('now()'));
   })

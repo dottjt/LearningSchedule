@@ -22,7 +22,8 @@
 /* top navbar */
 
 .si__navbar__form__container {
-    margin-top: 1rem; 
+    margin-top: 1.4rem; 
+    margin-left: 1rem;
     width: 450px; 
     float: left; 
 }

@@ -61,23 +61,27 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
         return this.props.schedules.filter(schedule => schedule.get('schedule_url') === schedule_url).get(0); // this creates a Map{}
     }; 
 
+
+    // getAllRelevantUpdateTags(schedule_url: string) {
+    //     return Map({update_tags: this.props.tags.filter(tag => tag.get('schedule_url') === schedule_url && tag.get('update_tag') === true)});
+    // };
+
     getAllRelevantUpdateTags(schedule_url: string) {
-        return Map({tags: this.props.tags.filter(tag => tag.get('update_tag') === schedule_url && tag.get('update_tag') === true)});
+        return this.props.tags.filter(tag => tag.get('schedule_url') === schedule_url && tag.get('update_tag') === true);
     };
 
+    
     getAllRelevantUpdates(schedule_url: string) {
         return Map({updates: this.props.updates.filter(update => update.get('schedule_url') === schedule_url),
-                    update_text: "",
                     update_tags: this.getAllRelevantUpdateTags(schedule_url),
-                    updateType: "link",
-                    updateTypeValue: "kneel"
+                    update_type: "text"
                     });
     };
 
-
     getAllRelevantTags(schedule_url: string) {
-        return Map({tags: this.props.tags.filter(tag => tag.get('schedule_url') === schedule_url)});
+        return Map({tags: this.props.tags.filter(tag => tag.get('schedule_url') === schedule_url && tag.get('update_tag') === false)});
     };
+
 
     createElementsIfNewSchedule(url, login_status_var) {
         let schedule_id, updates_id, tags_id;
@@ -95,7 +99,7 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
                         initialValues={undefined}
 
                         schedule_url={url}
-                        user={this.props.user}
+                        user={user}
                         login_status_var={login_status_var}
                         />
 
@@ -108,6 +112,7 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
                         user={user}
                         login_status_var={login_status_var}
 
+                        update_tags={undefined}
                         />
 
         sitag = <SITag
@@ -140,8 +145,9 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
         tags_id = this.retrieveTagsId(url);
         relevant_updates = this.getAllRelevantUpdates(url);
         relevant_update_tags = this.getAllRelevantUpdateTags(url);
-        relevant_schedules = this.getAllRelevantSchedules(url);
         relevant_tags = this.getAllRelevantTags(url);
+        relevant_schedules = this.getAllRelevantSchedules(url);
+
 
         sititle = <SITitle
                     form={schedule_id}  
@@ -163,6 +169,7 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
 
                         login_status_var={login_status_var}
 
+                        update_tags={relevant_updates}
                         // this comes in a map, maybe not okay. 
                         />
 
@@ -209,7 +216,10 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
     }
     
 
-s
+    componentWillMount() {
+        scroll(0,0);
+    }
+
 /*
             COMPONENT LOGIC
                                       */

@@ -14,7 +14,8 @@ class STWebsiteActive extends React.Component<STWebsiteActiveProps, undefined> {
 
 
     changeWebsite(values) {
-        requestChangeWebsite(values);
+        console.log(values.toJS())
+        this.props.requestChangeWebsite(values);
     }
 
 
