@@ -17,6 +17,10 @@ Website: https://learningschedule.com
 
 # Updates 
 
+**18-05-17**: HUGE milestone everyone! All core functionality officially works for the very first time, which means the aplication is ready for some kind of crappy beta! I need to start working some more on the homepage so I can get this bad boy up and running on a server :))))) Also, currently trying to implement emojis on this thing, and it's proving to be a challenge - but the kind of thing that makes me happy. 
+
+**17-05-17**: Absolutely smashing it! Implemented so many features today, as well as stylistic goodies on the SI view. I have high hopes I'll have this down within a few months! 
+
 **16-05-17**: Phenominal progress today. Funny how much more you can get down when you slow down, plan things out and actually think about how best to achieve something. Implemented a heap of logic to disable the input fields if a user is not logged in. Also implemented most the different update type fields and did so much amazing front-end stuff. The app is actually looking complete, as if it's something I'd use. Of course, only a fraction of it actually works - but it's just a time game at this point. 
 
 **15-05-17**: Fixed bugs. Fixed user authentication things. Still trying to figure out how best to approach multiple update types - the details are all very vague. I'm also worried that I'll have to implement another schema for update tags, but it's probably best. Just time consuming, that's all. 
