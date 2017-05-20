@@ -119,7 +119,7 @@ Vital lesson learnt today: Always extensively plan/design your application befor
 
 **13-04-17**: Rebuild V4 is coming! Going to streamline and refactor a heap of stuff. Decided to better learn vscode today, along with typescript. Also spending today to rebuild the UI (using Sketch), because now that I have a better idea of what it is and ideally, how it should work for the end-user.
 
-![alt tag](https://github.com/dottjt/LearningSchedule/blob/master/V4%20Initial.png)
+![alt tag](https://github.com/dottjt/LearningSchedule/blob/master/docs/V4%20Initial.png)
 
 **12-04-17**: Changes in the application are now (largely) updating the database and my tag solution is working like a champ (though the date-picker is refusing to be consistent). I've also consolidated the initial data sync process to ensure that it's retrieving data from an authenticated user, rather than a crack addict. 
 
