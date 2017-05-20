@@ -19,6 +19,8 @@ Website: https://learningschedule.com
 
 **20-05-17**: Perfect. Perfect. Perfect. Alterated a lot of the styling and it looks mint. The homepage is absolutely GORGEOUS. Like seriously, incredible. I want to eat off it. I think the styling is 90% there. Now I need to work on some user authentication things, in particular making the app work with no data, as well as improving the registering process. Grind it, baby. 
 
+https://github.com/dottjt/LearningSchedule/blob/master/docs/header%20v7.png
+
 **19-05-17**: I was a bit disappointed today. I mean, I got a heap done on my app and it looks really nice in a lot of different ways - however I was under the impression that production wouldn't be far away, but I think I stil have quite a while to go. I showed it to my friends and the number of bugs and incomplete features was rediculous. I think I need to reset expectations to the end of this year. Certainly. 
 
 **18-05-17**: HUGE milestone everyone! All core functionality officially works for the very first time, which means the aplication is ready for some kind of crappy beta! I need to start working some more on the homepage so I can get this bad boy up and running on a server :))))) Also, currently trying to implement emojis on this thing, and it's proving to be a challenge - but the kind of thing that makes me happy. 
@@ -104,7 +106,7 @@ I'm really not happy with the bloat that's gathered in my app. I feel like it ne
 
 **17-04-17**: Yes! Finally got the images to load. Part of it was my error, in that I was updating an element which wasn't the element I was looking at and got really frustrated. The up side is that it's teaching me so much about Javascript and how to really command react, down to the dizzy details. Here are the designs of the project.
 
-![alt tag](https://github.com/dottjt/LearningSchedule/blob/master/V4%20Latest.png)
+![alt tag](https://github.com/dottjt/LearningSchedule/blob/master/docs/V4%20Latest.png)
 
 **16-04-17**: HUGE day. Implemented a lot of front-end and the UI/UX is looking appropiately snazzy. Also managed to get file uploads up and running. HOWEVER I have been fighting react tooth and nail to get images to work. The problem is the React lifecycle method, which does a blank iniital render. Problem is that you can only update the src attribute on an img tag once, so I'm having to write the most convoluted conditional logic to get it to work. And I still can't....  
 
