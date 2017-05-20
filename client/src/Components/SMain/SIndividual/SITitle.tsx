@@ -109,7 +109,19 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 										placeholder="Schedule Title."
 										disabled={fieldDis}
 										/>
-              
+							<div id={si__title__display__none} className="si__title__schedule_url__field__container">
+								<p className="si__title__schedule_url__field__pre">URL:</p>
+								<Field className="si__title__schedule_url__field" 
+											name="schedule_url" 
+											component="input" 
+											type="text" 
+											placeholder="Schedule Url."
+											disabled={fieldDis}
+											/>
+
+							</div>
+
+
 							<div className="si__title__summary__container">
 
 								<Field id={si__title__border__none} className="si__title__summary__field" 

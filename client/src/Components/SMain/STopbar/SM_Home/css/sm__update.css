@@ -1,11 +1,11 @@
 .sm__update__outer__container {
-      margin-left: 4rem;
+      margin-left: 5rem;
       width: 42rem;
       float: left;
 }
 
 .sm__update__text {
-    width: 44rem;
+    width: 43rem;
     font-size: 1.05rem;
     line-height: 1.8rem; 
     float: left;
@@ -24,23 +24,42 @@
 
 .sm__update__text__yolo {
     border-bottom: 1px solid #e0e0e0;
+
 }
 
+.sm__update__link__yolo {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.no__underline {
+    /*border-bottom: 1px solid white;*/
+    /*color: #e0e0e0;*/
+    font-weight: 100;
+}
 
 .sm__update__link__yolo a {
+    color: black;;
+    border-bottom: 1px solid #424242;
+    text-decoration: none;
+    /*color: #42dcf4;*/
     /*border-bottom: 1px solid #e0e0e0;*/
-    color: cyan;
-    /*text-decoration: underline #242526;*/
+}
+
+.sm__update__rainbow {
+/*
+    color: linear-gradient(to right, #FF6600 , #07FAA0, #6699FF, #F7AE84, #F5EDE3); 
+    
+
+    color: transparent;
+    background-clip: text;
+*/
 }
 
 .sm__update__milestone__yolo {
     font-weight: 500;
     /*border-bottom: 1px solid #e0e0e0;*/
 }
-
-
-
-
+ 
 
 
 .sm__update__text:hover .sm__update__text__yolo {

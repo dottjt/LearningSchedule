@@ -20,7 +20,7 @@ class STLogout extends React.Component<any, undefined>  {
     
     return (
       <form method="get" action="auth/logout"> 
-        <button type="submit" className="btn btn-primary" onClick={(event) => this.onLogoutClick(event)}>
+        <button type="submit" className="st__login__submit btn btn-primary" onClick={(event) => this.onLogoutClick(event)}>
           Logout
         </button>
       </form>

@@ -1,19 +1,20 @@
-
-
-
-
-
-
 .si__update__container {
-    width: 20rem;
-    margin-left: 8rem;
+    position: relative;
+    bottom: 17.5rem;
+    left: 8rem;
+    width: 775px;
+    height: 22rem;
 	float: left; 
+    background-color: white;
+    padding: 2rem;
+    padding-left: 3rem;
+    box-shadow: 4px 5px 5px #888888;
+
+    margin-bottom: -5rem;
+    /*box-shadow: 0 10px 6px -6px #777;*/
+
 }
 
-
-.update__outer__container {
-
-}
 
 
 .si__update__top__container {
@@ -37,9 +38,10 @@
     top: 0.1rem;
     float: left;     
     outline: none;
-
+    font-size: 0.75rem;
+    font-weight: 100;
     background: #f8f8f8;
-    width: 7rem;
+    width: 7.5rem;
     height: 1.6rem;
 
     border-radius: 2px;
@@ -57,7 +59,7 @@
 
 
 .si__update__inner {
-    width: 43rem;
+    width: 39rem;
     float: left;
     padding-bottom: 2rem;
     border-bottom: 1px solid #dbdbdb;
@@ -122,7 +124,7 @@
 
 .si__update__title__field__relative {
     position: relative;
-    top: 0.5px;
+    bottom: 2px;
 }
 
 .si__update__text__container {
@@ -236,9 +238,16 @@
 }
 
 .si__update__select__container {
-    width: 208px;
-    border-top: 1px solid #dbdbdb;
+    font-size: 0.75rem;
+    width: 260px;
     padding-top: 0.8rem;
+}
+
+.si__update__select__inner {
+    padding-top: 0.8rem;
+
+    border-top: 1px solid #dbdbdb;
+    width: 214px;
 }
 
 .si__update__select {
@@ -248,7 +257,7 @@
     top: 0.1rem;
     float: left;     
     outline: none;
-
+    font-weight: 100;
     border-bottom: 1px solid darkgrey;
 
     border: none;
@@ -343,7 +352,7 @@
     float: left;
     margin-top: 0.8rem;
     width: 40rem;
-    height: 2rem;
+    height: 2.4rem;
 
 }
 
@@ -363,7 +372,7 @@
     font-weight: 100;
 
     width: 40rem;
-    height: 8rem;
+    height: 10rem;
 
 
     resize: none;
@@ -371,130 +380,8 @@
 }
 
 
-/*
-
-    SIUPDATE SINGLE LINK
-
-                            */
-
-.update__single__link__container {
-    float: left;
-    margin-top: 0.8rem;
-    width: 40.2rem;
-    height: 8rem;
-    /*display: flex;
-    align-items: center; 
-    justify-content: center;*/
-
-}
-.update__single__link__field {
-    float: left; 
-    font-size: 1.05rem;
-    line-height: 1.8rem; 
-    color: #242526;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 100;   
-    display: block; 
-
-    height: 2rem;
-    width: 40.8rem; 
-
-    resize: none;
-    border: none;
-    
-
-}
-
-.update__single__link__field__bottom {
-    margin-top: 1rem;
-}
-
-/*
-
-    SIUPDATE SINGLE MILESTONE
-
-                            */
 
 
-.update__single__milestone__container {
-    float: left;
-    margin-top: 0.8rem;
-    margin-left: 0.2rem;
-
-    width: 40.2rem;
-    height: 8rem;
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-}
-
-.update__single__milestone__field {
-    font-size: 1.05rem;
-    line-height: 1.8rem; 
-    color: #242526;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 100;
-
-    float: left;
-    margin-top: 0.8rem;
-    width: 40rem;
-    height: 2rem;
-
-    resize: none;
-    border: none;
-
-}
-
-
-
-.si__update__milestone__container {
-    width: 44rem;
-    font-size: 1.05rem;
-    line-height: 1.8rem; 
-    float: left;
-    outline: none;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    margin-left: 0.2rem;
-    
-    position: relative;
-    padding-left: 2px;
-    color: #242526;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 100;
-
-}
-
-
-
-
-.si__update__milestone__field {
-    font-size: 1.05rem;
-    line-height: 1.8rem; 
-    color: #242526;
-    font-family: 'Nunito', sans-serif;
-
-    border:none;
-    background-image:none;
-    background-color:transparent;
-    box-shadow: none;
-    resize: none;
-
-    float: left;
-    height: 1.8rem;
-    width: 40rem;
-
-}
-
-
-
-#si__update__display__none {
-    display: none;
-}
-
-
-.si__update__tag__individual__container {
-}
 
 
 .si__update__tag__inner {
@@ -530,20 +417,39 @@
 }
 
 
-#si__update__border__none {
-    border: none;
+
+
+.emoji-picker-container-reade {
+  display: block;
+  float: left; 
+  margin-left: 0.3rem;
+  position: relative;
+  bottom: 0.3rem;
 }
 
-.si__update__individual__empty {
-    margin-top: 3rem;
-    margin-left: 1rem;
-    margin-bottom: 15rem;
-    font-size: 1.8rem;
-    line-height: 2.5rem; 
-    color: #242526;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 100;
-    width: 40rem;
+.emoji-picker-button {
+  display: block;
+  float: left;
+  position: relative;
+  top: 2px;
+  width: 33px;
+  height: 33px;
+}
 
+
+
+.emoji-dialog .emojione {
+  margin: 0;
+}
+
+.emojione {
+  position: relative;
+  bottom: 4px;
+  right: 4px;
+  width: 30px;
+  height: 30px;
+  
+  outline: none;
+  border: none;
 
 }

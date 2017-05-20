@@ -76,9 +76,10 @@
 
 .st__midbar__website {
     color: none;
-
     font-size: 1.3rem;
     margin-left: 1.5rem;
+    position: relative;
+    top: 0.3rem;
 }
 
 
@@ -87,12 +88,15 @@
 }
 
 .st__midbar__website__link {
+    float: left;
     display: block;
     color: cyan;
 	font-family: 'Nunito', sans-serif;
 	font-weight: 100;
     font-size: 1.3rem;
+    text-decoration: none;
 }
+
 
 .st__midbar__edit__button {
     position: relative;
@@ -120,14 +124,13 @@
  
 .st__midbar__edit__button--na {
     position: relative;
-    left: 6rem;
-    bottom: 1rem;
+    left: 9rem;
+    bottom: 1.4rem;
     
-    height: 1.4rem;
-    width: 4rem;
-    border: none;
-    border-radius: 2rem; 
-
+    height: 1.95rem;
+    width: 5rem;
+    border: 0;
+    font-size: 1rem;
     background-color: white; 
     float: right;
 
@@ -135,9 +138,11 @@
 }
 
 .st__midbar__profile_username__container {
+    position: relative;
+    bottom: 0.1rem;
+    right: 0.2rem;
     float: left;
     width: 600px;
-    margin-left: 1.6rem;
     margin-bottom: 2rem;
     position: relative;
     bottom: 1rem;
@@ -198,15 +203,32 @@
   margin-bottom: 2rem;
 }
 
+
 .st__summary__text {
+  position: relative;
+  bottom: 0.3rem;
+  right: 0.2rem;
+  margin-bottom: 0.45rem;
+  width: 100%; 
   font-size: 1rem; 
+
+}
+
+.st__summary__text__ul {
+  list-style-type: katakana-iroha;
   margin-bottom: 0.9rem;
   width: 100%; 
-  list-style-type: katakana-iroha;
-/*
+
+}
+
+.st__summary__text__li {
+  margin-bottom: 0.9rem;
+  width: 100%; 
+
+    font-size: 1rem; 
     color: #242526;
-	font-family: 'Nunito', sans-serif;
-	font-weight: 100;*/
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
 
 }
 

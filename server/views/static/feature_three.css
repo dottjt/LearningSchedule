@@ -2,42 +2,37 @@
 
 .sm__individual__container {
 		position: relative;
-		bottom: 14.5rem;
-		left: 4rem;
-		margin-left: 4rem;
-        width: 800px;
+		bottom: 32.5rem;
+		left: 8rem;
+        width: 820px;
+		height: 890px;
         float: left;
 		background-color: white;
+	    box-shadow: 4px 5px 5px #888888;
+		margin-bottom: -24rem;
 }
 
 .sm__tag__outer__container {
     list-style-type: none;
     margin-bottom: 3rem;
-    margin-left: 10rem;
+    margin-left: 7.2rem;
+
 }
 
 .sm__tag__text {
-    color: #00ebff;
     display: inline-block;
     margin-top: 1rem;
-    width: 8rem;
+    width: 9.5rem;
+    height: 1.4rem;
     font-family: 'Nunito', sans-serif;
     font-size: 0.9rem;
     font-weight: 100;
+    text-decoration: underline #c9c9c9;
  }
 
 
 
 
-
-
-
-
-.sm__title__container {
-		margin-top: 2rem;
-    	width: 100%;
-		float: left; 
-}
 
 /* 	profile picture - username 	*/
 
@@ -114,14 +109,19 @@
 .sm__title__container {
 	font-size: 2rem;
 	font-family: arial;
-	margin-left: 5rem; 
+	margin-left: 2.4rem; 
 	margin-bottom: 2rem; 
+	margin-top: 2rem;
+	width: 100%;
+	float: left; 
 }
 
 .sm__title__a--link {
 	color: #242526;
 	font-family: 'Nunito', sans-serif;
 	font-weight: 100;
+	margin-left: 2rem;
+
 
 }
 .sm__title__a--link:hover {
@@ -140,8 +140,8 @@
 .sm__title__schedule__summary {
 	font-size: 1.1rem;
 	margin-bottom: 1.5rem; 
-	margin-left: 5rem;
-	width: 40rem;
+	margin-left: 4.6rem;
+	width: 37rem;
 	line-height: 1.6rem;
 
 	color: #242526;
@@ -159,13 +159,13 @@
 
 
 .sm__update__outer__container {
-      margin-left: 4rem;
+      margin-left: 2.4rem;
       width: 100%;
       float: left;
 }
 
 .sm__update__text {
-    width: 750px;
+    width: 675px;
     font-size: 1.05rem;
     line-height: 1.8rem; 
     float: left;
@@ -184,11 +184,47 @@
 
 .sm__update__text__yolo {
     border-bottom: 1px solid #e0e0e0;
+	font-weight: 100;
 }
 
 
 .sm__update__text:hover {
     padding-left: 60px;
     border-left: 2px solid darkgrey;
+
+}
+
+
+.feature__four__container {
+    position: relative;
+	left: 6rem;
+	bottom: 21.4rem;
+	padding-top: 3rem;
+
+	width: 795px;
+	height: 410px;
+	background: white;
+
+    box-shadow: 4px 5px 5px #888888;
+	
+}
+
+.sm__update__milestone__yolo {
+    font-size: 1.15rem;
+}
+
+.sm__update__text {
+
+    width: 43rem;
+    line-height: 1.8rem; 
+    float: left;
+    outline: none;
+    margin-bottom: 1.5rem;
+    margin-left: 1rem;
+    
+
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
 
 }

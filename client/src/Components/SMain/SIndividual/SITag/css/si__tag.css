@@ -4,9 +4,19 @@
 
 .si__tag__container {
       margin-left: 8rem; /*6.9*/
-      margin-bottom: 2rem;
+      padding-bottom: 2rem;
       width: 42rem;
       float: left;
+      border-bottom: 1px solid #dbdbdb;
+      margin-bottom: 2rem;
+}
+
+#true {     
+      border: 0;
+}
+
+#false {
+      margin-bottom: 0;
 }
 
 .si__tag__inner {
@@ -23,6 +33,7 @@
 }
 
 
+
 .si__tag__title__field {
       font-size: 0.8rem;
       float: right; 
@@ -31,7 +42,6 @@
       outline: none;
       overflow: hidden;
       resize: none;
-
       z-index: -200;
 }
 
@@ -51,7 +61,7 @@
 .si__tag__add {
       margin-left: 0.2rem;
       position: relative;
-      top: 0.1rem;
+      top: 0.2rem;
       float: left;     
       outline: none;
 
@@ -61,11 +71,22 @@
       outline: none;
       overflow: hidden;
       resize: none;
-      width: 4rem;
-      height: 1.6rem;
+      width: 4.9rem;
+      height: 1.45rem;
+      background: #e8e8e8;
+
 }
 
+#si__tag__add__text {
+      position: relative;
+      top: 1px;
+}
 
 #si__tag__display__none {
       display: none;
+}
+
+#si__tag__border__none {
+      border: 0;
+      color: black;
 }

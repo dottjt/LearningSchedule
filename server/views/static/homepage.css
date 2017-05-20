@@ -3,7 +3,7 @@
 						*/
 
 * {
-    font-family: 'Nunito', sans-serif;
+    	font-family: 'Nunito', sans-serif;
 		color: #47525d;
 		/*background-color: #FCF2E8;*/
 		box-sizing: border-box; 
@@ -85,25 +85,32 @@ body {
 .header__title {
 	text-align: center;
 	font-size: 5rem;
-	margin-top: 12rem;
+	margin-top: 11.5rem;
 }
 
 .header__title_secondary {
-	width: 70%;
+	width: 50%;
 	margin: 0 auto;
 	margin-top: 5.5rem;
 	text-align: center;
 	font-size: 1.5rem;
-	margin-bottom: 3.5rem;
+	margin-bottom: 1.5rem;
+	padding-bottom: 2rem;
+	border-bottom: 1px solid darkgrey;
 }
 
 .header__title_third {
 	width: 70%;
 	margin: 0 auto;
-	margin-top: 3.5rem;
+	margin-top: 2rem;
 	text-align: center;
 	font-size: 1.1rem;
 	margin-bottom: 2rem;
+	
+	/*font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+	color: #47525d;*/
+
 }
 
 .header__buttons {
@@ -257,7 +264,7 @@ body {
 }
 
 .feature__text {
-	width: 70%;
+	width: 68%;
 	margin: 0 auto;
 	/*margin-left: 2.5rem;*/
 	font-size: 1.05rem;
@@ -267,33 +274,49 @@ body {
 }
 
 .feature__box {
-	height: 300px;
+	height: 350px;
 }
 
 .feature__box1 {
+	position: relative;
+	right: 7rem;
+	float: right;
 	background-color: #FF6600;
-	width: 670px;
+	width: 930px;
 	margin-top: 2rem;
-	margin-left: 2.5rem;
+	margin-left: 2rem;
 }
 
 .feature__box2 {
 	background-color: #07FAA0;
 	width: 760px;
+	height: 720px;
 	margin-top: 2rem;
 	margin-left: 2.5rem;
 }
 
-.feature__box3 {
-	background-color: #6699FF;
-	width: 678px;
+.feature__box25 {
+	background-color: #F5EDE3;
+	width: 760px;
+	height: 300px;
 	margin-top: 2rem;
 	margin-left: 2.5rem;
+	margin-bottom: -30rem;
+
+}
+
+.feature__box3 {
+	background-color: #6699FF;
+	width: 800px;
+	height: 450px;
+	margin-top: 2rem;
+	margin-left: 2rem;
 }
 
 .feature__box4 {
 	background-color: #F7AE84;
 	width: 780px;
+	height: 400px;
 	margin-top: 2rem;
 	margin-left: 2.5rem;
 }
@@ -311,7 +334,6 @@ body {
 
 
 .closing__container {
-	margin-top: 20rem;
 	margin-left: 8rem;
 
 }
@@ -498,6 +520,28 @@ body {
 	margin-top: 4rem;
 }
 
+input[type="text"] {
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+	color: #47525d;
+}
+
+input[type="password"] {
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+	color: #47525d;
+}
+
+
+/*
+button[type="submit"] {
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+	color: #47525d;
+}*/
+
+
+
 .login__field {
 	margin-top: 2rem;
 
@@ -532,11 +576,21 @@ body {
 }
 
 .navbar-links {
+	font-family: 'Nunito', sans-serif;
+	color: #47525d;
+
 	margin-right: 0.5rem;
 	margin-top: 0.5rem;
 	font-size: 1.2rem;
 }
 
 .navbar-links-right {
-	margin-right: 1.6rem;
+	margin-right: 2rem;
+}
+
+
+
+
+.feature__box__n__feature {
+	margin-left: 5rem;
 }

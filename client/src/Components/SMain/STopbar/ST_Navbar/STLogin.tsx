@@ -34,7 +34,7 @@ class STLogin extends React.Component<any, undefined>  {
       <form className="st__login__container" method="post" action="auth/login">
         <input type='text' ref='email' name='email' className="form-control st__login__email" placeholder='Email'/>
         <input type='password' ref='password' name='password' className="form-control st__login__password" placeholder='Password'/>
-        <button type="submit" onClick={(event) => this.handleClick(event)} className="btn btn-primary">
+        <button type="submit" className="st__login__submit btn btn-primary" onClick={(event) => this.handleClick(event)}>
           Login
         </button>
 

@@ -8,22 +8,31 @@ const user_queries = require('../queries/user_queries');
 
 router.post('/register', authHelpers.loginRedirect, (req, res, next)  => {
   return authHelpers.createUser(req, res)
-  .then((response) => {
-    passport.authenticate('local-signup', (err, user, info) => {
+    .then((response) => {
+      
+      passport.authenticate('local-signup', (err, user, info) => {
 
-      // if (user) { handleResponse(res, 200, 'success'); }
+          if (user) { 
+            req.logIn(user, function (err) {
+              if (err) { handleResponse(res, 500, 'error'); }
 
-        if (user) { 
-          console.log('Register successful :)');
-          res.redirect('/' + req.user.username);
-        }
+              return user_queries.getSingleUser(req.user.username)
+                  .then((singleUser) => {
 
-    })(req, res, next);
-  })
+                    res.clearCookie('yolo');
+                    res.cookie('yolo', singleUser.summaries_id, { maxAge: 604800000000, httpOnly: false });
+                    res.redirect('/' + req.user.username)
+                  })
+            });
+          }
+
+      })(req, res, next);
+    })
   .catch((err) => { handleResponse(res, 500, 'error'); });
 });
 
 router.post('/login', authHelpers.loginRedirect, (req, res, next) => {
+
   passport.authenticate('local-signup', (err, user, info) => {
     if (err) { handleResponse(res, 500, 'error'); }
     if (!user) { handleResponse(res, 404, 'User not found'); }
@@ -38,6 +47,8 @@ router.post('/login', authHelpers.loginRedirect, (req, res, next) => {
 
       return user_queries.getSingleUser(req.user.username)
       .then((singleUser) => {
+
+        res.clearCookie('yolo');
         res.cookie('yolo', singleUser.summaries_id, { maxAge: 604800000000, httpOnly: false });
         res.redirect('/' + req.user.username)
       })
@@ -52,10 +63,10 @@ router.get('/logout', authHelpers.loginRequired, (req, res, next) => {
 
   // handleResponse(res, 200, 'success');
 
-  req.logout();
   // res.clearCookie('yolo', '', { maxAge: new Date() });
-  res.clearCookie('yolo');
+  req.logout();
   req.session.destroy();
+  res.clearCookie('yolo');
   res.redirect('/login');
 
 });

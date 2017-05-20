@@ -13,6 +13,9 @@
 		<link rel="stylesheet" type="text/css" href="/static/feature_two.css">
 		<link rel="stylesheet" type="text/css" href="/static/feature_three.css">
 
+
+		<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
 		<title>Learning Schedule | Your Online Learning Timeline</title>
 </head>
 
@@ -21,9 +24,8 @@
 		<div class="container-fluid navbar__container">
 				<!--<a class="navbar-brand">Learning Schedule</a>-->
 			<ul class="nav navbar-nav navbar-right">
-					<li class="navbar-links"><a href="/signup" title="News">Login</a></li>
-					<li class="navbar-links"><a href="/news" title="News">News</a></li>
-					<li class="navbar-links navbar-links-right"><a href="/about" title="About">About</a></li>
+					<li class="navbar-links navbar-links-right"><a href="/login" title="News">Login</a></li>
+					<!--<li class="navbar-links "><a href="/about" title="About">About</a></li>-->
 
 
 				<!--<li><a href="/login" title="Login">Login</a></li>
@@ -67,6 +69,7 @@
 
 			<h3 class="header__title_third">
 				Let the whole world know how hard you've worked.
+				<!--Let the whole world know how hard you've worked.-->
 				<!--Because you worked hard for it. -->
 				<!-- You worked hard. So capitalise on it.-->
 				<!--You worked so hard. Let the whole world know.-->
@@ -78,12 +81,12 @@
 				<!-- Because the world needs to know you worked hard. -->
 			</h3>
 
-			<form class="header__form" action="auth/login" method="post" accept-charset="utf-8">
+			<form class="header__form" action="auth/register" method="post" accept-charset="utf-8">
 				
 
 				<div class="header__form-group">
 					<!--<label for="username">Email:</label>-->
-					<input class="form-control header__form-input" type="text" name="username" value="" placeholder="Email">
+					<input class="form-control header__form-input" type="text" name="email" value="" placeholder="Email">
 				</div>
 
 				<div class="header__form-group">
@@ -107,7 +110,8 @@
 
 
 
-	<main class="main__container">
+	<main class="main__container container-fluid">
+
 
 
 		<!-- FEATURE ONE  -->
@@ -119,17 +123,25 @@
 						Intro 
 					</h4>-->
 
-					<div class="feature__intro">
-						<!--Learning Schedule is your online learning profile. -->
-						Learning Schedule is an online profile for self-learners.
+					<div class="feature__title">
+						Learning Schedule is your online learning profile. 
+						<!--Learning Schedule is an online profile for self-learners.-->
 					</div>
-		
+					
+					<p class="feature__text">
+						Learning Schedule is designed to appear in Google search results whenever someone </br>searches for your name. 
+						<!--I wonder what employers will discover when they search for your name? -->
+					</p>
 
+
+	<div class="feature__box__n__feature">
+
+						<div class="feature__box feature__box3"></div>
 
 
 <!-- Beginning of sample - feature One -->
 
-			<div class="container-fluid">
+			<div class="feature__one__container">
                 
                 <div class="row st__midbar__container">
                     <div class="st__midbar__top">
@@ -208,6 +220,7 @@
 
 <!---->
 
+</div> <!-- end of feature box n' feature--> 
 
 
 
@@ -217,7 +230,6 @@
 				</div>
 			<div>
 		</section>
-
 
 
 
@@ -236,10 +248,15 @@
 					</h2>
 					<div class="feature__main">
 						<p class="feature__text">
-							Learning Schedule allows you to easily track, record and archive your learning progress so you always know where you're at, even if you've decided to take a break from your learning
+							Learning Schedule allows you to easily track, record and archive your learning progress so </br> you always know where your head's at.
+							<!--Your Learning Schedule profile allows you to easily track, record and archive your learning progress, so you always know where you're at, even if you've decided to take a break from your learning-->
 
-							<a href="" title="">read more…</a> 						
+							<!--<a href="" title="">read more…</a> 						-->
 						</p>
+
+
+	<div class="feature__box__n__feature">
+
 
 						<div class="feature__box feature__box1"></div>
 
@@ -247,19 +264,85 @@
 
 <!-- Beginning of sample - feature two -->
 
+                <form class="si__update__container">
 
+                    <div class="si__update__single__container">
+                        
+                        <div class="si__update__select__container">
+							<div class="si__update__select__inner">
+							</div>
 
+                            <select class="si__update__select" name="update_type" type="select">
+                                <option value="text">Text</option>
+                                <option value="link">Link</option>
+                                <option value="milestone">Milestone</option>
+                            </select>
+
+                            <button class="si__update__add" type="button">Add Update</button>
+                            
+                            <a class="emoji-picker-container-reade">
+								<img class="emoji-picker-button" src="https://cdn.jsdelivr.net/emojione/assets/png/1f642.png?v=2.2.7">
+                            </a>
+
+                            <div class="update__single__field__container">
+
+                                <input class="update__single__title__field" 
+                                        name="update_title" 
+                                        type="text" 
+                                        placeholder="Title."
+										value="Holy Mackerel."
+                                        maxLength={300}
+                                        />
+
+							<div class="update__single__text__container">
+								<textarea class="update__single__text__field" 
+										name="update_text"
+										type="text"
+										placeholder="Text."
+										maxLength={300}
+										>My application officially works! The backend is perfectly connected with the front-end !!!!!! It’s like, the happiest day of my life. Although, I'm still having issue getting user authentication working, and I recently discovered this bug that steals all your credit card information and burns your house down, but if I can sell it as a feature...
+								</textarea>
+							</div> 
+
+                            </div> <!-- update__single__field__container -->
+                        </div>
+<!--                       
+
+					<div class="si__update__individual__container">                
+
+							<div class="si__update__inner"> 
+
+									<button class="si__update__remove" title="Remove Update"><span class="si__update__remove__x">x</span></button>
+
+									<div class="border__left"></div>
+
+										<div class="si__update__top__container">  
+											<p class="si__update__date">01 Apr 2017</p>
+											
+											<p class="si__update__title__input si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength="60"> - I cannot believe I did it.</p>
+
+											<div class="si__update__text__container">
+												<textarea class="si__update__text__field" name="update_text" type="text" component="textarea" label="update_text" maxLength="300"></textarea>
+											</div>
+											<div class="clear"></div>
+										</div>
+							</div> 
+						
+						</div> -->
+
+					
+                    </div>  
+				</form>
 
 
 <!---->
+</div> <!-- end of feature box n' feature--> 
 
-					<img class="feature_image_2" src="/static/images/image_2.png" />
 	
 					</div>
 				</div>
 			<div>
 		</section>
-
 
 		
 		<!-- FEATURE THREE -->
@@ -274,9 +357,16 @@
 
 					<div class="feature__main">
 						<p class="feature__text">
-							Learning Schedule is a fancy, real-time portfolio. Not only does it look amazing, however it is also designed to help you describe your learning progress, in as much or as little detail as you want
-							<a href="" title="">read more…</a></p>	
+							Learning Schedule is your fancy online portfolio, that allows you to describe your learning </br>in as much or as little detail as you like.
+							<!--<a href="" title="">read more…</a></p>	-->
+					
+					
+	<div class="feature__box__n__feature">
+					
+					
+					
 						<div class="feature__box feature__box2"></div>
+						<div class="feature__box feature__box25"></div>
 
 
 
@@ -347,7 +437,7 @@
 							</p>
 							<p class="sm__update__text">
 								<span class="sm__update__text__yolo"> 
-									Mar 30 - Really getting the hang of writing tests and learning about dev dependencies and making mocha, babel and webpack working together. Will be goooood :)
+									Mar 30 - Really getting the hang of writing tests and learning about dev dependencies and making mocha, babel and webpack working together. Will be goooood ///// blaahhhh *cough cough* @#TARst3p v
 								</span>
 							</p>
 							<p class="sm__update__text">								
@@ -366,6 +456,7 @@
 
 <!---->
 
+</div> <!-- end of feature box n' feature--> 
 
 
 					<!--<img class="feature_image_3" src="/static/images/image_3.png" />-->
@@ -376,37 +467,8 @@
 		</section>
 
 
-		<!-- FEATURE FOUR -->
 
-
-		<section class="feature__container">
-			<div class="container">
-				<div class="row feature__hover">
-					<h2 class="feature__title">
-						Inspire the world with your learning achievements. <!-- Showcase your learning achievements -->
-					</h2>
-
-					<div class="feature__main">
-						<p class="feature__text">
-							Learning Schedule is a public place for you to share your daily learning, on our personal projects and general human development
-
-							<a href="" title="">read more…</a> 
-						<div class="feature__box feature__box3"></div>
-
-						</p>	
-
-<!-- Beginning of sample - feature four -->
-
-
-
-<!---->
-
-					</div>
-				<div>
-			</div>
-		</section>
-
-		<!-- FEATURE FOUR -->
+		<!-- FEATURE FIVE 
 		
 		<section class="feature__container">
 			<div class="container">
@@ -420,24 +482,87 @@
 							Learning Schedule is designed to impress potential employers. Learning is such a vital process in a professional development process, yet how do we let employers know we care? 
 
 							<a href="" title="">read more…</a> 
-						<div class="feature__box feature__box4"></div>
+						<div class="feature__box feature__box5"></div>
 
 						</p>	
 					</div>
 				<div>
 			</div>
-		</section>	
+		</section>	-->
 
 
-		<!-- FEATURE FIVE -->
+
+
+
+
+		<!-- FEATURE FOUR -->
+
 
 		<section class="feature__container">
 			<div class="container">
 				<div class="row feature__hover">
 					<h2 class="feature__title">
-						Guess what shows up when employers search your name? 
-						<!--An online framework for self-learners. -->
+						Inspire with your amazing learning achievements. <!-- Showcase your learning achievements -->
 					</h2>
+
+					<div class="feature__main">
+						<p class="feature__text">
+							Learning Schedule allows you to share your learning habits, insights and achievements.
+
+							<!--, on our personal projects and general human development-->
+
+							<!--<a href="" title="">read more…</a> -->
+					
+					
+	<div class="feature__box__n__feature">
+
+						<div class="feature__box feature__box4"></div>
+
+						</p>	
+
+<!-- Beginning of sample - feature four -->
+				<div class="feature__four__container">
+					<p class="sm__update__text">
+						<span class="sm__update__milestone__yolo">Sep 12 - 🎉🎉 Finished reading C# Advanced techniques! 🎉🎉 </span>
+					</p>
+					<p class="sm__update__text">
+						<span class="sm__update__milestone__yolo">Aug 23 - 🎉🎉 Ate a delicious gulten free pizza! 🎉🎉 </span>
+					</p>
+					<p class="sm__update__text">
+						<span class="sm__update__milestone__yolo">Jun 01 - 🎉🎉 Finished watching CS106A Lectures! 🎉🎉 </span>
+					</p>
+					<p class="sm__update__text">
+						<span class="sm__update__milestone__yolo"> May 13 - 🎉🎉 Started reading C# Advanced techniques! 🎉🎉 </span>
+					</p>
+					<p class="sm__update__text">
+						<span class="sm__update__milestone__yolo">Mar 02 - 🎉🎉 Started reading Ancient Midori Secrets! 🎉🎉 </span>
+					</p>
+					<p class="sm__update__text">
+						<span class="sm__update__milestone__yolo">Mar 02 - 🎉🎉 Celebrated my Birthday... Learning! 🎉🎉 </span>
+					</p>
+
+				</div>
+
+<!---->
+
+</div> <!-- end of feature box n' feature--> 
+
+
+					</div>
+				<div>
+			</div>
+		</section>
+
+
+		<!-- FEATURE FIVE -->
+
+		<!--<section class="feature__container">
+			<div class="container">
+				<div class="row feature__hover">
+					<h2 class="feature__title">
+						Guess what shows up when employers search your name? -->
+						<!--An online framework for self-learners. -->
+					<!--</h2>
 
 					<p class="feature__text">
 						Learning Schedule was created for passionate self-learners. However self-learning can be difficult, which is why Learning Schedule aims to create structure and achievement in your progress 
@@ -448,7 +573,7 @@
 					</p>	
 				<div>
 			</div>
-		</section>
+		</section>-->
 
 
 		<!-- SAMPLE PROFILE -->
@@ -543,7 +668,7 @@
 
 		<section class="signup__container">
 			<h3 class="signup__header">Learning Schedule</h3>
-			<h5 class="signup__header__two">Let's take you to your account.</h5>
+			<h5 class="signup__header__two">Give it a whirl.</h5>
 			<form class="signup__form" action="auth/register" method="post" accept-charset="utf-8">
 				
 				<div class="form-group">

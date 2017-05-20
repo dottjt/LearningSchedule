@@ -71,10 +71,14 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
 
                                       */
 
+        console.log('fields length', fields.length)
 
+
+        if(fields.length > 0) {
         return (
 
             <div className="si__update__individual__container">                
+
 
                 {/* SIUpdates Begin */}
                 {fields.map((update, index) => 
@@ -88,9 +92,9 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                             {/* TEXT UPDATE */}
                             {fields.get(index).get('update_type') === "text" && 
                                 <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
-                                    <p id={si__update__border__none} className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
+                                    <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
                                     
-                                    <Field id={si__update__border__none} className="si__update__title__field" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                    <Field id={si__update__border__none} className="si__update__title__field si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
 
                                     <div className="si__update__text__container">
                                         <Field id={si__update__border__none} className="si__update__text__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
@@ -104,7 +108,7 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                 <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
                                     <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
                                     
-                                    <Field id={si__update__border__none}  className="si__update__title__field" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                    <Field id={si__update__border__none}  className="si__update__title__field si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
 
                                     <div className="si__update__link__container">
                                         <Field id={si__update__border__none}  className="si__update__link__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
@@ -121,7 +125,7 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                 <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
                                     <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
                                     
-                                    <Field id={si__update__border__none} className="si__update__title__field" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                    <Field id={si__update__border__none} className="si__update__title__field si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
 
                                     <div className="si__update__milestone__container">
                                         <Field id={si__update__border__none} className="si__update__milestone__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
@@ -136,6 +140,18 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                 )}
             </div> // SIUpdate outer container end 
         )
+
+        } else {
+            return (
+            <div className="si__update__individual__container">                
+                <h3 className="si__update__individual__empty">
+                    "Well, well, it seems like this person hasn't created any updates yet."
+
+                </h3>
+            </div>
+            )
+        }
+
     }
 }
 

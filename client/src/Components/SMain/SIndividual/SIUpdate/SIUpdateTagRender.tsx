@@ -124,8 +124,8 @@ class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdat
 
         const { fields } = this.props; 
         const { currentUpdate } = this.props;
-        const { si__update__display__none, si__update__border__none, fieldDis } = this.props;
-
+        const { si__update__display__none, fieldDis } = this.props;
+                // si__update__border__none not used 
 /*  
              COMPONENT VIEW
 
@@ -142,12 +142,12 @@ class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdat
                         if (fields.get(index).get('update_tags_id') === currentUpdate.get('update_tags_id')) {
                             return (
                                 <div className="si__update__tag__inner" key={index}>
-                                    <div id={si__update__border__none} className="si__update__tag__group">
+                                    <div className="si__update__tag__group">
                                         <button id={si__update__display__none} className="si__tag__remove" type="button" title="Remove Tag" onClick={() => this.removeTag(index)}>
                                             x
                                         </button>
 
-                                        <Field id={si__update__border__none} className="si__tag__title__field" name={`${tag}.tag_text`} type="text" component="input" label="Tag Title" maxLength={50} disabled={fieldDis} onBlur={(event) => this.changeTag(event, index)}/>
+                                        <Field className="si__tag__title__field" name={`${tag}.tag_text`} type="text" component="input" label="Tag Title" maxLength={50} disabled={fieldDis} onBlur={(event) => this.changeTag(event, index)}/>
 
                                     </div>
                                 </div>
@@ -162,7 +162,7 @@ class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdat
                     }
                     )}
 
-                    <button className="si__tag__add" id={`${si__update__display__none}`} type="text" onClick={(e) => this.addTag(e)}>Add Tag</button>
+                    <button className="si__tag__add" id={`${si__update__display__none}`} type="text" onClick={(e) => this.addTag(e)}><span className="si__tag__add__text">Add Tag</span></button>
 
                 </div> // SIUpdate outer container end 
         )

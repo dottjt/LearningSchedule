@@ -124,7 +124,7 @@ class SITagRender extends React.Component<SITagRenderProps & SITagRenderPassedPr
                     </div>
                     
                 )}
-                    <button className="si__tag__add" id={`${si__tag__display__none}`} type="text" onClick={(e) => this.addTag(e)}>Add Tag</button>
+                    <button className="si__tag__add" id={`${si__tag__display__none}`} type="text" onClick={(e) => this.addTag(e)}><span id="si__tag__add__text">Add Tag</span></button>
             </div>
         )
     }
