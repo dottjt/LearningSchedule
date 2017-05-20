@@ -17,6 +17,8 @@ Website: https://learningschedule.com
 
 # Updates 
 
+**20-05-17**: Perfect. Perfect. Perfect. Alterated a lot of the styling and it looks mint. The homepage is absolutely GORGEOUS. Like seriously, incredible. I want to eat off it. I think the styling is 90% there. Now I need to work on some user authentication things, in particular making the app work with no data, as well as improving the registering process. Grind it, baby. 
+
 **19-05-17**: I was a bit disappointed today. I mean, I got a heap done on my app and it looks really nice in a lot of different ways - however I was under the impression that production wouldn't be far away, but I think I stil have quite a while to go. I showed it to my friends and the number of bugs and incomplete features was rediculous. I think I need to reset expectations to the end of this year. Certainly. 
 
 **18-05-17**: HUGE milestone everyone! All core functionality officially works for the very first time, which means the aplication is ready for some kind of crappy beta! I need to start working some more on the homepage so I can get this bad boy up and running on a server :))))) Also, currently trying to implement emojis on this thing, and it's proving to be a challenge - but the kind of thing that makes me happy. 
