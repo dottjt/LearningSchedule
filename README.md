@@ -19,7 +19,8 @@ Website: https://learningschedule.com
 
 **20-05-17**: Perfect. Perfect. Perfect. Alterated a lot of the styling and it looks mint. The homepage is absolutely GORGEOUS. Like seriously, incredible. I want to eat off it. I think the styling is 90% there. Now I need to work on some user authentication things, in particular making the app work with no data, as well as improving the registering process. Grind it, baby. 
 
-https://github.com/dottjt/LearningSchedule/blob/master/docs/header%20v7.png
+![alt tag](https://github.com/dottjt/LearningSchedule/blob/master/docs/header%20v7.png)
+
 
 **19-05-17**: I was a bit disappointed today. I mean, I got a heap done on my app and it looks really nice in a lot of different ways - however I was under the impression that production wouldn't be far away, but I think I stil have quite a while to go. I showed it to my friends and the number of bugs and incomplete features was rediculous. I think I need to reset expectations to the end of this year. Certainly. 
 
