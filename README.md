@@ -17,6 +17,10 @@ Website: https://learningschedule.com
 
 # Updates 
 
+**23-05-17**: I wrote so much code today and implemented so many features. Git says I made 1800 insertions, which is double what I usually do each day. Didn't really fall into any pitfalls or traps, just coded and everything worked. Created a heap of actions for things like changing passwords, deleting user, fixed up add Schedule so it's working well - as well as small things, that make a big difference, like the edit button turning into save and back again. The profile page looks lovely. Tomorrow I need to focus on functionality and ensuring that these things work, particularly on the server. 
+
+**22-05-17**: I focused mainly on getting the new addSchedule pop up working today, as well as the best way to do it from a UX perspective. I also started implementing the profile drop down, as well as the profile/settings page. Foxy stuff. 
+
 **21-05-17**: So I thought I'd be a responsibile adult and begin planning things for when I believe the application will be production ready. And quite frankly, the list of things I need to do absolutely terrifies me, however I also need to focus on how far I've actually come with this thing, and remind myself that a late-2017 release is what I should be aimming for, and is totally realistic. Here is what I've come up with: 
 
 
