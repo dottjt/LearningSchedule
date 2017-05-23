@@ -36,6 +36,10 @@ function updateUpdate(update_id, updates) {
   return Updates().where('update_id', update_id).update(updates);
 }
 
+function deleteAllUpdatesOfUser(username) {
+  return Updates().where('username', username).del();
+}
+
 
 // deleteAllUpdates? 
 
@@ -47,5 +51,6 @@ module.exports = {
   getUpdatesOfScheduleId: getUpdatesOfScheduleId,
   addUpdate: addUpdate,
   deleteUpdate: deleteUpdate,
+  deleteAllUpdatesOfUser: deleteAllUpdatesOfUser,
   updateUpdate: updateUpdate
 };

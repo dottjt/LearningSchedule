@@ -5,9 +5,6 @@ var authHelpers = require('../auth/_helpers');
 var schedule_queries = require('../queries/schedule_queries');
 var tags_queries = require('../queries/tag_queries');
 
-var getSlug = require('speakingurl');
-
-
 // S - GET a single schedule from url
 router.get('/schedule_url/:schedule_url', function(req, res, next) {
 
@@ -98,8 +95,9 @@ router.post('/schedules', authHelpers.loginAccessUser, function(req, res, next) 
 
   // tags_queries.addTag(tagObject);
 
-  console.log("tags being sent?")
-  schedule_queries.addSchedule(req.body)
+  console.log(req.body)
+
+  schedule_queries.addSchedule(req.body.data)
 
     .then(function(schedule_id_array) {
 
@@ -122,11 +120,12 @@ router.post('/schedules', authHelpers.loginAccessUser, function(req, res, next) 
 router.put('/schedules', authHelpers.loginAccessUser, function(req, res, next) {
   // req.body = { schedule_title: "blah blah"}
 
-
-   schedule_queries.updateSchedule(req.body.schedule_url, req.body)
+  console.log(req.body)
+   schedule_queries.updateSchedule(req.body.schedule_id, req.body)
 
     .then(function(scheduleArray) {
-        return schedule_queries.getSingleScheduleUrl(scheduleArray[0])
+      console.log(scheduleArray)
+        schedule_queries.getSingleSchedule(scheduleArray[0])
     })
 
     .then(function(schedule) { 
@@ -137,10 +136,6 @@ router.put('/schedules', authHelpers.loginAccessUser, function(req, res, next) {
 
     .catch(function(error) { next(error); });
 });
-
-
-
-
 
 
 

@@ -38,10 +38,18 @@ class ST_Midbar extends React.Component<ST_MidbarProps & ST_MidbarPassedProps, S
         this.getCookie = this.getCookie.bind(this);
         this.onDrop = this.onDrop.bind(this);
         
-        this.state = { topbar_active: true }
+        this.state = { topbar_active: true, edit_title: "edit" }
     }
 
-    handleSummaryActive() { this.setState({ topbar_active: !this.state.topbar_active }) }
+    handleSummaryActive() { 
+        this.setState({ topbar_active: !this.state.topbar_active });
+
+        if (this.state.edit_title === "edit") {
+            this.setState({edit_title: "save"});
+        } else {
+            this.setState({edit_title: "edit"});
+        }
+    }
 
     // transform functions 
     summaryWithScheduleId = (summaries_id: string) => {
@@ -142,7 +150,12 @@ class ST_Midbar extends React.Component<ST_MidbarProps & ST_MidbarPassedProps, S
 
                                 {/* STopbar Edit Button */}
                                     {login_status_var ? (
-                                        <button className="st__midbar__edit__button" onClick={this.handleSummaryActive}><span className="st__midbar__edit__button__text">edit</span></button>
+                                        <button className="st__midbar__edit__button" onClick={this.handleSummaryActive}>
+                                            
+                                            <span className="st__midbar__edit__button__text">
+                                                {this.state.edit_title}
+                                            </span>
+                                        </button>
                                         ) : (
                                         <button className="st__midbar__edit__button--na"></button>
                                         )

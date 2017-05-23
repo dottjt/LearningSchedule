@@ -18,6 +18,7 @@ function userCheck(req, res, next) {
     // [ 'http:', '', 'localhost:3000', 'juliusreade' ]
 
     urlUsername = urlArray[1];
+    console.log(urlUsername);
     req.session.username = urlUsername;
 
     console.log(req.session.username)
@@ -29,7 +30,7 @@ function userCheck(req, res, next) {
 
 
 router.get('/:username', userCheck, (req, res, next) => {
-  
+
   if(req.session.username === '/logout') {
     res.redirect('/logout')
   }
@@ -68,5 +69,6 @@ router.get('/:username', userCheck, (req, res, next) => {
     })
 
 });
+
 
 module.exports = router;

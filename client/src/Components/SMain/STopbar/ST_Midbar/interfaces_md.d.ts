@@ -12,7 +12,8 @@ interface ST_MidbarPassedProps {
 }
 
 interface ST_MidbarState {
-    topbar_active: any
+    topbar_active: any,
+    edit_title: string
 }
 
 /*

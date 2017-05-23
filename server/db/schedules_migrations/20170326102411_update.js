@@ -9,7 +9,7 @@ exports.up = (knex, Promise) => {
       table.string('updates_id').notNullable(); 
       table.string('update_id').notNullable().unique();
 
-      table.string('update_type').notNullable();
+      table.string('update_type') //.notNullable();
       table.string('update_title');
       table.text('update_text');
       table.text('update_summary');

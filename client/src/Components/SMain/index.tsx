@@ -3,6 +3,8 @@ import { Route } from 'react-router-dom';
 
 import STopbar from './STopbar';
 import SIndividual from './SIndividual';
+import Profile from './Profile';
+
 
 // import SM_HomeLinkRender from './SM_Home/SM_HomeLinkRender';
 // import IndexTag from './STopbar/indexTag';
@@ -49,17 +51,23 @@ class SMain extends React.Component<SMainProps & SMainPropsPassed, any> {
            <div>
                 <Route exact path={`${match.url}/`} render={() => <STopbar match={match} schedules={schedules} updates={updates} summaries={summaries} tags={tags} user={user} auth={auth}/>  }  />
 
-                <Route path={`${match.url}/schedule/:article_title`} render={() => <SIndividual match={match} schedules={schedules} updates={updates} tags={tags} summaries={summaries} user={user} />  } />
-
-
-     {/*maybe take a look to see if this is faster... currently, we have a removeContainer variable which makes display: none on change. Take a look :) */}
+                {/*figure out remove container, if you can. it's currently in navbar, perhaps it should be at the homelink instead? */}
 
                 <Route path={`${match.url}/updates`} render={() => <STopbar match={match} schedules={schedules} updates={updates} summaries={summaries} tags={tags} user={user} auth={auth}/>  }  />
 
                 <Route path={`${match.url}/tags`} render={() => <STopbar match={match} schedules={schedules} updates={updates} summaries={summaries} tags={tags} user={user} auth={auth}/>  }  />
 
 
-{/*figure out remove container, if you can. it's currently in navbar, perhaps it should be at the homelink instead? */}
+             {/*maybe take a look to see if this is faster... currently, we have a removeContainer variable which makes display: none on change. Take a look :) */}
+
+                <Route path={`${match.url}/schedule/:article_title`} render={() => <SIndividual match={match} schedules={schedules} updates={updates} tags={tags} summaries={summaries} user={user} />  } />
+
+                <Route path={`${match.url}/profile`} render={() => <Profile user={user} />  } />
+
+
+
+
+
 
             </div>
 

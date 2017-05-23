@@ -271,6 +271,241 @@ export function* changeEditActiveSaga(action) {
 
 
 
+
+
+
+
+/*
+            CHANGE_USER_DETAIS_ACTION_CREATORS 
+                                                */
+
+
+export const REQUEST_CHANGE_USER_DETAILS = 'REQUEST_CHANGE_USER_DETAILS';
+export const CHANGE_USER_DETAILS_SUCCEEDED = 'CHANGE_USER_DETAILS_SUCCEEDED';
+export const CHANGE_USER_DETAILS_FAILED = 'CHANGE_USER_DETAILS_FAILED';
+
+
+export const requestChangeUserDetails = data => ({type: REQUEST_CHANGE_USER_DETAILS, data});
+export const ChangeUserDetailsSucceeded = data => ({type: CHANGE_USER_DETAILS_SUCCEEDED, data});
+export const ChangeUserDetailsFailed = err => ({type: CHANGE_USER_DETAILS_FAILED, err});
+
+
+
+/*
+            CHANGE_USER_DETAIS_ASYNC_ACTIONS
+                                                */
+
+
+export function apiChangeUserDetails(data) {
+    // check to see if this is okay.
+        axios({
+            method: 'put',
+            url: 'api/v1/users',
+            data: {
+                data
+            }
+            // headers: { 'Authorization': 'Bearer ' + token }
+        
+        });
+};
+
+
+export function* requestChangeUserDetailsSaga(action) {
+  try {
+
+    // let token = localStorage.getItem('id_token') || null;
+    // if (token) {    }
+
+    yield call(apiChangeEditActive, action.data);
+
+    yield put(changeEditActiveSucceeded(action.data));
+
+}
+  catch (err) {
+      
+    yield put (changeEditActiveFailed(err));
+  
+    }
+};
+
+
+
+
+
+
+/*
+            CHANGE_USER_DETAIS_ACTION_CREATORS 
+                                                */
+
+
+export const REQUEST_CHANGE_SOCIAL = 'REQUEST_CHANGE_SOCIAL';
+export const CHANGE_SOCIAL_SUCCEEDED = 'CHANGE_SOCIAL_SUCCEEDED';
+export const CHANGE_SOCIAL_FAILED = 'CHANGE_SOCIAL_FAILED';
+
+
+export const requestChangeSocial = data => ({type: REQUEST_CHANGE_SOCIAL, data});
+export const ChangeSocialSucceeded = data => ({type: CHANGE_SOCIAL_SUCCEEDED, data});
+export const ChangeSocialFailed = err => ({type: CHANGE_SOCIAL_FAILED, err});
+
+
+
+/*
+            CHANGE_USER_DETAIS_ASYNC_ACTIONS
+                                                */
+
+
+export function apiChangeSocial(data) {
+    // check to see if this is okay.
+        axios({
+            method: 'put',
+            url: 'api/v1/users',
+            data: {
+                data
+            }
+            // headers: { 'Authorization': 'Bearer ' + token }
+        
+        });
+};
+
+
+export function* requestChangeSocialSaga(action) {
+  try {
+
+    // let token = localStorage.getItem('id_token') || null;
+    // if (token) {    }
+
+    yield call(apiChangeEditActive, action.data);
+
+    yield put(changeEditActiveSucceeded(action.data));
+
+}
+  catch (err) {
+      
+    yield put (changeEditActiveFailed(err));
+  
+    }
+};
+
+
+
+
+
+/*
+            CHANGE_USER_DETAIS_ACTION_CREATORS 
+                                                */
+
+
+export const REQUEST_CHANGE_PASSWORD = 'REQUEST_CHANGE_PASSWORD';
+export const CHANGE_PASSWORD_SUCCEEDED = 'CHANGE_PASSWORD_SUCCEEDED';
+export const CHANGE_PASSWORD_FAILED = 'CHANGE_PASSWORD_FAILED';
+
+
+export const requestChangePassword = data => ({type: REQUEST_CHANGE_PASSWORD, data});
+export const ChangePasswordSucceeded = data => ({type: CHANGE_PASSWORD_SUCCEEDED, data});
+export const ChangePasswordFailed = err => ({type: CHANGE_PASSWORD_FAILED, err});
+
+
+
+/*
+            CHANGE_USER_DETAIS_ASYNC_ACTIONS
+                                                */
+
+
+export function apiChangePassword(data) {
+    // check to see if this is okay.
+        axios({
+            method: 'put',
+            url: 'api/v1/users',
+            data: {
+                data
+            }
+            // headers: { 'Authorization': 'Bearer ' + token }
+        
+        });
+};
+
+
+export function* requestChangePasswordSaga(action) {
+  try {
+
+    // let token = localStorage.getItem('id_token') || null;
+    // if (token) {    }
+
+    yield call(apiChangeEditActive, action.data);
+
+    yield put(changeEditActiveSucceeded(action.data));
+
+}
+  catch (err) {
+      
+    yield put (changeEditActiveFailed(err));
+  
+    }
+};
+
+
+
+
+
+
+
+/*
+            REMOVE_USER_ACTION_CREATORS 
+                                                */
+
+
+export const REQUEST_REMOVE_USER = 'REQUEST_REMOVE_USER';
+export const REMOVE_USER_SUCCEEDED = 'REMOVE_USER_SUCCEEDED';
+export const REMOVE_USER_FAILED = 'REMOVE_USER_FAILED';
+
+
+export const requestRemoveUser = () => ({type: REQUEST_REMOVE_USER});
+export const RemoveUserSucceeded = () => ({type: REMOVE_USER_SUCCEEDED});
+export const RemoveUserFailed = err => ({type: REMOVE_USER_FAILED, err});
+
+
+
+/*
+            CHANGE_USER_DETAIS_ASYNC_ACTIONS
+                                                */
+
+
+export function apiRemoveUser(data) {
+    // check to see if this is okay.
+        axios({
+            method: 'delete',
+            url: 'api/v1/users',
+            data: {
+                data
+            }
+            // headers: { 'Authorization': 'Bearer ' + token }
+        
+        });
+};
+
+
+export function* requestRemoveUserSaga(action) {
+  try {
+
+    // let token = localStorage.getItem('id_token') || null;
+    // if (token) {    }
+
+
+
+    yield call(apiChangeEditActive, action.data);
+
+    yield put(changeEditActiveSucceeded(action.data));
+
+}
+  catch (err) {
+    yield put (changeEditActiveFailed(err));
+  }
+};
+
+
+
+
+
 /*
                     LE REDUCER 
                                                 */
@@ -295,6 +530,18 @@ export function user(state = Map(), action) {
         case ADD_AVATAR_SUCCEEDED: 
             return state = state.set('avatar', action.data[0].name)
 
+        case CHANGE_USER_DETAILS_SUCCEEDED:
+            return state = state.set('username', action.data.get('username'))
+                                
+        case CHANGE_SOCIAL_SUCCEEDED:
+            return state = state.set('facebook', action.data.get('facebook'))
+                                .set('twitter', action.data.get('twitter'))
+                                .set('github', action.data.get('github'))
+
+
+        // case CHANGE_PASSWORD_SUCCEEDED: I'm not sure if this is only relevant in the server? 
+        
+        
         default:
             return state;
             

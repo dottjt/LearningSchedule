@@ -19,12 +19,12 @@
 }
 
 .si__title__profile_picture {
-  float: left;
+  	float: left;
 	display: block;
 	width: 3.5rem;
 	height: 3.5rem;
 	margin-right: 0.5rem;
-
+	border-radius: 50%;
 }
 
 .si__title__profile_picture__right {

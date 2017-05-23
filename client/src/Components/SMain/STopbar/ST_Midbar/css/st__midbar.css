@@ -14,7 +14,8 @@
 }
 
 .st__midbar__top {
-    
+    position: relative;
+    left: 0.5rem;
     height: 7rem;
     width: 100%;
     float: left; 
@@ -71,13 +72,14 @@
 }
 
 .st__midbar__top__top {
-    width: 100%;
+    width: 25rem;
+    height: 3.2rem;
 }
 
 .st__midbar__website {
     color: none;
     font-size: 1.3rem;
-    margin-left: 1.5rem;
+    margin-left: 1.6rem;
     position: relative;
     top: 0.3rem;
 }
@@ -90,7 +92,8 @@
 .st__midbar__website__link {
     float: left;
     display: block;
-    color: cyan;
+    /*color: cyan;*/
+    color: black;
 	font-family: 'Nunito', sans-serif;
 	font-weight: 100;
     font-size: 1.3rem;
@@ -99,9 +102,6 @@
 
 
 .st__midbar__edit__button {
-    position: relative;
-    left: 9rem;
-    bottom: 1.4rem;
     
     height: 1.95rem;
     width: 5rem;
@@ -111,6 +111,8 @@
     font-size: 1rem;
     background-color: white; 
     float: right;
+    cursor: pointer;
+    outline: none;
 }
 
 .st__midbar__edit__button:hover {
@@ -118,8 +120,8 @@
 }
 
 .st__midbar__edit__button__text {
-    position: relative;
-    top: 1px;
+    /*position: relative;
+    top: 1px;*/
 }
  
 .st__midbar__edit__button--na {
@@ -139,13 +141,13 @@
 
 .st__midbar__profile_username__container {
     position: relative;
-    bottom: 0.1rem;
+    bottom: 0.5rem;
     right: 0.2rem;
     float: left;
     width: 600px;
     margin-bottom: 2rem;
     position: relative;
-    bottom: 1rem;
+
 }
 
 .st__midbar__profile_username {
@@ -164,6 +166,9 @@
 
 
 .st__midbar__bottom {
+    position: relative;
+    left: 0.5rem;
+
     margin-left: 3rem;
     width: 100%;
     float: left; 

@@ -42,7 +42,7 @@ class STDisplayActive extends React.Component<STDisplayActiveProps, undefined> {
                     name="display_name" 
                     component="input" 
                     type="text" 
-                    placeholder="Your display name <3"
+                    placeholder="Display Name."
                     />
         </form>
     )

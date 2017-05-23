@@ -27,7 +27,10 @@
 
 
 
-/* homelink */
+
+/*
+        SM HOMELINK
+                        */
 
 .sm__homelink {
     width: 900px; 
@@ -36,12 +39,72 @@
     margin: 0 auto; 
 }
 
+.sm__homelink__empty {
+    border: 5px solid black; 
+    width: 900px; 
+    margin: 0 auto; 
+    margin-top: 8rem;
+    margin-bottom: 10rem;
+    padding-bottom: 1.8rem;
+
+}
+
+.sm__homelink__individual__empty {
+    font-size: 1.8rem;
+    line-height: 2.5rem; 
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+    width: 38rem;
+    margin: 0 auto;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+
+    text-align: center;
+
+}
+
+
+
+
+/*
+        SM UPDATELINK
+                        */
+
 .sm__updatelink {
     width: 900px; 
     margin-top: 3.5rem; 
     margin-bottom: 4rem;
     margin: 0 auto; 
 }
+
+.sm__updatelink__empty {
+    border: 5px solid black; 
+    width: 900px; 
+    margin: 0 auto; 
+    margin-top: 8rem;
+    margin-bottom: 10rem;
+    padding-bottom: 1.8rem;
+}
+
+
+.sm__updatelink__individual__empty {
+    font-size: 1.8rem;
+    line-height: 2.5rem; 
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+    width: 40rem;
+    margin: 0 auto;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+
+    text-align: center;
+
+}
+
+
+
 
 .sm__latest_updates {
     margin-top: 6rem;
@@ -88,3 +151,34 @@
     border-left: 2px solid darkgrey;
     padding-left: 62px;
 }
+
+
+
+/*
+        SM TAGLINK
+                        */
+
+.sm__taglink {
+    width: 900px; 
+    margin: 0 auto; 
+    margin-top: 3.5rem; 
+    margin-bottom: 4rem;
+}
+
+.sm__taglink__empty {
+    border: 5px solid black; 
+    font-size: 1.8rem;
+    line-height: 2.5rem; 
+    color: #242526;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+    width: 40rem;
+    margin: 0 auto;
+    margin-top: 7.5rem;
+    margin-bottom: 10rem;
+
+    text-align: center;
+    padding-bottom: 1.8rem;
+}
+
+

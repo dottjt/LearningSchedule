@@ -41,7 +41,7 @@ class STWebsiteActive extends React.Component<STWebsiteActiveProps, undefined> {
         <form className="st__midbar__website__form" onBlur={this.props.handleSubmit(values => this.changeWebsite(values))}>
             
             {/* STWebsiteActive Website */}
-                <Field className="st__midbar__website__link" name="website" component="input" type="text" placeholder="Have a website?"/>
+                <Field className="st__midbar__website__link" name="website" component="input" type="text" placeholder="Website."/>
 
         </form>
     )

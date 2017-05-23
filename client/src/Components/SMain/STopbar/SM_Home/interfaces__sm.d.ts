@@ -50,14 +50,16 @@ interface SM_HomeLinkRenderProps {
 
 interface SM_UpdateLinkRenderProps {
     schedules: any,
-    updates: any
+    updates: any,
+    user: any
 }
 
 // SM_TagLinkRender
 
 interface SM_TagLinkRenderProps {
     schedules: any,
-    tags: any
+    tags: any,
+    user: any
 }
 
 

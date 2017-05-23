@@ -25,13 +25,19 @@ function addTag(tag) {
   return Tags().insert(tag, 'tag_id');
 }
 
+function updateTag(tag_id, updates) {
+  return Tags().where('tag_id', tag_id).update(updates);
+}
+
 function deleteTag(tag_id) {
   return Tags().where('tag_id', tag_id).del();
 }
 
-function updateTag(tag_id, updates) {
-  return Tags().where('tag_id', tag_id).update(updates);
+function deleteAllTagsOfUser(username) {
+  return Tags().where('username', username).del();
 }
+
+
 
 
 // deleteAllTags? 
@@ -43,5 +49,6 @@ module.exports = {
   getTagsOfUser: getTagsOfUser,
   addTag: addTag,
   deleteTag: deleteTag,
+  deleteAllTagsOfUser: deleteAllTagsOfUser,
   updateTag: updateTag
 };

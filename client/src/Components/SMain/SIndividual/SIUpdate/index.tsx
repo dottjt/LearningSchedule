@@ -36,7 +36,7 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
 
     addUpdate(values) { 
 
-        const {schedule_url, schedule_id, user, form, requestAddUpdate} = this.props;
+        const {schedule_url, schedule_id, user, form, requestAddUpdate } = this.props;
 
         requestAddUpdate(Map({ 
             schedule_id: schedule_id, 
@@ -53,7 +53,7 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
     }
 
     createUpdateTagsProps(si__update__display__none, si__update__border__none, fieldDis) {
-        let { schedule_id, schedule_url, form, user } = this.props;
+        let { schedule_id, schedule_url, form, user, login_status_var } = this.props;
 
         return {
             schedule_id: schedule_id, 
@@ -62,7 +62,8 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
             username: user.get('username'),
             si__update__display__none: si__update__display__none,
             si__update__border__none: si__update__border__none,
-            fieldDis: fieldDis
+            fieldDis: fieldDis,
+            login_status_var: login_status_var
         }
     }
 
@@ -98,7 +99,7 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
                         
                         <div id={si__update__display__none} className="si__update__select__container">
                             <Field className="si__update__select" name="update_type" component="select">
-                                <option value="text">Text</option>
+                                <option default value="text">Text</option>
                                 <option value="link">Link</option>
                                 <option value="milestone">Milestone</option>
                             </Field>
@@ -126,12 +127,12 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
                                         maxLength={300}
                                         />
 
-                            {update_type_value === "text" && 
+                            {(update_type_value === "text" || update_type_value === undefined) && 
                                     <div className="update__single__text__container">
                                         <Field className="update__single__text__field" 
-                                                name="update_text" 
-                                                component="textarea" 
-                                                type="text" 
+                                                name="update_text"
+                                                component="textarea"
+                                                type="text"
                                                 placeholder="Text."
                                                 maxLength={300}
                                                 />

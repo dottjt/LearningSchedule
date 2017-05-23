@@ -28,9 +28,14 @@ function deleteSchedule(schedule_id) {
   return Schedules().where('schedule_id', schedule_id).del();
 }
 
-function updateSchedule(schedule_url, updates) {
-  return Schedules().where('schedule_url', schedule_url).update(updates, 'schedule_url');
+function updateSchedule(schedule_id, updates) {
+  return Schedules().where('schedule_id', schedule_id).update(updates, 'schedule_id');
 }
+
+function deleteAllSchedulesOfUser(username) {
+  return Schedules().where('username', username).del();
+}
+ 
 
 module.exports = {
   getAllSchedules: getAllSchedules,
@@ -39,5 +44,6 @@ module.exports = {
   getSchedulesOfUser: getSchedulesOfUser,
   addSchedule: addSchedule,
   deleteSchedule: deleteSchedule,
+  deleteAllSchedulesOfUser: deleteAllSchedulesOfUser,
   updateSchedule: updateSchedule
 };

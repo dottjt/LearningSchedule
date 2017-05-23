@@ -6,7 +6,6 @@ import SITag from './SITag';
 
 import './css/si.css';
 import { Map } from 'immutable';
-// var getSlug = require('speakingurl');
 
 
 
@@ -34,7 +33,7 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
         this.getAllRelevantUpdateTags = this.getAllRelevantUpdateTags.bind(this);
         this.getAllRelevantTags = this.getAllRelevantTags.bind(this);
         this.loginStatus = this.loginStatus.bind(this);
-        this.createElementsIfNewSchedule = this.createElementsIfNewSchedule.bind(this);
+        // this.createElementsIfNewSchedule = this.createElementsIfNewSchedule.bind(this);
         this.createElementsIfExistingSchedule = this.createElementsIfExistingSchedule.bind(this);
         this.getCookie = this.getCookie.bind(this);
     }
@@ -48,41 +47,40 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
         return this.props.schedules.filter(schedule => schedule.get('schedule_url') === schedule_url).getIn([0, 'schedule_id']); // .get('schedule_id')
     };  
 
-    retrieveUpdatesId(schedule_url: string) {
-        return this.props.schedules.filter(schedule => schedule.get('schedule_url') === schedule_url).getIn([0, 'updates_id']); // .get('updates_id')
+    retrieveUpdatesId(schedule_id: string) {
+        return this.props.schedules.filter(schedule => schedule.get('schedule_id') === schedule_id).getIn([0, 'updates_id']); // .get('updates_id')
     };
 
-    retrieveTagsId(schedule_url: string) {
-        return this.props.schedules.filter(schedule => schedule.get('schedule_url') === schedule_url).getIn([0, 'tags_id']); // .get('updates_id')
+    retrieveTagsId(schedule_id: string) {
+        return this.props.schedules.filter(schedule => schedule.get('schedule_id') === schedule_id).getIn([0, 'tags_id']); // .get('updates_id')
     };
 
 
-    getAllRelevantSchedules(schedule_url: string) {
-        return this.props.schedules.filter(schedule => schedule.get('schedule_url') === schedule_url).get(0); // this creates a Map{}
+    getAllRelevantSchedules(schedule_id: string) {
+        return this.props.schedules.filter(schedule => schedule.get('schedule_id') === schedule_id).get(0); // this creates a Map{}
     }; 
 
 
-    // getAllRelevantUpdateTags(schedule_url: string) {
-    //     return Map({update_tags: this.props.tags.filter(tag => tag.get('schedule_url') === schedule_url && tag.get('update_tag') === true)});
+    // getAllRelevantUpdateTags(schedule_id: string) {
+    //     return Map({update_tags: this.props.tags.filter(tag => tag.get('schedule_id') === schedule_id && tag.get('update_tag') === true)});
     // };
 
-    getAllRelevantUpdateTags(schedule_url: string) {
-        return this.props.tags.filter(tag => tag.get('schedule_url') === schedule_url && tag.get('update_tag') === true);
+    getAllRelevantUpdateTags(schedule_id: string) {
+        return this.props.tags.filter(tag => tag.get('schedule_id') === schedule_id && tag.get('update_tag') === true);
     };
 
     
-    getAllRelevantUpdates(schedule_url: string) {
-        return Map({updates: this.props.updates.filter(update => update.get('schedule_url') === schedule_url),
-                    update_tags: this.getAllRelevantUpdateTags(schedule_url),
-                    update_type: "text"
+    getAllRelevantUpdates(schedule_id: string) {
+        return Map({updates: this.props.updates.filter(update => update.get('schedule_id') === schedule_id),
+                    update_tags: this.getAllRelevantUpdateTags(schedule_id)
                     });
     };
 
-    getAllRelevantTags(schedule_url: string) {
-        return Map({tags: this.props.tags.filter(tag => tag.get('schedule_url') === schedule_url && tag.get('update_tag') === false)});
+    getAllRelevantTags(schedule_id: string) {
+        return Map({tags: this.props.tags.filter(tag => tag.get('schedule_id') === schedule_id && tag.get('update_tag') === false)});
     };
 
-
+/*
     createElementsIfNewSchedule(url, login_status_var) {
         let schedule_id, updates_id, tags_id;
         let sititle, siupdate, sitag;
@@ -130,7 +128,7 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
             sitag: sitag
         }
 
-    }
+    }*/
 
     createElementsIfExistingSchedule(url, login_status_var) {
         let relevant_updates, relevant_update_tags, relevant_schedules, relevant_tags;
@@ -138,13 +136,17 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
         let sititle, siupdate, sitag;
         let { user } = this.props;
 
+
         schedule_id = this.retrieveScheduleId(url);
-        updates_id = this.retrieveUpdatesId(url);
-        tags_id = this.retrieveTagsId(url);
-        relevant_updates = this.getAllRelevantUpdates(url);
-        relevant_update_tags = this.getAllRelevantUpdateTags(url);
-        relevant_tags = this.getAllRelevantTags(url);
-        relevant_schedules = this.getAllRelevantSchedules(url);
+        
+        console.log("schedule_id", schedule_id)
+
+        updates_id = this.retrieveUpdatesId(schedule_id);
+        tags_id = this.retrieveTagsId(schedule_id);
+        relevant_updates = this.getAllRelevantUpdates(schedule_id);
+        relevant_update_tags = this.getAllRelevantUpdateTags(schedule_id);
+        relevant_tags = this.getAllRelevantTags(schedule_id);
+        relevant_schedules = this.getAllRelevantSchedules(schedule_id);
 
 
         sititle = <SITitle
@@ -229,24 +231,27 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
 
         url = location.pathname.split('/')[3];
 
+        console.log("url", url);
         if (user.get('summaries_id') !== undefined && document.cookie.length > 0) {
             login_status_var = this.loginStatus();
+
+            var { sititle, siupdate, sitag } = this.createElementsIfExistingSchedule(url, login_status_var);
+
         } 
 
 
         // create components 
         if (schedules.toJS().length > 0 && url !== undefined ) {  
 
-            if ( url.length === 36 && url[8] === '-' && url[13] === '-') {
+            // if ( url.length === 36 && url[8] === '-' && url[13] === '-') {
                 // the problem is that this is ALWAYS the case because the url doesn't change. 
 
-                var { sititle, siupdate, sitag } = this.createElementsIfNewSchedule(url, login_status_var);
+                // var { sititle, siupdate, sitag } = this.createElementsIfNewSchedule(url, login_status_var);
                 
-            } else {
+            // } else {
 
-                var { sititle, siupdate, sitag } = this.createElementsIfExistingSchedule(url, login_status_var);
 
-            }
+            // }
         }
 
 

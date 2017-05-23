@@ -1,5 +1,5 @@
 interface ST_NavbarProps {    
-    requestAddSchedule(data: any, username: any): any,
+    requestAddSchedule(data: any): any,
     requestLogin(cred: any): any,
     requestLogout(): any
 }
@@ -11,6 +11,7 @@ interface ST_NavbarPassedProps {
 
 
 interface ST_NavbarState {
-    url_slug: any,
-    showProfileDrop: boolean
+    url_slug: string,
+    showProfileDrop: boolean,
+    showPopup: boolean
 }

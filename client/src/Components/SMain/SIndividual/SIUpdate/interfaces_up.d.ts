@@ -47,6 +47,7 @@ interface SIUpdateRenderPassedProps {
     username: any,
     currentUpdate: any,
     schedule_url: any,
+    login_status_var: any,
 
     si__update__display__none: any,
     si__update__border__none: any,

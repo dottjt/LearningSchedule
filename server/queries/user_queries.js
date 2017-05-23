@@ -12,8 +12,12 @@ function updateUser(username, updates) {
   return Users().where('username', username).update(updates);
 }
 
+function deleteAllUserInformation(username) {
+  return Users().where('username', username).del();
+}
 
 module.exports = {
     getSingleUser: getSingleUser,
-    updateUser: updateUser
+    updateUser: updateUser,
+    deleteAllUserInformation: deleteAllUserInformation
 };

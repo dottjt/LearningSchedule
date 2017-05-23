@@ -62,7 +62,7 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
 
     render() {
 
-        const {  si__update__display__none, si__update__border__none, fieldDis } = this.props;
+        const {  si__update__display__none, si__update__border__none, fieldDis, login_status_var } = this.props;
         const { fields } = this.props;                                                                        
 
 
@@ -73,75 +73,8 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
 
         console.log('fields length', fields.length)
 
-
-        if(fields.length > 0) {
-        return (
-
-            <div className="si__update__individual__container">                
-
-
-                {/* SIUpdates Begin */}
-                {fields.map((update, index) => 
-                    <div className="si__update__inner" key={index}> 
-
-                        {/* SIUpdate Remove Button */}
-                            <button id={si__update__display__none} className="si__update__remove" title="Remove Update" onClick={(event) => { event.preventDefault(); this.removeUpdate(index) } }><span className="si__update__remove__x">x</span></button>
-
-                            <div className="border__left"></div>
-
-                            {/* TEXT UPDATE */}
-                            {fields.get(index).get('update_type') === "text" && 
-                                <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
-                                    <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
-                                    
-                                    <Field id={si__update__border__none} className="si__update__title__field si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
-
-                                    <div className="si__update__text__container">
-                                        <Field id={si__update__border__none} className="si__update__text__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
-                                    </div>
-                                    <div className="clear"></div>
-                                </div>
-                            }
-
-                            {/* LINK UPDATE */}
-                            {fields.get(index).get('update_type') === "link" && 
-                                <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
-                                    <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
-                                    
-                                    <Field id={si__update__border__none}  className="si__update__title__field si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
-
-                                    <div className="si__update__link__container">
-                                        <Field id={si__update__border__none}  className="si__update__link__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
-                                    </div>
-                                    <div className="si__update__link__summary__container">
-                                        <Field id={si__update__border__none}  className="si__update__link__summary__field" name={`${update}.update_summary`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
-                                    </div>
-
-                                </div>
-                            }
-
-                            {/* MILESTONE UPDATE */}
-                            {fields.get(index).get('update_type') === "milestone" && 
-                                <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
-                                    <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
-                                    
-                                    <Field id={si__update__border__none} className="si__update__title__field si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
-
-                                    <div className="si__update__milestone__container">
-                                        <Field id={si__update__border__none} className="si__update__milestone__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
-                                    </div>
-                                </div>
-                            }
-
-
-                                <FieldArray name="update_tags" component={SIUpdateTagRender} props={this.createUpdateTagRenderProps(index)} />
-
-                    </div> // SIUpdate inner container end 
-                )}
-            </div> // SIUpdate outer container end 
-        )
-
-        } else {
+        if(fields.length < 0 && login_status_var === false) {
+            
             return (
             <div className="si__update__individual__container">                
                 <h3 className="si__update__individual__empty">
@@ -149,6 +82,73 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
 
                 </h3>
             </div>
+            )
+
+        } else {
+            return (
+
+                <div className="si__update__individual__container">                
+
+
+                    {/* SIUpdates Begin */}
+                    {fields.map((update, index) => 
+                        <div className="si__update__inner" key={index}> 
+
+                            {/* SIUpdate Remove Button */}
+                                <button id={si__update__display__none} className="si__update__remove" title="Remove Update" onClick={(event) => { event.preventDefault(); this.removeUpdate(index) } }><span className="si__update__remove__x">x</span></button>
+
+                                <div className="border__left"></div>
+
+                                {/* TEXT UPDATE */}
+                                {fields.get(index).get('update_type') === "text" && 
+                                    <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
+                                        <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
+                                        
+                                        <Field id={si__update__border__none} className="si__update__title__field si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+
+                                        <div className="si__update__text__container">
+                                            <Field id={si__update__border__none} className="si__update__text__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                        </div>
+                                        <div className="clear"></div>
+                                    </div>
+                                }
+
+                                {/* LINK UPDATE */}
+                                {fields.get(index).get('update_type') === "link" && 
+                                    <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
+                                        <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
+                                        
+                                        <Field id={si__update__border__none}  className="si__update__title__field si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+
+                                        <div className="si__update__link__container">
+                                            <Field id={si__update__border__none}  className="si__update__link__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                        </div>
+                                        <div className="si__update__link__summary__container">
+                                            <Field id={si__update__border__none}  className="si__update__link__summary__field" name={`${update}.update_summary`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                        </div>
+
+                                    </div>
+                                }
+
+                                {/* MILESTONE UPDATE */}
+                                {fields.get(index).get('update_type') === "milestone" && 
+                                    <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
+                                        <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
+                                        
+                                        <Field id={si__update__border__none} className="si__update__title__field si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+
+                                        <div className="si__update__milestone__container">
+                                            <Field id={si__update__border__none} className="si__update__milestone__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                        </div>
+                                    </div>
+                                }
+
+
+                                    <FieldArray name="update_tags" component={SIUpdateTagRender} props={this.createUpdateTagRenderProps(index)} />
+
+                        </div> // SIUpdate inner container end 
+                    )}
+                </div> // SIUpdate outer container end 
             )
         }
 

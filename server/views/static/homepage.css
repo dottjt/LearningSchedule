@@ -102,11 +102,11 @@ body {
 .header__title_third {
 	width: 70%;
 	margin: 0 auto;
-	margin-top: 2rem;
+	margin-top: 3.5rem;
 	text-align: center;
 	font-size: 1.1rem;
-	margin-bottom: 2rem;
-	
+	margin-bottom: 3.5rem;
+	font-family: 'Courier New', sans-serif;
 	/*font-family: 'Nunito', sans-serif;
 	font-weight: 100;
 	color: #47525d;*/
@@ -485,6 +485,8 @@ body {
 .register__form_submit--bottom {
 	width: 400px;
 	height: 45px;
+	font-size: 1.05rem;
+	font-family: times;
   }
 
 
@@ -531,6 +533,11 @@ input[type="password"] {
 	font-weight: 100;
 	color: #47525d;
 }
+
+button[type="submit"] {
+	font-size: 1rem;
+}
+
 
 
 /*

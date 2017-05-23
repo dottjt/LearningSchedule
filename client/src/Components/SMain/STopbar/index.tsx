@@ -130,8 +130,8 @@ class STopbar extends React.Component<STopbarProps & STopbarPassedProps, STopbar
                     
                     {/* okay, so we need exact otherwise it doesn't work.  */}
                     <Route exact path={`${match.url}`} render={() => <SM_HomeLinkRender match={match} schedules={schedules} updates={updates} tags={tags} user={user} />  }  />   
-                    <Route path={`${match.url}/updates`} render={() => <SM_UpdateLinkRender updates={updates} schedules={schedules} />  }  />   
-                    <Route path={`${match.url}/tags`} render={() => <SM_TagLinkRender tags={tags} schedules={schedules} />  }  />
+                    <Route path={`${match.url}/updates`} render={() => <SM_UpdateLinkRender user={user} updates={updates} schedules={schedules} />  }  />   
+                    <Route path={`${match.url}/tags`} render={() => <SM_TagLinkRender user={user} tags={tags} schedules={schedules} />  }  />
 
                     {/*<Route exact path={`${match.url}`} render={() => <SM_Home match={match} schedules={schedules} updates={updates} tags={tags} user={user} auth={auth} />  }  />*/}
                     {/* no index required */}
@@ -163,7 +163,7 @@ import { connect } from 'react-redux';
 
 export const mapDispatchToProps = (dispatch) => {
     return {
-        requestAddSchedule: (data, username) => dispatch(requestAddSchedule(data, username))
+        requestAddSchedule: (data) => dispatch(requestAddSchedule(data))
 
     };
 };

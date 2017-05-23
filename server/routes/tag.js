@@ -27,14 +27,14 @@ router.get('/tag/:tag_id', function(req, res, next) {
 
 
 
-// I - GET all tags 
-router.get('/tags', function(req, res, next) {
+// // I - GET all tags 
+// router.get('/tagsAll', function(req, res, next) {
 
-  tag_queries.getAllTags()
+//   tag_queries.getAllTags()
 
-    .then(function(tag) { res.status(200).json(tag); })
-    .catch(function(error) { next(error); });
-});
+//     .then(function(tag) { res.status(200).json(tag); })
+//     .catch(function(error) { next(error); });
+// });
 
 
 

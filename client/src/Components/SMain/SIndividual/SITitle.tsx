@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Field, reduxForm } from 'redux-form/immutable';
 import './css/si__title.css';
 var moment = require('moment');
+var getSlug = require('speakingurl');
 
 import SIRemoveRedirect from './SIRemoveRedirect';
 
@@ -19,16 +20,27 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 		this.changeSchedule = this.changeSchedule.bind(this);
 	}
 
-
 	changeSchedule = (values) => {
 	// values is a map with all relevant data from the selected schedule.
-		let { schedule_url, form /* schedule_id */, requestChangeSchedule } = this.props;
+		let { requestChangeSchedule } = this.props;
 		
-		values = values.set('schedule_url', schedule_url)
-						.set('schedule_id', form)
+		let old_schedule_url = window.location.href.split('/')[5];
+		let new_schedule_url = getSlug(values.get('schedule_url'));
+
+		values = values.set('schedule_url', new_schedule_url)
 
 		console.log(values.toJS())
+
 		requestChangeSchedule(values);
+
+		if (new_schedule_url !== old_schedule_url) {
+	    	window.location.href = "/" + this.props.user.get('username') + "/schedule/" + new_schedule_url;
+		}
+
+											{/*onKeyPress={(e) => this.changeSchedule(e)}
+											onKeyPress={handleSubmit(values => this.changeSchedule(values))}*/}
+
+
 	}
 
 
@@ -118,7 +130,6 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 											placeholder="Schedule Url."
 											disabled={fieldDis}
 											/>
-
 							</div>
 
 

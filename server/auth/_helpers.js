@@ -11,21 +11,48 @@ function createUser(req, res) {
   return handleErrors(req)
   .then(() => {
 
-    const salt = bcrypt.genSaltSync();
-    const hash = bcrypt.hashSync(req.body.password, salt);
-    const username = uuid().substring(0,8);
+    let salt = bcrypt.genSaltSync();
+    let hash = bcrypt.hashSync(req.body.password, salt);
+    let username = uuid().substring(0,8);
     let summaries_id = uuid();
     let display_name = sillyname(); 
+    let avatar_url = "plant" + Math.ceil(Math.random() * 4) + ".png";
+
+
+    console.log(avatar_url);
+
+    knex('summary').del()
+      .then(() => {
+        return knex('summary').insert({
+          username: username,
+          summaries_id: summaries_id,
+          summary_text: ''
+        });
+      }).then(() => {
+          return knex('summary').insert({
+          username: username,
+          summaries_id: summaries_id,
+          summary_text: ''
+        });
+      }).then(() => {
+          return knex('summary').insert({
+          username: username,
+          summaries_id: summaries_id,
+          summary_text: ''
+        });
+      });
+
 
     return knex('user')
-    .insert({
-      email: req.body.email,
-      password: hash,
-      username: username,
-      display_name: display_name,
-      summaries_id: summaries_id,
-    })
-    .returning('*');
+      .insert({
+        email: req.body.email,
+        password: hash,
+        username: username,
+        display_name: display_name,
+        summaries_id: summaries_id,
+        avatar_url: avatar_url
+      })
+      .returning('*');
   })
   .catch((err) => {
     res.status(400).json({status: err.message});
@@ -49,7 +76,6 @@ function handleErrors(req) {
     }
   });
 }
-
 
 
 

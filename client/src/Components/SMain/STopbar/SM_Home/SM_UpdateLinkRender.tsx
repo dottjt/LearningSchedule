@@ -25,22 +25,23 @@ class SM_UpdateLinkRender extends React.Component<SM_UpdateLinkRenderProps, unde
                                       */
 
 
-
-    render() {
-
-        var { updates } = this.props;
-
-
-
-      return (
-
-
-
 /*
            COMPONENT VIEW
                                       */
 
-          
+
+
+
+    render() {
+
+        var { user, updates } = this.props;
+
+
+
+    if(updates.size > 0) {
+
+      return (
+
         <div className="sm__updatelink">
 
             <h3 className="sm__latest_updates">Latest Updates</h3>
@@ -62,6 +63,26 @@ class SM_UpdateLinkRender extends React.Component<SM_UpdateLinkRenderProps, unde
                 )}
         </div> 
         )
+
+    } else { 
+
+        return (
+            <div className="sm__updatelink__empty">
+                
+                <h3 className="sm__updatelink__individual__empty">
+                    {user.get('display_name')} has no updates.
+                </h3>
+
+                <h3 className="sm__updatelink__individual__empty">
+                    Maybe {user.get('display_name')} doesn't actually exist.
+                </h3>
+
+            </div>
+        )
+
+    }
+
+
     };
 };
 

@@ -37,7 +37,7 @@ class STSummaryActiveRender extends React.Component<STSummaryActiveRenderProps, 
                     <div key={index}>
 
                         {/* STSummaryActiveRender Summary Text */}
-                        <Field className="st__summary__text" name={`${summary}.summary_text`} type="text" component="input" label="Summary Title" maxLength={60} onBlur={() => requestChange(index)}/>
+                        <Field className="st__summary__text" name={`${summary}.summary_text`} type="text" component="input" label="Summary Title" maxLength={60} onBlur={() => requestChange(index)} placeholder="Summary."/>
                     
                     </div>
                     

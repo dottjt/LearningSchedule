@@ -33,6 +33,10 @@ function updateSummary(id, updates) {
   return Summaries().where('id', id).update(updates);
 }
 
+function deleteAllSummariesOfUser(username) {
+  return Summaries().where('username', username).del();
+}
+
 
 // deleteAllSummaries? 
 
@@ -43,5 +47,6 @@ module.exports = {
   getSummariesOfScheduleId: getSummariesOfScheduleId,
   addSummary: addSummary,
   deleteSummary: deleteSummary,
+  deleteAllSummariesOfUser: deleteAllSummariesOfUser,
   updateSummary: updateSummary
 };

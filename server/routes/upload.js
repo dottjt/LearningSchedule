@@ -22,7 +22,7 @@ const del = require('del');
 
 const DB_NAME = 'db.json';
 const COLLECTION_NAME = 'images';
-const UPLOAD_PATH = 'uploads/avators';
+const UPLOAD_PATH = 'server/uploads/avatars';
 // check to see how this works. 
 
 

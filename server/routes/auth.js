@@ -6,22 +6,35 @@ const passport = require('../auth/local');
 const user_queries = require('../queries/user_queries');
 
 
-router.post('/register', authHelpers.loginRedirect, (req, res, next)  => {
-  return authHelpers.createUser(req, res)
+
+
+// authHelpers.loginRedirect
+router.post('/register', (req, res, next)  => {
+  
+  req.logout();
+  // first logout if person is already logged in. 
+  res.clearCookie('yolo');
+  
+  authHelpers.createUser(req, res)
     .then((response) => {
       
       passport.authenticate('local-signup', (err, user, info) => {
 
           if (user) { 
+            
+            console.log("user after authenticate", user)
+
             req.logIn(user, function (err) {
               if (err) { handleResponse(res, 500, 'error'); }
 
-              return user_queries.getSingleUser(req.user.username)
+              return user_queries.getSingleUser(user.username)
+              
                   .then((singleUser) => {
+                    console.log("singleUser", singleUser)
+                    // res.redirect('/' + req.user.username)
 
-                    res.clearCookie('yolo');
                     res.cookie('yolo', singleUser.summaries_id, { maxAge: 604800000000, httpOnly: false });
-                    res.redirect('/' + req.user.username)
+                    res.redirect('/' + singleUser.username)
                   })
             });
           }
@@ -31,33 +44,41 @@ router.post('/register', authHelpers.loginRedirect, (req, res, next)  => {
   .catch((err) => { handleResponse(res, 500, 'error'); });
 });
 
-router.post('/login', authHelpers.loginRedirect, (req, res, next) => {
+
+
+
+// authHelpers.loginRedirect
+router.post('/login', (req, res, next) => {
+
+  req.logout();
+  // first logout if person is already logged in. 
+  res.clearCookie('yolo');
 
   passport.authenticate('local-signup', (err, user, info) => {
     if (err) { handleResponse(res, 500, 'error'); }
     if (!user) { handleResponse(res, 404, 'User not found'); }
     if (user) {
+      
       req.logIn(user, function (err) {
 
       if (err) { handleResponse(res, 500, 'error'); }
       
-      // handleResponse(res, 200, 'success');
+      return user_queries.getSingleUser(user.username)
+        .then((singleUser) => {
 
-      console.log('Login successful :)');
-
-      return user_queries.getSingleUser(req.user.username)
-      .then((singleUser) => {
-
-        res.clearCookie('yolo');
-        res.cookie('yolo', singleUser.summaries_id, { maxAge: 604800000000, httpOnly: false });
-        res.redirect('/' + req.user.username)
-      })
+          res.cookie('yolo', singleUser.summaries_id, { maxAge: 604800000000, httpOnly: false });
+          res.redirect('/' + singleUser.username)
+        })
       
 
       });
     }
   })(req, res, next);
 });
+
+
+
+
 
 router.get('/logout', authHelpers.loginRequired, (req, res, next) => {
 
@@ -71,7 +92,14 @@ router.get('/logout', authHelpers.loginRequired, (req, res, next) => {
 
 });
 
+
+
+
+
 // *** helpers *** //
+
+
+
 
 function handleLogin(req, user) {
   return new Promise((resolve, reject) => {
@@ -81,6 +109,10 @@ function handleLogin(req, user) {
     });
   });
 }
+
+
+
+
 
 function handleResponse(res, code, statusMsg) {
   res.status(code).json({status: statusMsg});

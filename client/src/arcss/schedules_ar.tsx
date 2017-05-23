@@ -68,7 +68,7 @@ export const REQUEST_ADD_SCHEDULE = 'REQUEST_ADD_SCHEDULE';
 export const ADD_SCHEDULE_SUCCEEDED = 'ADD_SCHEDULE_SUCCEEDED';
 export const ADD_SCHEDULE_FAILED = 'ADD_SCHEDULE_FAILED';
 
-export const requestAddSchedule = (data, username) => ({type: REQUEST_ADD_SCHEDULE, data, username});
+export const requestAddSchedule = (data) => ({type: REQUEST_ADD_SCHEDULE, data});
 export const addScheduleSucceeded = (data) => ({type: ADD_SCHEDULE_SUCCEEDED, data});
 export const addScheduleFailed = err => ({type: ADD_SCHEDULE_FAILED, err});
 
@@ -78,18 +78,13 @@ export const addScheduleFailed = err => ({type: ADD_SCHEDULE_FAILED, err});
                                                 */
 
 
-export function apiAddSchedule(schedule_id, updates_id, tags_id, schedule_title, schedule_url, username) {
+export function apiAddSchedule(data) {
     
     return axios({
             method: 'post',
             url: 'api/v1/schedules',
-            data: {
-                schedule_id,
-                updates_id,
-                tags_id,
-                schedule_title,
-                schedule_url,
-                username
+            data: { 
+                data
             }
             // headers: { 'Authorization': 'Bearer ' + token }
         });
@@ -99,36 +94,14 @@ export function* addScheduleSaga(action): SagaIterator {
   try {
 
     // let token = localStorage.getItem('id_token') || null
-
-    let url = action.data.split('-');
-
-    let schedule_id = url[4]; 
-    let updates_id = url[0];
-    let tags_id = url[1] + url[2];
-    let schedule_title = '';
-    let schedule_url = action.data;
-    let username = action.username;
-
-    let combined = { 
-        type: ADD_SCHEDULE_SUCCEEDED, 
-        data: {schedule_id, updates_id, tags_id, schedule_title, schedule_url, username }              
-    }
-
+    //    if (token) { }
+    
 
     
-    
-//    if (token) { }
-
-    yield call(apiAddSchedule,  schedule_id,
-                                updates_id,
-                                tags_id,
-                                schedule_title,
-                                schedule_url,
-                                username
-                             );
+    yield call(apiAddSchedule, action.data);
 
    
-     yield put(addScheduleSucceeded(combined.data));
+     yield put(addScheduleSucceeded(action.data));
 
      // from action
 
@@ -236,7 +209,7 @@ export function* changeScheduleSaga(action): SagaIterator {
    let schedule_title = action.data.get('schedule_title'); // the only thing from the 
    let schedule_url = action.data.get('schedule_url');
    let schedule_summary = action.data.get('schedule_summary');
-   let schedule_id = action.data.get('schedule_url');
+   let schedule_id = action.data.get('schedule_id');
    
     console.log(action.data)
 //    if (token) {    }
@@ -254,7 +227,6 @@ export function* changeScheduleSaga(action): SagaIterator {
     // then the server? 
     // I know this is wrong?, but for the time being, I don't 
     // have a choice. 
-
 
 
   }

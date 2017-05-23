@@ -2,8 +2,13 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const authHelpers = require('../auth/_helpers');
+
 const user_queries = require('../queries/user_queries');
 
+const summary_queries = require('../queries/summary_queries');
+const schedule_queries = require('../queries/schedule_queries');
+const update_queries = require('../queries/update_queries');
+const tag_queries = require('../queries/tag_queries');
 
 router.get('/user', authHelpers.loginAccessUser, (req, res, next)  => {
   handleResponse(res, 200, 'success');
@@ -49,6 +54,35 @@ router.put('/users', authHelpers.loginAccessUser, function(req, res, next) {
   .catch((error) => { next(error); });
 });
 
+
+
+router.delete('/users', authHelpers.loginAccessUser, function(req, res, next) {
+  
+  summary_queries.deleteAllSummariesOfUser(req.session.username)
+    
+    .then(() => {
+        schedule_queries.deleteAllSchedulesOfUser(req.session.username)
+    })
+    
+    .then(() => {
+        update_queries.deleteAllUpdatesOfUser(req.session.username)
+    })
+
+    .then(() => {
+        tag_queries.deleteAllTagsOfUser(req.session.username)
+    })
+
+    .then(() => {
+        user_queries.deleteAllUserInformation(req.session.username)
+    })
+
+    .then(() => { 
+        res.redirect('/');
+    })
+    
+    .catch((error) => { next(error); });  
+    
+});
 
 
 module.exports = router;

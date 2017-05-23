@@ -1,0 +1,108 @@
+.profile__container {
+    width: 100%; 
+}
+
+.profile__main {
+    margin-top: 8rem;
+    margin-left: 7rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 100;
+
+}
+
+.p__user__container {
+    border: 1px solid black;
+    width: 90%;
+    height: 20rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+
+}
+
+
+.p__user__details__container {
+    float: left; 
+    width: 45%;
+}
+
+.p__user__field__title {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.p__user__field__title__small {
+    font-size: 0.7rem;
+}
+
+
+.p__user__field__username {
+    margin-top: 0.4rem;
+    font-size: 1.1rem;
+}
+
+
+.p__user__field__text {
+    margin-top: 2.8rem;
+    font-size: 1.1rem;
+}
+
+.p__user__field__text__link {
+    text-decoration: underline;
+    color: darkblue;
+}
+
+
+.p__user__remove-password__container {
+    float: left; 
+    width: 10rem;
+}
+
+
+.p__user__details__fields__container {
+    margin-left: 3rem;
+}
+
+
+
+.p__user__social__container {
+    float: left; 
+    width: 45%;
+}
+
+.p__user__field__social {
+    font-size: 1.1rem;
+}
+
+
+
+
+/*
+
+        POP UP CHANGE PASSWORD 
+
+                                    */
+
+#popup__container__password {
+    height: 12rem;
+}
+
+.popup__input__password__container {
+    margin-left: 2.2rem;
+    margin-top: 2rem;
+	border: 1px solid darkgrey;
+    float: left; 
+}
+
+.popup__input__password {
+	font-size: 1.1rem;
+	width: 16rem;
+	outline: none;
+	border-bottom: 1px solid white;
+    border: 0;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 300;
+    float: left;
+    padding-bottom: -3px; 
+}
+ 
