@@ -17,7 +17,73 @@ Website: https://learningschedule.com
 
 # Updates 
 
+**21-05-17**: So I thought I'd be a responsibile adult and begin planning things for when I believe the application will be production ready. And quite frankly, the list of things I need to do absolutely terrifies me, however I also need to focus on how far I've actually come with this thing, and remind myself that a late-2017 release is what I should be aimming for, and is totally realistic. Here is what I've come up with: 
+
+
+Register new user:
+
+- Create three user summaries when new user is created. 
+- Email//password validation. 
+- Captcha for sign up. 
+- Figure out express dynamic static routes. 
+- Pre-use a particular avatar. Picture of a plant. Five pictures. 
+- Send email to confirm user. (also need to utilise express flash to make it show on the signup page. 
+
+
+Application: 
+
+- Application doesn’t appear until everything loads. 
+- Schedule URL issue: Popup where you have to provide a title first. (need validation for this as well.  
+- Have schedules/updates/tags appear in a consistent order.
+- Ability to upload an avatar. File uploads in general. 
+- General validation for certain input elements. 
+- Character limits on EVERYTHING. Except perhaps links (or make it very big).
+- Input column and row restrictions for input elements. 
+
+- Create a profile menu page. aka learningschedule.com/juliusreade/profile 
+    - It should allow you to:
+        - Change your username.
+        - Change your email.
+        - Delete your account. 
+
+- Application Profile Menu:
+    - Profile Settings
+    - Published Schedules
+    - Logout
+
+
+Website: 
+
+- Hamburger menu with
+    - Login Link
+    - SignUp Link
+    - FAQ
+
+- Login Page
+- Sign up Page
+- 404 Page
+- Blog/News
+// Should I just use a static site generator? Probably, except I need to use express templates ugh. Hexo perhaps.
+
+
+Application extra (aka v2.0):
+
+- Ability to change social media icon links. 
+- Ability to utilise images in updates.
+- Ability to send your update as a social media 
+- implement a seperate update tags store. 
+- Move Logout from next to the logo, to next to add schedule 
+- Admin access. 
+- Ability to sign in via social media. 
+
+
+Plz kill me. 
+
+
 **20-05-17**: Perfect. Perfect. Perfect. Alterated a lot of the styling and it looks mint. The homepage is absolutely GORGEOUS. Like seriously, incredible. I want to eat off it. I think the styling is 90% there. Now I need to work on some user authentication things, in particular making the app work with no data, as well as improving the registering process. Grind it, baby. 
+
+![alt tag](https://github.com/dottjt/LearningSchedule/blob/master/docs/header%20v7.png)
+
 
 **19-05-17**: I was a bit disappointed today. I mean, I got a heap done on my app and it looks really nice in a lot of different ways - however I was under the impression that production wouldn't be far away, but I think I stil have quite a while to go. I showed it to my friends and the number of bugs and incomplete features was rediculous. I think I need to reset expectations to the end of this year. Certainly. 
 
@@ -104,7 +170,7 @@ I'm really not happy with the bloat that's gathered in my app. I feel like it ne
 
 **17-04-17**: Yes! Finally got the images to load. Part of it was my error, in that I was updating an element which wasn't the element I was looking at and got really frustrated. The up side is that it's teaching me so much about Javascript and how to really command react, down to the dizzy details. Here are the designs of the project.
 
-![alt tag](https://github.com/dottjt/LearningSchedule/blob/master/V4%20Latest.png)
+![alt tag](https://github.com/dottjt/LearningSchedule/blob/master/docs/V4%20Latest.png)
 
 **16-04-17**: HUGE day. Implemented a lot of front-end and the UI/UX is looking appropiately snazzy. Also managed to get file uploads up and running. HOWEVER I have been fighting react tooth and nail to get images to work. The problem is the React lifecycle method, which does a blank iniital render. Problem is that you can only update the src attribute on an img tag once, so I'm having to write the most convoluted conditional logic to get it to work. And I still can't....  
 
@@ -116,7 +182,7 @@ Vital lesson learnt today: Always extensively plan/design your application befor
 
 **13-04-17**: Rebuild V4 is coming! Going to streamline and refactor a heap of stuff. Decided to better learn vscode today, along with typescript. Also spending today to rebuild the UI (using Sketch), because now that I have a better idea of what it is and ideally, how it should work for the end-user.
 
-![alt tag](https://github.com/dottjt/LearningSchedule/blob/master/V4%20Initial.png)
+![alt tag](https://github.com/dottjt/LearningSchedule/blob/master/docs/V4%20Initial.png)
 
 **12-04-17**: Changes in the application are now (largely) updating the database and my tag solution is working like a champ (though the date-picker is refusing to be consistent). I've also consolidated the initial data sync process to ensure that it's retrieving data from an authenticated user, rather than a crack addict. 
 
