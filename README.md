@@ -17,6 +17,10 @@ Website: https://learningschedule.com
 
 # Updates 
 
+**25-05-17**: Profile page all complete! One thing to tick off my list. I can now successfully change the password and delete a user, as well as rest of the shebang. Also transferred all my static html files to the marko templating engine, so I can have things like req.flash for user authentication. Time to work on validation logic and sprucing up redux-form :) 
+
+**24-05-17**: So. Much. Done. Started working more on changing passwords and user, as well as logic for sending emails on the backend. I'm finding it boring to do all this somewhat-typical buisness logic, but it's necessary and I'm learning a lot. 
+
 **23-05-17**: I wrote so much code today and implemented so many features. Git says I made 1800 insertions, which is double what I usually do each day. Didn't really fall into any pitfalls or traps, just coded and everything worked. Created a heap of actions for things like changing passwords, deleting user, fixed up add Schedule so it's working well - as well as small things, that make a big difference, like the edit button turning into save and back again. The profile page looks lovely. Tomorrow I need to focus on functionality and ensuring that these things work, particularly on the server. 
 
 **22-05-17**: I focused mainly on getting the new addSchedule pop up working today, as well as the best way to do it from a UX perspective. I also started implementing the profile drop down, as well as the profile/settings page. Foxy stuff. 
