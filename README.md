@@ -17,6 +17,10 @@ Website: https://learningschedule.com
 
 # Updates 
 
+**27-05-17**: I went in. I created my first linode server :))))))) Configuring it, my app is nearly ready for production! The main reason I created it was that I needed a proper IP to create a sub-domain for sending email verifications to users. 
+
+**26-05-17**: Created a heap of webpages for the front-end, added a hamburger menu to the front-page, fixed a heap of bugs on my app aaaaaand I'm being lean by seperating features I want for the beta, and ideal never-to-happen-in-a-million-years features for the serious release for the app. 
+
 **25-05-17**: Profile page all complete! One thing to tick off my list. I can now successfully change the password and delete a user, as well as rest of the shebang. Also transferred all my static html files to the marko templating engine, so I can have things like req.flash for user authentication. Time to work on validation logic and sprucing up redux-form :) 
 
 **24-05-17**: So. Much. Done. Started working more on changing passwords and user, as well as logic for sending emails on the backend. I'm finding it boring to do all this somewhat-typical buisness logic, but it's necessary and I'm learning a lot. 
