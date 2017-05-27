@@ -4,8 +4,6 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
-    "@types/chai-http": "0.0.30",
-    "@types/mocha": "^2.2.41",
     "axios": "^0.16.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
