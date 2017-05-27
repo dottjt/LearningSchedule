@@ -9,7 +9,6 @@
     "@types/jest": "^19.2.3",
     "@types/mocha": "^2.2.41",
     "@types/node": "^7.0.18",
-    "@types/react": "^15.0.24",
     "@types/react-datepicker": "^0.46.0",
     "@types/react-dom": "^15.5.0",
     "@types/react-redux": "^4.4.40",

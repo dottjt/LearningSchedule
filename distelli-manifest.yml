@@ -11,7 +11,8 @@ dottjt/LearningSchedule:
     - sudo apt-get -y update
 
     - echo "-Installing nodejs-"
-    - sudo apt-get -y install nodejs
+    - sudo curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+    - sudo apt-get install -y nodejs
 
     - echo "-Installing npm-"
     - sudo apt-get -y install npm
