@@ -6,9 +6,6 @@
   "dependencies": {
     "@types/chai-http": "0.0.30",
     "@types/mocha": "^2.2.41",
-    "@types/react-redux": "^4.4.40",
-    "@types/redux-form": "^6.6.2",
-    "@types/redux-immutable": "^3.0.33",
     "axios": "^0.16.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
