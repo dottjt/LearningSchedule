@@ -4,7 +4,6 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
-    "@types/chai": "^3.5.2",
     "@types/chai-http": "0.0.30",
     "@types/jest": "^19.2.3",
     "@types/mocha": "^2.2.41",
