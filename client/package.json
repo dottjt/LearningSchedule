@@ -5,9 +5,7 @@
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "@types/chai-http": "0.0.30",
-    "@types/jest": "^19.2.3",
     "@types/mocha": "^2.2.41",
-    "@types/react-dom": "^15.5.0",
     "@types/react-redux": "^4.4.40",
     "@types/redux-form": "^6.6.2",
     "@types/redux-immutable": "^3.0.33",
