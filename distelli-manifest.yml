@@ -10,8 +10,6 @@ dottjt/LearningSchedule:
     - echo "-Updating apt-get-"
     - sudo apt-get -y update
 
-    - sudo apt-get -y postgres postgresql postgresql-contrib build-essential
-
     - echo "-Installing nodejs-"
     - sudo apt-get -y install nodejs
 
