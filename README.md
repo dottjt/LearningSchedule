@@ -17,7 +17,42 @@ Website: https://learningschedule.com
 
 # Updates 
 
-**27-05-17**: I went in. I created my first linode server :))))))) Configuring it, my app is nearly ready for production! The main reason I created it was that I needed a proper IP to create a sub-domain for sending email verifications to users. 
+**27-05-17**: I went in. I created my first linode server :))))))) Configuring it, my app is nearly ready for production (I don't think it actually is, but it feels like it is. The main reason I created it was that I needed a proper IP to create a sub-domain for sending email verifications to users. 
+
+I think I'll be taking some time off developing my app to learn more dev ops related concepts, like docker. The app is nearly done. It just needs. 
+
+This is what I managed to get done over the past week or so. 
+
+- Create three user summaries when new user is created. 21-05-17
+- Pre-use a particular avatar. Picture of a plant. Five pictures. 21-05-17
+- Application Profile Menu: 23-05-17 
+    - Profile Settings
+    - Published Schedules
+    - Logout
+- Schedule URL issue: Popup where you have to provide a title first. (need validation for this as well.) 23-05-17 (need validation for at least one alpha numeric character, as well as check to see if it’s been done before.)
+
+
+- Create a profile menu page. aka learningschedule.com/juliusreade/profile 
+    - It should allow you to:
+        - Change your username. 24-05-17 WORKS! 
+        - Change your email. 24-05-17 WORKS!
+        - Change your password 25-05-17 WORKS!
+        - Delete your account. 25-05-17 WORKS!
+- Application doesn’t appear until everything loads. 25-05-17
+
+- Login Page 26-05-17
+- Sign up Page 26-05-17
+- Use marko templates. 26-05-17
+- Character limits on EVERYTHING. 26-05-17
+- 404 Page 27-05-17
+- Forgot password Page 27-05-17
+
+
+- Hamburger menu with 26-05-17
+    - Login Link 26-05-17
+    - SignUp Link 26-05-17
+    - About Link  26-05-17
+    - Contact Link  26-05-17
 
 **26-05-17**: Created a heap of webpages for the front-end, added a hamburger menu to the front-page, fixed a heap of bugs on my app aaaaaand I'm being lean by seperating features I want for the beta, and ideal never-to-happen-in-a-million-years features for the serious release for the app. 
 
