@@ -7,6 +7,15 @@ dottjt/LearningSchedule:
     - echo "---Beginning PreRelease---"
     - echo "--Installing build dependencies--"
 
+    - echo "-Updating apt-get-"
+    - sudo apt-get -y update
+
+    - echo "-Installing nodejs-"
+    - sudo apt-get -y install nodejs
+
+    - echo "-Installing npm-"
+    - sudo apt-get -y install npm
+
     - echo "--Building Server--"
     - npm install
   
@@ -24,6 +33,15 @@ dottjt/LearningSchedule:
     - echo "---Begining PreInstall---"
     - echo "--Installing deploy dependencies--"
 
+    - echo "-Updating apt-get-"
+    - sudo apt-get -y update
+
+    - echo "-Installing nodejs-"
+    - sudo apt-get -y install nodejs
+
+    - echo "-Installing npm-"
+    - sudo apt-get -y install npm
+
     - echo "--Building Server--"
     - npm install
   
@@ -40,9 +58,8 @@ dottjt/LearningSchedule:
 
 
   Env:
-    - PORT: "3000"
     - SECRET: "\xcbh\xd7\x02\x86\xf8{\xaf\x8b\xc5N6W\xc1\xa3n\x1a\x86\xa0\x92\x96\x8e\x8b\xe3"
-    
+
 
   Exec:
     - /usr/bin/nodejs index.js
