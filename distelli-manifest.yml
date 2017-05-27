@@ -1,0 +1,48 @@
+dottjt/LearningSchedule:
+  # Distelli Manifest example
+  # this example assumes the build and deploy servers are:
+  # Ubuntu 14.04 
+
+  PreRelease:
+    - echo "---Beginning PreRelease---"
+    - echo "--Installing build dependencies--"
+
+    - echo "--Building Server--"
+    - npm install
+  
+    - cd client 
+    - npm install
+    
+  PkgInclude:
+    - '*'
+
+  PkgExclude:
+    - node_modules/
+    - client/node_modules/
+
+  PreInstall:
+    - echo "---Begining PreInstall---"
+    - echo "--Installing deploy dependencies--"
+
+    - echo "--Building Server--"
+    - npm install
+  
+    - cd client 
+    - npm install
+
+
+  PostInstall:
+    - echo "Begin PostInstall"
+    - npm install
+
+    - cd client 
+    - npm install
+
+
+  Env:
+    - PORT: "3000"
+    - SECRET: "\xcbh\xd7\x02\x86\xf8{\xaf\x8b\xc5N6W\xc1\xa3n\x1a\x86\xa0\x92\x96\x8e\x8b\xe3"
+    
+
+  Exec:
+    - /usr/bin/nodejs index.js
