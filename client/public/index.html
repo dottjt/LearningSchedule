@@ -16,6 +16,44 @@
     <title>React App</title>
   </head>
   <body>
+
+    <style>
+    #load{
+        width:100%;
+        height:100%;
+        position:fixed;
+        z-index:9999;
+        /*background:url("https://www.creditmutuel.fr/cmne/fr/banques/webservices/nswr/images/loading.gif") no-repeat center center rgba(0,0,0,0.25)*/
+        background: white;
+        /*transition: visibility 500ms;*/
+        /*opacity: 0;*/
+    }
+
+    /*#root {
+      opacity: 1;
+      transition: visibility 500ms;
+    }*/
+
+    </style>
+    <script>
+
+    document.onreadystatechange = function () {
+      var state = document.readyState
+      if (state == 'interactive') {
+          document.getElementById('root').style.visibility="hidden";
+      } else if (state == 'complete') {
+          setTimeout(function(){
+            document.getElementById('interactive');
+            document.getElementById('load').style.visibility="hidden";
+            document.getElementById('root').style.visibility="visible";
+          },60);
+      }
+    }
+
+</script>
+
+
+    <div id="load"></div>
     <div id="root"></div>
     <!--
       This HTML file is a template.

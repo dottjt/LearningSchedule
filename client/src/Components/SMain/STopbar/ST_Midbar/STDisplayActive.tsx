@@ -9,12 +9,18 @@ class STDisplayActive extends React.Component<STDisplayActiveProps, undefined> {
 	constructor() {
         super();
         this.changeDisplay = this.changeDisplay.bind(this);
+        this._onSubmit = this._onSubmit.bind(this);
 	}
 
     changeDisplay(values) {
         // it's a map. 
         this.props.requestChangeDisplay(values)
     }
+
+    _onSubmit(e) {
+        e.preventDefault();
+    }
+
 
 /*
              COMPONENT LOGIC
@@ -35,7 +41,7 @@ class STDisplayActive extends React.Component<STDisplayActiveProps, undefined> {
 
 
 
-		<form className="st__midbar__profile_username__container" onBlur={handleSubmit(values => this.changeDisplay(values))}>
+		<form className="st__midbar__profile_username__container" onSubmit={this._onSubmit} onBlur={handleSubmit(values => this.changeDisplay(values))}>
 
             {/* STDisplayActive Display Name */}
                 <Field className="st__midbar__profile_username" 

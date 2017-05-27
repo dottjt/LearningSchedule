@@ -13,16 +13,21 @@ class STSummaryActiveRender extends React.Component<STSummaryActiveRenderProps, 
 /*
              COMPONENT LOGIC 
                                       */
+    constructor()   {
+        super();
+        this.requestChange = this.requestChange.bind(this);
+
+    }
+
+    requestChange(index) { 
+        this.props.requestChangeSummary(this.props.fields.get(index)); 
+    }
+
 
 
     render() {
 
-        var { fields, requestChangeSummary } = this.props;
-
-        const requestChange = (index) => { console.log('sent'); requestChangeSummary(fields.get(index)); }
-
         return (
-
 
 
 /*
@@ -32,12 +37,12 @@ class STSummaryActiveRender extends React.Component<STSummaryActiveRenderProps, 
 
             <div className="st__summary__outer__container">
 
-                {fields.map((summary, index) =>
+                {this.props.fields.map((summary, index) =>
 
                     <div key={index}>
 
                         {/* STSummaryActiveRender Summary Text */}
-                        <Field className="st__summary__text" name={`${summary}.summary_text`} type="text" component="input" label="Summary Title" maxLength={60} onBlur={() => requestChange(index)} placeholder="Summary."/>
+                        <Field className="st__summary__text" name={`${summary}.summary_text`} type="text" component="input" label="Summary Title" maxLength={60} onBlur={() => this.requestChange(index)} placeholder="Summary."/>
                     
                     </div>
                     

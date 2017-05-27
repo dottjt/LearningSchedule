@@ -13,14 +13,17 @@ class PSocialDetails extends React.Component<PSocialDetailsProps & PSocialDetail
 
 	constructor() {
 	super();
-		this.changeUserDetails = this.changeUserDetails.bind(this);
+		this.changeSocialDetails = this.changeSocialDetails.bind(this);
 	}
 
-	changeUserDetails = (values) => {
-	// values is a map with all relevant data from the selected schedule.
-		let { requestChangeUserDetails } = this.props;
 
-		requestChangeUserDetails(values);
+
+
+	changeSocialDetails = (values) => {
+
+		let { requestChangeSocial } = this.props;
+
+		requestChangeSocial(values);
 
 	}
 
@@ -34,7 +37,7 @@ class PSocialDetails extends React.Component<PSocialDetailsProps & PSocialDetail
 
 	render() {
 		
-		const { user, handleSubmit, initialValues, login_status_var } = this.props;
+		const { handleSubmit, login_status_var } = this.props;
 
 		let si__title__display__none, si__title__border__none;  // style to disable forms. 
 		let fieldDis;
@@ -44,10 +47,8 @@ class PSocialDetails extends React.Component<PSocialDetailsProps & PSocialDetail
             si__title__border__none = "si__title__border__none"; // this one for making border disappear?
 			fieldDis = true;
 		}
-		// true means you're logged in. 
-        console.log(user)
 
-        console.log(initialValues)
+
 
 /*
              COMPONENT VIEW
@@ -59,7 +60,7 @@ class PSocialDetails extends React.Component<PSocialDetailsProps & PSocialDetail
             )
         } else {
             return (
-                    <form className="p__user__social__container" onBlur={handleSubmit(values => this.changeUserDetails(values))}>
+                    <form className="p__user__social__container" onBlur={handleSubmit(values => this.changeSocialDetails(values))}>
                     
                     
                             {/* Schedule Title */}
@@ -71,6 +72,7 @@ class PSocialDetails extends React.Component<PSocialDetailsProps & PSocialDetail
                                             component="input" 
                                             type="text" 
                                             placeholder="facebook."
+                                            maxLength={35}
                                             disabled={fieldDis}
                                             />
 
@@ -82,17 +84,19 @@ class PSocialDetails extends React.Component<PSocialDetailsProps & PSocialDetail
                                             component="input" 
                                             type="text" 
                                             placeholder="twitter."
+                                            maxLength={35}
                                             disabled={fieldDis}
                                             />
 
 
-                                <h3 className="p__user__field__title">Twitter username</h3>
+                                <h3 className="p__user__field__title">Github username</h3>
 
                                 <Field className="p__user__field__social"
                                             name="github"
                                             component="input"
                                             type="text"
                                             placeholder="github."
+                                            maxLength={35}
                                             disabled={fieldDis}
                                             />
 

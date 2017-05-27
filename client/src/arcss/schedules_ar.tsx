@@ -146,11 +146,10 @@ export function apiRemoveSchedule(schedule_id: string) {
 export function* removeScheduleSaga(action): SagaIterator {
   try {
 
-    console.log(action.data)
 //    let token = localStorage.getItem('id_token') || null
-    let schedule_id = action.data;
-
     // if (token) {    }
+
+    let schedule_id = action.data;
 
     yield call(apiRemoveSchedule, schedule_id);
 

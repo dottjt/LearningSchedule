@@ -41,7 +41,7 @@
 
 .sm__homelink__empty {
     border: 5px solid black; 
-    width: 900px; 
+    width: 40rem;
     margin: 0 auto; 
     margin-top: 8rem;
     margin-bottom: 10rem;
@@ -80,7 +80,7 @@
 
 .sm__updatelink__empty {
     border: 5px solid black; 
-    width: 900px; 
+    width: 40rem;
     margin: 0 auto; 
     margin-top: 8rem;
     margin-bottom: 10rem;

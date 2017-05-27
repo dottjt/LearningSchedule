@@ -1,7 +1,9 @@
 const bcrypt = require('bcryptjs');
+const nodemailer = require('nodemailer');
 const knex = require('../db/users_connection');
 const uuid = require('uuid'); 
 const sillyname = require('sillyname');
+
 
 function comparePass(userPassword, databasePassword) {
   return bcrypt.compareSync(userPassword, databasePassword);
@@ -18,12 +20,11 @@ function createUser(req, res) {
     let display_name = sillyname(); 
     let avatar_url = "plant" + Math.ceil(Math.random() * 4) + ".png";
 
-
     console.log(avatar_url);
 
     knex('summary').del()
       .then(() => {
-        return knex('summary').insert({
+        return knex('summa\ry').insert({
           username: username,
           summaries_id: summaries_id,
           summary_text: ''
@@ -62,9 +63,9 @@ function createUser(req, res) {
 
 function handleErrors(req) {
   return new Promise((resolve, reject) => {
-    if (req.body.email.length < 6) {
+    if (req.body.email.length < 6 && req.body.email.indexOf('hello') > -1) { // this may or may not work.
       reject({
-        message: 'Email must be longer than 6 characters'
+        message: 'Invalid password, bby.'
       });
     }
     else if (req.body.password.length < 6) {
@@ -76,6 +77,69 @@ function handleErrors(req) {
     }
   });
 }
+
+
+function forgotPassword(token, user) {
+
+  let smtpTransport = nodemailer.createTransport('SMTP', {
+    service: 'SendGrid',
+    auth: {
+      user: '!!! YOUR SENDGRID USERNAME !!!',
+      pass: '!!! YOUR SENDGRID PASSWORD !!!'
+    }
+  });
+
+  let mailOptions = {
+    to: user.email,
+    from: 'passwordreset@demo.com',
+    subject: 'Learning Schedule Account - Password Reset',
+    text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+      'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+      'http://' + req.headers.host + '/reset/' + token + '\n\n' +
+      'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+  };
+
+  smtpTransport.sendMail(mailOptions, function(err) {
+    req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+  });
+
+}
+
+
+
+function confirmAccount(token, user) {
+
+  let smtpTransport = nodemailer.createTransport('SMTP', {
+    service: 'SendGrid',
+    auth: {
+      user: '!!! YOUR SENDGRID USERNAME !!!',
+      pass: '!!! YOUR SENDGRID PASSWORD !!!'
+    }
+  });
+
+  let mailOptions = {
+    to: user.email,
+    from: 'passwordreset@demo.com',
+    subject: 'Confirm your Learning Schedule Account, you bastard.',
+    text: 'Click the on the link below. Your mother says it\'s good for you. \n\n' +
+      'http://' + req.headers.host + '/confirm/' + token + '\n\n' +
+      'If you did not request this, then someone supicious is using your email account and should be shot with a rifle.\n'
+  };
+
+  smtpTransport.sendMail(mailOptions, function(err) {
+    req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+  });
+  
+}
+
+
+function createToken() {
+  crypto.randomBytes(20, function(err, buf) {
+    var token = buf.toString('hex');
+    return token; 
+  });
+}
+
 
 
 
@@ -104,6 +168,33 @@ function usernameParamsRequired(req, res, next) {
     return next();
 
 }
+
+
+
+// for index in routes.
+
+function userCheck(req, res, next) {
+
+  var url, urlArray, urlUsername; 
+
+    url = req.url;
+    console.log(req.url)
+    urlArray = url.split('/');
+    // [ 'http:', '', 'localhost:3000', 'juliusreade' ]
+
+    urlUsername = urlArray[1];
+    console.log("urlUsername", urlUsername);
+    req.session.username = urlUsername;
+
+    console.log(req.session.username)
+    
+    return next(); 
+
+}
+// so userCheck return 
+
+
+
 
 
 // original functions 
@@ -161,10 +252,15 @@ module.exports = {
   comparePass,
   createUser,
   usernameParamsRequired,
+  userCheck,
 
   adminRequired,
   loginRequired,
   loginRedirect,
   loginAccessUser,
+
+  forgotPassword,
+  createToken,
+  confirmAccount
 
 };

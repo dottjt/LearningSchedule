@@ -4,7 +4,7 @@ interface ProfilePassedProps {
 
 
 interface PUserDetailsProps {
-    requestChangeUserDetails(data: any): any,
+    requestChangeUserDetails(username, password): any,
     requestChangePassword(data: any): any,
     requestRemoveUser(): any
 }
@@ -18,14 +18,15 @@ interface PUserDetailsPassedProps {
 
 
 interface PUserDetailsState {
-    showPopup: boolean
+    showPopupPassword: boolean,
+    showPopupRemove: boolean
 }
 
 
 
 
 interface PSocialDetailsProps {
-    requestChangeUserDetails(data: any): any
+    requestChangeSocial(data: any): any
 }
 
 interface PSocialDetailsPassedProps {

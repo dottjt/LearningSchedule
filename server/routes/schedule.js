@@ -41,6 +41,7 @@ router.get('/schedulesAll', function(req, res, next) {
 // I - GET all schedules of user 
 router.get('/schedules', authHelpers.usernameParamsRequired, function(req, res, next) {
 
+  console.log(req.session.username);
   schedule_queries.getSchedulesOfUser(req.session.username)
 
       .then(function(schedule) { res.status(200).json(schedule); })

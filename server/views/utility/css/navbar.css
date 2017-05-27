@@ -1,0 +1,28 @@
+/* top navbar */
+
+.st__navbar__container {
+    
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    height: 4.15rem;
+    border: 1px solid darkgrey;
+    background-color: white; 
+    z-index: 9000;
+}
+
+.st__navbar__brand {
+	margin-top: 0.5rem;
+    font-size: 2rem; 
+    float: left;
+    margin-left: 1.1rem;
+    text-decoration: none;
+    color: black;
+}
+
+
+.st__navbar__brand:visited {
+    color: black;
+}
+

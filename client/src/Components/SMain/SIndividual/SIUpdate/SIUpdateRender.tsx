@@ -30,7 +30,7 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
         this.createUpdateTagRenderProps = this.createUpdateTagRenderProps.bind(this);
     }
 
-    removeUpdate(index) { 
+    removeUpdate(index) {
         const { requestRemoveUpdate, fields } = this.props;
         requestRemoveUpdate(fields.get(index).get('update_id')); fields.remove(index); 
     }
@@ -104,10 +104,10 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                     <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
                                         <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
                                         
-                                        <Field id={si__update__border__none} className="si__update__title__field si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                        <Field id={si__update__border__none} className="si__update__title__field si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_title" maxLength={50} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
 
                                         <div className="si__update__text__container">
-                                            <Field id={si__update__border__none} className="si__update__text__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                            <Field id={si__update__border__none} className="si__update__text__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={400} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
                                         </div>
                                         <div className="clear"></div>
                                     </div>

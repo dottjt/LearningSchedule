@@ -10,6 +10,7 @@ class STWebsiteActive extends React.Component<STWebsiteActiveProps, undefined> {
     constructor() {
         super();
         this.changeWebsite = this.changeWebsite.bind(this);
+        this._onSubmit = this._onSubmit.bind(this);
     }
 
 
@@ -19,10 +20,15 @@ class STWebsiteActive extends React.Component<STWebsiteActiveProps, undefined> {
     }
 
 
+    _onSubmit(e) {
+        e.preventDefault();
+    }
+
 
 /*
              COMPONENT LOGIC 
                                       */
+
 
 
   render() {
@@ -38,7 +44,7 @@ class STWebsiteActive extends React.Component<STWebsiteActiveProps, undefined> {
 
 
 
-        <form className="st__midbar__website__form" onBlur={this.props.handleSubmit(values => this.changeWebsite(values))}>
+        <form className="st__midbar__website__form" onSubmit={this._onSubmit} onBlur={this.props.handleSubmit(values => this.changeWebsite(values))}>
             
             {/* STWebsiteActive Website */}
                 <Field className="st__midbar__website__link" name="website" component="input" type="text" placeholder="Website."/>

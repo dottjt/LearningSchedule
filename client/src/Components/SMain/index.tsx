@@ -60,10 +60,11 @@ class SMain extends React.Component<SMainProps & SMainPropsPassed, any> {
 
              {/*maybe take a look to see if this is faster... currently, we have a removeContainer variable which makes display: none on change. Take a look :) */}
 
-                <Route path={`${match.url}/schedule/:article_title`} render={() => <SIndividual match={match} schedules={schedules} updates={updates} tags={tags} summaries={summaries} user={user} />  } />
+                <Route exact path={`${match.url}/schedule/:article_title`} render={() => <SIndividual match={match} schedules={schedules} updates={updates} tags={tags} summaries={summaries} user={user} />  } />
+                {/* this wasn't originally exact */}
 
-                <Route path={`${match.url}/profile`} render={() => <Profile user={user} />  } />
-
+                <Route exact path={`${match.url}/profile`} render={() => <Profile user={user} />  } />
+                {/* this wasn't originally exact */}
 
 
 

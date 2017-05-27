@@ -1,0 +1,44 @@
+<html>
+
+  <head>
+
+    <include('./auth_partials/auth_head.marko')/>
+
+    <title>Learning Schedule | Login</title>
+
+  </head>
+
+  <body>
+
+    <include('../utility/auth_navbar.marko')/>
+
+
+<section class="signup__container">
+    
+    <h3 class="signup__header">Learning Schedule</h3>
+    <h5 class="signup__header__two">Forgot your password?</h5>
+    
+    <h5 class="signup__header__two">Please input your last known email.</h5>
+
+    <form class="signup__form" action="auth/forgot" method="post" accept-charset="utf-8">
+
+      <div class="form-group">
+          <!--<label for="email">Email:</label>-->
+          <input class="form-control header__form-input" type="email" name="email" value="" placeholder="Email">
+      </div>
+
+      <div class="form-group">
+          <button class="btn btn-default register__form_submit--bottom" type="submit" action="">Login</button>
+      </div>
+
+
+    </form>
+
+</section>
+
+
+      <browser-refresh enabled="true" />
+	<!--<script src="{process.env.BROWSER_REFRESH_URL}"></script>-->
+  </body>
+
+</html>

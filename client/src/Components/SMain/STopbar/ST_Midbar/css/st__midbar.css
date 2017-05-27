@@ -10,7 +10,7 @@
     margin: 0 auto;
 
     margin-top: 10rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .st__midbar__top {
@@ -20,7 +20,7 @@
     width: 100%;
     float: left; 
     margin-left: 3rem;
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.8rem;
 
 }
 
@@ -89,9 +89,29 @@
     margin-left: 1.5rem;
 }
 
-.st__midbar__website__link {
+.st__midbar__website__container {
+    position: relative;
+    top: 2px;
+    left: 1px; 
     float: left;
     display: block;
+    width: 18rem;
+    height: 1.7rem;
+    /*color: cyan;*/
+    color: black;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+    font-size: 1.3rem;
+    text-decoration: none;
+
+}
+
+.st__midbar__website__link {
+
+    float: left;
+    display: block;
+    width: 18rem;
+    height: 1.7rem;
     /*color: cyan;*/
     color: black;
 	font-family: 'Nunito', sans-serif;
@@ -102,9 +122,9 @@
 
 
 .st__midbar__edit__button {
-    
-    height: 1.95rem;
+    height: 2rem;
     width: 5rem;
+
     border: 1px solid darkgrey;
 	font-family: 'Nunito', sans-serif;
 	font-weight: 100;
@@ -120,6 +140,7 @@
 }
 
 .st__midbar__edit__button__text {
+    font-size: 1rem;
     /*position: relative;
     top: 1px;*/
 }

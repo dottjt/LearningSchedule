@@ -10,36 +10,56 @@ class PUserDetails extends React.Component<PUserDetailsProps & PUserDetailsPasse
 
 // own props - user
 // own props - requestChangeSchedule
-// passed props - form, initialValues, topbar_active, match 
+// passed props - form, initialValues, topbar_active, match
 
 	constructor() {
-	super();
+	    super();
 		this.changeUserDetails = this.changeUserDetails.bind(this);
 		this.changePassword = this.changePassword.bind(this);
-        this.showPopUpFunction = this.showPopUpFunction.bind(this);
+        this.showPopUpPasswordFunction = this.showPopUpPasswordFunction.bind(this);
+        this.showPopUpRemoveFunction = this.showPopUpRemoveFunction.bind(this);
 		this.removeUser = this.removeUser.bind(this);
-        this.state = { showPopup: false };
-
+        this.state = { showPopupPassword: false, showPopupRemove: false };
 	}
 
-    showPopUpFunction() {
-        this.setState({ showPopup: !this.state.showPopup})
+    showPopUpPasswordFunction() {
+        this.setState({ showPopupPassword: !this.state.showPopupPassword})
     }
 
-    changePassword(data) {
+    showPopUpRemoveFunction() {
+        this.setState({ showPopupRemove: !this.state.showPopupRemove})
+    }
+
+    changePassword(e) {
+
+      const password = (this.refs.password as HTMLInputElement).value;
+
 		let { requestChangePassword } = this.props;
 
-        requestChangePassword(data);
+        requestChangePassword(password);
 
     }
 
 	changeUserDetails(values) { // username
+
+		let { initialValues, requestChangeUserDetails } = this.props;
         
-        console.log(values)
+        let old_username = initialValues.get('username');
+        let new_username = values.get('username').toLowerCase();
 
-		let { requestChangeUserDetails } = this.props;
+        console.log(old_username)
+        console.log(new_username)
 
-		requestChangeUserDetails(values);
+        let old_email = initialValues.get('email');
+        let new_email = values.get('email').toLowerCase();
+
+		if (old_username !== new_username || old_email !== new_email) {
+		    requestChangeUserDetails(new_username, new_email);
+		}
+
+        if (old_username !== new_username) {
+            window.location.href = "/" + new_username + "/profile";
+        }
 
 	}
 
@@ -61,7 +81,7 @@ class PUserDetails extends React.Component<PUserDetailsProps & PUserDetailsPasse
 
 	render() {
 		
-		const { user, handleSubmit, initialValues, login_status_var } = this.props;
+		const { handleSubmit, login_status_var } = this.props;
 
 		let si__title__display__none, si__title__border__none;  // style to disable forms. 
 		let fieldDis;
@@ -72,9 +92,6 @@ class PUserDetails extends React.Component<PUserDetailsProps & PUserDetailsPasse
 			fieldDis = true;
 		}
 		// true means you're logged in. 
-        console.log(user)
-
-        console.log(initialValues)
 
 /*
              COMPONENT VIEW
@@ -87,7 +104,7 @@ class PUserDetails extends React.Component<PUserDetailsProps & PUserDetailsPasse
         } else {
 
             return (
-                    <form className="p__user__details__container" onBlur={handleSubmit(values => this.changeUserDetails(values) )}>
+                    <form className="p__user__details__container">
                     
                     
                             {/* Schedule Title */}
@@ -100,45 +117,71 @@ class PUserDetails extends React.Component<PUserDetailsProps & PUserDetailsPasse
                                             type="text" 
                                             placeholder="username."
                                             disabled={fieldDis}
+                                            maxLength={35}
+                                            onBlur={ handleSubmit(values => this.changeUserDetails(values) )}
                                             />
-                            
+                                            {/* must have at least one character && can't be the same as another one. && if no change, don't do anything*/}
+
+                                <h3 className="p__user__field__title">Change your email:</h3>
+                                <Field className="p__user__field__username" 
+                                            name="email" 
+                                            component="input" 
+                                            type="email" 
+                                            placeholder="email."
+                                            maxLength={35}
+                                            disabled={fieldDis}
+                                            onBlur={ handleSubmit(values => this.changeUserDetails(values) )}
+                                            />
+                                            {/* must have at least one character && valid email (confirmation perhaps?) && can't be the same as another one. && if no change, don't do anything*/}
+
+
                                 <div className="p__user__field__text">
-                                    <a className="p__user__field__text__link" onClick={() => this.showPopUpFunction()}>Change password</a> 
+                                    <a className="p__user__field__text__link" onClick={() => this.showPopUpPasswordFunction()}>Change password</a> 
                                 </div>
 
                                 <div className="p__user__field__text">
-                                    <a className="p__user__field__text__link" onClick={() => this.showPopUpFunction()}>Delete account</a> 
+                                    <a className="p__user__field__text__link" onClick={() => this.showPopUpRemoveFunction()}>Delete account</a> 
                                 </div>
 
                             </div>
 
 
 
-
-                    <div className={`overlay-${this.state.showPopup}`}  >
+                    {/* Show Pop Up Password */}
+                    <div className={`overlay-${this.state.showPopupPassword}`}  >
                         <div id="popup__container__password" className="popup__container">
                             <div className="popup__top">
-                                {/*<h2 className="popup__title">New Schedule</h2>*/}
-                                <a className="popup__close" onClick={() => this.showPopUpFunction()}>&times;</a>
+                                <a className="popup__close" onClick={() => this.showPopUpPasswordFunction()}>&times;</a>
                             </div>
 
-                            <label className="popup__title">New password.</label>
+                            <label className="popup__password__title">New password.</label>
 
                             <div className="popup__input__password__container">
-                                <input className="popup__input__password" name="schedule_title" ref="password" placeholder="Schedule Title." onKeyPress={(e) => this.changePassword(e)} />
+                                <input className="popup__input__password" name="password" ref="password" type="password" max="100" />
                             </div>
 
-                            {/*<div className="popup__textarea__summary__container">
-                                <textarea className="popup__textarea__summary" ref="schedule_summary" placeholder="Schedule Summary."></textarea>
+                            <div className="popup__password__submit__container" onClick={(e) => this.changePassword(e)}>
+                                <a className="popup__password__submit">create</a>
                             </div>
-*/}
-                            {/*<div className="popup__submit__container">
-                                <a className="popup__submit">create <span className="popup__submit__plus"></span> + </a>
-                            </div>*/}
 
                         </div>
                     </div>
              
+
+                    {/* Show Pop Up Remove */}
+                    <div className={`overlayRemove-${this.state.showPopupRemove}`}  >
+                        <div id="popup__container__remove" className="popup__container">
+                            <div className="popup__top">
+                                <a className="popup__close" onClick={() => this.showPopUpRemoveFunction()}>&times;</a>
+                            </div>
+
+                            <label className="popup__password__title">Are you sure?</label>
+
+                            <div className="popup__remove__submit__container" onClick={() => this.removeUser()}>
+                                <a className="popup__submit">delete</a>
+                            </div>
+                        </div>
+                    </div>
 
              
                             
@@ -163,7 +206,7 @@ import { connect } from 'react-redux';
 
 const mapDispatchToProps = dispatch => { 
 	return { 
-		requestChangeUserDetails: (data) => dispatch(requestChangeUserDetails(data)),
+		requestChangeUserDetails: (username, email) => dispatch(requestChangeUserDetails(username, email)),
 		requestChangePassword: (data) => dispatch(requestChangePassword(data)),
 		requestRemoveUser: () => dispatch(requestRemoveUser())
 	} 

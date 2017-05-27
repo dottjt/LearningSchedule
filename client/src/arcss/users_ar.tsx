@@ -200,7 +200,8 @@ export function* changeDisplaySaga(action) {
 
     yield call(apiChangeDisplay, display_name);
 
-    yield put(changeDisplaySucceeded(action.data));
+    // maybe don't make the change on client side? I mean, it doesn't affect anything...
+    // yield put(changeDisplaySucceeded(action.data));
 
 }
   catch (err) {
@@ -285,9 +286,9 @@ export const CHANGE_USER_DETAILS_SUCCEEDED = 'CHANGE_USER_DETAILS_SUCCEEDED';
 export const CHANGE_USER_DETAILS_FAILED = 'CHANGE_USER_DETAILS_FAILED';
 
 
-export const requestChangeUserDetails = data => ({type: REQUEST_CHANGE_USER_DETAILS, data});
-export const ChangeUserDetailsSucceeded = data => ({type: CHANGE_USER_DETAILS_SUCCEEDED, data});
-export const ChangeUserDetailsFailed = err => ({type: CHANGE_USER_DETAILS_FAILED, err});
+export const requestChangeUserDetails = (username, email) => ({type: REQUEST_CHANGE_USER_DETAILS, username, email});
+export const changeUserDetailsSucceeded = (username, email) => ({type: CHANGE_USER_DETAILS_SUCCEEDED, username, email});
+export const changeUserDetailsFailed = err => ({type: CHANGE_USER_DETAILS_FAILED, err});
 
 
 
@@ -296,13 +297,14 @@ export const ChangeUserDetailsFailed = err => ({type: CHANGE_USER_DETAILS_FAILED
                                                 */
 
 
-export function apiChangeUserDetails(data) {
+export function apiChangeUserDetails(username, email) {
     // check to see if this is okay.
         axios({
             method: 'put',
-            url: 'api/v1/users',
+            url: 'api/v1/users_username',
             data: {
-                data
+                username,
+                email
             }
             // headers: { 'Authorization': 'Bearer ' + token }
         
@@ -316,14 +318,17 @@ export function* requestChangeUserDetailsSaga(action) {
     // let token = localStorage.getItem('id_token') || null;
     // if (token) {    }
 
-    yield call(apiChangeEditActive, action.data);
+    let username = action.username;
+    let email = action.email;
 
-    yield put(changeEditActiveSucceeded(action.data));
+    yield call(apiChangeUserDetails, username, email);
+
+    yield put(changeUserDetailsSucceeded(action.username, action.email));
 
 }
   catch (err) {
       
-    yield put (changeEditActiveFailed(err));
+    yield put (changeUserDetailsFailed(err));
   
     }
 };
@@ -344,8 +349,8 @@ export const CHANGE_SOCIAL_FAILED = 'CHANGE_SOCIAL_FAILED';
 
 
 export const requestChangeSocial = data => ({type: REQUEST_CHANGE_SOCIAL, data});
-export const ChangeSocialSucceeded = data => ({type: CHANGE_SOCIAL_SUCCEEDED, data});
-export const ChangeSocialFailed = err => ({type: CHANGE_SOCIAL_FAILED, err});
+export const changeSocialSucceeded = data => ({type: CHANGE_SOCIAL_SUCCEEDED, data});
+export const changeSocialFailed = err => ({type: CHANGE_SOCIAL_FAILED, err});
 
 
 
@@ -354,13 +359,15 @@ export const ChangeSocialFailed = err => ({type: CHANGE_SOCIAL_FAILED, err});
                                                 */
 
 
-export function apiChangeSocial(data) {
+export function apiChangeSocial(facebook, twitter, github) {
     // check to see if this is okay.
         axios({
             method: 'put',
             url: 'api/v1/users',
             data: {
-                data
+                facebook, 
+                twitter, 
+                github
             }
             // headers: { 'Authorization': 'Bearer ' + token }
         
@@ -374,14 +381,19 @@ export function* requestChangeSocialSaga(action) {
     // let token = localStorage.getItem('id_token') || null;
     // if (token) {    }
 
-    yield call(apiChangeEditActive, action.data);
+    let facebook = action.data.get('facebook');
+    let twitter = action.data.get('twitter');
+    let github = action.data.get('github');
 
-    yield put(changeEditActiveSucceeded(action.data));
+
+    yield call(apiChangeSocial, facebook, twitter, github);
+
+    yield put(changeSocialSucceeded(action.data));
 
 }
   catch (err) {
       
-    yield put (changeEditActiveFailed(err));
+    yield put (changeSocialFailed(err));
   
     }
 };
@@ -401,8 +413,8 @@ export const CHANGE_PASSWORD_FAILED = 'CHANGE_PASSWORD_FAILED';
 
 
 export const requestChangePassword = data => ({type: REQUEST_CHANGE_PASSWORD, data});
-export const ChangePasswordSucceeded = data => ({type: CHANGE_PASSWORD_SUCCEEDED, data});
-export const ChangePasswordFailed = err => ({type: CHANGE_PASSWORD_FAILED, err});
+export const changePasswordSucceeded = data => ({type: CHANGE_PASSWORD_SUCCEEDED, data});
+export const changePasswordFailed = err => ({type: CHANGE_PASSWORD_FAILED, err});
 
 
 
@@ -415,7 +427,7 @@ export function apiChangePassword(data) {
     // check to see if this is okay.
         axios({
             method: 'put',
-            url: 'api/v1/users',
+            url: 'api/v1/users_password',
             data: {
                 data
             }
@@ -431,14 +443,14 @@ export function* requestChangePasswordSaga(action) {
     // let token = localStorage.getItem('id_token') || null;
     // if (token) {    }
 
-    yield call(apiChangeEditActive, action.data);
+    yield call(apiChangePassword, action.data);
 
-    yield put(changeEditActiveSucceeded(action.data));
+    // yield put(changePasswordSucceeded(action.data));
 
 }
   catch (err) {
       
-    yield put (changeEditActiveFailed(err));
+    yield put (changePasswordFailed(err));
   
     }
 };
@@ -460,8 +472,8 @@ export const REMOVE_USER_FAILED = 'REMOVE_USER_FAILED';
 
 
 export const requestRemoveUser = () => ({type: REQUEST_REMOVE_USER});
-export const RemoveUserSucceeded = () => ({type: REMOVE_USER_SUCCEEDED});
-export const RemoveUserFailed = err => ({type: REMOVE_USER_FAILED, err});
+export const removeUserSucceeded = () => ({type: REMOVE_USER_SUCCEEDED});
+export const removeUserFailed = err => ({type: REMOVE_USER_FAILED, err});
 
 
 
@@ -470,35 +482,43 @@ export const RemoveUserFailed = err => ({type: REMOVE_USER_FAILED, err});
                                                 */
 
 
-export function apiRemoveUser(data) {
-    // check to see if this is okay.
-        axios({
-            method: 'delete',
-            url: 'api/v1/users',
-            data: {
-                data
-            }
-            // headers: { 'Authorization': 'Bearer ' + token }
-        
-        });
-};
+
+export function apiRemoveUser() { axios.delete('api/v1/users') }  // this logs out the user. 
+export function apiRemoveUserSchedules() { axios.delete('api/v1/users_schedules') }
+export function apiRemoveUserSummaries() { axios.delete('api/v1/users_summaries') }
+export function apiRemoveUserUpdates() { axios.delete('api/v1/users_updates') }
+export function apiRemoveUserTags() { axios.delete('api/v1/users_tags') }
+export function apiRemoveUserUser() { axios.delete('api/v1/users_user') }
+export function redirect() { axios.get('api/v1/users_redirect') }
 
 
 export function* requestRemoveUserSaga(action) {
   try {
 
     // let token = localStorage.getItem('id_token') || null;
-    // if (token) {    }
+    // if (token) {  }
 
+    console.log('beginning')
+    yield call(apiRemoveUserSchedules);
+    yield call(apiRemoveUserSummaries);
+    console.log('middle')
+    yield call(apiRemoveUserUpdates);
+    yield call(apiRemoveUserTags);
+    yield call(apiRemoveUserUser);
+    console.log('middle2')
 
+    yield call(apiRemoveUser);
 
-    yield call(apiChangeEditActive, action.data);
+    console.log('end')
 
-    yield put(changeEditActiveSucceeded(action.data));
+    yield put(removeUserSucceeded());
+
+    window.location.href = "/";
+    // redirect to the homepage :)
 
 }
   catch (err) {
-    yield put (changeEditActiveFailed(err));
+    yield put (removeUserFailed(err));
   }
 };
 
@@ -531,13 +551,19 @@ export function user(state = Map(), action) {
             return state = state.set('avatar', action.data[0].name)
 
         case CHANGE_USER_DETAILS_SUCCEEDED:
-            return state = state.set('username', action.data.get('username'))
-                                
+            return state = state.set('username', action.username)
+                                .set('email', action.email)
+
+        case CHANGE_PASSWORD_SUCCEEDED: 
+            return state = state.set('password', action.data.get('password'));
+
         case CHANGE_SOCIAL_SUCCEEDED:
             return state = state.set('facebook', action.data.get('facebook'))
                                 .set('twitter', action.data.get('twitter'))
                                 .set('github', action.data.get('github'))
 
+        case REMOVE_USER_SUCCEEDED:
+            return state = Map();
 
         // case CHANGE_PASSWORD_SUCCEEDED: I'm not sure if this is only relevant in the server? 
         

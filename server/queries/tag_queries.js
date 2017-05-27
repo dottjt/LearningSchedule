@@ -29,6 +29,11 @@ function updateTag(tag_id, updates) {
   return Tags().where('tag_id', tag_id).update(updates);
 }
 
+function updateTagUsername(username, updates) {
+  return Tags().where('username', username).update(updates);
+}
+
+
 function deleteTag(tag_id) {
   return Tags().where('tag_id', tag_id).del();
 }

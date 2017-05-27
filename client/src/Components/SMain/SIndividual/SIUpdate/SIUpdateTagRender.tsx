@@ -147,7 +147,7 @@ class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdat
                                             x
                                         </button>
 
-                                        <Field className="si__tag__title__field" name={`${tag}.tag_text`} type="text" component="input" label="Tag Title" maxLength={50} disabled={fieldDis} onBlur={(event) => this.changeTag(event, index)}/>
+                                        <Field className="si__tag__title__field" name={`${tag}.tag_text`} type="text" component="input" label="Tag Title" maxLength={19} disabled={fieldDis} onBlur={(event) => this.changeTag(event, index)}/>
 
                                     </div>
                                 </div>

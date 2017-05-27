@@ -70,6 +70,10 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
     showProfileDropdown(e) {
         e.preventDefault();
         this.setState({ showProfileDrop: !this.state.showProfileDrop})
+
+        //onClick={(e) => this.showProfileDropdown(e)}
+        // need to create a redirect so that this works.
+        // for all li elements. 
     }
 
     showPopUpFunction() {
@@ -83,8 +87,8 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
             } 
 
 
-            if (e.key === 'Enter') {
-
+            if (e.button === 0) {
+//e.key === 'Enter' ||
                 let username = this.props.user.get('username');
                 let schedule_title = (this.refs.schedule_title as HTMLInputElement).value;
                 console.log(schedule_title)
@@ -129,7 +133,8 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
         // var { url_slug } = this.state;
 
 
-        removeContainer = location.pathname.split('/')[2];
+        // do I need this? 
+        // removeContainer = location.pathname.split('/')[2]; 
         // okay, this is what gets rid of the STopbar when it goes to single view. 
         // ["", "juliusreade", "schedule", "when-react-redux-finally-makes-sense"]
 
@@ -145,10 +150,10 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
 
                         <div id={`${this.state.showProfileDrop}-update_profile`}>
                             <ul className="st__navbar__profile__ul">
-                                <Link to={"/" + user.get('username')} onClick={(e) => this.showProfileDropdown(e)} ><li className="st__navbar__profile__li">profile.</li></Link>
-                                <Link to={"/" + user.get('username') + "/profile"} onClick={(e) => this.showProfileDropdown(e)} ><li className="st__navbar__profile__li">settings.</li></Link>
-                                <li className="st__navbar__profile__li" onClick={(e) => this.showProfileDropdown(e)}>published.</li>
-                                <li className="st__navbar__profile__li" onClick={(e) => this.showProfileDropdown(e)}><STLogout/></li>
+                                <Link to={"/" + user.get('username')}><li className="st__navbar__profile__li">Profile.</li></Link>
+                                <Link to={"/" + user.get('username') + "/profile"} ><li className="st__navbar__profile__li">Settings.</li></Link>
+                                <li className="st__navbar__profile__li">Published.</li>
+                                <li className="st__navbar__profile__li__logout"><STLogout/></li>
                             </ul>
                         </div>
                     </div>
@@ -201,11 +206,26 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
 
 
 
+                    {/* SIGN UP LINK */}
+                        {/*<div className='st__navbar__signup__container'>
+
+                                {login_status_var ? ( 
+                                        <div></div> 
+                                    ) : (
+                                    )
+                                }
+
+                        </div>*/}
+
+
+
                             {/* STopbar Profile */}
                                 {login_status_var ? (
                                     image
                                     ) : (
-                                    <a><h3 className="st__navbar__profile"></h3></a>
+                                <button type="submit" className="st__navbar__signup btn btn-primary">
+                                    <a href="/signup" className="st__navbar__signup__link">sign up.</a>
+                                </button>
                                     )
                                 }                            
 
@@ -213,7 +233,8 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
 
                         {/* STopbar Add Schedule */}
                             {login_status_var ? (
-                                <a className="st__navbar__add__container"><div className="st__navbar__add button" onClick={() => this.showPopUpFunction()}>New Schedule <span className="st__navbar__add__plus">+</span></div></a>
+                                <a className="st__navbar__add__container"><div className="st__navbar__add button" onClick={() => this.showPopUpFunction()}>New Schedule</div></a>
+                                //  <span className="st__navbar__add__plus">+</span>
                                 //    <STAddScheduleRedirect onClick={() => this.showPopUpFunction()}/></div>
                                 // <div className="st__navbar__add__container"><Link className="st__navbar_st__navbar__add__container_add" onClick={() => this.addSchedule(url_slug, user.get('username'))} to={"/" +  user.get('username') + "/schedule/" + url_slug}>New Schedule <span className="st__navbar__add__plus">+</span></Link></div>
 
@@ -221,6 +242,9 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
                                 <a><h3 className="st__navbar__add"></h3></a>
                                 )
                             }               
+
+
+
 
                         {/* STopbar Add Schedule */}
 
@@ -233,17 +257,22 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
 
                             {/*<label className="popup__title">Schedule Title.</label>*/}
 
-                            <div className="popup__input__title__container">
-                                <input className="popup__input__title" name="schedule_title" ref="schedule_title" placeholder="Schedule Title." onKeyPress={(e) => this.addSchedule(e)} />
+
+                            <div>
+                                <div className="popup__input__title__container">
+                                    <input className="popup__input__title" name="schedule_title" ref="schedule_title" placeholder="Schedule Title." onKeyPress={(e) => this.addSchedule(e)} />
+                                </div>
+                                <div className="popup__submit__container" onClick={(e) => this.addSchedule(e)}>
+                                    <a className="popup__submit">create</a>
+                                    {/*<span className="popup__submit__plus"> + </span>*/}
+                                </div>
                             </div>
 
                             {/*<div className="popup__textarea__summary__container">
                                 <textarea className="popup__textarea__summary" ref="schedule_summary" placeholder="Schedule Summary."></textarea>
                             </div>
 */}
-                            {/*<div className="popup__submit__container">
-                                <a className="popup__submit">create <span className="popup__submit__plus"></span> + </a>
-                            </div>*/}
+
 
                         </div>
                     </div>

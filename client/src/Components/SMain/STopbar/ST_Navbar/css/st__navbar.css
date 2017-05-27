@@ -23,7 +23,7 @@
 }
 
 .st__navbar__brand {
-    margin-top: 1rem; 
+    margin-top: 1.05rem; 
     font-size: 2rem; 
     float: left;
     margin-left: 2rem;
@@ -58,10 +58,27 @@
     border: 1px solid black;
     border-radius: 2px;
     width: 8rem;
+    height: 9.65rem;
     list-style-type: none;
 }
 
 .st__navbar__profile__li {
+    /*display: flex;
+    align-items: center;
+    justify-content: center;*/
+    text-align: left;
+    font-size: 1.1rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1.5rem;
+    /*border-bottom: 1px solid darkgrey;*/
+    padding: 3px;
+    height: 1.2rem;
+}
+
+.st__navbar__profile__li__logout {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,6 +90,7 @@
     /*border-bottom: 1px solid darkgrey;*/
     padding: 3px;
     height: 1.2rem;
+
 }
 
 
@@ -94,13 +112,51 @@
     margin-top: 1.4rem; 
     margin-left: 1rem;
     width: 450px; 
+    height: 4rem;
     float: left; 
 }
 
+
+
+.st__navbar__signup__container {
+    margin-top: 1.5rem; 
+    margin-left: 1rem;
+    height: 4rem;
+    width: 350px; 
+    float: right; 
+}
+
+.st__navbar__signup {
+    margin-top: 1.4rem;
+    float: right;
+    margin-right: 2rem;
+    width: 270px;
+    height: 25px;
+    border: 1px solid darkgrey;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+    background: white;
+
+}
+
+.st__navbar__signup__link {
+    position: relative;
+    bottom: 0.05;
+    text-decoration: none;
+    color: purple;
+
+}
+
+.st__navbar__signup:hover {
+    border: 1px solid black;
+}
+
+
 .st__navbar__add__container {
     margin-top: 1rem;
-    margin-right: 3rem;
-    width: 9.5rem;
+    margin-right: 2.5rem;
+    width: 8.5rem;
     height: 2rem;
     border: 1px solid darkgrey; 
     border-radius: 1px;
@@ -112,14 +168,14 @@
 }
 
 .st__navbar__add {
-    margin-left: 0.9rem;
+    margin-left: 1rem;
     font-family: 'Nunito', sans-serif;
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 100;
     color: black;
 	position: relative;
-	top: 0.3rem;
+	top: 0.55rem;
 
 	font-size: 1rem;
     cursor: pointer;
@@ -170,6 +226,10 @@
                         */
 
 
+
+
+
+
 .overlay-true {
   position: fixed;
   top: 0;
@@ -199,8 +259,8 @@
   padding: 20px;
   background: #fff;
   border-radius: 5px;
-  width: 30rem;
-  height: 4rem;
+  width: 35rem;
+  height: 3.9rem;
   position: relative;
   transition: all 2s ease-in-out;
 }
@@ -234,10 +294,11 @@
     float: left; 
 }
 
+
 .popup__input__title {
 	font-size: 1.8rem;
 	width: 25rem;
-	outline: none;
+	/*outline: none;*/
 	border-bottom: 1px solid white;
     border: 0;
 	font-family: 'Nunito', sans-serif;
@@ -245,6 +306,7 @@
     float: left;
     padding-bottom: -3px; 
 }
+
 
 .popup__textarea__summary__container {
     margin-left: 1.2rem;
@@ -276,11 +338,10 @@
 
 
 .popup__submit__container {
-    margin-left: 10rem;
-    margin-top: 0.5rem;
+    margin-top: 0.2rem;
     margin-bottom: 0.5rem;
-    width: 5.5rem;
-    height: 2rem;
+    width: 5rem;
+    height: 2.2rem;
     border: 1px solid darkgrey; 
     border-radius: 1px;
     float: left;
@@ -298,14 +359,14 @@
     font-weight: 100;
     color: black;
 	position: relative;
-	top: 0.5rem;
+	top: 0.6rem;
     float: left; 
 	font-size: 1rem;
 }
 
 .popup__submit__plus {
     position: relative;
-    bottom: 0.2rem;
+    bottom: 0.1rem;
 }
 
 

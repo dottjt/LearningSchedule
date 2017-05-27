@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form/immutable';
 import './css/si__title.css';
 var moment = require('moment');
@@ -17,32 +18,49 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 
 	constructor() {
 	super();
-		this.changeSchedule = this.changeSchedule.bind(this);
+		this.changeScheduleTitle = this.changeScheduleTitle.bind(this);
+		this.changeScheduleUrl = this.changeScheduleUrl.bind(this);
+		this.changeScheduleSummary = this.changeScheduleSummary.bind(this);
 	}
 
-	changeSchedule = (values) => {
-	// values is a map with all relevant data from the selected schedule.
+
+	changeScheduleTitle(values) {
+		let { initialValues, requestChangeSchedule } = this.props;
+
+		let old_schedule_title = initialValues.get('schedule_title')
+		let new_schedule_title = values.get('schedule_title');
+	
+		if (old_schedule_title !== new_schedule_title) {
+			requestChangeSchedule(values);
+		}
+	}
+
+	changeScheduleSummary(values) {
+		let { initialValues, requestChangeSchedule } = this.props;
+
+		let old_schedule_summary = initialValues.get('schedule_summary')
+		let new_schedule_summary = values.get('schedule_summary');
+	
+		if (old_schedule_summary !== new_schedule_summary) {
+			requestChangeSchedule(values);
+		}
+	}
+
+	changeScheduleUrl(values) {
+
 		let { requestChangeSchedule } = this.props;
-		
+
 		let old_schedule_url = window.location.href.split('/')[5];
 		let new_schedule_url = getSlug(values.get('schedule_url'));
 
-		values = values.set('schedule_url', new_schedule_url)
+		if (old_schedule_url !== new_schedule_url) {
+			values = values.set('schedule_url', new_schedule_url)
 
-		console.log(values.toJS())
+			requestChangeSchedule(values);
 
-		requestChangeSchedule(values);
-
-		if (new_schedule_url !== old_schedule_url) {
-	    	window.location.href = "/" + this.props.user.get('username') + "/schedule/" + new_schedule_url;
+			window.location.href = "/" + this.props.user.get('username') + "/schedule/" + new_schedule_url;
 		}
-
-											{/*onKeyPress={(e) => this.changeSchedule(e)}
-											onKeyPress={handleSubmit(values => this.changeSchedule(values))}*/}
-
-
 	}
-
 
 
 	/*
@@ -74,7 +92,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 
 
 		return (
-				<form className="si__title__container" onBlur={handleSubmit(values => this.changeSchedule(values) )}>
+				<form className="si__title__container">
 					<div className="si__title__top_layer">
 						{/* Display Profile Picture, Date and Username */}
 
@@ -84,15 +102,15 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 							<div className="si__title__profile_picture__right">
 
 									{/* Username */}
-									<a className="si__title__username__link" href={"/" + user.get('username') }>
+									<Link className="si__title__username__link" to={"/" + user.get('username') }>
 										<h4 className="si__title__username">
 											{user.get('display_name')}
 										</h4>
-									</a>
+									</Link>
 
 									{/* Date */}
 									<h5 className="si__title__start_date__container">
-											{moment(Date.now()).format('MMM DD')}
+											{moment(Date.now()).format('MMMM Do')}
 									</h5>
 							</div>
 
@@ -120,7 +138,10 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 										type="text" 
 										placeholder="Schedule Title."
 										disabled={fieldDis}
+										maxLength={40}
+										onBlur={handleSubmit(values => this.changeScheduleTitle(values))}
 										/>
+
 							<div id={si__title__display__none} className="si__title__schedule_url__field__container">
 								<p className="si__title__schedule_url__field__pre">URL:</p>
 								<Field className="si__title__schedule_url__field" 
@@ -129,19 +150,20 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 											type="text" 
 											placeholder="Schedule Url."
 											disabled={fieldDis}
+											maxLength={60}
+											onBlur={handleSubmit(values => this.changeScheduleUrl(values))}
 											/>
 							</div>
 
-
 							<div className="si__title__summary__container">
-
 								<Field id={si__title__border__none} className="si__title__summary__field" 
 											name="schedule_summary" 
 											component="textarea" 
 											type="text" 
 											placeholder="Schedule Overview."
 											disabled={fieldDis}
-
+											maxLength={300}
+											onBlur={handleSubmit(values => this.changeScheduleSummary(values))}
 											/>
               				</div>
 

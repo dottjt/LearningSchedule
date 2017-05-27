@@ -23,7 +23,7 @@ class STWebsite extends React.Component<any, undefined> {
                                       */
 
 
-      <a className="st__midbar__website__link" href={user.get('website')}>
+      <a className="st__midbar__website__container" href={user.get('website')}>
         <h3 className="st__midbar__website">
           {user.get('website')}
         </h3>

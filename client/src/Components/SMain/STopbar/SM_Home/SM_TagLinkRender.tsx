@@ -26,7 +26,7 @@ class SM_TagLinkRender extends React.Component<SM_TagLinkRenderProps, undefined>
         var { user, tags } = this.props;
 
         console.log(tags)
-        if(tags.length > 0) {
+        if(tags.size > 0) {
             return (
         
                 <div className="sm__taglink">
@@ -55,7 +55,7 @@ class SM_TagLinkRender extends React.Component<SM_TagLinkRenderProps, undefined>
                     </h3>
 
                     <h3 className="sm__homelink__individual__empty">
-                        Though I'm sure this user is in the process of making one right now.
+                        Although I'm sure this user is in the process of making one right now.
                     </h3>
 
                     <h3 className="sm__homelink__individual__empty">

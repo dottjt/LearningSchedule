@@ -1,9 +1,12 @@
 import * as React from 'react';
-import SITopbar from './SITopbar';
+// import SITopbar from './SITopbar';
+import ST_Navbar from '../STopbar/ST_Navbar';
 import SITitle from './SITitle';
 import SIUpdate from './SIUpdate';
 import SITag from './SITag';
 
+
+import '../STopbar/ST_Navbar/css/st__navbar.css';
 import './css/si.css';
 import { Map } from 'immutable';
 
@@ -265,8 +268,8 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
 
         <div>
 
-            <SITopbar user={user} /> 
-
+            {/*<SITopbar user={user} /> */}
+            <ST_Navbar user={user} />
             <div>
                 
                 <div className="si__elements__container">

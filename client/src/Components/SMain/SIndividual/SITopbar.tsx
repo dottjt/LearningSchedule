@@ -99,6 +99,21 @@ class SITopbar extends React.Component<SITopbarPassedProps, any> {
 
                     </div>
 
+                {/* SIGN UP LINK */}
+                    <div className='st__navbar__signup__container'>
+
+                            {login_status_var ? ( 
+                                    <div></div> 
+                                ) : (
+                                    <button type="submit" className="st__navbar__signup btn btn-primary">
+                                        sign up?
+                                    </button>
+                                )
+                            }
+
+                    </div>
+
+
                 </nav>
    
         )

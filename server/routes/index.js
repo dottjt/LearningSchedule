@@ -5,70 +5,101 @@ const user_queries = require('../queries/user_queries');
 const authHelpers = require('../auth/_helpers');
 
 
+const index = require('../views/homepage/index');
+const about = require('../views/other/about');
+const blog = require('../views/other/blog');
+const login = require('../views/auth/login');
+const signup = require('../views/auth/signup');
+const forgot = require('../views/auth/forgot');
+const fourohfour = require('../views/utility/404');
 
 
 
-function userCheck(req, res, next) {
 
-  var url, urlArray, urlUsername; 
-
-    url = req.url;
-    console.log(req.url)
-    urlArray = url.split('/');
-    // [ 'http:', '', 'localhost:3000', 'juliusreade' ]
-
-    urlUsername = urlArray[1];
-    console.log(urlUsername);
-    req.session.username = urlUsername;
-
-    console.log(req.session.username)
-    
-    return next(); 
-
-}
-// so userCheck return 
+router.get('/', function(req, res) {
+    res.marko(index, {
+        name: 'Frank',
+        count: 30,
+        colors: ['red', 'green', 'blue']
+    });
+});
 
 
-router.get('/:username', userCheck, (req, res, next) => {
 
-  if(req.session.username === '/logout') {
-    res.redirect('/logout')
+
+router.get('/:username', authHelpers.userCheck, (req, res, next) => {
+
+  if(req.params.username === 'about') {
+      res.marko(about, {
+          name: 'Frank',
+          count: 30,
+          colors: ['red', 'green', 'blue']
+      });
   }
 
-  if(req.session.username === '/login') {
-    res.redirect('/login');
+  if(req.params.username === 'contact') {
+      res.marko(contact, {
+          name: 'Frank',
+          count: 30,
+          colors: ['red', 'green', 'blue']
+      });
+  }
+
+  if(req.params.username === 'blog') {
+      res.marko(blog, {
+          name: 'Frank',
+          count: 30,
+          colors: ['red', 'green', 'blue']
+      });
+  }
+  
+  if(req.params.username === 'login') {
+      res.marko(login, {
+          name: 'Frank',
+          count: 30,
+          colors: ['red', 'green', 'blue']
+      });
   } 
 
-  if(req.session.username === '/signup') {
-    res.redirect('/signup')
+  if(req.params.username === 'signup') {
+      res.marko(signup, {
+          name: 'Frank',
+          count: 30,
+          colors: ['red', 'green', 'blue']
+      });
   }
 
-  // if(req.session.username === '/about') {
-  //   res.redirect('/about')
-  // }
-
-  // if(req.session.username === '/faq') {
-  //   res.redirect('/faq')
-  // }
-
-  console.log(req.session.username)
-
-  // okay, there is a serious error (I think?) with usernameParamsRequired, where the referer url is actually the prior email. It shouldn't be a huge issue, I don't think. 
+  if(req.params.username === 'forgot') {
+      res.marko(forgot, {
+          name: 'Frank',
+          count: 30,
+          colors: ['red', 'green', 'blue']
+      });
+  }
 
 
-  return user_queries.getSingleUser(req.session.username)
+  user_queries.getSingleUser(req.session.username)
     .then((user) => {
-      console.log(user)
-    
-      if (user === undefined) {
-        res.sendFile(path.resolve(__dirname, '..', 'views', '404.html'));
-      }
-      
-      res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+      console.log("queeer", user)
 
+        if (user === undefined) {
+            res.marko(fourohfour, {
+                name: 'Frank',
+                count: 30,
+                colors: ['red', 'green', 'blue']
+            });
+        } else {
+
+            res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+
+        }
     })
 
 });
+
+
+
+
 
 
 module.exports = router;

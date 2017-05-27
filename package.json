@@ -5,14 +5,16 @@
   "proxy": "http://localhost:3001/",
   "scripts": {
     "start": "concurrently \"npm run start-server\" \"cd client && npm run start\"",
-    "start-server": "node ./index.js",
+    "s": "node ./index.js",
     "startS": "node dist/index.js",
+    "r": "browser-refresh ./index.js",
     "test": "mocha server/test/**/*.test.js",
     "test:auto": "mocha server/test/**/*.test.js --watch"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "~1.17.1",
+    "browser-refresh-taglib": "^1.1.0",
     "connect-redis": "^3.3.0",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.3",

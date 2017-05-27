@@ -1,0 +1,32 @@
+.four__container {
+    width: 100%;
+}
+
+.four__title {
+    width: 500px;
+    font-size: 20rem; 
+    margin: 0 auto;
+    text-align: center;
+}
+
+.four__secondary {
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+    /*margin-left: 4rem;*/
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.four__third {
+    margin-top: 2rem;
+    font-size: 2rem;
+    margin-left: 4rem;
+}
+
+.four__link {
+    font-size: 1.6rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+}

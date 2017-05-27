@@ -30,13 +30,21 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
 		this.addUpdate = this.addUpdate.bind(this);
 		this.createUpdateTagsProps = this.createUpdateTagsProps.bind(this);
 		this.showEmojiPicker = this.showEmojiPicker.bind(this);
-
+        this._onSubmit = this._onSubmit.bind(this);
 		this.state = {fd: "yolo", showEmoji: false}
 	}
 
     addUpdate(values) { 
 
         const {schedule_url, schedule_id, user, form, requestAddUpdate } = this.props;
+
+        console.log(values.toJS())
+
+        let update_type; 
+        if (this.props.update_type_value === undefined) {
+            update_type = "text";
+        }
+
 
         requestAddUpdate(Map({ 
             schedule_id: schedule_id, 
@@ -48,7 +56,7 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
             update_title: values.get('update_title'),
             update_text: values.get('update_text'),
             update_summary: values.get('update_summary'),
-            update_type: values.get('update_type')
+            update_type: update_type // values.get('update_type') // need to get this... 
         })); 
     }
 
@@ -67,6 +75,10 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
         }
     }
 
+
+    _onSubmit(e) {
+        e.preventDefault();
+    }
 
     showEmojiPicker(e) {
         e.preventDefault();
@@ -91,21 +103,23 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
                                       */
 
 
+        console.log("check this", this.props.update_type_value)
+
         return (
 
-                <form className="si__update__container">
+                <form className="si__update__container" onSubmit={this._onSubmit}>
 
                     <div className="si__update__single__container">
                         
                         <div id={si__update__display__none} className="si__update__select__container">
-                            <Field className="si__update__select" name="update_type" component="select">
+                            <Field className="si__update__select" name="update_type" type="text" component="select" ref="update_type_ref">
                                 <option default value="text">Text</option>
                                 <option value="link">Link</option>
                                 <option value="milestone">Milestone</option>
                             </Field>
 
                         {/* SIUpdate Add Button */}
-                            <button className="si__update__add" type="button" onClick={ handleSubmit(values => this.addUpdate(values)) }>Add Update</button>
+                            <button className="si__update__add" type="button" onClick={handleSubmit(values => this.addUpdate(values))}>Add Update</button>
                             
                             <div className="emoji-picker-container-reade">
                                 <a className="emoji-picker-button" onClick={(e) => this.showEmojiPicker(e)}>{emojify(":)")}</a>
@@ -119,53 +133,71 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
                             </div>
 
                             <div className="update__single__field__container">
+                                
                                 <Field className="update__single__title__field" 
                                         name="update_title" 
                                         component="input" 
                                         type="text" 
                                         placeholder="Title."
-                                        maxLength={300}
+                                        maxLength={80}                                        
                                         />
 
-                            {(update_type_value === "text" || update_type_value === undefined) && 
+                                {(update_type_value === "text" || update_type_value === undefined) && 
+
                                     <div className="update__single__text__container">
+
                                         <Field className="update__single__text__field" 
                                                 name="update_text"
                                                 component="textarea"
                                                 type="text"
                                                 placeholder="Text."
-                                                maxLength={300}
+                                                maxLength={400}
                                                 />
-                                    </div> }
+
+                                    </div> 
+                                }
 
                                 {update_type_value === "link" && 
+                                
                                     <div className="update__single__link__container">
-                                            <Field className="update__single__link__field" 
-                                                    name="update_text" 
-                                                    component="input" 
-                                                    type="text" 
-                                                    placeholder="Link."
-                                                    />
-                                        <Field className="update__single__link__field update__single__link__field__bottom" 
-                                                name="update_summary" 
+
+                                        <Field className="update__single__link__field" 
+                                                name="update_text" 
                                                 component="input" 
                                                 type="text" 
-                                                placeholder="Link Summary."
+                                                placeholder="Link."
+                                                maxLength={350}
                                                 />
+
+                                        <Field className="update__single__link__summary__field update__single__link__field__bottom" 
+                                                name="update_summary" 
+                                                component="textarea" 
+                                                type="text" 
+                                                placeholder="Link Summary."
+                                                maxLength={200}
+                                                />
+
                                     </div>
                                 }
 
                                 {update_type_value === "milestone" && 
+
                                     <div className="update__single__milestone__container">
+                                        
                                         <Field 
                                             className="update__single__milestone__field" 
                                             name="update_text" 
                                             component="input" 
                                             type="text" 
                                             placeholder="Milestone."
+                                            maxLength={80}
                                             />
-                                    </div> }
+
+                                    </div> 
+                                }
+
                             </div> {/* end of update */}
+
                         </div>
 
                         <FieldArray name="updates" component={SIUpdateRender} props={this.createUpdateTagsProps(si__update__display__none, si__update__border__none, fieldDis)} />

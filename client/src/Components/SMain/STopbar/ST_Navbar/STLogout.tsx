@@ -19,8 +19,8 @@ class STLogout extends React.Component<any, undefined>  {
   render() {
     
     return (
-      <form method="get" action="auth/logout"> 
-        <button type="submit" className="st__login__submit btn btn-primary" onClick={(event) => this.onLogoutClick(event)}>
+      <form className="st__logout__submit__container" method="get" action="auth/logout"> 
+        <button type="submit" className="st__logout__submit btn btn-primary" onClick={(event) => this.onLogoutClick(event)}>
           Logout
         </button>
       </form>

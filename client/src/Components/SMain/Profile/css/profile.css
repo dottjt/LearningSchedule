@@ -39,6 +39,7 @@
 .p__user__field__username {
     margin-top: 0.4rem;
     font-size: 1.1rem;
+    width: 18rem;
 }
 
 
@@ -72,6 +73,7 @@
 
 .p__user__field__social {
     font-size: 1.1rem;
+    width: 18rem;
 }
 
 
@@ -83,13 +85,20 @@
 
                                     */
 
+.popup__password__title {
+    float: left;
+    margin-left: 2rem;
+    width: 20rem;
+    height: 3rem;
+}
+
 #popup__container__password {
-    height: 12rem;
+    height: 8rem;
 }
 
 .popup__input__password__container {
-    margin-left: 2.2rem;
-    margin-top: 2rem;
+    margin-left: 2rem;
+    /*margin-top: 1rem;*/
 	border: 1px solid darkgrey;
     float: left; 
 }
@@ -106,3 +115,75 @@
     padding-bottom: -3px; 
 }
  
+
+
+
+
+
+
+/*
+
+        POP UP CHANGE PASSWORD 
+
+                                    */
+
+.overlayRemove-true {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: visible;
+  opacity: 1;
+}
+
+.overlayRemove-false {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.popup__container__remove {
+    height: 3rem;
+    width: 6rem;
+}
+
+.popup__password__submit__container {
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+    width: 5rem;
+    height: 1.45rem;
+    border: 1px solid darkgrey; 
+    border-radius: 1px;
+    float: left;
+}
+
+.popup__password__submit__container:hover {
+    border: 1px solid black; 
+}
+
+.popup__remove__submit__container {
+    margin-bottom: 0.5rem;
+    width: 5rem;
+    height: 2.2rem;
+    border: 1px solid darkgrey; 
+    border-radius: 1px;
+    float: left;
+
+}
+
+
+
+.popup__password__submit {
+    margin-left: 1.05rem;
+    font-family: 'Nunito', sans-serif;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 100;
+    color: black;
+	position: relative;
+	top: 0.3rem;
+    float: left; 
+	font-size: 1rem;
+}
