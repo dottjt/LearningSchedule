@@ -27,13 +27,16 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port, function() {
-    console.log('Listening on port %d', port);
+// server.listen(port, function() {
+//     console.log('Listening on port %d', port);
 
-    if (process.send) {
-        process.send('online');
-    }
-});
+//     if (process.send) {
+//         process.send('online');
+//     }
+// });
+
+server.listen(port);
+
 
 
 // server.listen(port);
