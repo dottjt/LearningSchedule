@@ -622,3 +622,7 @@ button[type="submit"] {
 .homepage__footer a {
 	color: cyan;
 }
+
+.name {
+	color: yellow;
+}

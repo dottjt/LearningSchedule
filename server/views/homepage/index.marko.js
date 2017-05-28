@@ -62,7 +62,7 @@ function render(input, out) {
       _target: homepage_closing_template
     }, out);
 
-  out.w("</main><footer class=\"homepage__footer\"><p>Made by <a href=\"https://juliusreade.com/\">Julius Reade</a> dedicated to self-learners around the world.</p></footer>");
+  out.w("</main>");
 
   browser_refresh_tag({
       enabled: "true"

@@ -3,7 +3,6 @@
   'use strict';
 
   require('marko/node-require'); 
-  require('marko/browser-refresh').enable();
 
   // *** main dependencies *** //
   const path = require('path');
@@ -59,7 +58,7 @@
 
     app.use('/', express.static(path.join(__dirname, '..', 'views')));
     // app.use('/', express.static(path.join(__dirname, '..', 'uploads')));
-    // app.use('/', express.static(path.join(__dirname, '..', 'build')));
+    // app.use(express.static(path.join(__dirname, '..', 'build')));
 
     // app.use('/', express.static(path.join(__dirname, '..', 'views'), {extensions:['html'], index: 'index.html'}));
 

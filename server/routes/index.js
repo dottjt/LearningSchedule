@@ -7,6 +7,7 @@ const authHelpers = require('../auth/_helpers');
 
 const index = require('../views/homepage/index');
 const about = require('../views/other/about');
+const contact = require('../views/other/contact');
 const blog = require('../views/other/blog');
 const login = require('../views/auth/login');
 const signup = require('../views/auth/signup');
@@ -88,9 +89,10 @@ router.get('/:username', authHelpers.userCheck, (req, res, next) => {
                 count: 30,
                 colors: ['red', 'green', 'blue']
             });
+            
         } else {
 
-            res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+            res.sendFile(path.resolve(__dirname, '..', 'views', 'build', 'index.html'));
 
         }
     })
