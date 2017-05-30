@@ -17,6 +17,13 @@ Website: https://learningschedule.com
 
 # Updates 
 
+
+**30-05-17**: Kubernetes, Jenkins and moar dockr. I feel like I'm becoming somewhat of a UNIX master. Won't lie though, for the first time in the while, I've started wanting to fall asleep on the train whilst reading this material. It can be incredibly dry, though it's necessary.  I also learnt a heap of the grid css API. 
+
+**29-05-17**: Nginx, docker compose, Jenkins and Ansible. These tools are absolutely amazing! I'm thinking that in order to run my application, I just need to spin up a docker-machine instance on my linode server and pull everything into it.
+
+**28-05-17**: I wouldn't say I'm a docker expert, however I can now comfortably create images (as well as know how to optimise them) and more-or-less use the damn thing. I've also been learning a lot more css/layout techniques - my gosh, flexbox is incredible! 
+
 **27-05-17**: I went in. I created my first linode server :))))))) Configuring it, my app is nearly ready for production (I don't think it actually is, but it feels like it is. The main reason I created it was that I needed a proper IP to create a sub-domain for sending email verifications to users. 
 
 I think I'll be taking some time off developing my app to learn more dev ops related concepts, like docker. The app is nearly done. It just needs. 
