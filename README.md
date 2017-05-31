@@ -17,6 +17,7 @@ Website: https://learningschedule.com
 
 # Updates 
 
+**31-05-17**: Learnt a lot more about servers, setting up ssh, ansible and general docker image creation. I'm really beginning to develop a knack for this dev ops stuff, and then once this is done - I'll be super full-stack genius! Also beginning to start learning asp.net mvc. I suppose, for jobs n' stuff. Should be easy cakes. 
 
 **30-05-17**: Kubernetes, Jenkins and moar dockr. I feel like I'm becoming somewhat of a UNIX master. Won't lie though, for the first time in the while, I've started wanting to fall asleep on the train whilst reading this material. It can be incredibly dry, though it's necessary.  I also learnt a heap of the grid css API. 
 
