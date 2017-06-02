@@ -17,6 +17,10 @@ Website: https://learningschedule.com
 
 # Updates 
 
+**02-0-17**: More docker and some email configuration. Working on my ansible scripts. Also really been getting into web design tools like Sketch and figuring out web design best practices. Webflow looks like an amazing tool to design and prototype websites. I just love every aspect of web creation! 
+
+**01-0-17**: Pinch. Punch. First day of the month. Docker Docker Docker. I think the aim of this week has been to learn as much as I can about dev ops, so I can implement all this stuff on the weekend. Just need to properly figure out ansible. Docker volume edge cases are also perplexing me a bit.  
+
 **31-05-17**: Learnt a lot more about servers, setting up ssh, ansible and general docker image creation. I'm really beginning to develop a knack for this dev ops stuff, and then once this is done - I'll be super full-stack genius! Also beginning to start learning asp.net mvc. I suppose, for jobs n' stuff. Should be easy cakes. 
 
 **30-05-17**: Kubernetes, Jenkins and moar dockr. I feel like I'm becoming somewhat of a UNIX master. Won't lie though, for the first time in the while, I've started wanting to fall asleep on the train whilst reading this material. It can be incredibly dry, though it's necessary.  I also learnt a heap of the grid css API. 
@@ -27,7 +31,7 @@ Website: https://learningschedule.com
 
 **27-05-17**: I went in. I created my first linode server :))))))) Configuring it, my app is nearly ready for production (I don't think it actually is, but it feels like it is. The main reason I created it was that I needed a proper IP to create a sub-domain for sending email verifications to users. 
 
-I think I'll be taking some time off developing my app to learn more dev ops related concepts, like docker. The app is nearly done. It just needs. 
+I think I'll be taking some time off developing my app to learn more dev ops related concepts, like docker. The app is nearly done. It just needs a suitable deployment, and I'd rather spend the time to learn future concepts so I can have them for the rest of my life. 
 
 This is what I managed to get done over the past week or so. 
 
