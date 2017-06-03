@@ -1,6 +1,8 @@
+
 #start
 
 FROM alpine:latest
+
 
 #initial setup
 
@@ -37,5 +39,4 @@ COPY . /
 RUN cd /client && npm run build 
 
 EXPOSE 3001
-CMD [ “npm”, “run”, “s” ]
-
+CMD [“npm”, “run”, “s”]
