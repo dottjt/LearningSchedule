@@ -17,6 +17,8 @@ Website: https://learningschedule.com
 
 # Updates 
 
+**03-0-17**: Today has been draining. Compiled all my ssh scripts, however now I need to transfer them over to an ansible configuration. Also fully created my docker-compose file n' all that. It's not fully there yet, because of a few bugs. I honestly question whether docker is production ready, at least on mac. TBH it's a bit of a cluster-f at the moment, and my app woud be up and running by now if I'd just done it normally. Of course, learning is the goal and I'm learning a lot. 
+
 **02-0-17**: More docker and some email configuration. Working on my ansible scripts. Also really been getting into web design tools like Sketch and figuring out web design best practices. Webflow looks like an amazing tool to design and prototype websites. I just love every aspect of web creation! 
 
 **01-0-17**: Pinch. Punch. First day of the month. Docker Docker Docker. I think the aim of this week has been to learn as much as I can about dev ops, so I can implement all this stuff on the weekend. Just need to properly figure out ansible. Docker volume edge cases are also perplexing me a bit.  
