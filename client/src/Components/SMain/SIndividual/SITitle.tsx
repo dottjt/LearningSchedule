@@ -57,9 +57,8 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 			values = values.set('schedule_url', new_schedule_url)
 
 			requestChangeSchedule(values);
-
-			window.location.href = "/" + this.props.user.get('username') + "/schedule/" + new_schedule_url;
 		}
+
 	}
 
 

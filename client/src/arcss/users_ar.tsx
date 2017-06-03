@@ -68,7 +68,7 @@ export function apiAddAvatar(avatar) {
     
     return axios({
             method: 'post',
-            url: 'image/profile',
+            url: 'api/v1/profile',
             data: {
                 avatar: avatar
             }
@@ -82,7 +82,7 @@ export function* addAvatarSaga(action): SagaIterator {
     
     // let token = localStorage.getItem('id_token') || null
     console.log(action)
-    let fileName = action.data[0].name;
+    let fileName = action.data[0];
     console.log(fileName);
 
     // if (token) {    }
@@ -201,7 +201,7 @@ export function* changeDisplaySaga(action) {
     yield call(apiChangeDisplay, display_name);
 
     // maybe don't make the change on client side? I mean, it doesn't affect anything...
-    // yield put(changeDisplaySucceeded(action.data));
+    yield put(changeDisplaySucceeded(action.data));
 
 }
   catch (err) {
@@ -311,6 +311,10 @@ export function apiChangeUserDetails(username, email) {
         });
 };
 
+function changeUsernameEmail(username) {
+    return window.location.href = "/" + username + "/profile";
+}
+
 
 export function* requestChangeUserDetailsSaga(action) {
   try {
@@ -324,6 +328,8 @@ export function* requestChangeUserDetailsSaga(action) {
     yield call(apiChangeUserDetails, username, email);
 
     yield put(changeUserDetailsSucceeded(action.username, action.email));
+
+    yield call(changeUsernameEmail, username);
 
 }
   catch (err) {
@@ -492,6 +498,10 @@ export function apiRemoveUserUser() { axios.delete('api/v1/users_user') }
 export function redirect() { axios.get('api/v1/users_redirect') }
 
 
+function removeUser() {
+    return window.location.href = "/";
+}
+
 export function* requestRemoveUserSaga(action) {
   try {
 
@@ -513,7 +523,7 @@ export function* requestRemoveUserSaga(action) {
 
     yield put(removeUserSucceeded());
 
-    window.location.href = "/";
+    yield call(removeUser)
     // redirect to the homepage :)
 
 }

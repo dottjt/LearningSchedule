@@ -68,14 +68,19 @@
     position: relative;
     font-size: 1.2rem;
     background: white;
-    border: 1px solid black; 
+    border: 1px solid darkgrey; 
     border-radius: 1px;
 
-    top: 3.38rem;
+    top: 3.55rem;
     left: 39.8rem;
     width: 2.12rem;
     height: 2rem;
 }
+
+.si__update__remove:hover {
+    border: 1px solid black;
+}
+
 
 .si__update__remove__x {
     position: relative;

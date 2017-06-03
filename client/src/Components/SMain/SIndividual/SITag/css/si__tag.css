@@ -77,6 +77,11 @@
 
 }
 
+.si__tag__add:hover {
+      background: darkgrey;
+
+}
+
 #si__tag__add__text {
       position: relative;
       top: 1px;

@@ -56,9 +56,21 @@
 
     // *** view rendering *** //
 
+    const index = require('../views/homepage/index');
+
+    app.get('/', function(req, res) {
+        res.marko(index, {
+            name: 'Frank',
+            count: 30,
+            colors: ['red', 'green', 'blue']
+        });
+    });
+
     app.use('/', express.static(path.join(__dirname, '..', 'views')));
-    // app.use('/', express.static(path.join(__dirname, '..', 'uploads')));
-    // app.use(express.static(path.join(__dirname, '..', 'build')));
+    app.use('/:other', express.static(path.join(__dirname, '..', 'views')));
+
+    app.use('/', express.static(path.join(__dirname, '..', 'uploads')));
+    app.use(express.static(path.join(__dirname, '..', 'build')));
 
     // app.use('/', express.static(path.join(__dirname, '..', 'views'), {extensions:['html'], index: 'index.html'}));
 

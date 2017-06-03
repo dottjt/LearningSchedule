@@ -57,10 +57,6 @@ class PUserDetails extends React.Component<PUserDetailsProps & PUserDetailsPasse
 		    requestChangeUserDetails(new_username, new_email);
 		}
 
-        if (old_username !== new_username) {
-            window.location.href = "/" + new_username + "/profile";
-        }
-
 	}
 
 	removeUser() {

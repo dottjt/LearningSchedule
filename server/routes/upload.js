@@ -7,7 +7,6 @@ const localAuth = require('../auth/local');
 
 const users_queries = require('../queries/user_queries');
 
-
 /*
 
         FILE UPLOAD SECTION
@@ -55,23 +54,25 @@ const cleanFolder = function (folderPath) {
     del.sync([`${folderPath}/**`, `!${folderPath}`]);
 };
 
-router.post('/profile'), function(req, res, next) {
-    res.status(200)
-};
+// router.post('/profile'), function(req, res, next) {
+//     res.status(200)
+// };
 
 
 
 // upload avatar images
-// router.post('/profile', upload.single('avatar'), async (req, res) => {
-//     try {
-//         const col = await loadCollection(COLLECTION_NAME, db);
-//         const data = col.insert(req.file);
-//         db.saveDatabase();
-//         res.send({ id: data.$loki, fileName: data.filename, originalName: data.originalname });
-//     } catch (err) {
-//         res.sendStatus(400);
-//     }
-// })
+router.post('/profile', upload.single('avatar'), async (req, res) => {
+
+    console.log('sweetie')
+    // try {
+    //     const col = await loadCollection(COLLECTION_NAME, db);
+    //     const data = col.insert(req.file);
+    //     db.saveDatabase();
+    //     res.send({ id: data.$loki, fileName: data.filename, originalName: data.originalname });
+    // } catch (err) {
+    //     res.sendStatus(400);
+    // }
+})
 
 // get list of images
 router.get('/images', async (req, res) => {

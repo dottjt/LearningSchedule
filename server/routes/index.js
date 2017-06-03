@@ -5,7 +5,6 @@ const user_queries = require('../queries/user_queries');
 const authHelpers = require('../auth/_helpers');
 
 
-const index = require('../views/homepage/index');
 const about = require('../views/other/about');
 const contact = require('../views/other/contact');
 const blog = require('../views/other/blog');
@@ -16,18 +15,7 @@ const fourohfour = require('../views/utility/404');
 
 
 
-
-router.get('/', function(req, res) {
-    res.marko(index, {
-        name: 'Frank',
-        count: 30,
-        colors: ['red', 'green', 'blue']
-    });
-});
-
-
-
-
+// authHelpers.userCheck
 router.get('/:username', authHelpers.userCheck, (req, res, next) => {
 
   if(req.params.username === 'about') {
@@ -78,12 +66,13 @@ router.get('/:username', authHelpers.userCheck, (req, res, next) => {
       });
   }
 
-
-  user_queries.getSingleUser(req.session.username)
+  
+  return user_queries.getSingleUser(req.session.username)
     .then((user) => {
       console.log("queeer", user)
 
-        if (user === undefined) {
+        if (user.username === undefined) {
+
             res.marko(fourohfour, {
                 name: 'Frank',
                 count: 30,
@@ -92,7 +81,7 @@ router.get('/:username', authHelpers.userCheck, (req, res, next) => {
             
         } else {
 
-            res.sendFile(path.resolve(__dirname, '..', 'views', 'build', 'index.html'));
+            res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 
         }
     })

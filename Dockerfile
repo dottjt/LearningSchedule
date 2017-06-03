@@ -1,4 +1,4 @@
-FROM node 
+FROM node
 
 # Install global dependencies
 RUN npm i -g typescript node-ts

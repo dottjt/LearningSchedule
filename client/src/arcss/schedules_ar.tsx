@@ -105,6 +105,9 @@ export function* addScheduleSaga(action): SagaIterator {
 
      // from action
 
+     window.location.href = "/" + action.data.get('username') + "/schedule/" + action.data.get('schedule_url');
+
+     // change here
 
   }
   catch (err) {
@@ -199,6 +202,10 @@ export function apiChangeSchedule(schedule_title, schedule_url, schedule_summary
         });
 }
 
+function redirectChangeScheduleUrl(username, schedule_url) {
+    	return window.location.href = "/" + username + "/schedule/" + schedule_url;
+}
+
 export function* changeScheduleSaga(action): SagaIterator {
   try {
 
@@ -226,6 +233,7 @@ export function* changeScheduleSaga(action): SagaIterator {
     // then the server? 
     // I know this is wrong?, but for the time being, I don't 
     // have a choice. 
+    yield call(redirectChangeScheduleUrl, action.data.get('username'), schedule_url);
 
 
   }

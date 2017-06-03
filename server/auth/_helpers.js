@@ -185,6 +185,7 @@ function userCheck(req, res, next) {
     urlUsername = urlArray[1];
     console.log("urlUsername", urlUsername);
     req.session.username = urlUsername;
+    
 
     console.log(req.session.username)
     

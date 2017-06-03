@@ -84,7 +84,7 @@ class ST_Midbar extends React.Component<ST_MidbarProps & ST_MidbarPassedProps, S
 
 
     onDrop(files) {
-    console.log(files)
+        console.log(files)
 
         this.props.requestAddAvatar(files);
 
@@ -213,7 +213,6 @@ class ST_Midbar extends React.Component<ST_MidbarProps & ST_MidbarPassedProps, S
         )
     };
 };
-
 
 
 

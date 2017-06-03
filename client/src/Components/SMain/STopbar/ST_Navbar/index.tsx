@@ -112,7 +112,6 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
                 };
 
                 this.props.requestAddSchedule(data); 
-                window.location.href = "/" + username + "/schedule/" + schedule_url;
             }   
 
     }
@@ -152,7 +151,7 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
                             <ul className="st__navbar__profile__ul">
                                 <Link to={"/" + user.get('username')}><li className="st__navbar__profile__li">Profile.</li></Link>
                                 <Link to={"/" + user.get('username') + "/profile"} ><li className="st__navbar__profile__li">Settings.</li></Link>
-                                <li className="st__navbar__profile__li">Published.</li>
+                                {/*<li className="st__navbar__profile__li">Published.</li>*/}
                                 <li className="st__navbar__profile__li__logout"><STLogout/></li>
                             </ul>
                         </div>
