@@ -3,7 +3,7 @@ const databaseName = 'schedules';
 module.exports = {
   test: {
     client: 'pg',
-    connection: `postgres://localhost:5432/${databaseName}_test`,
+    connection: `postgres://juliusrpostgres:juliusrpostgres@localhost:5432/${databaseName}_test`,
     migrations: {
       directory: __dirname + '/server/db/schedules_migrations'
     },
@@ -13,7 +13,7 @@ module.exports = {
   },
   development: {
     client: 'pg',
-    connection: `postgres://localhost:5432/${databaseName}`,
+    connection: `postgres://juliusrpostgres:juliusrpostgres@localhost:5432/${databaseName}`,
     migrations: {
       directory: __dirname + '/server/db/schedules_migrations'
     },

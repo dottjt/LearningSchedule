@@ -1,42 +1,33 @@
-
 #start
 
-FROM alpine:latest
+FROM mhart/alpine-node:latest 
 
-
-#initial setup
-
-RUN apk update && apk upgrade && apk add --update nodejs-npm && rm -rf /var/cache/apk/*
-
-RUN npm config set registry https://registry.npmjs.org/
-
-
-# Install dependencies (was)
-
-# COPY client/package.json /tmp/client/package.json
-# RUN cd /tmp/client && npm install
-# RUN mkdir /client && cp -a /tmp/client/node_modules /client
-
-# COPY package.json /tmp/server/package.json
-# RUN cd /tmp/server && npm install
-# RUN cp -a /tmp/server/node_modules /
-
+RUN npm install -g pm2
 
 # Install dependencies 
 
-COPY client/package.json /client/package.json
-RUN cd /client && npm install
+COPY client/package.json /app/client/package.json
+RUN cd /app/client && npm install
 
-COPY package.json /package.json
-RUN cd / && npm install
+COPY package.json app/package.json
+RUN cd /app && npm install
 
 
 # build dependencies 
 
-WORKDIR /
-COPY . /
+WORKDIR /app
+COPY . /app
 
-RUN cd /client && npm run build 
+RUN cd /app/client && npm run build 
 
 EXPOSE 3001
-CMD [“npm”, “run”, “s”]
+
+COPY docker-run-script.sh /docker-run-script.sh
+
+RUN /bin/ash /docker-run-script.sh
+
+CMD ["pm2-docker", "start", "index.js"]
+
+#ENTRYPOINT ["/docker-run-script.sh”]
+
+#CMD ["npm", "run", "s"]

@@ -29,7 +29,6 @@ router.post('/register', (req, res, next)  => {
               if (err) { handleResponse(res, 500, 'error'); }
 
 
-
               // return user_queries.getSingleUser(user.username)
                   // .then((singleUser) => {
                   //   console.log("singleUser", singleUser)
@@ -61,6 +60,9 @@ router.post('/login', (req, res, next) => {
     if (err) { handleResponse(res, 500, 'error'); }
     if (!user) { handleResponse(res, 404, 'User not found'); }
     if (user) {
+
+
+
       
       req.logIn(user, function (err) {
 
@@ -94,13 +96,14 @@ router.post('/forgot', function(req, res, next) {
         req.flash('error', 'No account with that email address exists.');
         
         return res.redirect('/forgot');
+
       } else { // if user found. 
 
-        // can I just use a session perhaps? 
         return user_queries.setResetToken() 
           .then(() => {
 
             req.session.resetToken = token;
+
             authHelpers.forgotPassword(token, user.email);
   
             req.flash('error', 'We have sent you a link to your email address.');

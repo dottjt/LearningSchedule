@@ -4,6 +4,11 @@ const knex = require('../db/users_connection');
 const uuid = require('uuid'); 
 const sillyname = require('sillyname');
 
+const api_key = 'key-4df520f1907c048f529c25b69ee4f027';
+const domain = 'mail.learningschedule.com';
+const mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+
+
 
 function comparePass(userPassword, databasePassword) {
   return bcrypt.compareSync(userPassword, databasePassword);
@@ -81,26 +86,17 @@ function handleErrors(req) {
 
 function forgotPassword(token, user) {
 
-  let smtpTransport = nodemailer.createTransport('SMTP', {
-    service: 'SendGrid',
-    auth: {
-      user: '!!! YOUR SENDGRID USERNAME !!!',
-      pass: '!!! YOUR SENDGRID PASSWORD !!!'
-    }
-  });
-
-  let mailOptions = {
+  var data = {
+    from: 'Learning Schedule <no-reply@learningschedule.com>',
     to: user.email,
-    from: 'passwordreset@demo.com',
-    subject: 'Learning Schedule Account - Password Reset',
-    text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
-      'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-      'http://' + req.headers.host + '/reset/' + token + '\n\n' +
-      'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+    subject: 'Please Confirm Your Account | Learning Schedule',
+    text: 'Click the on the link below. Your mother says it\'s good for you. \n\n' +
+          'http://' + req.headers.host + '/confirm/' + token + '\n\n' +
+          'If you did not request this, then someone supicious is using your email account and should be shot with a rifle.\n'
   };
 
-  smtpTransport.sendMail(mailOptions, function(err) {
-    req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+  mailgun.messages().send(data, function (error, body) {
+    console.log(body);
   });
 
 }
@@ -109,22 +105,18 @@ function forgotPassword(token, user) {
 
 function confirmAccount(token, user) {
 
-  let smtpTransport = nodemailer.createTransport('SMTP', {
-    service: 'SendGrid',
-    auth: {
-      user: '!!! YOUR SENDGRID USERNAME !!!',
-      pass: '!!! YOUR SENDGRID PASSWORD !!!'
-    }
-  });
-
-  let mailOptions = {
+  var data = {
+    from: 'Learning Schedule <no-reply@learningschedule.com>',
     to: user.email,
-    from: 'passwordreset@demo.com',
-    subject: 'Confirm your Learning Schedule Account, you bastard.',
+    subject: 'Please Confirm Your Account | Learning Schedule',
     text: 'Click the on the link below. Your mother says it\'s good for you. \n\n' +
-      'http://' + req.headers.host + '/confirm/' + token + '\n\n' +
-      'If you did not request this, then someone supicious is using your email account and should be shot with a rifle.\n'
+          'http://' + req.headers.host + '/confirm/' + token + '\n\n' +
+          'If you did not request this, then someone supicious is using your email account and should be shot with a rifle.\n'
   };
+
+  mailgun.messages().send(data, function (error, body) {
+    console.log(body);
+  });
 
   smtpTransport.sendMail(mailOptions, function(err) {
     req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
@@ -265,3 +257,39 @@ module.exports = {
   confirmAccount
 
 };
+
+
+/**
+ * 
+ * 
+ * 
+ * 
+
+function confirmAccount(token, user) {
+
+  let smtpTransport = nodemailer.createTransport('SMTP', {
+    service: 'SendGrid',
+    auth: {
+      user: '!!! YOUR SENDGRID USERNAME !!!',
+      pass: '!!! YOUR SENDGRID PASSWORD !!!'
+    }
+  });
+
+  let mailOptions = {
+    to: user.email,
+    from: 'passwordreset@demo.com',
+    subject: 'Confirm your Learning Schedule Account, you bastard.',
+    text: 'Click the on the link below. Your mother says it\'s good for you. \n\n' +
+      'http://' + req.headers.host + '/confirm/' + token + '\n\n' +
+      'If you did not request this, then someone supicious is using your email account and should be shot with a rifle.\n'
+  };
+
+  smtpTransport.sendMail(mailOptions, function(err) {
+    req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+  });
+  
+}
+ * 
+ * 
+ * 
+ */
