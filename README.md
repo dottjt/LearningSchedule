@@ -17,6 +17,13 @@ Website: https://learningschedule.com
 
 # Updates 
 
+**06-06-17** - Finally. I think I know why docker won't connect! Ultimately, I think it's the knex SQL query builder I'm utilising. For some reason, I don't think it's possible to populate the database via knex via a different container. I think it has to be via the postgres container. Ultimately, what I"ve realised is that it's not a good idea to tack docker onto a project. You either build with it from the beginning, or don't. So I'm thinking I might just leave it out for this project on the server.
+
+**05-06-17** - I am stuck on this docker bug that won't allow me to register a connection between my database container and my application container. There are a billion different possible reasons why, not to mention the ever-changing docker api that has me questioning everything.
+
+
+**04-0-17**: docker bug dayz.
+
 **03-0-17**: Today has been draining. Compiled all my ssh scripts, however now I need to transfer them over to an ansible configuration. Also fully created my docker-compose file n' all that. It's not fully there yet, because of a few bugs. I honestly question whether docker is production ready, at least on mac. TBH it's a bit of a cluster-f at the moment, and my app woud be up and running by now if I'd just done it normally. Of course, learning is the goal and I'm learning a lot. 
 
 **02-0-17**: More docker and some email configuration. Working on my ansible scripts. Also really been getting into web design tools like Sketch and figuring out web design best practices. Webflow looks like an amazing tool to design and prototype websites. I just love every aspect of web creation! 
