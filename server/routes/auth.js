@@ -6,6 +6,10 @@ const passport = require('../auth/local');
 const user_queries = require('../queries/user_queries');
 const crypto = require('crypto');
 
+const fourohfour = require('../views/utility/404');
+const fiveohfive = require('../views/utility/505');
+const login = require('../views/auth/login');
+const forgot = require('../views/auth/forgot');
 
 
 
@@ -26,7 +30,13 @@ router.post('/register', (req, res, next)  => {
             
             req.logIn(user, function (err) {
               
-              if (err) { handleResponse(res, 500, 'error'); }
+              if (err) { 
+                // handleResponse(res, 500, 'error'); 
+                res.marko(fiveohfive, {
+                    message: 'Your email or password was incorrect'
+                }); 
+
+              }
 
 
               // return user_queries.getSingleUser(user.username)
@@ -43,7 +53,12 @@ router.post('/register', (req, res, next)  => {
 
       })(req, res, next);
     })
-  .catch((err) => { handleResponse(res, 500, 'error'); });
+  .catch((err) => { 
+    // handleResponse(res, 500, 'error'); 
+    res.marko(fiveohfive, {
+        message: 'Your email or password was incorrect'
+    });   
+  });
 });
 
 
@@ -57,16 +72,30 @@ router.post('/login', (req, res, next) => {
   res.clearCookie('yolo');
 
   passport.authenticate('local-signup', (err, user, info) => {
-    if (err) { handleResponse(res, 500, 'error'); }
-    if (!user) { handleResponse(res, 404, 'User not found'); }
+    if (err) { 
+      // handleResponse(res, 500, 'error'); 
+        res.marko(fiveohfive, {
+            message: 'Your email or password was incorrect'
+        }); 
+    }
+
+    if (!user) {
+        res.marko(login, {
+            message: 'Your email or password was incorrect'
+        }); 
+      }
+
     if (user) {
 
-
-
-      
       req.logIn(user, function (err) {
 
-      if (err) { handleResponse(res, 500, 'error'); }
+      if (err) { 
+      //  handleResponse(res, 500, 'error'); 
+        res.marko(fiveohfive, {
+            message: 'Your email or password was incorrect'
+        }); 
+
+      }
       
       return user_queries.getSingleUser(user.username)
         .then((singleUser) => {
@@ -95,7 +124,11 @@ router.post('/forgot', function(req, res, next) {
         console.log(user);
         req.flash('error', 'No account with that email address exists.');
         
-        return res.redirect('/forgot');
+        res.marko(fiveohfive, {
+            message: 'Your email or password was incorrect'
+        }); 
+
+        // return res.redirect('/forgot');
 
       } else { // if user found. 
 
@@ -119,8 +152,10 @@ router.post('/forgot', function(req, res, next) {
       }
     }).catch((err) => {
       console.log(err);
-      res.redirect('/forgot');
-
+        res.marko(forgot, {
+            message: 'Your email or password was incorrect'
+        }); 
+      //res.redirect('/forgot');
     })
 
 

@@ -1,4 +1,4 @@
-const databaseName = 'schedules';
+require('dotenv').config();
 
 module.exports = {
   test: {

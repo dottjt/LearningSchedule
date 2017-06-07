@@ -1,4 +1,4 @@
-const databaseName = 'users';
+require('dotenv').config();
 
 module.exports = {
   test: {

@@ -41,7 +41,7 @@
   // uncomment if using express-session
   app.use(session({
     secret: process.env.SECRET_KEY,
-    store: new redisStore({ host: 'localhost', port: 6379, client: client,ttl :  260}),
+    store: new redisStore({ host: 'localhost', port: 6379, client: client, ttl: 260}),
     resave: false,
     saveUninitialized: true,
     cookie: { maxAge: 604800000000 },
