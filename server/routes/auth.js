@@ -7,7 +7,7 @@ const user_queries = require('../queries/user_queries');
 const crypto = require('crypto');
 
 const fourohfour = require('../views/utility/404');
-const fiveohfive = require('../views/utility/505');
+const fiveohfive = require('../views/utility/500');
 const login = require('../views/auth/login');
 const forgot = require('../views/auth/forgot');
 
