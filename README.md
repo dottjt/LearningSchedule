@@ -17,6 +17,8 @@ Website: https://learningschedule.com
 
 # Updates 
 
+**07-06-17** - I spent most of today debugging my applicaiton from a dev ops point of view, and finally I made the website live at learningschedule.com! I learnt so much about postgres and unix in the process. Am most likely going to learn more systemd over the coming days, but I feel like I've really nail psql in the command line, as well as understanding user permissions and that kind of jazz. Oh, and I feel like docker I understand what docker ACTUALLY wasn't working - largely to do with postgres user permissions, but now I know :) 
+
 **06-06-17** - Finally. I think I know why docker won't connect! Ultimately, I think it's the knex SQL query builder I'm utilising. For some reason, I don't think it's possible to populate the database via knex via a different container. I think it has to be via the postgres container. Ultimately, what I"ve realised is that it's not a good idea to tack docker onto a project. You either build with it from the beginning, or don't. So I'm thinking I might just leave it out for this project on the server.
 
 **05-06-17** - I am stuck on this docker bug that won't allow me to register a connection between my database container and my application container. There are a billion different possible reasons why, not to mention the ever-changing docker api that has me questioning everything.
