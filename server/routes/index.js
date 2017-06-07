@@ -16,7 +16,7 @@ const fourohfour = require('../views/utility/404');
 
 
 // authHelpers.userCheck
-router.get('/:username', authHelpers.userCheck, (req, res, next) => {
+router.get('/:username', (req, res, next) => {
 
   if(req.params.username === 'about') {
       res.marko(about, {
@@ -67,9 +67,9 @@ router.get('/:username', authHelpers.userCheck, (req, res, next) => {
   }
 
   
-  return user_queries.getSingleUser(req.session.username)
+  return user_queries.getSingleUser(req.params.username)
     .then((user) => {
-      console.log("queeer", user)
+      //console.log("queeer", user)
 
         if (user.username === undefined) {
 
