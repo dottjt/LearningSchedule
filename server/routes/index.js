@@ -24,67 +24,59 @@ router.get('/:username', (req, res, next) => {
           count: 30,
           colors: ['red', 'green', 'blue']
       });
-  }
-
-  if(req.params.username === 'contact') {
+  } else if (req.params.username === 'contact') {
       res.marko(contact, {
           name: 'Frank',
           count: 30,
           colors: ['red', 'green', 'blue']
       });
-  }
-
-  if(req.params.username === 'blog') {
+  } else if (req.params.username === 'blog') {
       res.marko(blog, {
           name: 'Frank',
           count: 30,
           colors: ['red', 'green', 'blue']
       });
-  }
-  
-  if(req.params.username === 'login') {
+  } else if (req.params.username === 'login') {
       res.marko(login, {
           name: 'Frank',
           count: 30,
           colors: ['red', 'green', 'blue']
       });
-  } 
-
-  if(req.params.username === 'signup') {
+  } else if (req.params.username === 'signup') {
       res.marko(signup, {
           name: 'Frank',
           count: 30,
           colors: ['red', 'green', 'blue']
       });
-  }
-
-  if(req.params.username === 'forgot') {
+  } else if (req.params.username === 'forgot') {
       res.marko(forgot, {
           name: 'Frank',
           count: 30,
           colors: ['red', 'green', 'blue']
       });
+  } else {
+    user_queries.getSingleUser(req.params.username)
+        .then((user) => {
+            console.log(user);
+            if (user === undefined) {
+
+                res.marko(fourohfour, {
+                    name: 'Frank',
+                    count: 30,
+                    colors: ['red', 'green', 'blue']
+                });
+                
+            } else {
+
+                res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+
+            }
+        });
   }
 
+
+
   
-  return user_queries.getSingleUser(req.params.username)
-    .then((user) => {
-      //console.log("queeer", user)
-
-        if (user.username === undefined) {
-
-            res.marko(fourohfour, {
-                name: 'Frank',
-                count: 30,
-                colors: ['red', 'green', 'blue']
-            });
-            
-        } else {
-
-            res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
-
-        }
-    })
 
 });
 
