@@ -15,6 +15,8 @@ class STSummary extends React.Component<STSummaryProps, any> {
 
       const { summaries } = this.props;
 
+      console.log("summaries", summaries);
+
     return (   
 
 
