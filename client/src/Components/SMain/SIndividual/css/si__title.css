@@ -131,6 +131,7 @@
 	outline: none;
 	border: 0;
 	border-bottom: 1px solid white;
+	background: white;
 
 	font-family: 'Nunito', sans-serif;
 	font-weight: 300;
@@ -201,6 +202,7 @@
 	height: 6.6rem;
 	width: 42rem;
 
+	background: white;
 	border: none;
 	resize: none;
 

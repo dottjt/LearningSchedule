@@ -72,12 +72,30 @@ router.get('/:username', (req, res, next) => {
 
             }
         });
-  }
+    };
+});
 
 
+router.get('/:username/schedule/:schedule_title', (req, res, next) => {
 
-  
 
+    user_queries.getSingleUser(req.params.username)
+        .then((user) => {
+            console.log(user);
+            if (user === undefined) {
+
+                res.marko(fourohfour, {
+                    name: 'Frank',
+                    count: 30,
+                    colors: ['red', 'green', 'blue']
+                });
+                
+            } else {
+
+                res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+
+            }
+        });
 });
 
 
