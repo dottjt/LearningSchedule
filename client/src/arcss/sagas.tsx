@@ -8,11 +8,13 @@ import { fork, takeLatest } from 'redux-saga/effects';
 import { initialSchedulesStateSaga,
          addScheduleSaga,
          removeScheduleSaga,
-         changeScheduleSaga } from './schedules_ar';
+         changeScheduleSaga,
+        changeScheduleUrlSaga } from './schedules_ar';
 
 import { REQUEST_ADD_SCHEDULE,
          REQUEST_REMOVE_SCHEDULE,
-         REQUEST_CHANGE_SCHEDULE } from './schedules_ar';
+         REQUEST_CHANGE_SCHEDULE,
+         REQUEST_CHANGE_SCHEDULE_URL } from './schedules_ar';
 
 
 /*
@@ -124,6 +126,7 @@ export default function* rootSaga(): SagaIterator {
    takeLatest(REQUEST_ADD_SCHEDULE, addScheduleSaga),
    takeLatest(REQUEST_REMOVE_SCHEDULE, removeScheduleSaga),
    takeLatest(REQUEST_CHANGE_SCHEDULE, changeScheduleSaga),
+   takeLatest(REQUEST_CHANGE_SCHEDULE_URL, changeScheduleUrlSaga),
 
    takeLatest(REQUEST_ADD_UPDATE, addUpdateSaga),
    takeLatest(REQUEST_REMOVE_UPDATE, removeUpdateSaga),

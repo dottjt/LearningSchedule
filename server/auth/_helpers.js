@@ -8,6 +8,8 @@ const api_key = 'key-4df520f1907c048f529c25b69ee4f027';
 const domain = 'mail.learningschedule.com';
 const mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
+const fourohfour = require('../views/utility/404');
+
 
 
 function comparePass(userPassword, databasePassword) {
@@ -61,22 +63,33 @@ function createUser(req, res) {
       .returning('*');
   })
   .catch((err) => {
-    res.status(400).json({status: err.message});
+      res.marko(signup, {
+        message: 'Sooooo, ummmmm... the server failed to create a user, and I\'m not entirely sure why.' 
+      }); 
+    // res.status(400).json({status: err.message});
   });
 }
 
 
 function handleErrors(req) {
   return new Promise((resolve, reject) => {
-    if (req.body.email.length < 6 && req.body.email.indexOf('hello') > -1) { // this may or may not work.
-      reject({
-        message: 'Invalid password, bby.'
-      });
+    if (req.body.email.length < 6) { // this may or may not work. && req.body.email.indexOf('hello') > -1
+      res.marko(signup, {
+        message: 'Your password was sooooo invalid.' 
+      }); 
+
+      // reject({
+      //   message: 'Invalid password, bby.'
+      // });
     }
     else if (req.body.password.length < 6) {
-      reject({
-        message: 'Password must be longer than 6 characters'
-      });
+      res.marko(signup, {
+        message: 'Your password must be longer than 6 characters.' 
+      }); 
+
+      // reject({
+      //   message: 'Password must be longer than 6 characters'
+      // });
     } else {
       resolve();
     }
@@ -86,13 +99,35 @@ function handleErrors(req) {
 
 function forgotPassword(token, user) {
 
+  console.log("email variable", user.email, req.headers.host);
+
   var data = {
     from: 'Learning Schedule <no-reply@learningschedule.com>',
     to: user.email,
     subject: 'Please Confirm Your Account | Learning Schedule',
     text: 'Click the on the link below. Your mother says it\'s good for you. \n\n' +
-          'http://' + req.headers.host + '/confirm/' + token + '\n\n' +
-          'If you did not request this, then someone supicious is using your email account and should be shot with a rifle.\n'
+          'http://' + req.headers.host + '/api/v1/verify/' + user.username + '/' + token + '\n\n' +
+          'Click on the link to !\n'
+  };
+
+  mailgun.messages().send(data, function (error, body) {
+    console.log(body);
+  });
+
+}
+
+
+function temporaryPassword(password) {
+
+  console.log("email variable", user.email, req.headers.host);
+
+  var data = {
+    from: 'Learning Schedule <no-reply@learningschedule.com>',
+    to: user.email,
+    subject: 'Password Reset | Learning Schedule',
+    text: 'Here is your temporary password.\n\n' +
+          password + '\n\n' +
+          'http://' + req.headers.host + '/login/' + '\n'
   };
 
   mailgun.messages().send(data, function (error, body) {
@@ -103,14 +138,15 @@ function forgotPassword(token, user) {
 
 
 
-function confirmAccount(token, user) {
-
-  var data = {
+function verifyAccount(token, email) {
+  // maybe the idea is also to put the username in here, so we can use that in the next step?
+    // okay, so this is actually being sent is it possible to send 
+  var data = { 
     from: 'Learning Schedule <no-reply@learningschedule.com>',
-    to: user.email,
-    subject: 'Please Confirm Your Account | Learning Schedule',
+    to: email,
+    subject: 'Please Verify Your Account | Learning Schedule',
     text: 'Click the on the link below. Your mother says it\'s good for you. \n\n' +
-          'http://' + req.headers.host + '/confirm/' + token + '\n\n' +
+          'http://' + req.headers.host + '/api/v1/verify/' + user.username + '/' + token + '\n\n' +
           'If you did not request this, then someone supicious is using your email account and should be shot with a rifle.\n'
   };
 
@@ -254,7 +290,7 @@ module.exports = {
 
   forgotPassword,
   createToken,
-  confirmAccount
+  verifyAccount
 
 };
 
@@ -265,7 +301,7 @@ module.exports = {
  * 
  * 
 
-function confirmAccount(token, user) {
+function verifyAccount(token, user) {
 
   let smtpTransport = nodemailer.createTransport('SMTP', {
     service: 'SendGrid',

@@ -24,7 +24,7 @@ function render(input, out) {
 
   component_globals_tag({}, out);
 
-  out.w("<div class=\"four__container\"><h1 class=\"four__title\">500... or something. </h1><h2 class=\"four__secondary\">Let's get you back on track - <a class=\"four__link\" href=\"http://learningschedule.com/\">https://learningschedule.com/</a></h2></div>");
+  out.w("<div class=\"four__container\"><h1 class=\"four__title\">500 </h1><h2 class=\"four__secondary\">Let's get you back on track <br> <a class=\"four__link\" href=\"http://learningschedule.com/\">https://learningschedule.com/</a></h2></div>");
 
   init_components_tag({}, out);
 

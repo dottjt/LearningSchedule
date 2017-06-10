@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-// import { Map } from 'immutable';
+import { Map } from 'immutable';
 
 import STLogin from "./STLogin";
 import STLogout from "./STLogout";
@@ -86,9 +86,11 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
                 this.setState({ showPopup: !this.state.showPopup});
             } 
 
+            console.log('event', e.button)
 
             if (e.button === 0) {
 //e.key === 'Enter' ||
+
                 let username = this.props.user.get('username');
                 let schedule_title = (this.refs.schedule_title as HTMLInputElement).value;
                 console.log(schedule_title)
@@ -102,14 +104,14 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
 
                 this.changeUuid(); 
 
-                let data = {
+                let data = Map({
                         schedule_url,
                         username,
                         schedule_title,
                         schedule_id,
                         updates_id,
                         tags_id
-                };
+                });
 
                 this.props.requestAddSchedule(data); 
             }   

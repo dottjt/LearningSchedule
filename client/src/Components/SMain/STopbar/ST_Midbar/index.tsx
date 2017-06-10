@@ -83,12 +83,13 @@ class ST_Midbar extends React.Component<ST_MidbarProps & ST_MidbarPassedProps, S
     }
 
 
-    onDrop(files) {
-        console.log(files)
+    onDrop(acceptedFiles, rejectedFiles) {
 
-        this.props.requestAddAvatar(files);
-
-
+        var photo = new FormData();
+        photo.append('avatar', acceptedFiles[0]);
+        photo.append('name', 'hihiho');
+        
+        this.props.requestAddAvatar(photo.get('avatar'));
     }
 
     render() {
@@ -207,13 +208,9 @@ class ST_Midbar extends React.Component<ST_MidbarProps & ST_MidbarPassedProps, S
                     </div>
                 </div>
 
-
-
-
         )
     };
 };
-
 
 
 
@@ -224,7 +221,7 @@ class ST_Midbar extends React.Component<ST_MidbarProps & ST_MidbarPassedProps, S
 
 const DropZoneComponent = (props) => {
     return (
-        <Dropzone className="st__midbar__react__dropzone" onDrop={props.onDrop}>
+        <Dropzone className="st__midbar__react__dropzone" multiple={false} accept={'image/*'} onDrop={props.onDrop}>
             {props.profpict}
             <div className="st__dropzone__overlay"></div>
             <div className="st__dropzone__plus">+</div>

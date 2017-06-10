@@ -1,0 +1,42 @@
+<html>
+
+  <head>
+
+    <include('./auth_partials/auth_head.marko')/>
+
+    <title>Learning Schedule | Login</title>
+
+  </head>
+
+  <body>
+
+    <include('../utility/auth_navbar.marko')/>
+
+
+<section class="signup__container">
+    
+    <h3 class="signup__header">Learning Schedule</h3>
+    <h5 class="signup__header__two">Please enter your verification code.</h5>
+    <h3 class="signup__header__three">${data.message}</h3>
+
+    <form class="signup__form" action="auth/verify" method="post" accept-charset="utf-8">
+
+      <div class="header__form-input__container__bottom">
+          <input class="header__form-input header__form-input__bottom" type="password" name="verification_token" value="" placeholder="">
+      </div>
+
+      <div class="form-group">
+          <button class="btn btn-default register__form_submit--bottom" type="submit" action="">Login</button>
+      </div>
+
+
+    </form>
+
+</section>
+
+
+      <!--<browser-refresh enabled="true" />-->
+	<!--<script src="{process.env.BROWSER_REFRESH_URL}"></script>-->
+  </body>
+
+</html>

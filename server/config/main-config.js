@@ -37,7 +37,7 @@
   }
   app.use(cookieParser());
   app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.urlencoded({ extended: true }));
   // uncomment if using express-session
   app.use(session({
     secret: process.env.SECRET_KEY,
@@ -52,7 +52,6 @@
   app.use(flash());
 
   app.use(markoExpress());
-
 
     // *** view rendering *** //
 

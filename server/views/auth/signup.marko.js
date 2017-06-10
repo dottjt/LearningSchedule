@@ -10,6 +10,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_loadTag = marko_helpers.t,
     include_tag = marko_loadTag(require("marko/src/taglibs/core/include-tag")),
     component_globals_tag = marko_loadTag(require("marko/src/components/taglib/component-globals-tag")),
+    marko_escapeXml = marko_helpers.x,
     init_components_tag = marko_loadTag(require("marko/src/components/taglib/init-components-tag")),
     await_reorderer_tag = marko_loadTag(require("marko/src/taglibs/async/await-reorderer-tag"));
 
@@ -30,7 +31,9 @@ function render(input, out) {
       _target: auth_navbar_template
     }, out);
 
-  out.w("<section class=\"signup__container\"><h3 class=\"signup__header\">Learning Schedule</h3><h5 class=\"signup__header__two\">Give it a whirl.</h5><form class=\"signup__form\" action=\"auth/register\" method=\"post\" accept-charset=\"utf-8\">");
+  out.w("<section class=\"signup__container\"><h3 class=\"signup__header\">Learning Schedule</h3><h5 class=\"signup__header__two\">Give it a whirl.</h5><h3 class=\"signup__header__three\">" +
+    marko_escapeXml(data.message) +
+    "</h3><form class=\"signup__form\" action=\"auth/register\" method=\"post\" accept-charset=\"utf-8\">");
 
   include_tag({
       _target: auth_form_template

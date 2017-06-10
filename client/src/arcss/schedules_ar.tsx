@@ -90,24 +90,31 @@ export function apiAddSchedule(data) {
         });
 }
 
+
+function redirectAddSchedule(username, schedule_url) {
+    	return window.location.href = "/" + username + "/schedule/" + schedule_url;
+}
+
+
 export function* addScheduleSaga(action): SagaIterator {
   try {
 
     // let token = localStorage.getItem('id_token') || null
     //    if (token) { }
     
-
-    
+    console.log("working")
+    let username = action.data.get('username');
+    let schedule_url = action.data.get('schedule_url');
+    console.log(username, schedule_url)
     yield call(apiAddSchedule, action.data);
 
    
-     yield put(addScheduleSucceeded(action.data));
+    yield put(addScheduleSucceeded(action.data));
 
      // from action
 
-     window.location.href = "/" + action.data.get('username') + "/schedule/" + action.data.get('schedule_url');
+    yield call(redirectAddSchedule, username, schedule_url);
 
-     // change here
 
   }
   catch (err) {
@@ -168,6 +175,82 @@ export function* removeScheduleSaga(action): SagaIterator {
 
 
 /*
+            CHANGE_SCHEDULE_URL_ACTION_CREATORS 
+                                                */
+
+export const REQUEST_CHANGE_SCHEDULE_URL = 'REQUEST_CHANGE_SCHEDULE_URL';
+export const CHANGE_SCHEDULE_URL_SUCCEEDED = 'CHANGE_SCHEDULE_URL_SUCCEEDED';
+export const CHANGE_SCHEDULE_URL_FAILED = 'CHANGE_SCHEDULE_URL_FAILED';
+
+
+export const requestChangeScheduleUrl = data => ({type: REQUEST_CHANGE_SCHEDULE_URL, data});
+export const changeScheduleUrlSucceeded = data => ({type: CHANGE_SCHEDULE_URL_SUCCEEDED, data});
+export const changeScheduleUrlFailed = err => ({type: CHANGE_SCHEDULE_URL_FAILED, err});
+
+
+/*
+            CHANGE_SCHEDULE_URL_ASYNC_ACTIONS
+                                                */
+
+
+export function apiChangeScheduleUrl(schedule_url, schedule_id) {
+
+        axios({
+            method: 'put',
+            url: 'api/v1/schedules',
+            data: {
+                schedule_url: schedule_url,
+                schedule_id: schedule_id
+                // schedule_start_date: data.schedule_start_date,
+            }
+            // headers: { 'Authorization': 'Bearer ' + token }
+        });
+}
+
+function redirectChangeScheduleUrl(username, schedule_url) {
+    	return window.location.href = "/" + username + "/schedule/" + schedule_url;
+}
+
+export function* changeScheduleUrlSaga(action): SagaIterator {
+  try {
+
+//    let token = localStorage.getItem('id_token') || null
+
+   // omg, okay none of this is working because I'm using immutable JS...
+   let schedule_url = action.data.get('schedule_url');
+   let schedule_id = action.data.get('schedule_id');
+   
+    console.log(action.data)
+//    if (token) {    }
+
+    yield call(apiChangeScheduleUrl, schedule_url, schedule_id);
+    
+    // okay. new rule. I'm no longer retrieving info from the 
+    // server. Just going straight from the reducer :) 
+    // since the json won't send. I don't know why. 
+
+    yield put(changeScheduleUrlSucceeded(action.data));
+    // from action
+ 
+    // maybe the general rule is to simply update the reducer first, 
+    // then the server? 
+    // I know this is wrong?, but for the time being, I don't 
+    // have a choice. 
+    yield call(redirectChangeScheduleUrl, action.data.get('username'), schedule_url);
+
+  }
+  catch (err) {
+    yield put (changeScheduleFailed(err));
+  }
+}
+
+
+
+
+
+
+
+/*
             CHANGE_SCHEDULE_ACTION_CREATORS 
                                                 */
 
@@ -186,7 +269,7 @@ export const changeScheduleFailed = err => ({type: CHANGE_SCHEDULE_FAILED, err})
                                                 */
 
 
-export function apiChangeSchedule(schedule_title, schedule_url, schedule_summary, schedule_id) {
+export function apiChangeSchedule(schedule_title, schedule_summary, schedule_id) {
 
         axios({
             method: 'put',
@@ -194,7 +277,6 @@ export function apiChangeSchedule(schedule_title, schedule_url, schedule_summary
             data: {
                 schedule_title: schedule_title,
                 schedule_summary: schedule_summary,
-                schedule_url: schedule_url,
                 schedule_id: schedule_id
                 // schedule_start_date: data.schedule_start_date,
             }
@@ -202,9 +284,6 @@ export function apiChangeSchedule(schedule_title, schedule_url, schedule_summary
         });
 }
 
-function redirectChangeScheduleUrl(username, schedule_url) {
-    	return window.location.href = "/" + username + "/schedule/" + schedule_url;
-}
 
 export function* changeScheduleSaga(action): SagaIterator {
   try {
@@ -213,14 +292,13 @@ export function* changeScheduleSaga(action): SagaIterator {
 
    // omg, okay none of this is working because I'm using immutable JS...
    let schedule_title = action.data.get('schedule_title'); // the only thing from the 
-   let schedule_url = action.data.get('schedule_url');
    let schedule_summary = action.data.get('schedule_summary');
    let schedule_id = action.data.get('schedule_id');
    
     console.log(action.data)
 //    if (token) {    }
 
-    yield call(apiChangeSchedule, schedule_title, schedule_url, schedule_summary, schedule_id);
+    yield call(apiChangeSchedule, schedule_title, schedule_summary, schedule_id);
     
     // okay. new rule. I'm no longer retrieving info from the 
     // server. Just going straight from the reducer :) 
@@ -233,8 +311,6 @@ export function* changeScheduleSaga(action): SagaIterator {
     // then the server? 
     // I know this is wrong?, but for the time being, I don't 
     // have a choice. 
-    yield call(redirectChangeScheduleUrl, action.data.get('username'), schedule_url);
-
 
   }
   catch (err) {
@@ -325,6 +401,15 @@ export function schedules(state = List(), action) {
                 }  
                 return schedule;
             });
+
+        case CHANGE_SCHEDULE_URL_SUCCEEDED:             // okay, I don't think this works at all. This is the problem! 
+            return state = fromJS(state).map(schedule => {
+                if (schedule.get('schedule_id') === action.data.get('schedule_id')) {
+                    return schedule = schedule.set('schedule_url', action.data.get('schedule_url'))
+                }  
+                return schedule;
+            });
+
 
         case REMOVE_SCHEDULE_SUCCEEDED:
             return state = fromJS(state).filter(schedule => schedule.get('schedule_id') !== action.data);

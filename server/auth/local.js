@@ -17,6 +17,7 @@ passport.use('local-signup', new LocalStrategy({
 },
 function(req, email, password, done) {
 
+  
     // asynchronous
     // User.findOne wont fire unless data is sent back
     // find a user whose email is the same as the forms email

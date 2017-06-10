@@ -10,6 +10,7 @@ const contact = require('../views/other/contact');
 const blog = require('../views/other/blog');
 const login = require('../views/auth/login');
 const signup = require('../views/auth/signup');
+const verify = require('../views/auth/verify');
 const forgot = require('../views/auth/forgot');
 const fourohfour = require('../views/utility/404');
 
@@ -17,54 +18,29 @@ const fourohfour = require('../views/utility/404');
 
 // authHelpers.userCheck
 router.get('/:username', (req, res, next) => {
-
+    
   if(req.params.username === 'about') {
-      res.marko(about, {
-          name: 'Frank',
-          count: 30,
-          colors: ['red', 'green', 'blue']
-      });
+      res.marko(about);
   } else if (req.params.username === 'contact') {
-      res.marko(contact, {
-          name: 'Frank',
-          count: 30,
-          colors: ['red', 'green', 'blue']
-      });
+      res.marko(contact);
   } else if (req.params.username === 'blog') {
-      res.marko(blog, {
-          name: 'Frank',
-          count: 30,
-          colors: ['red', 'green', 'blue']
-      });
+      res.marko(blog);
   } else if (req.params.username === 'login') {
-      res.marko(login, {
-          name: 'Frank',
-          count: 30,
-          colors: ['red', 'green', 'blue']
-      });
+      res.marko(login);
   } else if (req.params.username === 'signup') {
-      res.marko(signup, {
-          name: 'Frank',
-          count: 30,
-          colors: ['red', 'green', 'blue']
-      });
+      res.marko(signup);
   } else if (req.params.username === 'forgot') {
-      res.marko(forgot, {
-          name: 'Frank',
-          count: 30,
-          colors: ['red', 'green', 'blue']
-      });
+      res.marko(forgot);
+  } else if (req.params.username === 'verify') {
+      res.marko(verify);
   } else {
+
     user_queries.getSingleUser(req.params.username)
         .then((user) => {
-            console.log(user);
+
             if (user === undefined) {
 
-                res.marko(fourohfour, {
-                    name: 'Frank',
-                    count: 30,
-                    colors: ['red', 'green', 'blue']
-                });
+                res.marko(fourohfour);
                 
             } else {
 
@@ -84,11 +60,7 @@ router.get('/:username/schedule/:schedule_title', (req, res, next) => {
             console.log(user);
             if (user === undefined) {
 
-                res.marko(fourohfour, {
-                    name: 'Frank',
-                    count: 30,
-                    colors: ['red', 'green', 'blue']
-                });
+                res.marko(fourohfour);
                 
             } else {
 

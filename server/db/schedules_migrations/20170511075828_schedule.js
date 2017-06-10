@@ -15,9 +15,9 @@ exports.up = (knex, Promise) => {
 
     table.string('schedule_title');
     table.text('schedule_summary');
-    
+
     table.date('schedule_start_date').defaultTo(knex.raw('now()'));
-  })
+  });
 }
 
 exports.down = (knex, Promise) => {

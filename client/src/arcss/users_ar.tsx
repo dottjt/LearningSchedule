@@ -68,27 +68,42 @@ export function apiAddAvatar(avatar) {
     
     return axios({
             method: 'post',
-            url: 'api/v1/profile',
+            url: 'api/v1/profile_image_upload',
             data: {
-                avatar: avatar
+                avatar
             }
-            // headers: { 'Authorization': 'Bearer ' + token }
+            // headers: { 'content-type': 'multipart/form-data' }
         });
+
 }
 
 export function* addAvatarSaga(action): SagaIterator {
 
   try {
-    
+      
     // let token = localStorage.getItem('id_token') || null
-    console.log(action)
-    let fileName = action.data[0];
-    console.log(fileName);
-
     // if (token) {    }
 
+        // let formData = new FormData();
+        // formData.append('name', data.name)
+        // formData.append('profile_pic', data.profile_pic[0])
+        // const config = {
+        //     headers: { 'content-type': 'multipart/form-data' }
+        // }
+        // const url = 'http://example.com/fileupload/';
+        // post(url, formData, config)
+        //     .then(function(response) {
+        //         console.log(response);
+        //     })
+        //     .catch(function(error) {
+        //         console.log(error);
+        //     });
 
-        yield call(apiAddAvatar, action.data);
+
+    let avatar = action.data;
+    console.log(avatar);
+
+    yield call(apiAddAvatar, avatar);
 
     yield put(addAvatarSucceeded(action.data));
   }

@@ -24,8 +24,36 @@ function deleteAllUserInformation(username) {
   return Users().where('username', username).del();
 }
 
+
+
+
+function setVerificationToken(username, updates) {
+  return Users().where('username', username).update(updates);
+}
+
+function getVerificationToken(username) {
+  return Users().where('username', username).select('verification_token');
+}
+
+
+
 function setResetToken(username, updates) {
   return Users().where('username', username).update(updates);
+}
+
+function getResetToken(username) {
+  return Users().where('username', username).select('reset_token');
+}
+
+
+
+// this needs to change.
+function setVerificationBoolean(username, updates) {
+  return Users().where('username', username).update(updates)
+}
+
+function getVerificationBoolean(username) {
+  return Users().where('username', username).select('verification_boolean')
 }
 
 
@@ -37,6 +65,14 @@ module.exports = {
     updateUser: updateUser,
     updateUserPassword: updateUserPassword,
     deleteAllUserInformation: deleteAllUserInformation,
-    setResetToken
+    
+    setVerificationToken: setVerificationToken,
+    getVerificationToken: getVerificationToken,
+
+    setResetToken: setResetToken,
+    getResetToken: getResetToken,
+
+    setVerificationBoolean: setVerificationBoolean,
+    getVerificationBoolean: getVerificationBoolean
 };
 

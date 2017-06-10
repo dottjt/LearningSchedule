@@ -16,6 +16,10 @@ exports.up = (knex, Promise) => {
     table.string('facebook');
     table.string('github');
 
+    table.boolean('verification_boolean');
+    table.string('verification_token');
+    table.string('reset_token');
+
   });
 };
 

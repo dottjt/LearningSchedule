@@ -276,6 +276,7 @@
 .si__update__text__field {
     font-size: 1.05rem;
     line-height: 1.8rem; 
+    background: white;
     color: #242526;
     font-family: 'Nunito', sans-serif;
     font-weight: 100;

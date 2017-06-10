@@ -54,6 +54,18 @@
 	margin-bottom: 2.8rem;
 }
 
+.signup__header__three {
+	border-top: 3px solid red;
+	border-bottom: 3px solid red;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	/*border-radius: 3px;*/
+	margin-top: 2rem;
+	text-align: center; 
+	font-size: 1rem;	
+	margin-bottom: 2.8rem;
+}
+
 
 .signup__form {
 	margin: 0 auto;

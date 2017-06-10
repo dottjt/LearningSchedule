@@ -21,6 +21,9 @@ exports.seed = (knex, Promise) => {
         facebook: 'julius.reade',
         github: 'dottjt',
 
+        verification_boolean: true,
+        verification_token: 'yoyomistermister',
+        reset_token: 'yoyomistermister',
         admin: true
 
       })
@@ -37,9 +40,12 @@ exports.seed = (knex, Promise) => {
         email: 'kelly@hotmail.com',
 
         display_name: 'kelly',
-        summaries_id: '13131313',
+        summaries_id: '13131313',   
         password: hash,
         
+        verification_boolean: true,
+        verification_token: 'yoyomistermister',
+        reset_token: 'yoyomistermister',
         admin: true
   
       })
