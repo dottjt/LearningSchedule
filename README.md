@@ -17,6 +17,8 @@ Website: https://learningschedule.com
 
 # Updates 
 
+**13-06-17** - I've been taking it easy over the past few days. However, today I have very exciting news. I've managed to get file uploads working! I've been struggling with it over the past few days, however it turns out I was using the wrong library, in that axios cannot send file data. What this essentially means is that all I need to do is finalise authentication and essentially my application will be ready to enter beta! Super exciting news! 
+
 **10-06-17** - Decided to take it easy today, given it's Saturday and I've been burning myself out on the weekends with high expectations of what I'm going to achieve. So today I worked on other authentication features and a bulk of it is done. Like reset token, forgot password page, registration verification etc. Still haven't quite got it emails to work, and the mailgun api is god-awful. Absolutely. Awful. 
 
 **09-06-17** - Learnt a lot more linux. I'm starting to get back to developing my application. Been fixing a heap of bugs and creating new pages for authentication. I'm over learning dev ops things. Instead, I've been planning all the steps I need to get my app into beta. The list is quite small now: 
@@ -30,7 +32,6 @@ Application:
 - Have schedules/updates/tags appear in a consistent order.
 - Ability to upload an avatar. File uploads in general. 
 - General validation for certain input elements. 
-
 
 **08-06-17** - Today we reached a wonderful milestone. My application is now live on the internet at learningschedule.com! Admittedly it has a lot of bugs and most basic functions like signing up doesn't work, but that's okay CAUSE OMG IT'S LIVE AND THAT'S PRETTY COOL TOO. I also fixed a heap of bugs and the application is on track. 
 
