@@ -73,7 +73,7 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
     };
 
     
-    getAllRelevantUpdates(schedule_id: string) {
+    getAllRelevantUpdates(schedule_id: string) { 
         return Map({updates: this.props.updates.filter(update => update.get('schedule_id') === schedule_id),
                     update_tags: this.getAllRelevantUpdateTags(schedule_id)
                     });
@@ -165,7 +165,7 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
                         form={updates_id} 
                         initialValues={relevant_updates}
                         // sorting this doesn't work. hmmmm 
-                        //.sort((a, b) => { return +new Date(b.get('update_date')) - +new Date(a.get('update_date')); })
+                        //
                         schedule_url={url}
                         schedule_id={schedule_id}
                         user={user}

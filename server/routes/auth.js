@@ -12,13 +12,25 @@ const fiveohfive = require('../views/utility/500');
 const login = require('../views/auth/login');
 const forgot = require('../views/auth/forgot');
 const verify = require('../views/auth/verify');
+const signup = require('../views/auth/signup');
 
 
 // register user 
 router.post('/register', (req, res, next)  => {
   
   req.logout();
-  res.clearCookie('yolo');
+  // res.clearCookie('yolo');
+  
+  // check to see if user already exists. 
+  user_queries.getSingleUserEmail(req.body.email)
+    .then((k)=> { 
+      if(k.email === req.body.email) {
+        return res.marko(login, {
+          message: 'It appear you already have an account, please login!',
+          show: "showMessage"
+        });
+      }
+    });
   
   authHelpers.createUser(req, res)
 
@@ -39,34 +51,23 @@ router.post('/register', (req, res, next)  => {
               let token = authHelpers.createToken(); 
               let tokenObject = { verification_token: token }
               let username = user.username; 
-              let email = user.email;
+
               // set verification token in the database
               return user_queries.setVerificationToken(username, tokenObject)
-
                 .then(() => {
                     // send verify account email to user 
-                    authHelpers.verifyAccount(token, email);
-
-                    res.marko(login, {
-                      message: 'We have sent a verification link to your email.'
+                    // authHelpers.verifyAccount(token, email);
+                    res.marko(signup, {
+                      token: token,
+                      show: "showMessage"
                     })
-                })
-
-              // verification page. 
-              // return user_queries.getSingleUser(user.username)
-              //     .then((singleUser) => {
-              //       console.log("singleUser", singleUser)
-              //       // res.redirect('/' + req.user.username)
-
-              //       res.cookie('yolo', singleUser.summaries_id, { maxAge: 604800000000, httpOnly: false });
-              //       res.redirect('/' + singleUser.username)
-              //     })
-                  
+                })                  
             });
 
           } else { // if there is no user object 
-            res.marko(fourohfour, {
-                message: 'Unfortunately your email or password is incorrect'
+            res.marko(signup, {
+                message: 'It seems that the details you provided didn\'t authenticate',
+                show: "showMessage"
             }); 
           }
 
@@ -100,7 +101,8 @@ router.post('/login', (req, res, next) => {
 
     if (!user) {
         res.marko(login, {
-            message: 'Unfortunately your email or password is incorrect'
+            message: 'Unfortunately your email or password is incorrect',
+            show: "showMessage"
         }); 
     } // end of if 
 
@@ -114,7 +116,8 @@ router.post('/login', (req, res, next) => {
         authHelpers.verifyAccount();
 
         res.marko(login, {
-          message: 'Your account is not verified. We have sent a link to your email!'
+          message: 'Your account is not verified. We have sent a link to your email!',
+          show: "showMessage"
         })
       }
 
@@ -144,45 +147,55 @@ router.post('/login', (req, res, next) => {
 
 
 // login user via verification token 
-router.get('/verify/:username/:token', (req, res, next)  => {
-  
-  let emailToken = req.params.token;
-  let username = req.params.username;
+router.get('/verify', (req, res, next)  => {
+   
+  let username = req.body.username;
+  let emailToken = req.body.verification_token;
+  let verificationToken = user_queries.getVerificationToken(username).then((value) => { return value });
+  let verificationBoolean = user_queries.getVerificationToken(username).then((value) => { return value });
 
-  let verificationToken = user_queries.getVerificationToken(username);
-  let resetToken = user_queries.getResetToken(username);
+  console.log('setup');
+  console.log(emailToken, verificationToken, verificationBoolean)
+  // let resetToken = user_queries.getResetToken(username);
 
-  // this is if user wants to reset password 
-  if (resetToken === emailToken) {
+  // this is if user wants to reset password
+  // if (resetToken === emailToken) {
     
-    // generate password
-    let password = uuid().substring(0,8);
+  //   // generate password
+  //   let password = uuid().substring(0,8);
 
-    // send temporary password to user 
-    authHelpers.temporaryPassword(password); 
+  //   // send temporary password to user 
+  //   authHelpers.temporaryPassword(password); 
 
-    // redirect to login, and tell user password will arive. 
-    res.marko(login, {
-        message: 'Your new, temporary password should arrive in your mailbox shortly.'
-    }); 
+  //   // redirect to login, and tell user password will arive. 
+  //   res.marko(login, {
+  //       message: 'Your new, temporary password should arrive in your mailbox shortly.'
+  //   }); 
 
   // if user verifying account. 
-  } else if (verificationToken === emailToken) {
+  if (verificationToken === emailToken) {
     
     // payload to setVerificationToken
     let updateVerificationBoolean = { verification_boolean: true };
 
     // set verification boolean
-    user_queries.setVerificationToken(username, updateVerificationBoolean);
+    user_queries.setVerificationToken(username, updateVerificationBoolean).then((value) => { return value });
 
-    // send them to the login 
-    res.marko(login, {
-        message: 'You\'re all setup and ready to go!'
-    });
+    //verification page. 
+    return user_queries.getSingleUser(username)
+        .then((singleUser) => {
+
+          console.log("singleUser", singleUser)
+          // res.redirect('/' + req.user.username)
+
+          res.cookie('yolo', singleUser.summaries_id, { maxAge: 604800000000, httpOnly: false });
+          res.redirect('/' + singleUser.username)
+        })
 
   } else {
-    res.marko(fiveohfive, {
-        message: ''
+    res.marko(verify, {
+        message: 'Please try again, it seems you didn\'t input the correct thingys.',
+        show: "showMessage"
     }); 
   }
 });
@@ -225,7 +238,8 @@ router.post('/forgot', function(req, res, next) {
   
         }).then(() => {
             res.marko(verify, {
-                message: 'No account with that email address exists'
+                message: 'No account with that email address exists',
+                show: "showMessage"
             }); 
 
         })
@@ -235,7 +249,8 @@ router.post('/forgot', function(req, res, next) {
 
       }).catch((err) => {
         res.marko(forgot, {
-            message: 'It seems that email doesn\'t exist'
+            message: 'It seems that email doesn\'t exist',
+            show: "showMessage"
         }); 
     })
 

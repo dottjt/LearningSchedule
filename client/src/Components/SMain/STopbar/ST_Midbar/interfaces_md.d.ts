@@ -2,7 +2,7 @@
 
 
 interface ST_MidbarProps {
-    requestAddAvatar(data: any): any
+    requestAddAvatar(data: any, username: any): any
 
 }
 

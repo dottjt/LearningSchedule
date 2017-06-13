@@ -58,11 +58,7 @@
     const index = require('../views/homepage/index');
 
     app.get('/', function(req, res) {
-        res.marko(index, {
-            name: 'Frank',
-            count: 30,
-            colors: ['red', 'green', 'blue']
-        });
+        res.marko(index);
     });
 
     app.use('/', express.static(path.join(__dirname, '..', 'views')));

@@ -1,10 +1,22 @@
+<!--class {
+    onCreate() {
+        this.state = {
+            count:0
+        };
+    }
+    increment() {
+        this.state.count++;
+    }
+}
+ -->
+
 <html>
 
   <head>
 
     <include('./auth_partials/auth_head.marko')/>
 
-    <title>Learning Schedule | Login</title>
+    <title>Learning Schedule | Verify Your Account</title>
 
   </head>
 
@@ -16,17 +28,27 @@
 <section class="signup__container">
     
     <h3 class="signup__header">Learning Schedule</h3>
-    <h5 class="signup__header__two">Please enter your verification code.</h5>
-    <h3 class="signup__header__three">${data.message}</h3>
+    <h5 class="signup__header__two">Your verification code is below.</h5>
+    <h5 class="signup__header__two">Please paste it into the form, along with your email.</h5>
+    
+    <h3 class="signup__header__three ${data.show}">${data.message}</h3>
+
+    <h3 class="signup__header__three ${data.show}">${data.token}</h3>
 
     <form class="signup__form" action="auth/verify" method="post" accept-charset="utf-8">
 
+        <!-- verification token input -->
       <div class="header__form-input__container__bottom">
-          <input class="header__form-input header__form-input__bottom" type="password" name="verification_token" value="" placeholder="">
+          <input class="header__form-input header__form-input__bottom" type="text" name="verification_token" value="" placeholder="verification token.">
+      </div>
+
+      <!-- email input -->
+      <div class="header__form-input__container__bottom">
+          <input class="header__form-input header__form-input__bottom" type="text" name="email" value="" placeholder="email">
       </div>
 
       <div class="form-group">
-          <button class="btn btn-default register__form_submit--bottom" type="submit" action="">Login</button>
+          <button class="btn btn-default register__form_submit--bottom" type="submit" action="">Verify!</button>
       </div>
 
 

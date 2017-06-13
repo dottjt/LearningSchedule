@@ -10,6 +10,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     include_tag = marko_loadTag(require("marko/src/taglibs/core/include-tag")),
     component_globals_tag = marko_loadTag(require("marko/src/components/taglib/component-globals-tag")),
     marko_escapeXml = marko_helpers.x,
+    marko_escapeXmlAttr = marko_helpers.xa,
     init_components_tag = marko_loadTag(require("marko/src/components/taglib/init-components-tag")),
     await_reorderer_tag = marko_loadTag(require("marko/src/taglibs/async/await-reorderer-tag"));
 
@@ -22,7 +23,7 @@ function render(input, out) {
       _target: auth_head_template
     }, out);
 
-  out.w("<title>Learning Schedule | Login</title></head><body>");
+  out.w("<title>Learning Schedule | Verify Your Account</title></head><body>");
 
   component_globals_tag({}, out);
 
@@ -30,9 +31,15 @@ function render(input, out) {
       _target: auth_navbar_template
     }, out);
 
-  out.w("<section class=\"signup__container\"><h3 class=\"signup__header\">Learning Schedule</h3><h5 class=\"signup__header__two\">Please enter your verification code.</h5><h3 class=\"signup__header__three\">" +
+  out.w("<section class=\"signup__container\"><h3 class=\"signup__header\">Learning Schedule</h3><h5 class=\"signup__header__two\">Your verification code is below.</h5><h5 class=\"signup__header__two\">Please paste it into the form, along with your email.</h5><h3 class=\"signup__header__three " +
+    marko_escapeXmlAttr(data.show) +
+    "\">" +
     marko_escapeXml(data.message) +
-    "</h3><form class=\"signup__form\" action=\"auth/verify\" method=\"post\" accept-charset=\"utf-8\"><div class=\"header__form-input__container__bottom\"><input class=\"header__form-input header__form-input__bottom\" type=\"password\" name=\"verification_token\" value=\"\" placeholder=\"\"></div><div class=\"form-group\"><button class=\"btn btn-default register__form_submit--bottom\" type=\"submit\" action=\"\">Login</button></div></form></section>");
+    "</h3><h3 class=\"signup__header__three " +
+    marko_escapeXmlAttr(data.show) +
+    "\">" +
+    marko_escapeXml(data.token) +
+    "</h3><form class=\"signup__form\" action=\"auth/verify\" method=\"post\" accept-charset=\"utf-8\"><div class=\"header__form-input__container__bottom\"><input class=\"header__form-input header__form-input__bottom\" type=\"text\" name=\"verification_token\" value=\"\" placeholder=\"verification token.\"></div><div class=\"header__form-input__container__bottom\"><input class=\"header__form-input header__form-input__bottom\" type=\"text\" name=\"email\" value=\"\" placeholder=\"email\"></div><div class=\"form-group\"><button class=\"btn btn-default register__form_submit--bottom\" type=\"submit\" action=\"\">Verify!</button></div></form></section>");
 
   init_components_tag({}, out);
 

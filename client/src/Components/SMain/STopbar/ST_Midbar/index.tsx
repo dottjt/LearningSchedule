@@ -1,7 +1,10 @@
 /// <reference path="./interfaces_md.d.ts"/>
 
 import * as React from 'react';
-import * as Dropzone from 'react-dropzone';
+//import * as Dropzone from 'react-dropzone';
+var Dropzone = require('react-dropzone');
+
+// import request from 'superagent';
 
 import { Map } from 'immutable';
 
@@ -84,12 +87,12 @@ class ST_Midbar extends React.Component<ST_MidbarProps & ST_MidbarPassedProps, S
 
 
     onDrop(acceptedFiles, rejectedFiles) {
-
+        var username = this.props.user.get('username');
+        console.log(this.props.user)
         var photo = new FormData();
         photo.append('avatar', acceptedFiles[0]);
-        photo.append('name', 'hihiho');
         
-        this.props.requestAddAvatar(photo.get('avatar'));
+        this.props.requestAddAvatar(photo, username);
     }
 
     render() {
@@ -133,8 +136,12 @@ class ST_Midbar extends React.Component<ST_MidbarProps & ST_MidbarPassedProps, S
                         {topbar_active ? (
                              profilepicture
                              ) : (
-                             <DropZoneComponent onDrop={this.onDrop} profpict={profilepicture}
-                            /> )
+                                <Dropzone className="st__midbar__react__dropzone" multiple={false} accept={'image/*'} onDrop={this.onDrop}>
+                                    {profilepicture}
+                                    <div className="st__dropzone__overlay"></div>
+                                    <div className="st__dropzone__plus">+</div>
+                                </Dropzone>
+                             )
                         }
 
                         <div className="st__midbar__top__right">
@@ -215,25 +222,6 @@ class ST_Midbar extends React.Component<ST_MidbarProps & ST_MidbarPassedProps, S
 
 
 /*
-           DROPZONE COMPONENT
-                                        */
-
-
-const DropZoneComponent = (props) => {
-    return (
-        <Dropzone className="st__midbar__react__dropzone" multiple={false} accept={'image/*'} onDrop={props.onDrop}>
-            {props.profpict}
-            <div className="st__dropzone__overlay"></div>
-            <div className="st__dropzone__plus">+</div>
-        </Dropzone>
-    )
-}
-
-
-
-
-
-/*
            COMPONENT CONTAINER
                                         */
 
@@ -244,7 +232,7 @@ import { connect } from 'react-redux';
 
 export const mapDispatchToProps = (dispatch) => {
     return {
-        requestAddAvatar: (data) => dispatch(requestAddAvatar(data))
+        requestAddAvatar: (data, username) => dispatch(requestAddAvatar(data, username))
     };
 };
 

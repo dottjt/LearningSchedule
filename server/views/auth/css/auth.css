@@ -55,6 +55,7 @@
 }
 
 .signup__header__three {
+	display: none;
 	border-top: 3px solid red;
 	border-bottom: 3px solid red;
 	padding-top: 1rem;
@@ -96,3 +97,6 @@
 	font-family: times;
   }
 
+.showMessage {
+	display: block;
+}

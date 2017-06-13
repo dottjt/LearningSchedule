@@ -6,7 +6,7 @@ const authHelpers = require('../auth/_helpers');
 const localAuth = require('../auth/local');
 
 const users_queries = require('../queries/user_queries');
-
+const uuid = require('uuid');
 
 
 /*
@@ -20,34 +20,38 @@ const users_queries = require('../queries/user_queries');
 // check to see how this works. 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'server/')
+        cb(null, 'server/uploads/avatars')
     },
     filename: function (req, file, cb) {
-        cb(null, file.originalname)
+        cb(null, req.session.username + file.originalname)
   }
 })
  
 var upload = multer({ storage: storage })
-//var upload = multer({ dest: 'server/uploads/avatars' })
+// let upload = multer({ dest: 'server/uploads/avatars/' })
  
-router.post('/profile_image_upload', upload.single('avatar'), function(req, res) {
-//    upload(req, res, function(err) {
-//        console.log(req) // here i see other fields from request like req.body.description
-//        if (err) {return next(err)}
-//        res.json(201)
-//    })
+router.post('/profile_image_upload', upload.single('avatar'), function(req, res, err) {
 
-    console.log(req.file)
-    console.log(req.body)
+    let username = req.session.username;
+    console.log(username)
+    let newAvatarUrl = { avatar_url: req.file.filename }
+    console.log("newAvatarUrl", newAvatarUrl)
 
-    console.log("log this worked.")
+    users_queries.updateUser(username, newAvatarUrl)
+        .then((na) => {
+            console.log(na)
+           // users_queries.getSingleUser(username)
+        
+        })
+        
+        // .then((user) => {
+
+        //     res.status(200).json({data: na});
+
+        // }).catch(err => console.log(err))
+
 });
  
-
-//router.post('/profile_image_upload', multer({ dest: 'server/uploads/avatars/' }).any(), upload.fileupload);
-
-
-
 
 
 // get list of images

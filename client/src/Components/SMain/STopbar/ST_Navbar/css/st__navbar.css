@@ -111,11 +111,18 @@
 .st__navbar__form__container {
     margin-top: 1.4rem; 
     margin-left: 1rem;
-    width: 450px; 
+    width: 350px; 
     height: 4rem;
     float: left; 
 }
 
+
+@media screen and (max-width: 750px){
+  .st__navbar__form__container{
+    display: none;
+  }
+
+}
 
 
 .st__navbar__signup__container {
@@ -130,7 +137,7 @@
     margin-top: 1.4rem;
     float: right;
     margin-right: 2rem;
-    width: 270px;
+    width: 70px;
     height: 25px;
     border: 1px solid darkgrey;
     border-radius: 2px;

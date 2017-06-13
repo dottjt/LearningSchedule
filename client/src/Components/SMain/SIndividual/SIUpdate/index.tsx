@@ -45,7 +45,6 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
             update_type = "text";
         }
 
-
         requestAddUpdate(Map({ 
             schedule_id: schedule_id, 
             updates_id: form, // form is updates_id
@@ -58,6 +57,7 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
             update_summary: values.get('update_summary'),
             update_type: update_type // values.get('update_type') // need to get this... 
         })); 
+ 
     }
 
     createUpdateTagsProps(si__update__display__none, si__update__border__none, fieldDis) {
@@ -238,7 +238,11 @@ const mapDispatchToProps = dispatch => {
 let SIUpdatePropsComponent = connect<{}, {}, SIUpdateRenderPassedProps>(mapStateToProps, mapDispatchToProps)(SIUpdate as any)
 
 
-export default reduxForm({ enableReinitialize : true })(SIUpdatePropsComponent);
+export default reduxForm({ 
+    
+    enableReinitialize : true
+
+ })(SIUpdatePropsComponent);
 
 
 

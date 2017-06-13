@@ -288,7 +288,7 @@ export function updates(state = List(), action) {
     switch(action.type) {
 
         case ADD_UPDATE_SUCCEEDED:
-            return state = state.push(fromJS(action.data));
+            return state = state.unshift(fromJS(action.data));
 
         case INITIAL_UPDATES_STATE_SUCCEEDED: 
             return state = fromJS(action.updates);

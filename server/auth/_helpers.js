@@ -17,6 +17,7 @@ function comparePass(userPassword, databasePassword) {
 }
 
 function createUser(req, res) {
+  
   return handleErrors(req)
   .then(() => {
 
@@ -29,9 +30,9 @@ function createUser(req, res) {
 
     console.log(avatar_url);
 
-    knex('summary').del()
+    knex('summary')
       .then(() => {
-        return knex('summa\ry').insert({
+        return knex('summary').insert({
           username: username,
           summaries_id: summaries_id,
           summary_text: ''
@@ -97,68 +98,68 @@ function handleErrors(req) {
 }
 
 
-function forgotPassword(token, user) {
+// function forgotPassword(token, user) {
 
-  console.log("email variable", user.email, req.headers.host);
+//   console.log("email variable", user.email, req.headers.host);
 
-  var data = {
-    from: 'Learning Schedule <no-reply@learningschedule.com>',
-    to: user.email,
-    subject: 'Please Confirm Your Account | Learning Schedule',
-    text: 'Click the on the link below. Your mother says it\'s good for you. \n\n' +
-          'http://' + req.headers.host + '/api/v1/verify/' + user.username + '/' + token + '\n\n' +
-          'Click on the link to !\n'
-  };
+//   var data = {
+//     from: 'Learning Schedule <no-reply@learningschedule.com>',
+//     to: user.email,
+//     subject: 'Please Confirm Your Account | Learning Schedule',
+//     text: 'Click the on the link below. Your mother says it\'s good for you. \n\n' +
+//           'http://' + req.headers.host + '/api/v1/verify/' + user.username + '/' + token + '\n\n' +
+//           'Click on the link to !\n'
+//   };
 
-  mailgun.messages().send(data, function (error, body) {
-    console.log(body);
-  });
+//   mailgun.messages().send(data, function (error, body) {
+//     console.log(body);
+//   });
 
-}
-
-
-function temporaryPassword(password) {
-
-  console.log("email variable", user.email, req.headers.host);
-
-  var data = {
-    from: 'Learning Schedule <no-reply@learningschedule.com>',
-    to: user.email,
-    subject: 'Password Reset | Learning Schedule',
-    text: 'Here is your temporary password.\n\n' +
-          password + '\n\n' +
-          'http://' + req.headers.host + '/login/' + '\n'
-  };
-
-  mailgun.messages().send(data, function (error, body) {
-    console.log(body);
-  });
-
-}
+// }
 
 
+// function temporaryPassword(password) {
 
-function verifyAccount(token, email) {
-  // maybe the idea is also to put the username in here, so we can use that in the next step?
-    // okay, so this is actually being sent is it possible to send 
-  var data = { 
-    from: 'Learning Schedule <no-reply@learningschedule.com>',
-    to: email,
-    subject: 'Please Verify Your Account | Learning Schedule',
-    text: 'Click the on the link below. Your mother says it\'s good for you. \n\n' +
-          'http://' + req.headers.host + '/api/v1/verify/' + user.username + '/' + token + '\n\n' +
-          'If you did not request this, then someone supicious is using your email account and should be shot with a rifle.\n'
-  };
+//   console.log("email variable", user.email, req.headers.host);
 
-  mailgun.messages().send(data, function (error, body) {
-    console.log(body);
-  });
+//   var data = {
+//     from: 'Learning Schedule <no-reply@learningschedule.com>',
+//     to: user.email,
+//     subject: 'Password Reset | Learning Schedule',
+//     text: 'Here is your temporary password.\n\n' +
+//           password + '\n\n' +
+//           'http://' + req.headers.host + '/login/' + '\n'
+//   };
 
-  smtpTransport.sendMail(mailOptions, function(err) {
-    req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
-  });
+//   mailgun.messages().send(data, function (error, body) {
+//     console.log(body);
+//   });
+
+// }
+
+
+
+// function verifyAccount(token, email) {
+//   // maybe the idea is also to put the username in here, so we can use that in the next step?
+//     // okay, so this is actually being sent is it possible to send 
+//   var data = { 
+//     from: 'Learning Schedule <no-reply@learningschedule.com>',
+//     to: email,
+//     subject: 'Please Verify Your Account | Learning Schedule',
+//     text: 'Click the on the link below. Your mother says it\'s good for you. \n\n' +
+//           'http://' + req.headers.host + '/api/v1/verify/' + user.username + '/' + token + '\n\n' +
+//           'If you did not request this, then someone supicious is using your email account and should be shot with a rifle.\n'
+//   };
+
+//   mailgun.messages().send(data, function (error, body) {
+//     console.log(body);
+//   });
+
+//   smtpTransport.sendMail(mailOptions, function(err) {
+//     req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+//   });
   
-}
+// }
 
 
 function createToken() {
@@ -288,9 +289,9 @@ module.exports = {
   loginRedirect,
   loginAccessUser,
 
-  forgotPassword,
-  createToken,
-  verifyAccount
+  // forgotPassword,
+  // createToken,
+  // verifyAccount
 
 };
 

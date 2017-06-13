@@ -55,6 +55,12 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
             username: username
         }
     }
+
+    // componentDidUpdate() {
+    //     this.props.fields.swap(0, this.props.fields.get().size - 1 )
+    // doesn't work. 
+    // }
+
 /*
              COMPONENT LOGIC
 
@@ -70,7 +76,7 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
              COMPONENT VIEW
 
                                       */
-
+        // console.log('fields swap', fields.swap(0, 1))
         console.log('fields length', fields.length)
 
         if(fields.length < 0 && login_status_var === false) {
@@ -89,9 +95,10 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
 
                 <div className="si__update__individual__container">                
 
-
                     {/* SIUpdates Begin */}
+                    
                     {fields.map((update, index) => 
+
                         <div className="si__update__inner" key={index}> 
 
                             {/* SIUpdate Remove Button */}

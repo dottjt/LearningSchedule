@@ -1,6 +1,7 @@
 import { put, call } from 'redux-saga/effects';
 import { SagaIterator } from 'redux-saga';
 import axios from 'axios';
+var request = require('superagent');
 
 /* 
                     OVERVIEW
@@ -55,8 +56,8 @@ export const REQUEST_ADD_AVATAR = 'REQUEST_ADD_AVATAR';
 export const ADD_AVATAR_SUCCEEDED = 'ADD_AVATAR_SUCCEEDED';
 export const ADD_AVATAR_FAILED = 'ADD_AVATAR_FAILED';
 
-export const requestAddAvatar = data => ({type: REQUEST_ADD_AVATAR, data});
-export const addAvatarSucceeded = data => ({type: ADD_AVATAR_SUCCEEDED, data});
+export const requestAddAvatar = (data, username) => ({type: REQUEST_ADD_AVATAR, data, username});
+export const addAvatarSucceeded = (data) => ({type: ADD_AVATAR_SUCCEEDED, data});
 export const addAvatarFailed = err => ({type: ADD_AVATAR_FAILED, err});
 
 
@@ -65,15 +66,13 @@ export const addAvatarFailed = err => ({type: ADD_AVATAR_FAILED, err});
                                         */
 
 export function apiAddAvatar(avatar) {
-    
-    return axios({
-            method: 'post',
-            url: 'api/v1/profile_image_upload',
-            data: {
-                avatar
-            }
-            // headers: { 'content-type': 'multipart/form-data' }
-        });
+
+    request.post('api/v1/profile_image_upload')
+        .send(avatar)
+        .end(function(err, resp) {
+        if (err) { console.error(err); }
+    return resp;
+    });
 
 }
 
@@ -84,28 +83,19 @@ export function* addAvatarSaga(action): SagaIterator {
     // let token = localStorage.getItem('id_token') || null
     // if (token) {    }
 
-        // let formData = new FormData();
-        // formData.append('name', data.name)
-        // formData.append('profile_pic', data.profile_pic[0])
-        // const config = {
-        //     headers: { 'content-type': 'multipart/form-data' }
-        // }
-        // const url = 'http://example.com/fileupload/';
-        // post(url, formData, config)
-        //     .then(function(response) {
-        //         console.log(response);
-        //     })
-        //     .catch(function(error) {
-        //         console.log(error);
-        //     });
-
-
     let avatar = action.data;
-    console.log(avatar);
+    console.log(avatar.get('avatar'))
 
     yield call(apiAddAvatar, avatar);
 
-    yield put(addAvatarSucceeded(action.data));
+    let newName = action.username + avatar.get('avatar').name;
+
+    console.log("newName", newName)
+
+
+    yield put(addAvatarSucceeded(newName));
+
+
   }
   catch (err) {
     yield put(addAvatarFailed(err));
@@ -573,7 +563,7 @@ export function user(state = Map(), action) {
             return state = state.set('edit_active', action.data.get('edit_active'));
 
         case ADD_AVATAR_SUCCEEDED: 
-            return state = state.set('avatar', action.data[0].name)
+            return state = state.set('avatar_url', action.data)
 
         case CHANGE_USER_DETAILS_SUCCEEDED:
             return state = state.set('username', action.username)
