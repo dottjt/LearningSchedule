@@ -17,6 +17,40 @@ Website: https://learningschedule.com
 
 # Updates 
 
+**14-06-17** - Super exciting news everyone! My app is neeeaaaaaarly complete! Literally, all I have to fix is user registrations and I'm done. In other words, sort out an email provider! So excited! Spent today sorting user authentication, and fixing a heap of responsive issues on the website. I also have a huge list of things I want to achieve once I reach beta:
+
+- Show character limit, and when it hits - show them. 
+- Ability to change social media icon links. 
+- Ability to utilise images in updates.
+- Ability to send your update as a social media 
+- implement a seperate update tags store. 
+- Move Logout from next to the logo, to next to add schedule 
+- Admin access. 
+- Ability to sign in via social media. 
+- Click button when writing title so that it automatically changes the url. 
+- When it’s juliusreade/schedule make it redirect to julius reade. 
+- Flash that says - change username in HERE. whenever you login for the first time.
+- Show ’No updates’ and no schedule overview for SITitle, SIUpdate. 
+- Social authentication. 
+- Application fades from visibility on start up. 
+- If title names conflict, then slightly change the URL. i.e. keep the name, but add a -1 to the end. 
+https://stackoverflow.com/questions/31079081/programmatically-navigate-using-react-router better use of react router for some links. 
+- When you add a tag, it deletes everything from the SIUpdate // I think update_tags need to be their own table/server thing. WAIT. Instead, I think maybe that SIUpdateSingle should be it’s value. Therefore, it saves when you onChange FOREVER - HOWEVER when you click add update it adds it to the other values :) Super smart. 
+- Update dynamically gets bigger. 
+- Profile menu animation within application. 
+- Different brand colours for the menu. 
+- Forgot password feature ugh. 
+- 404 pages for other features. 
+- Blog/News with hexo static site generator
+- Input column and row restrictions for input elements. 
+- Make the website mobile responsive. 
+- Remove emoji. It’s too expensive and costing on the website. 
+- Figure out server cache and how to 
+- create a static version for non-logged in ppl. main page and individual page
+- A new model for the application: We have the updates and we have a task list of things you want/will achieve. You then list off the tasks each time you complete them. 
+- Goals, Resources tab in individual view. 
+
+
 **13-06-17** - I've been taking it easy over the past few days. However, today I have very exciting news. I've managed to get file uploads working! I've been struggling with it over the past few days, however it turns out I was using the wrong library, in that axios cannot send file data. What this essentially means is that all I need to do is finalise authentication and essentially my application will be ready to enter beta! Super exciting news! 
 
 **10-06-17** - Decided to take it easy today, given it's Saturday and I've been burning myself out on the weekends with high expectations of what I'm going to achieve. So today I worked on other authentication features and a bulk of it is done. Like reset token, forgot password page, registration verification etc. Still haven't quite got it emails to work, and the mailgun api is god-awful. Absolutely. Awful. 
