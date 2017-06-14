@@ -3,7 +3,7 @@
 
 .st__midbar__container {
 
-    width: 40rem;
+    max-width: 40rem;
     height: 16rem;
     
     padding: 1rem;

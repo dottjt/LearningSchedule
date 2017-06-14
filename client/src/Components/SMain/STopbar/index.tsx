@@ -43,6 +43,7 @@ class STopbar extends React.Component<STopbarProps & STopbarPassedProps, STopbar
             }
     }
 
+
     loginStatus() {
         let sessionCookieValue;
         

@@ -118,11 +118,20 @@
 
 
 @media screen and (max-width: 750px){
-  .st__navbar__form__container{
+    .st__navbar__form__container {
+    display: none;
+    }
+    .navbar-form {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px){
+  .st__navbar__add__container {
     display: none;
   }
-
 }
+
 
 
 .st__navbar__signup__container {

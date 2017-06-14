@@ -17,7 +17,6 @@ function comparePass(userPassword, databasePassword) {
 }
 
 function createUser(req, res) {
-  
   return handleErrors(req)
   .then(() => {
 
@@ -289,6 +288,7 @@ module.exports = {
   loginRedirect,
   loginAccessUser,
 
+  createToken
   // forgotPassword,
   // createToken,
   // verifyAccount

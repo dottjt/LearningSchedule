@@ -23,12 +23,12 @@
 }
 
 .sm__update__text__yolo {
-    border-bottom: 1px solid #e0e0e0;
+    /*border-bottom: 1px solid #e0e0e0;*/
 
 }
 
 .sm__update__link__yolo {
-    border-bottom: 1px solid #e0e0e0;
+    /*border-bottom: 1px solid #e0e0e0;*/
 }
 
 .no__underline {
@@ -63,12 +63,12 @@
 
 
 .sm__update__text:hover .sm__update__text__yolo {
-    border-bottom: 1px solid #c9c9c9;
+    /*border-bottom: 1px solid #c9c9c9;*/
 }
 
 .sm__update__text:hover {
-    padding-left: 60px;
-    border-left: 2px solid darkgrey;
+    /*padding-left: 60px;*/
+    /*border-left: 2px solid darkgrey;*/
 
 }
 

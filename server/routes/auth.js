@@ -23,27 +23,37 @@ router.post('/register', (req, res, next)  => {
   
   // check to see if user already exists. 
   user_queries.getSingleUserEmail(req.body.email)
-    .then((k)=> { 
-      if(k.email === req.body.email) {
-        return res.marko(login, {
-          message: 'It appear you already have an account, please login!',
-          show: "showMessage"
-        });
+    .then((k)=> {
+      console.log("k value", k)
+      if (k === undefined) {
+        return
+      } else {
+          res.marko(login, {
+            message: 'It appear you already have an account, please login :)',
+            show: "showMessage"
+          });
       }
+
+    }).catch((err) => {
+      console.log("essorrr", err);
     });
   
-  authHelpers.createUser(req, res)
 
+  console.log('does it get here?')
+
+  authHelpers.createUser(req, res)
+  
     .then((response) => {
       
       passport.authenticate('local-signup', (err, user, info) => {
-
+        
           if (user) { 
             
             req.logIn(user, function (err) {
               
               // if login error 
               if (err) { 
+                console.log("login", err);
                 res.marko(fiveohfive); 
               }
 
@@ -53,21 +63,15 @@ router.post('/register', (req, res, next)  => {
               let username = user.username; 
 
               // set verification token in the database
-              return user_queries.setVerificationToken(username, tokenObject)
+              user_queries.setVerificationToken(username, tokenObject)
                 .then(() => {
                     // send verify account email to user 
                     // authHelpers.verifyAccount(token, email);
-                    res.marko(signup, {
+                    res.marko(verify, {
                       token: token,
                       show: "showMessage"
-                    })
+                    })   
                 })                  
-            });
-
-          } else { // if there is no user object 
-            res.marko(signup, {
-                message: 'It seems that the details you provided didn\'t authenticate',
-                show: "showMessage"
             }); 
           }
 
@@ -75,6 +79,8 @@ router.post('/register', (req, res, next)  => {
       })(req, res, next);
     })
   .catch((err) => { 
+    console.log("catch", err);
+
     res.marko(fiveohfive, {
         na: ''
     });   
@@ -96,7 +102,8 @@ router.post('/login', (req, res, next) => {
       // handleResponse(res, 500, 'error'); 
         res.marko(fiveohfive, {
             message: ''
-        }); 
+        });
+
     } // end of if 
 
     if (!user) {

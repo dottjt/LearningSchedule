@@ -4,8 +4,8 @@ import * as React from 'react';
 import { Field, FieldArray, reduxForm, formValueSelector } from 'redux-form/immutable';
 import { Map } from 'immutable';
 import SIUpdateRender from './SIUpdateRender';
-import EmojiPicker from 'emojione-picker';
-import {emojify} from 'react-emojione';
+//import EmojiPicker from 'emojione-picker';
+//import {emojify} from 'react-emojione';
 var uuid = require('uuid');
 
 import './css/si__update__single.css';
@@ -29,7 +29,7 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
 	super();
 		this.addUpdate = this.addUpdate.bind(this);
 		this.createUpdateTagsProps = this.createUpdateTagsProps.bind(this);
-		this.showEmojiPicker = this.showEmojiPicker.bind(this);
+		// this.showEmojiPicker = this.showEmojiPicker.bind(this);
         this._onSubmit = this._onSubmit.bind(this);
 		this.state = {fd: "yolo", showEmoji: false}
 	}
@@ -80,10 +80,10 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
         e.preventDefault();
     }
 
-    showEmojiPicker(e) {
-        e.preventDefault();
-        this.setState({ showEmoji: !this.state.showEmoji})
-    }
+    // showEmojiPicker(e) {
+    //     e.preventDefault();
+    //     this.setState({ showEmoji: !this.state.showEmoji})
+    // }
 
     render() {
 
@@ -121,7 +121,10 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
                         {/* SIUpdate Add Button */}
                             <button className="si__update__add" type="button" onClick={handleSubmit(values => this.addUpdate(values))}>Add Update</button>
                             
-                            <div className="emoji-picker-container-reade">
+
+                            {/* emoji things that I decided to get rid of */}
+
+                            {/*<div className="emoji-picker-container-reade">
                                 <a className="emoji-picker-button" onClick={(e) => this.showEmojiPicker(e)}>{emojify(":)")}</a>
 
                                 <div id={`${this.state.showEmoji}-update_emoji`}>
@@ -130,7 +133,7 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
                                                             console.log(data)
                                                                     }} />
                                 </div>
-                            </div>
+                            </div>*/}
 
                             <div className="update__single__field__container">
                                 

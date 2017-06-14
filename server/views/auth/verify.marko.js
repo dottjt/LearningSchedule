@@ -39,7 +39,7 @@ function render(input, out) {
     marko_escapeXmlAttr(data.show) +
     "\">" +
     marko_escapeXml(data.token) +
-    "</h3><form class=\"signup__form\" action=\"auth/verify\" method=\"post\" accept-charset=\"utf-8\"><div class=\"header__form-input__container__bottom\"><input class=\"header__form-input header__form-input__bottom\" type=\"text\" name=\"verification_token\" value=\"\" placeholder=\"verification token.\"></div><div class=\"header__form-input__container__bottom\"><input class=\"header__form-input header__form-input__bottom\" type=\"text\" name=\"email\" value=\"\" placeholder=\"email\"></div><div class=\"form-group\"><button class=\"btn btn-default register__form_submit--bottom\" type=\"submit\" action=\"\">Verify!</button></div></form></section>");
+    "</h3><form class=\"signup__form\" action=\"/verify\" method=\"post\" accept-charset=\"utf-8\"><div class=\"header__form-input__container__bottom\"><input class=\"header__form-input header__form-input__bottom\" type=\"text\" name=\"verification_token\" value=\"\" placeholder=\"verification token.\"></div><div class=\"header__form-input__container__bottom\"><input class=\"header__form-input header__form-input__bottom\" type=\"text\" name=\"email\" value=\"\" placeholder=\"email\"></div><div class=\"form-group\"><button class=\"btn btn-default register__form_submit--bottom\" type=\"submit\" action=\"\">Verify!</button></div></form></section>");
 
   init_components_tag({}, out);
 

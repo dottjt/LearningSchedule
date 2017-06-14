@@ -262,15 +262,15 @@
     font-size: 1.3rem;
 	color: #242526;
 	font-family: 'Nunito', sans-serif;
-	font-weight: 100;
+	font-weight: 100;s
 }
 */
 
-
-
 .header__color__container {
-		width: 100%;
-        margin: 0;
+    position: relative;
+    z-index: -100;
+    width: 100%;
+    margin: 0;
 }
 
 .header__color {

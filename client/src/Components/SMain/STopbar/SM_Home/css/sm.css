@@ -117,18 +117,25 @@
 }
 
 .sm__updatelink__inner__container {
-    margin-bottom: 1rem;
     width: 100%; 
     float: left;
 
 }
 
+.sm__taglink__inner__container {
+    width: 100%; 
+    float: left;
+
+}
+
+
 .sm__updatelink__schedule__name {
+    text-decoration: underline;
     font-family: 'Nunito', sans-serif;
     font-size: 1.2rem;
     font-weight: 300;
     margin-left: 8rem;
-
+    margin-bottom: 2rem;
 }
 
 
@@ -138,7 +145,8 @@
     float: left;
     outline: none;
     margin-bottom: 3.5rem;
-    
+    margin-left: 4rem;
+
     position: relative;
     padding-left: 4rem;
 
@@ -182,3 +190,6 @@
 }
 
 
+.sm__taglink__tag__single {
+
+}

@@ -36,7 +36,7 @@ function render(input, out) {
     marko_escapeXmlAttr(data.show) +
     "\">" +
     marko_escapeXml(data.message) +
-    "</h3><form class=\"signup__form\" action=\"auth/login\" method=\"post\" accept-charset=\"utf-8\">");
+    "</h3><form class=\"signup__form\" action=\"/login\" method=\"post\" accept-charset=\"utf-8\">");
 
   include_tag({
       _target: auth_form_template

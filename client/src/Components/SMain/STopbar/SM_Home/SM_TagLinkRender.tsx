@@ -36,10 +36,10 @@ class SM_TagLinkRender extends React.Component<SM_TagLinkRenderProps, undefined>
                         {tags.map(tag =>
                             // .sort((a, b) => { return +new Date(b.get('update_date')) - +new Date(a.get('update_date')); })
 
-                            <div className="row sm__updatelink__inner__container" key={tag.get('tag_id')}>
+                            <div className="row sm__taglink__inner__container" key={tag.get('tag_id')}>
 
                                 {/* SM_UpdateLink Update */}
-                                    <p className="sm__updatelink__update">{tag.get('tag_text')}</p>
+                                    <p className="sm__taglink__tag__single">{tag.get('tag_text')}</p>
                             </div> 
 
                         )}

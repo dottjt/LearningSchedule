@@ -186,7 +186,7 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
                             {login_status_var ? (
                                 <Link className="navbar-brand" to={"/" + user.get('username')}><h1 className="st__navbar__brand">Learning Schedule</h1></Link> 
                                 ) : (
-                                <Link className="navbar-brand" to={"/" + user.get('username')}><h1 className="st__navbar__brand">Learning Schedule</h1></Link> 
+                                <Link className="navbar-brand" to={"/"}><h1 className="st__navbar__brand">Learning Schedule</h1></Link> 
                                 )
                             }           
                         

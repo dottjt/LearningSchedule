@@ -313,9 +313,21 @@
 	width: 40rem; 
 }
 
-.sm__updatelink__update {
-    margin-top: 2rem;
+.header__title__single {
     margin-left: 4rem;
+    width: 800px;
+    line-height: 1.6rem; 
+    float: left;
+    outline: none;
+    margin-bottom: 3.5rem;
+    
+    position: relative;
+    padding-left: 4rem;
+
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+    font-size: 1.05rem;
+
 }
 
 

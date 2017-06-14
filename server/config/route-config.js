@@ -47,6 +47,7 @@
 
     app.use('/api/v1', userRoute);
     app.use('/auth', authRoute);
+    app.use('/', authRoute); // let's see how this works for marko templates 
     app.use('/', indexRoute); // unique. 
 
   };
