@@ -3,6 +3,7 @@ const nodemailer = require('nodemailer');
 const knex = require('../db/users_connection');
 const uuid = require('uuid'); 
 const sillyname = require('sillyname');
+const crypto = require('crypto');
 
 const api_key = 'key-4df520f1907c048f529c25b69ee4f027';
 const domain = 'mail.learningschedule.com';
@@ -20,12 +21,17 @@ function createUser(req, res) {
   return handleErrors(req)
   .then(() => {
 
+
+    // as a reminder, these variables are always different with each user. 
     let salt = bcrypt.genSaltSync();
     let hash = bcrypt.hashSync(req.body.password, salt);
     let username = uuid().substring(0,8);
     let summaries_id = uuid();
     let display_name = sillyname(); 
     let avatar_url = "plant" + Math.ceil(Math.random() * 4) + ".png";
+    // let verification_boolean = false;
+    // let verification_token = createToken(); // okay this is staying the same each time. 
+
 
     console.log(avatar_url);
 
@@ -58,7 +64,9 @@ function createUser(req, res) {
         username: username,
         display_name: display_name,
         summaries_id: summaries_id,
-        avatar_url: avatar_url
+        avatar_url: avatar_url,
+        verification_boolean: false,
+        verification_token: createToken()
       })
       .returning('*');
   })
@@ -162,10 +170,11 @@ function handleErrors(req) {
 
 
 function createToken() {
-  crypto.randomBytes(20, function(err, buf) {
-    var token = buf.toString('hex');
-    return token; 
-  });
+    const secret = Math.random().toString();
+    const hash = crypto.createHmac('sha256', secret)
+                        .update('I love cupcakes')
+                        .digest('hex');
+    return hash;
 }
 
 

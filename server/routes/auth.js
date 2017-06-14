@@ -23,68 +23,73 @@ router.post('/register', (req, res, next)  => {
   
   // check to see if user already exists. 
   user_queries.getSingleUserEmail(req.body.email)
-    .then((k)=> {
-      console.log("k value", k)
-      if (k === undefined) {
-        return
-      } else {
-          res.marko(login, {
-            message: 'It appear you already have an account, please login :)',
-            show: "showMessage"
-          });
-      }
 
-    }).catch((err) => {
+    .then((singleUser)=> {
+
+      console.log("singleUser value", singleUser)
+
+      if (singleUser === undefined) {
+        
+        authHelpers.createUser(req, res)
+        
+          .then((response) => {
+
+            console.log("createUser", response) // returns 
+
+            passport.authenticate('local-signup', (err, user, info) => {
+              
+              if (user) { 
+                
+                req.logIn(user, function (err) {
+                  
+                  console.log('in login')
+                  // if login error 
+                  if (err) { 
+                    console.log("login", err);
+                    res.marko(fiveohfive); 
+                  }
+
+                  // create verificationToken
+                  let token = authHelpers.createToken(); 
+                  let tokenObject = user.verification_token;
+
+                  // send verify account email to user 
+                  // authHelpers.verifyAccount(token, email);
+                      
+                  res.marko(verify, {
+                    token: tokenObject,
+                    show: "showMessage",
+                    show1: "showMessage" // utilised to make flash appear. 
+                  })   
+                })                  
+            }
+
+          })(req, res, next);
+        })
+          .catch((err) => { 
+            console.log("catch", err);
+            res.marko(fiveohfive, {
+                na: ''
+            });   
+          });
+
+      } else if (singleUser.verification_token === false) {
+        // maybe also create a new verification_token? 
+
+        res.marko(verify, {
+          token: singleUser.verification_token,
+          show1: "showMessage",
+          color: "green"
+        });
+
+      } else { // end of original user_queries to find if email already exists 
+        res.redirect('/youalreadyhavearegisteredaccountsillysopleaselogin');
+      }
+    })
+    .catch((err) => {
       console.log("essorrr", err);
     });
-  
 
-  console.log('does it get here?')
-
-  authHelpers.createUser(req, res)
-  
-    .then((response) => {
-      
-      passport.authenticate('local-signup', (err, user, info) => {
-        
-          if (user) { 
-            
-            req.logIn(user, function (err) {
-              
-              // if login error 
-              if (err) { 
-                console.log("login", err);
-                res.marko(fiveohfive); 
-              }
-
-              // create verificationToken
-              let token = authHelpers.createToken(); 
-              let tokenObject = { verification_token: token }
-              let username = user.username; 
-
-              // set verification token in the database
-              user_queries.setVerificationToken(username, tokenObject)
-                .then(() => {
-                    // send verify account email to user 
-                    // authHelpers.verifyAccount(token, email);
-                    res.marko(verify, {
-                      token: token,
-                      show: "showMessage"
-                    })   
-                })                  
-            }); 
-          }
-
-
-      })(req, res, next);
-    })
-  .catch((err) => { 
-    console.log("catch", err);
-
-    res.marko(fiveohfive, {
-        na: ''
-    });   
-  });
 });
 
 
@@ -154,15 +159,54 @@ router.post('/login', (req, res, next) => {
 
 
 // login user via verification token 
-router.get('/verify', (req, res, next)  => {
+router.post('/verify', (req, res, next)  => {
    
-  let username = req.body.username;
+  let email = req.body.email;
   let emailToken = req.body.verification_token;
-  let verificationToken = user_queries.getVerificationToken(username).then((value) => { return value });
-  let verificationBoolean = user_queries.getVerificationToken(username).then((value) => { return value });
+  
+  console.log('initial beginnings')
 
-  console.log('setup');
-  console.log(emailToken, verificationToken, verificationBoolean)
+  user_queries.getVerificationToken(email)
+
+    .then((verificationToken) => {
+      
+      let actualver = verificationToken[0].verification_token;
+
+      if (actualver === emailToken) {
+          
+          user_queries.setVerificationToken(email, { verification_boolean: true })   
+
+              console.log("setVerificationTokenAfter")
+
+            //.then((anything) => { 
+
+              // console.log(anything)
+              user_queries.getSingleUserEmail(email)
+
+                .then((singleUser) => {
+
+                  console.log("singleUser", singleUser)
+                  // res.redirect('/' + req.user.username)
+
+                  res.cookie('yolo', singleUser.summaries_id, { maxAge: 604800000000, httpOnly: false });
+                  res.redirect('/' + singleUser.username)
+                })
+
+
+           // });
+
+          //verification page.
+          return 
+      } else {
+        res.marko(verify, {
+            message: 'Please try again, it seems you didn\'t input the correct thingys.',
+            show: "showMessage"
+        }); 
+      }
+
+    });
+});
+
   // let resetToken = user_queries.getResetToken(username);
 
   // this is if user wants to reset password
@@ -179,33 +223,9 @@ router.get('/verify', (req, res, next)  => {
   //       message: 'Your new, temporary password should arrive in your mailbox shortly.'
   //   }); 
 
-  // if user verifying account. 
-  if (verificationToken === emailToken) {
-    
-    // payload to setVerificationToken
-    let updateVerificationBoolean = { verification_boolean: true };
 
-    // set verification boolean
-    user_queries.setVerificationToken(username, updateVerificationBoolean).then((value) => { return value });
 
-    //verification page. 
-    return user_queries.getSingleUser(username)
-        .then((singleUser) => {
 
-          console.log("singleUser", singleUser)
-          // res.redirect('/' + req.user.username)
-
-          res.cookie('yolo', singleUser.summaries_id, { maxAge: 604800000000, httpOnly: false });
-          res.redirect('/' + singleUser.username)
-        })
-
-  } else {
-    res.marko(verify, {
-        message: 'Please try again, it seems you didn\'t input the correct thingys.',
-        show: "showMessage"
-    }); 
-  }
-});
 
 
 router.put('/reset', function(req, res, next) {

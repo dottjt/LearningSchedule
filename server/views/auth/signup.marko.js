@@ -32,7 +32,7 @@ function render(input, out) {
       _target: auth_navbar_template
     }, out);
 
-  out.w("<section class=\"signup__container\"><h3 class=\"signup__header\">Learning Schedule</h3><h5 class=\"signup__header__two\">Give it a whirl.</h5><h3 class=\"signup__header__three " +
+  out.w("<section class=\"signup__container\"><h3 class=\"signup__header\">Account Registration</h3><h5 class=\"signup__header__two\">All you need is an email and a password and you're all good to go!</h5><h3 class=\"signup__header__three " +
     marko_escapeXmlAttr(data.show) +
     "\">" +
     marko_escapeXml(data.message) +
@@ -42,7 +42,7 @@ function render(input, out) {
       _target: auth_form_template
     }, out);
 
-  out.w("<div class=\"form-group\"><button class=\"btn btn-default register__form_submit--bottom\" type=\"submit\" action=\"\">Sign Up</button></div></form></section>");
+  out.w("<div class=\"form-group\"><button class=\"btn btn-default register__form_submit--bottom\" type=\"submit\" action=\"\">Register</button></div></form></section>");
 
   init_components_tag({}, out);
 

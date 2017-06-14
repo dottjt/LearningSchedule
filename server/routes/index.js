@@ -24,7 +24,14 @@ router.get('/:username', (req, res, next) => {
             return res.marko(blog);
         case 'login':
             return res.marko(login);
+        case 'youalreadyhavearegisteredaccountsillysopleaselogin':
+            return res.marko(login, {
+                message: 'It appear you already have an account!',
+                show: "showMessage"
+            });
         case 'signup':
+            return res.marko(signup);
+        case 'register':
             return res.marko(signup);
         case 'forgot':
             return res.marko(forgot);

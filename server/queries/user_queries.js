@@ -27,33 +27,33 @@ function deleteAllUserInformation(username) {
 
 
 
-function setVerificationToken(username, updates) {
-  return Users().where('username', username).update(updates);
+function setVerificationToken(email, updates) {
+  return Users().where('email', email).update(updates);
 }
 
-function getVerificationToken(username) {
-  return Users().where('username', username).select('verification_token');
+function getVerificationToken(email) {
+  return Users().where('email', email).select('verification_token');
 }
 
 
 
-function setResetToken(username, updates) {
-  return Users().where('username', username).update(updates);
+function setResetToken(email, updates) {
+  return Users().where('email', email).update(updates);
 }
 
-function getResetToken(username) {
-  return Users().where('username', username).select('reset_token');
+function getResetToken(email) {
+  return Users().where('email', email).select('reset_token');
 }
 
 
 
 // this needs to change.
-function setVerificationBoolean(username, updates) {
-  return Users().where('username', username).update(updates)
+function setVerificationBoolean(email, updates) {
+  return Users().where('email', email).update(updates)
 }
 
-function getVerificationBoolean(username) {
-  return Users().where('username', username).select('verification_boolean')
+function getVerificationBoolean(email) {
+  return Users().where('email', email).select('verification_boolean')
 }
 
 

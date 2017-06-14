@@ -17,13 +17,16 @@ passport.use('local-signup', new LocalStrategy({
 },
 function(req, email, password, done) {
 
-  
+    console.log('make it to the local-signup')
+    console.log(email)
     // asynchronous
     // User.findOne wont fire unless data is sent back
     // find a user whose email is the same as the forms email
     // we are checking to see if the user trying to login already exists
     return knex('user').where({ email }).first()
       .then((user) => {
+
+        console.log('maybe not here')
       if (!user) return done(null, false);
 
       if (!authHelpers.comparePass(password, user.password)) {

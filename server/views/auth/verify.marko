@@ -28,17 +28,15 @@
 <section class="signup__container">
     
     <h3 class="signup__header">Learning Schedule</h3>
-    <h5 class="signup__header__two">Your verification code is below.</h5>
-    <h5 class="signup__header__two">Please paste it into the form, along with your email.</h5>
+    <!--<h5 class="signup__header__two ${data.show1}">It appear you already have an account!</h5>-->
+    <h5 class="signup__header__two ${data.show}">Please paste the verification code into the form below, along with your email.</h5>
     
-    <h3 class="signup__header__three ${data.show}">${data.message}</h3>
-
-    <h3 class="signup__header__three ${data.show}">${data.token}</h3>
+    <h3 id="${data.color}" class="signup__header__three ${data.show}">${data.token}</h3>
 
     <form class="signup__form" action="/verify" method="post" accept-charset="utf-8">
 
         <!-- verification token input -->
-      <div class="header__form-input__container__bottom">
+      <div class="header__form-input__container">
           <input class="header__form-input header__form-input__bottom" type="text" name="verification_token" value="" placeholder="verification token.">
       </div>
 
