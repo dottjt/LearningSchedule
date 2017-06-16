@@ -8,9 +8,8 @@ God knows how many versions/revisions I've created. I believe it's currently on 
 
 This project goes from being broken to fully functional as I implement new features, so I apologise if you happen to come across it when it's broken.
 
-Website/Application now in early alpha :) 
+**08-06-17** - Website/Application now in early alpha https://learningschedule.com 
 
-https://learningschedule.com 
 
 # Learning Schedule aims to serve a number of purposes:
 - Provide a platform to easily track your learning.
