@@ -152,6 +152,9 @@ router.delete('/schedules/:schedule_id', authHelpers.loginAccessUser, function(r
         schedule_queries.deleteSchedule(req.params.schedule_id)
 
     .then(() => { res.status(200).json(schedule); })
+
+
+    .then(() => { res.status(200).json(schedule); })
     .catch((error) => { next(error); });  
   })
   .catch((error) => { next(error);

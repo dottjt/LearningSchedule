@@ -105,7 +105,7 @@ class STopbar extends React.Component<STopbarProps & STopbarPassedProps, STopbar
                 {/*     BOTTOM BAR      */}
 
                 
-                    <div className="row st__bottombar__container">
+                    <div className="st__bottombar__container">
 
                         <div className="header__color__container">
                             <div className="header__color header__color1"></div>

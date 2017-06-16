@@ -7,26 +7,45 @@
 /* 	profile picture - username 	*/
 
 .sm__title__top_layer {
-	width: 50rem;
-	float: left; 
+	width: 90%;
+	height: 4rem;
+	margin: 0 auto;
+
+	/*display: flex;
+	justify-content: */
+	/*float: left; */
 	margin-bottom: 1.8rem;
 }
+
+.sm__title__top_layer__left {
+	float: left;
+}
+
+.sm__title__top_layer__right {
+	float: left;
+	min-width: 600px;
+	/*max-width: 700px;*/
+	/*max-width: 600px;*/
+	/*max-width: 600px;*/
+}
+
 
 .sm__title__profile_picture {
 	border-radius: 50%;
   	float: left;
-	display: block;
 	width: 3.5rem;
 	height: 3.45rem;
 }
 
-.sm__title__top_layer__right {
+.sm__title__top_layer__username__details {
 	margin-top: 0.2rem;
 	margin-left: 0.5rem;
 	float: left; 
 }
 
-.sm__title__top_layer__updates {
+
+.sm__title__top_layer__updates__container {
+	position: relative;
 	float: right;
 }
 
@@ -42,8 +61,22 @@
 	font-weight: 100;
 	font-size: 0.9rem;
 
+}
+
+.sm__title__top_layer__tags__link {
+	position: relative;
+	top: 0.1rem;
+	right: 4rem;
+
+	margin-right: 1rem;
+	display: inline-block;
+	color: #242526;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 100;
+	font-size: 0.9rem;
 
 }
+
 
 .sm__title__username {
   	float: left;
@@ -78,13 +111,29 @@
 /* 	title 	*/
 
 .sm__title__container {
-	float: left;
+	display: flex;
+	flex-direction: column;
 	font-size: 2rem;
 	font-family: arial;
+	/*margin-left: 5rem; */
+	margin: 0 auto;
 	margin-top: 2rem;
-	margin-left: 5rem; 
 	margin-bottom: 2rem; 
-	width: 40rem;
+
+	padding-left: 5rem;	
+	width: 100%;
+
+}
+
+.sm__title {
+	font-size: 2rem;
+	font-family: arial;
+	/*margin-left: 5rem; */
+	margin-top: 2rem;
+	margin-bottom: 2rem; 
+
+	padding-left: 5rem;	
+	width: 100%;
 }
 
 
@@ -110,12 +159,11 @@
 }
 
 .sm__title__schedule__summary {
-	float: left;
 	font-size: 1.1rem;
 	margin-bottom: 1.5rem; 
-	margin-left: 5rem;
-	width: 40rem;
+	max-width: 800px;
 	line-height: 1.6rem;
+    padding-left: 5rem;	
 
 	color: #242526;
 	font-family: 'Nunito', sans-serif;
@@ -128,4 +176,50 @@
 
 .clear {
 	clear: both;
+}
+
+
+
+@media screen and (max-width: 900px){
+    .sm__title__container {
+    	padding-left: 3.5rem;
+    }
+
+	.sm__title {
+		max-width: 600px;
+    	padding-left: 3.5rem;
+		font-size: 2.2rem;
+		margin-top: 0;
+	}
+
+	.sm__title__schedule__summary {
+    	padding-left: 3.5rem;	
+		width: 80%;
+	}
+
+}
+
+@media screen and (max-width: 550px){
+    .sm__title__container {
+    	padding-left: 1rem;
+    }
+
+	.sm__title {
+    	padding-left: 1rem;
+		font-size: 1.8rem;
+	}
+
+	.sm__title__schedule__summary {
+    	padding-left: 1rem;	
+	}
+
+	.sm__title__top_layer__tags__link {
+		display: none;
+	}
+
+	.sm__title__top_layer__updates__link {
+		position: relative;
+		left: 0.5rem;
+	}
+
 }

@@ -4,6 +4,8 @@ import { SagaIterator } from 'redux-saga';
 import axios from 'axios';
 // import { Map } from 'immutable';
 
+import { initialIndicatorStateSucceeded, requestInitialIndicatorState, initialIndicatorStateFailed } from './indicator_ar';
+
 /* 
                     OVERVIEW
                                                 */
@@ -43,16 +45,20 @@ export function* initialSchedulesStateSaga(): SagaIterator {
 
   try {
        
+    yield put(requestInitialIndicatorState())   
+    
     let schedules = yield call(apiInitialSchedulesState);     
 
     if (schedules !== undefined) {
       yield put(initialSchedulesStateSucceeded(schedules.data));
       // from server
+      yield put(initialIndicatorStateSucceeded())
     };
 
   }
   catch (err) {
-    yield put (initialSchedulesStateFailed(err))
+    yield put (initialSchedulesStateFailed(err));
+    yield put (initialIndicatorStateFailed(err));
   }
 }
 

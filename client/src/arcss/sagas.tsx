@@ -2,6 +2,15 @@ import { SagaIterator } from 'redux-saga';
 import { fork, takeLatest } from 'redux-saga/effects';
 
 /*
+              Indicator
+                                */
+
+import { initialIndicatorStateSaga } from './indicator_ar';
+
+import { REQUEST_INITIAL_INDICATOR_STATE } from './indicator_ar';
+
+
+/*
               Schedules 
                                 */
 
@@ -9,7 +18,7 @@ import { initialSchedulesStateSaga,
          addScheduleSaga,
          removeScheduleSaga,
          changeScheduleSaga,
-        changeScheduleUrlSaga } from './schedules_ar';
+         changeScheduleUrlSaga } from './schedules_ar';
 
 import { REQUEST_ADD_SCHEDULE,
          REQUEST_REMOVE_SCHEDULE,
@@ -36,11 +45,13 @@ import { REQUEST_CHANGE_SUMMARY } from './summaries_ar';
 import { initialUpdatesStateSaga,
          addUpdateSaga,
          removeUpdateSaga,
+         removeAllUpdatesSaga,
          changeUpdateSaga } from './updates_ar';
 
 import { REQUEST_ADD_UPDATE,
          REQUEST_REMOVE_UPDATE,
-         REQUEST_CHANGE_UPDATE } from './updates_ar';
+         REQUEST_CHANGE_UPDATE,
+         REQUEST_REMOVE_ALL_UPDATES } from './updates_ar';
 
 
 
@@ -113,6 +124,8 @@ export default function* rootSaga(): SagaIterator {
    fork(initialSummariesStateSaga),
    fork(initialUserStateSaga),
 
+   takeLatest(REQUEST_INITIAL_INDICATOR_STATE, initialIndicatorStateSaga),
+   
    takeLatest(REQUEST_REMOVE_USER, requestRemoveUserSaga),
    takeLatest(REQUEST_CHANGE_SOCIAL, requestChangeSocialSaga),
    takeLatest(REQUEST_CHANGE_USER_DETAILS, requestChangeUserDetailsSaga),
@@ -130,6 +143,7 @@ export default function* rootSaga(): SagaIterator {
 
    takeLatest(REQUEST_ADD_UPDATE, addUpdateSaga),
    takeLatest(REQUEST_REMOVE_UPDATE, removeUpdateSaga),
+   takeLatest(REQUEST_REMOVE_ALL_UPDATES, removeAllUpdatesSaga),
    takeLatest(REQUEST_CHANGE_UPDATE, changeUpdateSaga),
 
    takeLatest(REQUEST_ADD_TAG, addTagSaga),

@@ -129,7 +129,7 @@ class ST_Midbar extends React.Component<ST_MidbarProps & ST_MidbarPassedProps, S
                                       */
 
                 
-                <div className="row st__midbar__container">
+                <div className="st__midbar__container">
                     <div className="st__midbar__top">
                         
                     {/* STopbar Profile Picture */}

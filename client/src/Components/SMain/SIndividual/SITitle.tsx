@@ -42,6 +42,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 		let new_schedule_summary = values.get('schedule_summary');
 	
 		if (old_schedule_summary !== new_schedule_summary) {
+			requestInitialIndicatorState();
 			requestChangeSchedule(values);
 		}
 	}
@@ -70,7 +71,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 
 	render() {
 		
-		const { handleSubmit, user, login_status_var, requestRemoveSchedule, form /* schedule_id */ } = this.props;
+		const { handleSubmit, user, login_status_var, requestRemoveSchedule, requestRemoveAllUpdates, form /* schedule_id */ } = this.props;
 
 		let si__title__display__none, si__title__border__none;  // style to disable forms. 
 		let fieldDis;
@@ -120,7 +121,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 					<div className="si__title__top_layer__right">
 						     		{/* Remove Schedule Button */}
 							{login_status_var ? (
-								<SIRemoveRedirect user={user} requestRemoveSchedule={requestRemoveSchedule} schedule_id={form}/>
+								<SIRemoveRedirect user={user} requestRemoveSchedule={requestRemoveSchedule} requestRemoveAllUpdates={requestRemoveAllUpdates} schedule_id={form}/>
 									) : (
 								<div className="si__title__remove__schedule--na"></div>
 								)
@@ -181,6 +182,8 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
                                       */
 
 import { requestChangeSchedule, requestRemoveSchedule } from '../../../arcss/schedules_ar';
+import { requestRemoveAllUpdates } from '../../../arcss/updates_ar';
+import { requestInitialIndicatorState } from '../../../arcss/indicator_ar';
 import { connect } from 'react-redux';
 // import { Map } from 'immutable';
 
@@ -188,7 +191,9 @@ import { connect } from 'react-redux';
 const mapDispatchToProps = dispatch => { 
 	return { 
 		requestChangeSchedule: (data) => dispatch(requestChangeSchedule(data)),
-		requestRemoveSchedule: (data) => dispatch(requestRemoveSchedule(data))
+		requestRemoveSchedule: (data) => dispatch(requestRemoveSchedule(data)),
+		requestRemoveAllUpdates: () => dispatch(requestRemoveAllUpdates()),
+		requestInitialIndicatorState: () => dispatch(requestInitialIndicatorState())
 	} 
 };
 

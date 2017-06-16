@@ -23,7 +23,7 @@ class SM_TagLinkRender extends React.Component<SM_TagLinkRenderProps, undefined>
 
     render() {
 
-        var { user, tags } = this.props;
+        var { tags } = this.props;
 
         console.log(tags)
         if(tags.size > 0) {
@@ -36,7 +36,7 @@ class SM_TagLinkRender extends React.Component<SM_TagLinkRenderProps, undefined>
                         {tags.map(tag =>
                             // .sort((a, b) => { return +new Date(b.get('update_date')) - +new Date(a.get('update_date')); })
 
-                            <div className="row sm__taglink__inner__container" key={tag.get('tag_id')}>
+                            <div className="sm__taglink__inner__container" key={tag.get('tag_id')}>
 
                                 {/* SM_UpdateLink Update */}
                                     <p className="sm__taglink__tag__single">{tag.get('tag_text')}</p>
@@ -51,11 +51,7 @@ class SM_TagLinkRender extends React.Component<SM_TagLinkRenderProps, undefined>
                 <div className="sm__taglink__empty">
 
                     <h3 className="sm__homelink__individual__empty">
-                        {user.get('display_name')} has not made a single tag.
-                    </h3>
-
-                    <h3 className="sm__homelink__individual__empty">
-                        Although I'm sure this user is in the process of making one right now.
+                        No Tags have been created. 
                     </h3>
 
                     <h3 className="sm__homelink__individual__empty">

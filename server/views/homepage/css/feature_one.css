@@ -273,6 +273,12 @@
     margin: 0;
 }
 
+.header__color__container__feature__one {
+    width: 100%;
+    margin: 0;
+}
+
+
 .header__color {
 	float: left;
 	width: 20%;	

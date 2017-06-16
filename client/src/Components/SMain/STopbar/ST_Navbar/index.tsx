@@ -130,7 +130,7 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
 
         // import props and state 
         var login_status_var, removeContainer, image, srci;
-        var { user } = this.props; 
+        var { user, indicator } = this.props; 
         // var { url_slug } = this.state;
 
 
@@ -245,6 +245,22 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
                             }               
 
 
+                        {/* STopbar Saving Indicator */}
+                            {login_status_var ? (
+                                <a className="st__saving__indicator__container">
+                                    <div className={`st__saving__indicator ${indicator}`}>
+
+                                    </div>
+                                </a>
+                                //  <span className="st__navbar__add__plus">+</span>
+                                //    <STAddScheduleRedirect onClick={() => this.showPopUpFunction()}/></div>
+                                // <div className="st__navbar__add__container"><Link className="st__navbar_st__navbar__add__container_add" onClick={() => this.addSchedule(url_slug, user.get('username'))} to={"/" +  user.get('username') + "/schedule/" + url_slug}>New Schedule <span className="st__navbar__add__plus">+</span></Link></div>
+
+                                ) : (
+                                <a><h3 className="st__navbar__add"></h3></a>
+                                )
+                            }               
+
 
 
                         {/* STopbar Add Schedule */}
@@ -303,7 +319,7 @@ import { requestAddSchedule } from '../../../../arcss/schedules_ar';
 
 import { connect } from 'react-redux';
 
-export const mapDispatchToProps = (dispatch) => {
+export const mapDispatchToProps = dispatch => {
     return {
         requestAddSchedule: (data) => dispatch(requestAddSchedule(data)),
 
@@ -312,4 +328,12 @@ export const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect<{}, {}, ST_NavbarPassedProps>(undefined, mapDispatchToProps)(ST_Navbar as any);
+export const mapStateToProps = state => {
+    return {
+        indicator: state.get('indicator')
+        // this may be incorrect
+    };
+};
+
+
+export default connect<{}, {}, ST_NavbarPassedProps>(mapStateToProps, mapDispatchToProps)(ST_Navbar as any);

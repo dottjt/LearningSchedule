@@ -95,6 +95,17 @@ router.delete('/updates/:update_id', authHelpers.loginAccessUser, function(req, 
   });
 });
 
+
+router.delete('/all_updates/', authHelpers.loginAccessUser, function(req, res, next) {
+    // GET all updates
+
+  update_queries.deleteAllUpdatesOfUser(req.session.username)
+
+    .then(() => {  })
+    .catch((error) => { next(error); });  
+});
+
+
 module.exports = router;
 
 

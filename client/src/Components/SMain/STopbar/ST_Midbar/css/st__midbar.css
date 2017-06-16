@@ -3,26 +3,30 @@
 
 .st__midbar__container {
 
-    max-width: 40rem;
-    height: 16rem;
     
     padding: 1rem;
-    margin: 0 auto;
-
     margin-top: 10rem;
     margin-bottom: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
 }
 
 .st__midbar__top {
-    position: relative;
-    left: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     height: 7rem;
-    width: 100%;
-    float: left; 
-    margin-left: 3rem;
+    width: 400px;
+
     margin-bottom: 1.8rem;
 
 }
+
 
 .st__midbar__react__dropzone {
     width: 7rem;
@@ -53,10 +57,9 @@
 }
 
 .st__midbar__profile_picture {
-    display: block; 
     
     border-radius: 50%;
-    float: left;
+    /*float: left;*/
     width: 7rem;
     height: 7rem;
 }
@@ -65,21 +68,28 @@
 /* right of profile picture */
 
 .st__midbar__top__right {
-    float: left;
-    width: 300px;
+    width: 240px;
+    height: 100px;
     margin-top: 0.7rem;
     margin-left: 1.8rem;
+
+    
 }
 
 .st__midbar__top__top {
-    width: 25rem;
+    /*display: flex; 
+    align-items: center;
+    justify-content: center;*/
+
+    margin: 0 auto;
+    width: 30rem;
     height: 3.2rem;
 }
 
 .st__midbar__website {
     color: none;
     font-size: 1.3rem;
-    margin-left: 1.6rem;
+    margin-left: 1.3rem;
     position: relative;
     top: 0.3rem;
 }
@@ -93,8 +103,6 @@
     position: relative;
     top: 2px;
     left: 1px; 
-    float: left;
-    display: block;
     width: 18rem;
     height: 1.7rem;
     /*color: cyan;*/
@@ -173,8 +181,8 @@
 
 .st__midbar__profile_username {
     font-size: 2.8rem;
-    float: left;
     width: 600px;
+    margin: 0 auto;
 
     color: #242526;
 	font-family: 'Nunito', sans-serif;
@@ -188,19 +196,20 @@
 
 .st__midbar__bottom {
     position: relative;
-    left: 0.5rem;
+    left: 4.1rem;
 
-    margin-left: 3rem;
-    width: 100%;
-    float: left; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .st__midbar__social_icons__container {
-    position: relative;
-    right: 0.6rem;
-    bottom: 0.5rem;
+    /*position: relative;*/
+    /*right: 0.6rem;
+    bottom: 0.5rem;*/
 
-    float: left;
+    /*float: left;*/
     height: 6rem;
 }
 
@@ -213,7 +222,6 @@
 }
 
 .st__midbar__summary { 
-    float: left; 
     width: 400px;
 
     margin-left: 1rem;
@@ -267,4 +275,86 @@
     left: 3.2rem;
     color: darkgrey;
     font-size: 1.5rem;
+}
+
+
+
+@media screen and (max-width: 900px){
+    
+    .st__midbar__container {
+        width: 100%;
+    }
+
+    .st__midbar__top__top {
+        margin-top: 1rem;
+        margin-top: 1rem;
+        width: 15rem;
+    }
+    
+    .st__midbar__top {
+        display: block;
+        height: 15rem;
+        margin: 0 auto;
+    }
+
+    .st__midbar__profile_picture {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .st__midbar__top__right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    .st__midbar__website {
+        width: 20rem;
+    }
+
+    .st__midbar__profile_username {
+
+    }
+    
+/*
+
+        Bottombar 
+                        */
+
+    .st__midbar__bottom {
+        flex-direction: column;
+        left: 0;
+    }
+
+    .st__midbar__social_icons__container {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        margin: 0 auto;
+        width: 12rem;
+        height: 4rem;
+
+    }
+
+    .st__summary__outer__container {
+        margin: 0 auto;
+        margin-top: 2rem;
+        width: 25rem;
+        padding-left: 3rem;
+    }
+
+    .st__midbar__summary {
+        height: 6rem;
+        float: left; 
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .st__midbar__profile_username {
+        font-size: 2.8rem;
+    }
+
 }

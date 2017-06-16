@@ -17,6 +17,7 @@ function comparePass(userPassword, databasePassword) {
   return bcrypt.compareSync(userPassword, databasePassword);
 }
 
+
 function createUser(req, res) {
   return handleErrors(req)
   .then(() => {
@@ -66,7 +67,11 @@ function createUser(req, res) {
         summaries_id: summaries_id,
         avatar_url: avatar_url,
         verification_boolean: false,
-        verification_token: createToken()
+        verification_token: createToken(),
+        website: "",
+        facebook: "",
+        twitter: "",
+        github: ""
       })
       .returning('*');
   })

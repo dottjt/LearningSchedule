@@ -1,20 +1,19 @@
 .sm__update__outer__container {
-      margin-left: 5rem;
-      width: 42rem;
-      float: left;
+      display: flex;
+      flex-direction: column;
+      max-width: 750px;
+      padding-left: 5rem;
 }
 
 .sm__update__text {
-    width: 43rem;
+    width: 90%;
     font-size: 1.05rem;
     line-height: 1.8rem; 
-    float: left;
     outline: none;
     margin-bottom: 1.5rem;
-    margin-left: 1rem;
     
-    position: relative;
-    padding-left: 62px;
+    /*position: relative;
+    padding-left: 62px;*/
 
     color: #242526;
     font-family: 'Nunito', sans-serif;
@@ -69,6 +68,28 @@
 .sm__update__text:hover {
     /*padding-left: 60px;*/
     /*border-left: 2px solid darkgrey;*/
+
+}
+
+
+
+
+@media screen and (max-width: 900px){
+    .sm__update__outer__container {
+        padding-left: 3.5rem;
+		max-width: 600px;
+    }
+
+	.sm__tag__text {
+
+	}   
+
+}
+
+@media screen and (max-width: 550px){
+    . {
+    	padding-left: 1rem;
+    }
 
 }
 

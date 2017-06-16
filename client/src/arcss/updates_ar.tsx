@@ -151,6 +151,63 @@ export function* addUpdateSaga(action): SagaIterator {
 
 
 
+/*
+            REMOVE_UPDATE_ACTION_CREATORS 
+                                                */
+
+
+
+
+
+export const REQUEST_REMOVE_ALL_UPDATES = 'REQUEST_REMOVE_ALL_UPDATES';
+export const REMOVE_ALL_UPDATES_SUCCEEDED = 'REMOVE_ALL_UPDATES_SUCCEEDED';
+export const REMOVE_ALL_UPDATES_FAILED = 'REMOVE_ALL_UPDATES_FAILED';
+
+
+export const requestRemoveAllUpdates = () => ({type: REQUEST_REMOVE_ALL_UPDATES});
+export const removeAllUpdatesSucceeded = () => ({type: REMOVE_ALL_UPDATES_SUCCEEDED});
+export const removeAllUpdatesFailed = err => ({type: REMOVE_ALL_UPDATES_FAILED, err});
+
+
+
+/*
+            REMOVE_UPDATE_ASYNC_ACTIONS
+                                                */
+
+                                                // okay, so it sends an { updates: [array]}
+
+
+
+export function apiRemoveAllUpdates() {
+    
+    return axios.delete('api/v1/all_updates/'
+    // {
+    //     headers: { 'Authorization': 'Bearer ' + token }
+    // }
+    );
+};
+
+
+export function* removeAllUpdatesSaga(action) {
+
+  try {
+
+  // let token = localStorage.getItem('id_token') || null
+
+    // if (token) {    }
+
+    yield call(apiRemoveAllUpdates);
+
+    yield put(removeAllUpdatesSucceeded());
+    // from action
+
+  }  
+  catch (err) {
+    yield put (removeAllUpdatesFailed(err));
+  }
+};
+
+
 
 
 
@@ -306,6 +363,9 @@ export function updates(state = List(), action) {
 
         case REMOVE_UPDATE_SUCCEEDED:
             return fromJS(state).filter(update => update.get('update_id') !== action.data);
+
+        case REMOVE_ALL_UPDATES_SUCCEEDED:
+            return state = List();
 
         default:
             return state;

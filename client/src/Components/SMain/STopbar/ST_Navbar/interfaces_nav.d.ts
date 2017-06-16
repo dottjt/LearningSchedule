@@ -6,7 +6,8 @@ interface ST_NavbarProps {
 
 
 interface ST_NavbarPassedProps {
-    user: any
+    user: any,
+    indicator: any
 }
 
 

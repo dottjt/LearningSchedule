@@ -1,13 +1,16 @@
-
 .sm__tag__outer__container {
-    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
     list-style-type: none;
+    width: 100%;
+    margin-top: 2rem;
     margin-bottom: 3rem;
-    margin-left: 10.1rem;
+    padding-left: 5rem;
+
 }
 
 .sm__tag__text {
-    display: inline-block;
     margin-top: 1rem;
     width: 10.2rem;
     height: 1.4rem;
@@ -16,3 +19,20 @@
     font-weight: 100;
     text-decoration: underline #c9c9c9;
  }
+
+
+
+@media screen and (max-width: 900px){
+    .sm__tag__outer__container {
+        padding-left: 3.5rem;
+		max-width: 600px;
+    }
+
+}
+
+@media screen and (max-width: 550px){
+    .sm__tag__outer__container {
+    	padding-left: 1rem;
+    }
+
+}

@@ -48,7 +48,7 @@ class SM_UpdateLinkRender extends React.Component<SM_UpdateLinkRenderProps, unde
 
                 {updates.sort((a, b) => { return +new Date(b.get('update_date')) - +new Date(a.get('update_date')); }).map(update =>
                     
-                    <div className="row sm__updatelink__inner__container" key={update.get('update_id')}>
+                    <div className="sm__updatelink__inner__container" key={update.get('update_id')}>
                         
                         <h3 className="sm__updatelink__schedule__name">
                             {/*{this.getScheduleName(update.get('schedule_id')).getIn([0, 'schedule_title'])}*/}
@@ -70,7 +70,7 @@ class SM_UpdateLinkRender extends React.Component<SM_UpdateLinkRenderProps, unde
             <div className="sm__updatelink__empty">
                 
                 <h3 className="sm__updatelink__individual__empty">
-                    {user.get('display_name')} has no updates.
+                    No updates have been created.
                 </h3>
 
                 <h3 className="sm__updatelink__individual__empty">

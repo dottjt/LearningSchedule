@@ -1,9 +1,13 @@
 .header__color__container {
-		width: 100%;
+		width: 600px;
+		display: flex;
+		align-items: center;
+		align-content: center;
+		margin: 0 auto;
+
 }
 
 .header__color {
-	float: left;
 	width: 20%;	
 	height: 0.5rem;
 }
@@ -29,4 +33,16 @@
 .header__color5 {
 	background-color: #F5EDE3;
 	
+}
+
+
+
+
+@media screen and (max-width: 900px){
+.header__color__container {
+	width: 100%;
+}
+  .header__color{
+    width: 20%;
+  }
 }

@@ -26,7 +26,8 @@ interface SITitleProps {
     initialValues: any,
     handleSubmit: any,
 
-    requestRemoveSchedule: any,
+    requestRemoveSchedule(data: any): any,
+    requestRemoveAllUpdates: any,
 
     display_name: string,
     
@@ -64,7 +65,8 @@ interface SIRedirectState {
 interface SIRedirectPassedProps {
     user,
     schedule_id,
-    requestRemoveSchedule(data: any): any
+    requestRemoveSchedule(data: any): any,
+    requestRemoveAllUpdates: any
 }
 
 

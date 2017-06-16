@@ -1,13 +1,14 @@
 
 /* bottom bar topbar__container*/
 
-.st__bottombar__container {
 
+.st__bottombar__container {
     margin: 0 auto;
-    width: 40rem;
+    width: 600px;
     height: 4rem;
     border-top: 1px solid darkgrey;
-
+    position: relative;
+    left: 3.2rem;
 }
 
 .st__bottombar__links__container {
@@ -21,7 +22,7 @@
 }
 
 .st__bottombar__link__active {
-    padding-left: 0.5rem;
+    padding-left: 1rem;
     padding-right: 0.5rem;
 
     border-left: 1px solid darkgrey;
@@ -51,3 +52,16 @@
 	font-weight: 100;
 }
 */
+
+@media screen and (max-width: 900px){
+    .st__bottombar__container {
+        margin-top: -9.7rem;
+        left: 1.2rem;
+        width: 100%;
+    }
+    .st__bottombar__links__container {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+}

@@ -4,6 +4,7 @@ import { tags } from './tags_ar';
 import { user } from './users_ar';
 // import { auth } from './auth_ar';
 import { summaries } from './summaries_ar';
+import { indicator } from './indicator_ar';
 
 import { reducer as form } from 'redux-form/immutable';
 import { combineReducers } from 'redux-immutable';
@@ -15,7 +16,8 @@ const super_reducer = combineReducers({
   updates: updates,
   tags: tags, 
   user: user, 
-  form: form
+  form: form,
+  indicator: indicator
 });
 
 export default super_reducer;

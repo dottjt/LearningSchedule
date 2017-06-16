@@ -11,10 +11,9 @@
 /* top navbar */
 
 .st__navbar__container {
-    
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
 
     height: 4rem;
     border: 1px solid darkgrey;
@@ -112,12 +111,12 @@
     margin-top: 1.4rem; 
     margin-left: 1rem;
     width: 350px; 
-    height: 4rem;
+    height: 3rem;
     float: left; 
 }
 
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 900px){
     .st__navbar__form__container {
     display: none;
     }
@@ -199,6 +198,21 @@
 
 }
 
+.st__saving__indicator__container {
+    margin-top: 1rem;
+    margin-right: 2.5rem;
+    width: 1.5rem;
+    height: 2rem;
+    float: right;
+}
+
+
+
+.st__saving__indicator {
+    width: 20px;
+    height: 20px;
+    background: green;
+}
 
 
 
@@ -394,4 +408,25 @@
   .popup{
     width: 70%;
   }
+}
+
+
+
+
+/*
+
+    Indicator Styling
+
+*/
+
+.green {
+    background: green;
+}
+
+.orange {
+    background: orange;
+}
+
+.red {
+    background: red;
 }

@@ -13,10 +13,11 @@ class SIRedirect extends React.Component<SIRedirectPassedProps, SIRedirectState>
   }
 
   handleOnClick = () => {
-    let { requestRemoveSchedule, schedule_id } = this.props;
+    let { requestRemoveSchedule, requestRemoveAllUpdates, schedule_id } = this.props;
     console.log(schedule_id);
     console.log('remove sent');
     requestRemoveSchedule(schedule_id);
+    requestRemoveAllUpdates();
 
     scroll(0,0);
     this.setState({redirect: true});
