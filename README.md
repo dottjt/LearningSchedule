@@ -17,6 +17,10 @@ Website: https://learningschedule.com
 
 # Updates 
 
+**16-06-17** - I spent all of today making my application responsive. I'm probably 50% there. Thank god for flexbox, because it's absolutely incredible. I'm also glad I didn't build mobile first, because they application is really quite complex in desktop view and generally, mobile view is much more simple in terms of layout. Making vgood progress. 
+
+**15-06-17** - Was working on a few of my V2 features today. For example, a save indicator which shows whether everything saved properly. Aside from that, also sorting out how to setup SSL for the server. Running into a few difficulties, but to be expected. Fixed a few bugs as well, such as updates not being deleted when schedules were. 
+
 **14-06-17** - Super exciting news everyone! My app is neeeaaaaaarly complete! Literally, all I have to fix is user registrations and I'm done. In other words, sort out an email provider! So excited! Spent today sorting user authentication, and fixing a heap of responsive issues on the website. I also have a huge list of things I want to achieve once I reach beta:
 
 - Show character limit, and when it hits - show them. 
