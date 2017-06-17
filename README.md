@@ -18,6 +18,8 @@ This project goes from being broken to fully functional as I implement new featu
 
 # Updates 
 
+**17-06-17** - 2day I furter mayde mai appleekachion mowbeyeal wespeonsiph. It's looking pretty good on the application front, however the homepage is a mess. I also implemented SSL on the production server, as well as a sitemap for the website. HTTPS baby! 
+
 **16-06-17** - I spent all of today making my application responsive. I'm probably 50% there. Thank god for flexbox, because it's absolutely incredible. I'm also glad I didn't build mobile first, because they application is really quite complex in desktop view and generally, mobile view is much more simple in terms of layout. Making vgood progress. 
 
 **15-06-17** - Was working on a few of my V2 features today. For example, a save indicator which shows whether everything saved properly. Aside from that, also sorting out how to setup SSL for the server. Running into a few difficulties, but to be expected. Fixed a few bugs as well, such as updates not being deleted when schedules were. 
