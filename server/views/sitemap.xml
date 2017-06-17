@@ -1,1 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>http://127.0.0.1/</loc><changefreq>always</changefreq><priority>1</priority></url></urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>http://learningschedule.com/</loc>
+</url>
+<url>
+  <loc>http://learningschedule.com/login/</loc>
+</url>
+<url>
+  <loc>http://learningschedule.com/signup/</loc>
+</url>
+<url>
+  <loc>http://learningschedule.com/about/</loc>
+</url>
+<url>
+  <loc>http://learningschedule.com/contact/</loc>
+</url>
+<url>
+  <loc>http://learningschedule.com/juliusreade/</loc>
+  <lastmod>2017-06-16T11:12:55+00:00</lastmod>
+</url>
+</urlset>
