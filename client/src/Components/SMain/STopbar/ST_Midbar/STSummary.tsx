@@ -30,7 +30,7 @@ class STSummary extends React.Component<STSummaryProps, any> {
 
           {summaries.map(summary => {
             return (
-                  <ul key={summary.get('id')}>
+                  <ul className="st__summary__text__ul__container" key={summary.get('id')}>
                     {/* STSummary Summary Text */}
                       <li className="st__summary__text__ul"><span className="st__summary__text__li">{summary.get('summary_text')}</span></li>
                   </ul>

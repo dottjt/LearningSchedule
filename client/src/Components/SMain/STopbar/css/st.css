@@ -56,6 +56,7 @@
 @media screen and (max-width: 900px){
     .st__bottombar__container {
         margin-top: -9.7rem;
+        position: static;
         left: 1.2rem;
         width: 100%;
     }

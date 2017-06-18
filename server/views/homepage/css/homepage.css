@@ -3,7 +3,7 @@
 						*/
 
 * {
-		font-family: 'Roboto', sans-serif;
+		font-family: 'Nunito', sans-serif;
 		color: #47525d;
 		/*background-color: #FCF2E8;*/
 		box-sizing: border-box; 
@@ -12,6 +12,10 @@
 body {
 	width: 100%;
 	/*border: 10px solid black;*/
+}
+
+p {
+	
 }
 
 /*
@@ -83,6 +87,7 @@ body {
 } 
 
 .header__title {
+	font-family: 'Poiret One', sans-serif;
 	z-index: 4000;
 	text-align: center;
 	font-size: 5rem;
@@ -90,9 +95,11 @@ body {
 }
 
 .header__title_secondary {
-	width: 50%;
+	font-family: 'Poiret One', sans-serif;
+
+	width: 35%;
 	margin: 0 auto;
-	margin-top: 5.5rem;
+	margin-top: 4.5rem;
 	text-align: center;
 	font-size: 1.5rem;
 	margin-bottom: 1.5rem;
@@ -266,8 +273,9 @@ body {
 
 
 .feature__title {
+	font-family: 'Poiret One', sans-serif;
 	padding: 2rem;
-	font-size: 2.5rem;
+	font-size: 3rem;
 	text-align: center;
 	margin-top: 4rem;
 	margin-bottom: 1rem;
@@ -275,6 +283,8 @@ body {
 }
 
 .feature__text {
+	font-family: 'Courier New', sans-serif;
+	font-weight: 100;
 	width: 68%;
 	margin: 0 auto;
 	/*margin-left: 2.5rem;*/
@@ -282,6 +292,7 @@ body {
 	line-height: 1.6rem;
 	text-align: center;
 	margin-bottom: 4rem;
+	letter-spacing: 1px;
 }
 
 .feature__box {
@@ -350,11 +361,15 @@ body {
 }
 
 .closing__quote {
+	font-family: 'Helvetica', sans-serif;
+	font-weight: 100;
 	margin-top: 6rem;
+	letter-spacing: 1px;
 	font-size: 2.2rem;
 }
 
 .closing__quote_secondary {
+	font-family: 'Poiret One', sans-serif;
 	margin-top: 3rem;
 	margin-bottom: 10rem;
 	font-size: 1.8rem;
@@ -457,6 +472,7 @@ body {
 }
 
 .signup__header {
+	font-family: 'Poiret One', sans-serif;
 	margin-top: 8rem;
 
 	text-align: center; 
@@ -464,6 +480,7 @@ body {
 }
 
 .signup__header__two {
+	font-family: 'Poiret One', sans-serif;
 	margin-top: 2rem;
 	text-align: center; 
 	font-size: 1rem;	
@@ -634,3 +651,30 @@ button[type="submit"] {
 .name {
 	color: yellow;
 }
+
+/*
+@keyframes dot_blinking {
+    from {color: black;}
+    to {color: white;}
+}
+
+.animation_dot {
+	animation-name: dot_blinking;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.6s;
+}
+
+.animation_dot2 {
+	animation-name: dot_blinking;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.3s;
+}
+
+
+.animation_dot3 {
+	animation-name: dot_blinking;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}*/

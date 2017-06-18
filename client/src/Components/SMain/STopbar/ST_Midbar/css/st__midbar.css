@@ -283,6 +283,7 @@
     
     .st__midbar__container {
         width: 100%;
+        padding: 0;
     }
 
     .st__midbar__top__top {
@@ -315,7 +316,8 @@
     }
 
     .st__midbar__profile_username {
-
+        width: 300px;
+        font-size: 2rem;
     }
     
 /*
@@ -325,7 +327,7 @@
 
     .st__midbar__bottom {
         flex-direction: column;
-        left: 0;
+        position: static;
     }
 
     .st__midbar__social_icons__container {
@@ -355,6 +357,22 @@
 
     .st__midbar__profile_username {
         font-size: 2.8rem;
+    }
+
+    .st__summary__text__ul {
+        display: flex;
+    }
+
+    .st__summary__text__li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .st__summary__outer__container {
+        padding-top: 0.5rem;
+        padding-left: 0;
+
     }
 
 }

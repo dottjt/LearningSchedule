@@ -34,54 +34,56 @@ class SMUpdate extends React.Component<SMUpdateProps, undefined> {
 
     var { updates } = this.props;
 
-    return (   
 
+    if(updates.size > 0) {
 
+        return (   
 
-/*
-             COMPONENT LOGIC 
-                                      */
+            <div className="sm__update__outer__container">
 
+                {updates.map(update => {
+                    if (update.get('update_type') === "text") { // text
+                        return (
 
+                            <ul key={update.get('update_id')}>
+                                <p className="sm__update__text">
+                                    <span className="sm__update__text__yolo"> {moment(update.get('update_date')).format('MMM DD') + " - "} {this.undefinedFilter(update.get('update_text'))} </span>
+                                </p>
+                            </ul>
 
-        <div className="sm__update__outer__container">
+                        )
+                    } else if (update.get('update_type') === "link") { // link
+                        return (
 
-            {updates.map(update => {
-                if (update.get('update_type') === "text") { // text
-                    return (
+                            <ul key={update.get('update_id')}>
+                                <p className="sm__update__text">
+                                    <span className="sm__update__link__yolo"> {moment(update.get('update_date')).format('MMM DD')} <span className="no__underline">- </span><a href={this.undefinedFilter(update.get('update_text'))}>{this.undefinedFilter(update.get('update_text'))}</a><span className="no__underline"> </span><span> </span>{this.undefinedFilter(update.get('update_summary'))}</span>
+                                </p>
+                            </ul>
 
-                        <ul key={update.get('update_id')}>
-                            <p className="sm__update__text">
-                                <span className="sm__update__text__yolo"> {moment(update.get('update_date')).format('MMM DD') + " - "} {this.undefinedFilter(update.get('update_text'))} </span>
-                            </p>
-                        </ul>
+                        )
+                    } else {    // milestone
+                        return (
 
-                    )
-                } else if (update.get('update_type') === "link") { // link
-                    return (
+                            <ul key={update.get('update_id')}>
+                                <p className="sm__update__text">
+                                    <span className="sm__update__milestone__yolo"> {moment(update.get('update_date')).format('MMM DD') + " - "} {emojify("🎉🎉" + this.undefinedFilter(update.get('update_text')) + "🎉🎉")}</span>
+                                </p>
+                            </ul>
+                            
+                        )
+                    }
 
-                        <ul key={update.get('update_id')}>
-                            <p className="sm__update__text">
-                                <span className="sm__update__link__yolo"> {moment(update.get('update_date')).format('MMM DD')} <span className="no__underline">- </span><a href={this.undefinedFilter(update.get('update_text'))}>{this.undefinedFilter(update.get('update_text'))}</a><span className="no__underline"> </span><span> </span>{this.undefinedFilter(update.get('update_summary'))}</span>
-                            </p>
-                        </ul>
+                })}
+            </div>
+        )
+    } else {
+        return (
+            <div className="sm__update__outer__container">
+            </div>
+        )
+    }
 
-                    )
-                } else {    // milestone
-                    return (
-
-                        <ul key={update.get('update_id')}>
-                            <p className="sm__update__text">
-                                <span className="sm__update__milestone__yolo"> {moment(update.get('update_date')).format('MMM DD') + " - "} {emojify("🎉🎉" + this.undefinedFilter(update.get('update_text')) + "🎉🎉")}</span>
-                            </p>
-                        </ul>
-                        
-                    )
-                }
-
-            })}
-        </div>
-    )
   };
 };
 

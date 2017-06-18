@@ -6,7 +6,7 @@
 }
 
 .sm__update__text {
-    width: 90%;
+    width: 100%;
     font-size: 1.05rem;
     line-height: 1.8rem; 
     outline: none;
@@ -80,14 +80,24 @@
 		max-width: 600px;
     }
 
-	.sm__tag__text {
-
-	}   
+	.sm__update__text {
+        width: 95%;
+	}       
 
 }
 
-@media screen and (max-width: 550px){
-    . {
+
+
+@media screen and (max-width: 700px){
+    .sm__update__outer__container {
+        padding-left: 2rem;
+    }
+
+}
+
+
+@media screen and (max-width: 600px){
+    .sm__update__outer__container {
     	padding-left: 1rem;
     }
 

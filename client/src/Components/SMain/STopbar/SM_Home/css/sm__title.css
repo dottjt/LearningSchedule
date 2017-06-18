@@ -7,9 +7,9 @@
 /* 	profile picture - username 	*/
 
 .sm__title__top_layer {
-	width: 90%;
+	width: 100%;
 	height: 4rem;
-	margin: 0 auto;
+	padding-left: 5rem;	
 
 	/*display: flex;
 	justify-content: */
@@ -46,7 +46,9 @@
 
 .sm__title__top_layer__updates__container {
 	position: relative;
+	left: 1.4rem;
 	float: right;
+	width: 180px;
 }
 
 .sm__title__top_layer__updates__link {
@@ -133,7 +135,7 @@
 	margin-bottom: 2rem; 
 
 	padding-left: 5rem;	
-	width: 100%;
+	width: 95%;
 }
 
 
@@ -182,11 +184,11 @@
 
 @media screen and (max-width: 900px){
     .sm__title__container {
-    	padding-left: 3.5rem;
+    	padding-left: 0;
+		width: 90%;
     }
 
 	.sm__title {
-		max-width: 600px;
     	padding-left: 3.5rem;
 		font-size: 2.2rem;
 		margin-top: 0;
@@ -194,14 +196,42 @@
 
 	.sm__title__schedule__summary {
     	padding-left: 3.5rem;	
-		width: 80%;
+		width: 95%;
+	}
+
+	.sm__title__top_layer {
+    	padding-left: 3.5rem;	
 	}
 
 }
 
-@media screen and (max-width: 550px){
+@media screen and (max-width: 700px){
+    .sm__title__container {
+		width: 90%;
+
+    }
+
+    .sm__title {
+        padding-left: 2rem;
+
+    }
+
+    .sm__title__schedule__summary {
+        padding-left: 2rem;
+
+    }
+
+	.sm__title__top_layer {
+        padding-left: 2rem;
+	}
+
+}
+
+
+@media screen and (max-width: 600px){
     .sm__title__container {
     	padding-left: 1rem;
+
     }
 
 	.sm__title {
@@ -213,13 +243,21 @@
     	padding-left: 1rem;	
 	}
 
+	.sm__title__top_layer {
+    	padding-left: 1rem;	
+		position: relative;
+		right: 0.5rem;
+	}
+
 	.sm__title__top_layer__tags__link {
 		display: none;
 	}
 
 	.sm__title__top_layer__updates__link {
+		display: none;
 		position: relative;
-		left: 0.5rem;
+		right: 0.5rem;
 	}
+
 
 }
