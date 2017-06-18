@@ -123,6 +123,7 @@
     height: 1.6rem;
     position: relative;
     bottom: 0.1rem;
+    margin-bottom: 1rem;
 }
 
 .si__update__title__field__relative {
@@ -532,6 +533,7 @@
 
 
 .si__update__tag__individual__container {
+
 }
 
 

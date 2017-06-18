@@ -126,6 +126,8 @@ a:hover
  */
 #menu
 {
+
+
   display: none;
     
   /*display: none;*/
@@ -139,6 +141,7 @@ a:hover
   padding: 50px;
   padding-top: 125px;
   
+  font-family: 'Poiret One', sans-serif;
 
   color: white;
   /*background: #ededed;*/

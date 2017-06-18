@@ -41,6 +41,7 @@
 }
 
 .signup__header {
+	font-family: 'Poiret One', sans-serif;
 	margin-top: 8rem;
 
 	text-align: center; 
@@ -48,6 +49,7 @@
 }
 
 .signup__header__two {
+	font-family: 'Courier New', sans-serif;
 	margin-top: 2rem;
 	text-align: center; 
 	font-size: 1.1rem;	

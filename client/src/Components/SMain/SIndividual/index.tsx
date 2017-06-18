@@ -139,7 +139,6 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
         let sititle, siupdate, sitag;
         let { user } = this.props;
 
-
         schedule_id = this.retrieveScheduleId(url);
         
         console.log("schedule_id", schedule_id)
