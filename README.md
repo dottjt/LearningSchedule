@@ -244,8 +244,7 @@ Plz kill me.
 
 **07-05-17**: Making good progress. Implementing different types of updates and so updates can have tags of their own. Worked a lot of on the interface, and my gosh, it is absolutely gorgeous. The homepage is also super rad. I fixed the excessive white space with underlines and it's made a world of different. :))))))))
 
-![alt tag](https://github.com/dottjt/LearningSchedule/blob/master/server/views/static/images/image_3.png
-)
+![alt tag](https://github.com/dottjt/LearningSchedule/blob/master/docs/image_3.png)
 
 **06-05-17**: It's Saturday. I've been up since 8am trying to get a dev setup up on ye ol' 2010 mac we got lying around, hastily making all those lost changes. Thankfully, not too much was lost. Managed to get soo much done. Tags are half-done, made the homepage look really nice, started implementing the ability to add multiple types of updates - the whole works. Really good stuff. I'm absolutely exhausted, but you have a bright future Julius. 
 
