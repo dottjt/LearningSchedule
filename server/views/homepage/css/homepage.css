@@ -3,7 +3,7 @@
 						*/
 
 * {
-		font-family: 'Nunito', sans-serif;
+		font-family: 'Helvetica', sans-serif;
 		color: #47525d;
 		/*background-color: #FCF2E8;*/
 		box-sizing: border-box; 
@@ -116,7 +116,7 @@ p {
 	font-size: 1.1rem;
 	margin-bottom: 3.5rem;
 	font-family: 'Courier New', sans-serif;
-	/*font-family: 'Nunito', sans-serif;
+	/*
 	font-weight: 100;
 	color: #47525d;*/
 
@@ -551,13 +551,13 @@ p {
 }
 
 input[type="text"] {
-	font-family: 'Nunito', sans-serif;
+	
 	font-weight: 100;
 	color: #47525d;
 }
 
 input[type="password"] {
-	font-family: 'Nunito', sans-serif;
+	
 	font-weight: 100;
 	color: #47525d;
 }
@@ -570,7 +570,7 @@ button[type="submit"] {
 
 /*
 button[type="submit"] {
-	font-family: 'Nunito', sans-serif;
+	
 	font-weight: 100;
 	color: #47525d;
 }*/
@@ -611,7 +611,7 @@ button[type="submit"] {
 }
 
 .navbar-links {
-	font-family: 'Nunito', sans-serif;
+	
 	color: #47525d;
 
 	margin-right: 0.5rem;

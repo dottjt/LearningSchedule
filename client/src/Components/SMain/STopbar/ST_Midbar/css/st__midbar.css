@@ -107,7 +107,7 @@
     height: 1.7rem;
     /*color: cyan;*/
     color: black;
-	font-family: 'Nunito', sans-serif;
+	
 	font-weight: 100;
     font-size: 1.3rem;
     text-decoration: none;
@@ -122,7 +122,7 @@
     height: 1.7rem;
     /*color: cyan;*/
     color: black;
-	font-family: 'Nunito', sans-serif;
+	
 	font-weight: 100;
     font-size: 1.3rem;
     text-decoration: none;
@@ -134,7 +134,7 @@
     width: 5rem;
 
     border: 1px solid darkgrey;
-	font-family: 'Nunito', sans-serif;
+	
 	font-weight: 100;
     font-size: 1rem;
     background-color: white; 
@@ -185,7 +185,7 @@
     margin: 0 auto;
 
     color: #242526;
-	font-family: 'Nunito', sans-serif;
+	
 	font-weight: 100;
 
 
@@ -261,7 +261,7 @@
 
     font-size: 1rem; 
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;
 
 }

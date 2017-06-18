@@ -22,6 +22,7 @@
 }
 
 .st__navbar__brand {
+    font-family: 'Poiret One', sans-serif;
     margin-top: 1.05rem; 
     font-size: 2rem; 
     float: left;
@@ -67,7 +68,7 @@
     justify-content: center;*/
     text-align: left;
     font-size: 1.1rem;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -82,7 +83,7 @@
     align-items: center;
     justify-content: center;
     font-size: 1.1rem;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -184,7 +185,7 @@
 
 .st__navbar__add {
     margin-left: 1rem;
-    font-family: 'Nunito', sans-serif;
+    
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 100;
@@ -311,7 +312,7 @@
 }
 
 .popup__title {
-    font-family: 'Nunito', sans-serif;
+    
     margin-bottom: 0.1rem; 
     float: left; 
     margin-left: 2rem;
@@ -331,7 +332,7 @@
 	/*outline: none;*/
 	border-bottom: 1px solid white;
     border: 0;
-	font-family: 'Nunito', sans-serif;
+	
 	font-weight: 300;
     float: left;
     padding-bottom: -3px; 
@@ -352,7 +353,7 @@
 	outline: none;
 	border-bottom: 1px solid white;
     border: 0;
-	font-family: 'Nunito', sans-serif;
+	
 	font-weight: 300;
     float: left;
     padding-bottom: -3px; 
@@ -383,7 +384,7 @@
 
 .popup__submit {
     margin-left: 0.9rem;
-    font-family: 'Nunito', sans-serif;
+    
     text-decoration: none;
     font-size: 1.6rem;
     font-weight: 100;

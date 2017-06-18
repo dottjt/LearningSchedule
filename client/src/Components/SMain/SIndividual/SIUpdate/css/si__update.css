@@ -101,7 +101,7 @@
     float: left;
     outline: none;
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;
     height: 1.6rem;
 
@@ -118,7 +118,7 @@
     float: left;
     outline: none;
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;
     height: 1.6rem;
     position: relative;
@@ -144,7 +144,7 @@
     padding-left: 2px;
 
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;
 }
 
@@ -176,7 +176,7 @@
     padding-left: 2px;
 
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;
 
 }
@@ -185,7 +185,7 @@
     font-size: 1.05rem;
     line-height: 1.8rem; 
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
 
     border:none;
     background-image:none;
@@ -216,7 +216,7 @@
     padding-left: 2px;
 
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;
 
 }
@@ -225,7 +225,7 @@
     font-size: 1.05rem;
     line-height: 1.8rem; 
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
 
     border:none;
     background-image:none;
@@ -278,7 +278,7 @@
     line-height: 1.8rem; 
     background: white;
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;
 
     height: 8.5rem;
@@ -324,7 +324,7 @@
     position: relative;
     padding-left: 4rem;
 
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;
     font-size: 1.05rem;
 
@@ -355,7 +355,7 @@
     font-size: 1.05rem;
     line-height: 1.8rem; 
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;
 
     float: left;
@@ -377,7 +377,7 @@
     font-size: 1.05rem;
     line-height: 1.8rem; 
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;
 
     width: 40rem;
@@ -413,7 +413,7 @@
     font-size: 1.05rem;
     line-height: 1.8rem; 
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;   
     display: block; 
 
@@ -429,7 +429,7 @@
     font-size: 1.05rem;
     line-height: 1.8rem; 
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;   
     display: block; 
 
@@ -470,7 +470,7 @@
     font-size: 1.05rem;
     line-height: 1.8rem; 
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;
 
     float: left;
@@ -498,7 +498,7 @@
     position: relative;
     padding-left: 2px;
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;
 
 }
@@ -510,7 +510,7 @@
     font-size: 1.05rem;
     line-height: 1.8rem; 
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
 
     border:none;
     background-image:none;
@@ -555,7 +555,7 @@
     font-size: 1.05rem;
     line-height: 1.8rem; 
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;
 
     margin-right: 0.2rem;
@@ -579,7 +579,7 @@
     font-size: 1.8rem;
     line-height: 2.5rem; 
     color: #242526;
-    font-family: 'Nunito', sans-serif;
+    
     font-weight: 100;
     width: 40rem;
 
