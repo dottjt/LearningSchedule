@@ -18,6 +18,8 @@ This project goes from being broken to fully functional as I implement new featu
 
 # Updates 
 
+**18-06-17** - Today I fixed up all the fonts on the website and made it look really good. Super happy with the direction of the brand for Learning Schedule. I also fixed up more mobile responsiveness issues. I also need to figure out how to combine the two sets of css styling for the individual and the index view, because there's too much overlap. 
+
 **17-06-17** - 2day I furter mayde mai appleekachion mowbeyeal wespeonsiph. It's looking pretty good on the application front, however the homepage is a mess. I also implemented SSL on the production server, as well as a sitemap for the website. HTTPS baby! 
 
 **16-06-17** - I spent all of today making my application responsive. I'm probably 50% there. Thank god for flexbox, because it's absolutely incredible. I'm also glad I didn't build mobile first, because they application is really quite complex in desktop view and generally, mobile view is much more simple in terms of layout. Making vgood progress. 
