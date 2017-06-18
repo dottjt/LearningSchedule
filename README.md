@@ -20,8 +20,7 @@ This project goes from being broken to fully functional as I implement new featu
 
 **18-06-17** - Today I fixed up all the fonts on the website and made it look really good. Super happy with the direction of the brand for Learning Schedule. I also fixed up more mobile responsiveness issues. I also need to figure out how to combine the two sets of css styling for the individual and the index view, because there's too much overlap. 
 
-![alt tag](https://github.com/dottjt/LearningSchedule/blob/master/server/views/static/images/font-change.png
-)
+![alt tag](https://github.com/dottjt/LearningSchedule/blob/master/docs/font-change.png)
 
 **17-06-17** - 2day I furter mayde mai appleekachion mowbeyeal wespeonsiph. It's looking pretty good on the application front, however the homepage is a mess. I also implemented SSL on the production server, as well as a sitemap for the website. HTTPS baby! 
 
