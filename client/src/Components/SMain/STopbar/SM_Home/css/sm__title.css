@@ -116,7 +116,7 @@
 	display: flex;
 	flex-direction: column;
 	font-size: 2rem;
-	font-family: arial;
+	font-family: Helvetica;
 	/*margin-left: 5rem; */
 	margin: 0 auto;
 	margin-top: 2rem;
@@ -129,7 +129,7 @@
 
 .sm__title {
 	font-size: 2rem;
-	font-family: arial;
+	font-family: Helvetica;
 	/*margin-left: 5rem; */
 	margin-top: 2rem;
 	margin-bottom: 2rem; 

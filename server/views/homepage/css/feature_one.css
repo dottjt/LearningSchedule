@@ -96,7 +96,7 @@
 
 .st__midbar__website__link {
     color: cyan;
-	font-family: 'Nunito', sans-serif;
+	font-family: 'Helvetica', sans-serif;
 	font-weight: 100;
 
 }
@@ -136,7 +136,7 @@
 }
 
 .st__midbar__profile_username {
-
+    
     float: left;
     width: 600px;
     margin-left: 1.6rem;
@@ -145,7 +145,7 @@
     font-size: 2.8rem;
     
     color: #242526;
-	font-family: 'Nunito', sans-serif;
+	font-family: 'Helvetica', sans-serif;
 	font-weight: 100;
 
 
@@ -237,6 +237,7 @@
 .st__bottombar__link {
     margin-left: 2.5rem;
     margin-right: 2.5rem;
+
 }
 
 .st__bottombar__link__active {
@@ -251,7 +252,7 @@
 .st__bottombar__link--a {
     font-size: 1.3rem;
 	color: #242526;
-	font-family: 'Nunito', sans-serif;
+	font-family: 'Helvetica', sans-serif;
 	font-weight: 100;
 
 }
