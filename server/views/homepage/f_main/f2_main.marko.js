@@ -11,13 +11,13 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out) {
   var data = input;
 
-  out.w("<section class=\"feature__container\"><div class=\"container\"><div class=\"row\"><h2 class=\"feature__title\">The ultimate way to track your learning progress.</h2><div class=\"feature__main\"><p class=\"feature__text\">Learning Schedule allows you to easily track, record and archive your learning progress.</p></div>");
+  out.w("<section class=\"feature__container\"><div><h2 class=\"feature__title\">The ultimate way to track your learning progress.</h2><div class=\"feature__main\"><p class=\"feature__text\">Learning Schedule allows you to easily track, record and archive your learning progress.</p></div>");
 
   include_tag({
       _target: f2_content_template
     }, out);
 
-  out.w("</div></div></section>");
+  out.w("</div></section>");
 }
 
 marko_template._ = render;

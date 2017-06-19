@@ -39,7 +39,7 @@ function render(input, out) {
       _target: homepage_header_template
     }, out);
 
-  out.w("<main class=\"main__container container-fluid\">");
+  out.w("<main class=\"main__container\">");
 
   include_tag({
       _target: f1_main_template

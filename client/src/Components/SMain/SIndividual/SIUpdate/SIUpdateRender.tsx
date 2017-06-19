@@ -3,6 +3,8 @@ import { Field, FieldArray } from 'redux-form/immutable';
 var moment = require('moment');
 
 import './css/si__update.css';
+import '../../STopbar/SM_Home/css/sm__update.css';
+
 // import { Map } from 'immutable';
 
 import SIUpdateTagRender from './SIUpdateTagRender';

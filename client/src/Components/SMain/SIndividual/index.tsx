@@ -8,6 +8,7 @@ import SITag from './SITag';
 
 import '../STopbar/ST_Navbar/css/st__navbar.css';
 import './css/si.css';
+import '../STopbar/SM_Home/css/sm.css';
 import { Map } from 'immutable';
 
 
@@ -135,12 +136,12 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
 
     createElementsIfExistingSchedule(url, login_status_var) {
         let relevant_updates, relevant_update_tags, relevant_schedules, relevant_tags;
-        let schedule_id, updates_id, tags_id;
+        let schedule_id, updates_id, tags_id, schedule_start_date;
         let sititle, siupdate, sitag;
         let { user } = this.props;
 
         schedule_id = this.retrieveScheduleId(url);
-        
+
         console.log("schedule_id", schedule_id)
 
         updates_id = this.retrieveUpdatesId(schedule_id);
@@ -166,6 +167,7 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
                         // sorting this doesn't work. hmmmm 
                         //
                         schedule_url={url}
+                        schedule_start_date={schedule_start_date}
                         schedule_id={schedule_id}
                         user={user}
 
@@ -269,9 +271,8 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
 
             {/*<SITopbar user={user} /> */}
             <ST_Navbar user={user} />
-            <div>
-                
-                <div className="si__elements__container">
+            <div className="sm__homelink">
+                <div className="sm__individual__container si__individual__container">
 
                     {sititle}
 
@@ -280,7 +281,6 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
                     {siupdate}
 
                 </div>
-
             </div> 
         </div>  
 

@@ -1,13 +1,9 @@
 
-
-
-
-
-
 .si__update__container {
-    width: 20rem;
-    margin-left: 8rem;
-	float: left; 
+      display: flex;
+      flex-direction: column;
+      max-width: 750px;
+      padding-left: 5rem;
 }
 
 
@@ -587,3 +583,6 @@
 
 
 }
+
+
+

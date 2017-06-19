@@ -3,6 +3,7 @@ import { Field } from 'redux-form/immutable';
 import { Map } from 'immutable';
 var uuid = require('uuid');
 import './css/si__tag.css';
+import '../../STopbar/SM_Home/css/sm__tag.css';
 
 class SITagRender extends React.Component<SITagRenderProps & SITagRenderPassedProps, SITagRenderState> {
 

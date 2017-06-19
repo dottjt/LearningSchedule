@@ -26,10 +26,10 @@ class SMTitleScrollRedirect extends React.Component<SMTitleScrollRedirectPassedP
 
 
     if (this.state.redirect) {
-      return <a className="sm__title__a--link" href={"/" + user.get('username') + "/schedule/" + schedule.get('schedule_url')} />;
+      return <a className="sm__title__schedule__title" href={"/" + user.get('username') + "/schedule/" + schedule.get('schedule_url')} />;
     }
     
-    return <a className="sm__title__a--link" onClick={this.handleOnClick} type="button">{schedule.get('schedule_title')}</a>;
+    return <a className="sm__title__schedule__title" onClick={this.handleOnClick} type="button">{schedule.get('schedule_title')}</a>;
   }
 
 }   

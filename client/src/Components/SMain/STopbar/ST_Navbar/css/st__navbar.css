@@ -117,21 +117,6 @@
 }
 
 
-@media screen and (max-width: 900px){
-    .st__navbar__form__container {
-    display: none;
-    }
-    .navbar-form {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 600px){
-  .st__navbar__add__container {
-    display: none;
-  }
-}
-
 
 
 .st__navbar__signup__container {
@@ -409,6 +394,14 @@
   .popup{
     width: 70%;
   }
+
+  .st__navbar__profile__container {
+      width: 60px;
+  }
+
+  .st__navbar__profile {
+      margin-right: 1.5rem;
+  }
 }
 
 
@@ -430,4 +423,25 @@
 
 .red {
     background: red;
+}
+
+
+
+
+@media screen and (max-width: 900px){
+    .st__navbar__form__container {
+    display: none;
+    }
+    .navbar-form {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px){
+  .st__navbar__add__container {
+    display: none;
+  }
+  .st__saving__indicator__container {
+    display: none;
+  }
 }

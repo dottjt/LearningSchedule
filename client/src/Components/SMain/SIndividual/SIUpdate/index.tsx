@@ -6,11 +6,13 @@ import { Map } from 'immutable';
 import SIUpdateRender from './SIUpdateRender';
 //import EmojiPicker from 'emojione-picker';
 //import {emojify} from 'react-emojione';
+// import './css/picker.css'; 
 var uuid = require('uuid');
 
 import './css/si__update__single.css';
 import './css/si__update.css';
-import './css/picker.css';
+import '../css/si.css';
+import '../../STopbar/SM_Home/css/sm__update.css';
 
 
 class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
@@ -107,9 +109,9 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
 
         return (
 
-                <form className="si__update__container" onSubmit={this._onSubmit}>
+                <form className="sm__update__outer__container" onSubmit={this._onSubmit}>
 
-                    <div className="si__update__single__container">
+                    <div className="sm__update__text__container">
                         
                         <div id={si__update__display__none} className="si__update__select__container">
                             <Field className="si__update__select" name="update_type" type="text" component="select" ref="update_type_ref">

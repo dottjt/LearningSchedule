@@ -1,7 +1,9 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form/immutable';
 import './css/si__title.css';
+import '../STopbar/SM_Home/css/sm__title.css';
+
 var moment = require('moment');
 var getSlug = require('speakingurl');
 
@@ -71,7 +73,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 
 	render() {
 		
-		const { handleSubmit, user, login_status_var, requestRemoveSchedule, requestRemoveAllUpdates, form /* schedule_id */ } = this.props;
+		const { initialValues, handleSubmit, user, login_status_var, requestRemoveSchedule, requestRemoveAllUpdates, form /* schedule_id */ } = this.props;
 
 		let si__title__display__none, si__title__border__none;  // style to disable forms. 
 		let fieldDis;
@@ -92,47 +94,47 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 
 
 		return (
-				<form className="si__title__container">
-					<div className="si__title__top_layer">
+				<form className="sm__title__container">
+					<div className="sm__title__top_layer">
 						{/* Display Profile Picture, Date and Username */}
 
 							{/* Profile Picture */}
-							<img className="si__title__profile_picture" src={"/avatars/" + user.get('avatar_url')} alt={"/avatars/" + user.get('avatar_url')} />
+						<div className="sm__title__top_layer__left">
+							<img className="sm__title__profile_picture" src={"/avatars/" + user.get('avatar_url')} alt={"/avatars/" + user.get('avatar_url')} />
+							
+							<div className="sm__title__top_layer__username__details">
 
-							<div className="si__title__profile_picture__right">
+								{/* SMTitle Username   onClick={() => updateReduxState()} */} 
+									<a className="sm__title__username__link" href={"/" + user.get('username') }>
+										<h4 className="sm__title__username">{user.get('display_name')}</h4>
+									</a>
 
-									{/* Username */}
-									<Link className="si__title__username__link" to={"/" + user.get('username') }>
-										<h4 className="si__title__username">
-											{user.get('display_name')}
-										</h4>
-									</Link>
-
-									{/* Date */}
-									<h5 className="si__title__start_date__container">
-											{moment(Date.now()).format('MMMM Do')}
+								{/* SMTitle Start Date */}
+									<h5 className="sm__title__start_date__container">
+											{moment(initialValues.get('schedule_start_date')).format('MMMM Do')}
 									</h5>
+
 							</div>
+						</div>
 
-							<div className="clear"></div>
-
+						<div className="sm__title__top_layer__updates__container">
+										{/* Remove Schedule Button */}
+								{login_status_var ? (
+									<SIRemoveRedirect user={user} requestRemoveSchedule={requestRemoveSchedule} requestRemoveAllUpdates={requestRemoveAllUpdates} schedule_id={form}/>
+										) : (
+									<div className="si__title__remove__schedule--na"></div>
+									)
+								}   
+						</div>
 					</div>
 
-					<div className="si__title__top_layer__right">
-						     		{/* Remove Schedule Button */}
-							{login_status_var ? (
-								<SIRemoveRedirect user={user} requestRemoveSchedule={requestRemoveSchedule} requestRemoveAllUpdates={requestRemoveAllUpdates} schedule_id={form}/>
-									) : (
-								<div className="si__title__remove__schedule--na"></div>
-								)
-							}   
-					</div>
+
 
 
 						{/* Schedule Title */}
-						<div className="si__title__fields__container">
+						<div className="sm__title">
 							
-							<Field id={si__title__border__none} className="si__title__schedule_title__field" 
+							<Field id={si__title__border__none} className="sm__title__schedule__title si__title__input__resize" 
 										name="schedule_title" 
 										component="input" 
 										type="text" 
@@ -141,34 +143,41 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 										maxLength={40}
 										onBlur={handleSubmit(values => this.changeScheduleTitle(values))}
 										/>
+										
+						</div>
 
-							<div id={si__title__display__none} className="si__title__schedule_url__field__container">
-								<p className="si__title__schedule_url__field__pre">URL:</p>
-								<Field className="si__title__schedule_url__field" 
-											name="schedule_url" 
-											component="input" 
-											type="text" 
-											placeholder="Schedule Url."
-											disabled={fieldDis}
-											maxLength={60}
-											onBlur={handleSubmit(values => this.changeScheduleUrl(values))}
-											/>
-							</div>
+						{/* Schedule Url */}
+						<div id={si__title__display__none} className="si__schedule__url">
+							
+							<p className="si__schedule__url__pre">URL:</p>
 
-							<div className="si__title__summary__container">
-								<Field id={si__title__border__none} className="si__title__summary__field" 
-											name="schedule_summary" 
-											component="textarea" 
-											type="text" 
-											placeholder="Schedule Overview."
-											disabled={fieldDis}
-											maxLength={300}
-											onBlur={handleSubmit(values => this.changeScheduleSummary(values))}
-											/>
-              				</div>
+							<Field className="si__title__schedule_url" 
+										name="schedule_url" 
+										component="input" 
+										type="text" 
+										placeholder="Schedule Url."
+										disabled={fieldDis}
+										maxLength={60}
+										onBlur={handleSubmit(values => this.changeScheduleUrl(values))}
+										/>
 
 						</div>
-				<div className="clear"></div>
+
+						{/* Schedule Summary */}
+						<div className="sm__schedule">
+
+							<Field id={si__title__border__none} className="sm__title__schedule__summary" 
+										name="schedule_summary" 
+										component="textarea" 
+										type="text" 
+										placeholder="Schedule Overview."
+										disabled={fieldDis}
+										maxLength={300}
+										onBlur={handleSubmit(values => this.changeScheduleSummary(values))}
+										/>
+
+						</div>
+
 			 </form>
 		)
 	}

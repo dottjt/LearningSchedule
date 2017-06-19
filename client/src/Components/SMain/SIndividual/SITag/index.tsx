@@ -4,6 +4,7 @@ import { FieldArray, reduxForm } from 'redux-form/immutable';
 import SITagRender from './SITagRender';
 
 import './css/si__tag.css';
+import '../../STopbar/SM_Home/css/sm__tag.css';
 
 
 class SITag extends React.Component<SITagProps & SITagPassedProps, undefined> {

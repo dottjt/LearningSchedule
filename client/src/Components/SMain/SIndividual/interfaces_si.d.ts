@@ -41,7 +41,8 @@ interface SITitlePassedProps {
     requestChangeSchedule(data: any): any,
     login_status_var: any,
     schedule_url: any,
-    schedule_id: any
+    schedule_id: any,
+    schedule_start_date: any
 }
 
 

@@ -13,26 +13,56 @@
     margin-bottom: -15rem;
 
 }
+
+
+@media screen and (max-width: 900px){
+    
+    .feature__one__container {
+        width: 700px;
+        margin: 0 auto;
+        box-shadow: 0; 
+        left: 0;
+    }
+}
+
+@media screen and (max-width: 600px){
+    
+    .feature__one__container {
+        width: 450px;
+    }
+}
+
+
+
 /* middle navbar */
 
 .st__midbar__container {
 
-    width: 40rem;
-    height: 16rem;
-    
+    /*width: 40rem;
+    height: 16rem;*/
+    /* these top two were existing */
+
     padding: 1rem;
-    margin: 0 auto;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
 }
 
+
 .st__midbar__top {
     
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     height: 7rem;
-    width: 100%;
-    float: left; 
-    margin-left: 4rem;
-    margin-bottom: 1.4rem;
+    width: 400px;
+
+    margin-bottom: 1.8rem;
 
 }
 
@@ -65,10 +95,8 @@
 }
 
 .st__midbar__profile_picture {
-    display: block; 
     
     border-radius: 50%;
-    float: left;
     width: 7rem;
     height: 7rem;
 }
@@ -77,77 +105,44 @@
 /* right of profile picture */
 
 .st__midbar__top__right {
-    float: left;
-    width: 300px;
+    width: 240px;
+    height: 100px;
     margin-top: 0.7rem;
     margin-left: 1.8rem;
 }
 
 .st__midbar__top__top {
-    width: 100%;
+    margin: 0 auto;
+    width: 30rem;
+    height: 3.2rem;
 }
 
 .st__midbar__website {
     color: none;
-
     font-size: 1.3rem;
-    margin-left: 1.5rem;
+    margin-left: 1.3rem;
+    position: relative;
+    top: 0.3rem;
 }
 
 .st__midbar__website__link {
     color: cyan;
-	font-family: 'Helvetica', sans-serif;
-	font-weight: 100;
-
-}
-
-.st__midbar__edit__button {
+    margin-left: 1.5rem;
     position: relative;
-    left: 6rem;
     bottom: 1rem;
-    
-    height: 1.4rem;
-    width: 4rem;
-    border: 1px solid;
-    border-radius: 2rem; 
-
-    background-color: white; 
-    float: right;
-    margin-left: 4rem;
 
 }
 
-.st__midbar__edit__button--na {
-    position: relative;
-    left: 6rem;
-    bottom: 1rem;
-    
-    height: 1.4rem;
-    width: 4rem;
-    border: none;
-    border-radius: 2rem; 
-
-
-    background-color: white; 
-    float: right;
-    margin-left: 4rem;
-
-
-}
 
 .st__midbar__profile_username {
     
-    float: left;
-    width: 600px;
-    margin-left: 1.6rem;
-    margin-top: 1.5rem;
-    margin-bottom: 2rem;
     font-size: 2.8rem;
-    
-    color: #242526;
-	font-family: 'Helvetica', sans-serif;
-	font-weight: 100;
+    width: 600px;
+    margin: 0 auto;
 
+    color: #242526;
+	
+	font-weight: 100;
 
 }
 
@@ -155,17 +150,15 @@
 
 
 .st__midbar__bottom {
-    margin-left: 4rem;
-    width: 100%;
-    float: left; 
+    position: relative;
+    left: 4.1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .st__midbar__social_icons__container {
-    position: relative;
-    right: 0.6rem;
-    bottom: 0.5rem;
-
-    float: left;
     height: 6rem;
 }
 
@@ -178,7 +171,6 @@
 }
 
 .st__midbar__summary { 
-    float: left; 
     width: 400px;
 
     margin-left: 1rem;
@@ -195,19 +187,12 @@
 }
 
 .st__summary__text {
-  font-size: 1rem; 
-  margin-bottom: 0.9rem;
+  position: relative;
+  bottom: 0.3rem;
+  right: 0.2rem;
+  margin-bottom: 0.45rem;
   width: 100%; 
-  list-style-type: katakana-iroha;
-  font-family: times;
-/*
-    color: #242526;
-	
-	font-weight: 100;*/
-
-}
-
-.summary__style {
+  font-size: 1rem; 
 
 }
 
@@ -216,20 +201,15 @@
 /* bottom bar topbar__container*/
 
 .st__bottombar__container {
-    position: relative;
-    left: 1rem;
-    float: left;
     margin: 0 auto;
-    margin-top: 3rem;
-    width: 40rem;
+    width: 600px;
     height: 4rem;
     border-top: 1px solid darkgrey;
-
+    position: relative;
+    left: 3.2rem;
 }
 
 .st__bottombar__links__container {
-    width: 40rem;
-    height: 10rem;
     padding-top: 2.6rem;
     text-align: center;
 }
@@ -241,7 +221,7 @@
 }
 
 .st__bottombar__link__active {
-    padding-left: 0.5rem;
+    padding-left: 1rem;
     padding-right: 0.5rem;
 
     border-left: 1px solid darkgrey;
@@ -252,7 +232,7 @@
 .st__bottombar__link--a {
     font-size: 1.3rem;
 	color: #242526;
-	font-family: 'Helvetica', sans-serif;
+	
 	font-weight: 100;
 
 }
@@ -307,4 +287,131 @@
 .header__color5 {
 	background-color: #F5EDE3;
 	
+}
+
+
+
+
+@media screen and (max-width: 900px){
+.header__color__container {
+	width: 100%;
+}
+  .header__color{
+    width: 20%;
+  }
+}
+
+
+@media screen and (max-width: 900px){
+    .st__bottombar__container {
+        margin-top: -9.7rem;
+        position: static;
+        left: 1.2rem;
+        width: 100%;
+    }
+    .st__bottombar__links__container {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+}
+
+
+
+@media screen and (max-width: 900px){
+    
+    .st__midbar__container {
+        width: 100%;
+        padding: 0;
+    }
+
+    .st__midbar__top__top {
+        margin-top: 1rem;
+        margin-top: 1rem;
+        width: 15rem;
+    }
+    
+    .st__midbar__top {
+        display: block;
+        height: 15rem;
+        margin: 0 auto;
+    }
+
+    .st__midbar__profile_picture {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .st__midbar__top__right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    .st__midbar__website {
+        width: 20rem;
+    }
+
+    .st__midbar__profile_username {
+        width: 300px;
+        font-size: 2rem;
+    }
+    
+/*
+
+        Bottombar 
+                        */
+
+    .st__midbar__bottom {
+        flex-direction: column;
+        position: static;
+    }
+
+    .st__midbar__social_icons__container {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        margin: 0 auto;
+        width: 12rem;
+        height: 4rem;
+
+    }
+
+    .st__summary__outer__container {
+        margin: 0 auto;
+        margin-top: 2rem;
+        width: 25rem;
+        padding-left: 3rem;
+    }
+
+    .st__midbar__summary {
+        height: 6rem;
+        float: left; 
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .st__midbar__profile_username {
+        font-size: 2.8rem;
+    }
+
+    .st__summary__text__ul {
+        display: flex;
+    }
+
+    .st__summary__text__li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .st__summary__outer__container {
+        padding-top: 0.5rem;
+        padding-left: 0;
+
+    }
+
 }

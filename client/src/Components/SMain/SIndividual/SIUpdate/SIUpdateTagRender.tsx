@@ -4,6 +4,7 @@ import { Map } from 'immutable';
 var uuid = require('uuid') ;
 import './css/si__update.css';
 import '../SITag/css/si__tag.css';
+import '../../STopbar/SM_Home/css/sm__update.css';
 
 class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdateTagRenderPassedProps, SIUpdateRenderState> {
 

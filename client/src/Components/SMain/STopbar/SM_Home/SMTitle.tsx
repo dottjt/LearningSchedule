@@ -108,15 +108,16 @@ class SMTitle extends React.Component<SMTitleProps, undefined> {
 							{/* SMTitle Schedule Title */}
 							
 								{/*<SMTitleScrollRedirect user={user} schedule={schedule} />*/}
-							<Link className="sm__title__a--link" to={"/" + user.get('username') + "/schedule/" + schedule.get('schedule_url')} >
+							<Link className="sm__title__schedule__title" to={"/" + user.get('username') + "/schedule/" + schedule.get('schedule_url')} >
 								{schedule.get('schedule_title')}
 							</Link>
 						</h3>
 
-
-						<p className="sm__title__schedule__summary">
-							{schedule.get('schedule_summary')}
-						</p>
+						<div className="sm__schedule">
+							<p className="sm__title__schedule__summary">
+								{schedule.get('schedule_summary')}
+							</p>
+						</div>
 
 						<SMTag 
 							tags={this.tagWithScheduleId(schedule.get('tags_id')).slice(0, 9).sort((a, b) => { return b.get('tag_index') - (a.get('tag_index')); }) }

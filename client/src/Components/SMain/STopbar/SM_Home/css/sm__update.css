@@ -1,12 +1,14 @@
 .sm__update__outer__container {
       display: flex;
       flex-direction: column;
-      max-width: 750px;
+	  margin: 0 auto;
+      width: 100%;
       padding-left: 5rem;
 }
 
-.sm__update__text {
-    width: 100%;
+
+.sm__update__text__container {
+    width: 90%;
     font-size: 1.05rem;
     line-height: 1.8rem; 
     outline: none;
@@ -21,12 +23,12 @@
 
 }
 
-.sm__update__text__yolo {
+.sm__update__text {
     /*border-bottom: 1px solid #e0e0e0;*/
 
 }
 
-.sm__update__link__yolo {
+.sm__update__link {
     /*border-bottom: 1px solid #e0e0e0;*/
 }
 
@@ -36,7 +38,7 @@
     font-weight: 100;
 }
 
-.sm__update__link__yolo a {
+.sm__update__link a {
     color: black;;
     border-bottom: 1px solid #424242;
     text-decoration: none;
@@ -54,18 +56,18 @@
 */
 }
 
-.sm__update__milestone__yolo {
+.sm__update__milestone {
     font-weight: 500;
     /*border-bottom: 1px solid #e0e0e0;*/
 }
  
 
 
-.sm__update__text:hover .sm__update__text__yolo {
+.sm__update__text__container:hover .sm__update__text {
     /*border-bottom: 1px solid #c9c9c9;*/
 }
 
-.sm__update__text:hover {
+.sm__update__text__container:hover {
     /*padding-left: 60px;*/
     /*border-left: 2px solid darkgrey;*/
 
@@ -80,7 +82,7 @@
 		max-width: 600px;
     }
 
-	.sm__update__text {
+	.sm__update__text__container {
         width: 95%;
 	}       
 

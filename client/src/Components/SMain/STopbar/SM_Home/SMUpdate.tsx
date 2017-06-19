@@ -46,8 +46,8 @@ class SMUpdate extends React.Component<SMUpdateProps, undefined> {
                         return (
 
                             <ul key={update.get('update_id')}>
-                                <p className="sm__update__text">
-                                    <span className="sm__update__text__yolo"> {moment(update.get('update_date')).format('MMM DD') + " - "} {this.undefinedFilter(update.get('update_text'))} </span>
+                                <p className="sm__update__text__container">
+                                    <span className="sm__update__text"> {moment(update.get('update_date')).format('MMM DD') + " - "} {this.undefinedFilter(update.get('update_text'))} </span>
                                 </p>
                             </ul>
 
@@ -56,8 +56,8 @@ class SMUpdate extends React.Component<SMUpdateProps, undefined> {
                         return (
 
                             <ul key={update.get('update_id')}>
-                                <p className="sm__update__text">
-                                    <span className="sm__update__link__yolo"> {moment(update.get('update_date')).format('MMM DD')} <span className="no__underline">- </span><a href={this.undefinedFilter(update.get('update_text'))}>{this.undefinedFilter(update.get('update_text'))}</a><span className="no__underline"> </span><span> </span>{this.undefinedFilter(update.get('update_summary'))}</span>
+                                <p className="sm__update__text__container">
+                                    <span className="sm__update__link"> {moment(update.get('update_date')).format('MMM DD')} <span className="no__underline">- </span><a href={this.undefinedFilter(update.get('update_text'))}>{this.undefinedFilter(update.get('update_text'))}</a><span className="no__underline"> </span><span> </span>{this.undefinedFilter(update.get('update_summary'))}</span>
                                 </p>
                             </ul>
 
@@ -66,8 +66,8 @@ class SMUpdate extends React.Component<SMUpdateProps, undefined> {
                         return (
 
                             <ul key={update.get('update_id')}>
-                                <p className="sm__update__text">
-                                    <span className="sm__update__milestone__yolo"> {moment(update.get('update_date')).format('MMM DD') + " - "} {emojify("🎉🎉" + this.undefinedFilter(update.get('update_text')) + "🎉🎉")}</span>
+                                <p className="sm__update__text__container">
+                                    <span className="sm__update__milestone"> {moment(update.get('update_date')).format('MMM DD') + " - "} {emojify("🎉🎉" + this.undefinedFilter(update.get('update_text')) + "🎉🎉")}</span>
                                 </p>
                             </ul>
                             
