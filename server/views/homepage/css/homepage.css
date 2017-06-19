@@ -781,7 +781,9 @@ button[type="submit"] {
 		width: 350px;
 	}
 
-
+	.header__form-input {
+		width: 350px;
+	}
 
 
 	.form-group {
