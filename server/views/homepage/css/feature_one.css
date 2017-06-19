@@ -37,9 +37,13 @@
 /* middle navbar */
 
 .st__midbar__container {
+    position: relative;
+    right: 2.2rem;
 
-    /*width: 40rem;
-    height: 16rem;*/
+
+    width: 40rem;
+    margin: 0 auto;
+    /*height: 16rem;*/
     /* these top two were existing */
 
     padding: 1rem;
