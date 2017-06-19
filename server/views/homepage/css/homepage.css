@@ -787,6 +787,8 @@ button[type="submit"] {
 
 
 	.form-group {
+		margin: 0;
+		margin-bottom: 2rem;
 		width: 350px;
 	}
 
