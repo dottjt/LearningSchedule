@@ -356,7 +356,7 @@ p {
 
 @media screen and (max-width: 900px) {
 	.feature__box__n__feature {
-		margin-left: 0;
+		margin-left: 6rem;
 	}
 	.feature__box1 {
         width: 700px;
@@ -383,7 +383,7 @@ p {
 
 @media screen and (max-width: 600px) {
 	.feature__box__n__feature {
-		margin-left: 0;
+		margin-left: 3rem;
 	}
 	.feature__box1 {
         width: 450px;
@@ -557,6 +557,7 @@ p {
 }
 
 .form-group {
+	margin: 0 auto;
 	width: 400px;
 	margin-bottom: 2rem;
 }
