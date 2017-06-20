@@ -18,6 +18,8 @@ This project goes from being broken to fully functional as I implement new featu
 
 # Updates 
 
+**19-06-17** - Refactored more of the homepage, and started implementing word counters for the various fields. To be quite honest, I spent most of today learning Java/Spring Boot. I don't know why, I just really wanted to know more. 
+
 **19-06-17** - Refactor. Refactor. Refactor. I spent all of today refactoring my css, because my css was not DRY at all - which I don't blame myself for, given I didn't even know what it should have looked like. Still, inching my way towards mobile responsiveness. It's still not where I want it to be, but I'm close. Oh, and I also added a navbar on the homepage. 
 
 Now that this project is vaguely coming to a close, I'm super interested in perhaps doing something with clojure/reagent. Some kind of lisp imo. 
