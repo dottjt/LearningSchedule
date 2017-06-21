@@ -57,7 +57,7 @@ class SMUpdate extends React.Component<SMUpdateProps, undefined> {
 
                             <ul key={update.get('update_id')}>
                                 <p className="sm__update__text__container">
-                                    <span className="sm__update__link"> {moment(update.get('update_date')).format('MMM DD')} <span className="no__underline">- </span><a href={this.undefinedFilter(update.get('update_text'))}>{this.undefinedFilter(update.get('update_text'))}</a><span className="no__underline"> </span><span> </span>{this.undefinedFilter(update.get('update_summary'))}</span>
+                                    <span className="sm__update__link"> {moment(update.get('update_date')).format('MMM DD')} <span className="no__underline">- </span><a className="sm__update__link__a" href={this.undefinedFilter(update.get('update_text'))}>{this.undefinedFilter(update.get('update_text'))}</a><span className="no__underline"> </span><span> </span>{this.undefinedFilter(update.get('update_summary'))}</span>
                                 </p>
                             </ul>
 

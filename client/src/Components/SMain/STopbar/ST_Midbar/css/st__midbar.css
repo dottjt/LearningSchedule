@@ -6,23 +6,24 @@
     
     padding: 1rem;
     margin-top: 10rem;
-    margin-bottom: 1.5rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    
+    position: relative;
+    left: 1rem;
 
 }
 
 .st__midbar__top {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center;    
 
     height: 7rem;
-    width: 400px;
-
+    width: 525px;
+    margin: 0 auto;
     margin-bottom: 1.8rem;
 
 }
@@ -195,8 +196,8 @@
 
 
 .st__midbar__bottom {
-    position: relative;
-    left: 4.1rem;
+    /*position: relative;
+    left: 4.1rem;*/
 
     display: flex;
     align-items: center;
@@ -283,6 +284,7 @@
     
     .st__midbar__container {
         width: 100%;
+        margin-bottom: 1.5rem;
         padding: 0;
     }
 
@@ -295,6 +297,7 @@
     .st__midbar__top {
         display: block;
         height: 15rem;
+        width: 380px;
         margin: 0 auto;
     }
 

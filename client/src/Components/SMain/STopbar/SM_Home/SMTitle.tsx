@@ -66,70 +66,62 @@ class SMTitle extends React.Component<SMTitleProps, undefined> {
 
 			<div className="sm__title__container">
 				
-					<div className="sm__title__top_layer">
+				<div className="sm__title__top_layer">
 
 
-						{/* SMTitle Profile Picture */}
+					{/* SMTitle Profile Picture */}
 
 
-						<div className="sm__title__top_layer__left">
-							<img className="sm__title__profile_picture" src={"/avatars/" + user.get('avatar_url')} alt={"/avatars/" + user.get('avatar_url')} />
-							
-							<div className="sm__title__top_layer__username__details">
+					<div className="sm__title__top_layer__left">
+						<img className="sm__title__profile_picture" src={"/avatars/" + user.get('avatar_url')} alt={"/avatars/" + user.get('avatar_url')} />
+						
+						<div className="sm__title__top_layer__username__details">
 
-								{/* SMTitle Username   onClick={() => updateReduxState()} */} 
-									<a className="sm__title__username__link" href={"/" + user.get('username') }>
-										<h4 className="sm__title__username">{user.get('display_name')}</h4>
-									</a>
+							{/* SMTitle Username   onClick={() => updateReduxState()} */} 
+								<a className="sm__title__username__link" href={"/" + user.get('username') }>
+									<h4 className="sm__title__username">{user.get('display_name')}</h4>
+								</a>
 
-								{/* SMTitle Start Date */}
-									<h5 className="sm__title__start_date__container">
-											{moment(schedule.get('schedule_start_date')).format('MMMM Do')}
-									</h5>
+							{/* SMTitle Start Date */}
+								<h5 className="sm__title__start_date__container">
+										{moment(schedule.get('schedule_start_date')).format('MMMM Do')}
+								</h5>
 
-							</div>
 						</div>
-
-							{/* SMTitle Updates / Tags Size */}
-								{/*<div className="sm__title__top_layer__right">*/}
-									<div className="sm__title__top_layer__updates__container">
-										<h4 className="sm__title__top_layer__updates__link">{"Updates " + "(" + this.getAllRelevantUpdates().size + ")"}</h4>
-										<h4 className="sm__title__top_layer__tags__link">{"Tags " + "(" + this.getAllRelevantTags().size + ")"}</h4>
-									</div>
-								{/*</div>*/}
-							
-							<div className="clear"></div>
-
-					</div>
+					</div> {/* sm__title__top_layer__left end*/}
 
 
+					<div className="sm__title__top_layer__updates__container">
+						<h4 className="sm__title__top_layer__updates__link">{"Updates " + "(" + this.getAllRelevantUpdates().size + ")"}</h4>
+						<h4 className="sm__title__top_layer__tags__link">{"Tags " + "(" + this.getAllRelevantTags().size + ")"}</h4>
+					</div>						
+
+				</div>
+
+
+				<h3 className="sm__title">
+					{/* SMTitle Schedule Title */}
 					
-						<h3 className="sm__title">
-							{/* SMTitle Schedule Title */}
-							
-								{/*<SMTitleScrollRedirect user={user} schedule={schedule} />*/}
-							<Link className="sm__title__schedule__title" to={"/" + user.get('username') + "/schedule/" + schedule.get('schedule_url')} >
-								{schedule.get('schedule_title')}
-							</Link>
-						</h3>
+						{/*<SMTitleScrollRedirect user={user} schedule={schedule} />*/}
+					<Link className="sm__title__schedule__title" to={"/" + user.get('username') + "/schedule/" + schedule.get('schedule_url')} >
+						{schedule.get('schedule_title')}
+					</Link>
+				</h3>
 
-						<div className="sm__schedule">
-							<p className="sm__title__schedule__summary">
-								{schedule.get('schedule_summary')}
-							</p>
-						</div>
+				<div className="sm__schedule">
+					<p className="sm__title__schedule__summary">
+						{schedule.get('schedule_summary')}
+					</p>
+				</div>
 
-						<SMTag 
-							tags={this.tagWithScheduleId(schedule.get('tags_id')).slice(0, 9).sort((a, b) => { return b.get('tag_index') - (a.get('tag_index')); }) }
-							/>
+				<SMTag 
+					tags={this.tagWithScheduleId(schedule.get('tags_id')).slice(0, 9).sort((a, b) => { return b.get('tag_index') - (a.get('tag_index')); }) }
+					/>
 
-						<SMUpdate
-							updates={this.updateWithScheduleId(schedule.get('updates_id')).slice(0, 4).sort((a, b) => { return +new Date(b.get('update_date')) - +new Date(a.get('update_date')); }) }
-							/>
+				<SMUpdate
+					updates={this.updateWithScheduleId(schedule.get('updates_id')).slice(0, 4).sort((a, b) => { return +new Date(b.get('update_date')) - +new Date(a.get('update_date')); }) }
+					/>
 
-
-
-				<div className="clear"></div>
 			</div>
 		)
 	}

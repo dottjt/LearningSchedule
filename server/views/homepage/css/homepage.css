@@ -193,6 +193,7 @@ p {
 .header__form-input {
 	font-weight: 100;
 	height: 41px;
+	font-family: 'Helvetica', sans-serif;
 
 	/*width: 245px;
 	border-radius: 2px;
@@ -211,6 +212,8 @@ p {
 
 .header__form_line_height {
 	position: relative;
+	font-family: 'Helvetica', sans-serif;
+
 }
 
 
@@ -298,6 +301,7 @@ p {
 
 .feature__box__n__feature {
 	margin-left: 10rem;
+	width: 800px;
 }
 
 
@@ -335,7 +339,6 @@ p {
 	width: 800px;
 	height: 450px;
 	margin-top: 2rem;
-	margin-left: 2rem;
 }
 
 .feature__box4 {
@@ -354,61 +357,66 @@ p {
 }
 
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1100px) {
 	.feature__box__n__feature {
 		margin-left: 6rem;
+		width: 80%;
 	}
 	.feature__box1 {
-        width: 700px;
+        width: 70%;
 		margin-left: 0;
 	}
 	.feature__box2 {
-        width: 700px;
+        width: 70%;
 		margin-left: 0;
 	}
 	.feature__box3 {
-        width: 700px;
+        width: 70%;
 		margin-left: 0;
 	}
 	.feature__box4 {
-        width: 700px;
+        width: 70%;
 		margin-left: 0;
 	}
 	.feature__box5 {
-        width: 700px;
+        width: 70%;
 		margin-left: 0;
 	}
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
 	.feature__box__n__feature {
-		margin-left: 3rem;
+		margin-left: 2rem;
 	}
 	.feature__box1 {
-        width: 450px;
+        width: 400px;
 		margin-left: 0;
 	}
 	.feature__box2 {
-        width: 450px;
+        width: 400px;
 		margin-left: 0;
 	}
 	.feature__box3 {
-        width: 450px;
+        width: 400px;
 		margin-left: 0;
 	}
 	.feature__box4 {
-        width: 450px;
+        width: 400px;
 		margin-left: 0;
 	}
 	.feature__box5 {
-        width: 450px;
+        width: 400px;
 		margin-left: 0;
 	}
 }
 
 
-
+@media screen and (max-width: 500px) {
+	.feature__box__n__feature {
+		margin-left: 0;
+	}
+}
 
 
 
@@ -577,6 +585,7 @@ p {
 	height: 45px;
 	font-size: 1.05rem;
 	font-family: times;
+
   }
 
 
@@ -737,7 +746,7 @@ button[type="submit"] {
     animation-iteration-count: infinite;
 }*/
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1100px) {
 	
 	.header__title_secondary {
 		width: 80%;
@@ -759,7 +768,7 @@ button[type="submit"] {
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
 	
 	.header__form {
 		display: flex;

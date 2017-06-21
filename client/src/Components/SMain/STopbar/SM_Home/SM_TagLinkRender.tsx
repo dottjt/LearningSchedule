@@ -33,6 +33,7 @@ class SM_TagLinkRender extends React.Component<SM_TagLinkRenderProps, undefined>
 
                     <h3 className="sm__latest_updates">Latest Tags</h3>
 
+                    <div className="sm__taglink__outer__container">
                         {tags.map(tag =>
                             // .sort((a, b) => { return +new Date(b.get('update_date')) - +new Date(a.get('update_date')); })
 
@@ -43,6 +44,7 @@ class SM_TagLinkRender extends React.Component<SM_TagLinkRenderProps, undefined>
                             </div> 
 
                         )}
+                    </div>
                 </div> 
             )
         } else {

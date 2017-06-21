@@ -72,10 +72,8 @@
                         */
 
 .sm__updatelink {
-    width: 900px; 
     margin-top: 3.5rem; 
     margin-bottom: 4rem;
-    margin: 0 auto; 
 }
 
 .sm__updatelink__empty {
@@ -107,23 +105,33 @@
 
 
 .sm__latest_updates {
+    margin: 0 auto;
     margin-top: 6rem;
-    margin-bottom: 3rem;
-    margin-left: 5rem;
+    width: 70%;
+
     color: #242526;
     font-size: 1.1rem;
-    
     font-weight: 100;
 }
 
 .sm__updatelink__inner__container {
-    width: 100%; 
-    float: left;
+    width: 80%;
+    margin: 0 auto; 
+}
+
+.sm__taglink__outer__container {
+    display: flex; 
+    align-items: center;
+    flex-wrap: wrap;
+    width: 800px;
+    margin: 0 auto;
 }
 
 .sm__taglink__inner__container {
-    width: 100%; 
-    float: left;
+    font-size: 1rem;
+    font-weight: 100;
+    margin-bottom: 2rem;
+    width: 9rem; 
 }
 
 
@@ -165,11 +173,11 @@
                         */
 
 .sm__taglink {
-    width: 900px; 
-    margin: 0 auto; 
     margin-top: 3.5rem; 
     margin-bottom: 4rem;
 }
+
+
 
 .sm__taglink__empty {
     border: 5px solid black; 
@@ -194,15 +202,32 @@
 
 
 @media screen and (max-width: 900px){
+
+    .sm__updatelink {
+        margin-top: 14rem;
+    }
+
+    .sm__individual__container {
+        width: 85%;
+    }
+
     .sm__latest_schedules {
-        margin-top: 10rem;
+        margin-top: 14rem;
         width: 85%;
     }
 
     .sm__see_more__link {
         padding: 3.5rem;
         width: 85%;
+    }
 
+    .sm__taglink__outer__container {
+        width: 80%;
+    }
+
+    .sm__taglink {
+        margin-top: 14rem;
+        width: 80%;
     }
 }
 

@@ -19,11 +19,24 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 // passed props - form, initialValues, topbar_active, match 
 
 	constructor() {
-	super();
+		super();
+
 		this.changeScheduleTitle = this.changeScheduleTitle.bind(this);
 		this.changeScheduleUrl = this.changeScheduleUrl.bind(this);
 		this.changeScheduleSummary = this.changeScheduleSummary.bind(this);
+		// this.getScheduleTitleLength = this.getScheduleTitleLength.bind(this);
+
+			// this.state = {
+			// 	schedule_title_length: this.getScheduleTitleLength()  // 40
+			// 	schedule_url_length: this.props.initialValues.get('schedule_url').length, // 60
+			// 	schedule_summary_length: this.props.initialValues.get('schedule_summary').length // 300  
+			// }
+
 	}
+
+	// getScheduleTitleLength() {
+	// 	return this.props.initialValues.get('schedule_title').length
+	// }
 
 
 	changeScheduleTitle(values) {
@@ -87,7 +100,6 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 
 
 
-
 /*
              COMPONENT VIEW
                                       */
@@ -97,7 +109,6 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 				<form className="sm__title__container">
 					<div className="sm__title__top_layer">
 						{/* Display Profile Picture, Date and Username */}
-
 							{/* Profile Picture */}
 						<div className="sm__title__top_layer__left">
 							<img className="sm__title__profile_picture" src={"/avatars/" + user.get('avatar_url')} alt={"/avatars/" + user.get('avatar_url')} />
@@ -116,6 +127,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 
 							</div>
 						</div>
+
 
 						<div className="sm__title__top_layer__updates__container">
 										{/* Remove Schedule Button */}

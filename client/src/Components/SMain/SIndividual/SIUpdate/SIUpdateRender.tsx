@@ -114,9 +114,11 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                 {/* TEXT UPDATE */}
                                 {fields.get(index).get('update_type') === "text" && 
                                     <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
-                                        <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
-                                        
-                                        <Field id={si__update__border__none} className="si__update__title__field si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_title" maxLength={50} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                        <div className="si__update__top_layer">
+                                            <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
+                                            
+                                            <Field id={si__update__border__none} className="si__update__title__field si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_title" maxLength={50} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                        </div>
 
                                         <FieldArray name="update_tags" component={SIUpdateTagRender} props={this.createUpdateTagRenderProps(index)} />
 

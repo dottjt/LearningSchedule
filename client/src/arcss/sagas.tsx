@@ -5,9 +5,9 @@ import { fork, takeLatest } from 'redux-saga/effects';
               Indicator
                                 */
 
-import { initialIndicatorStateSaga } from './indicator_ar';
+// import { initialIndicatorStateSaga } from './indicator_ar';
 
-import { REQUEST_INITIAL_INDICATOR_STATE } from './indicator_ar';
+// import { REQUEST_INITIAL_INDICATOR_STATE } from './indicator_ar';
 
 
 /*
@@ -124,7 +124,7 @@ export default function* rootSaga(): SagaIterator {
    fork(initialSummariesStateSaga),
    fork(initialUserStateSaga),
 
-   takeLatest(REQUEST_INITIAL_INDICATOR_STATE, initialIndicatorStateSaga),
+  //  takeLatest(REQUEST_INITIAL_INDICATOR_STATE, initialIndicatorStateSaga),
    
    takeLatest(REQUEST_REMOVE_USER, requestRemoveUserSaga),
    takeLatest(REQUEST_CHANGE_SOCIAL, requestChangeSocialSaga),

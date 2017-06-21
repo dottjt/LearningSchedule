@@ -145,11 +145,12 @@
 	text-decoration: none;
 	outline: none;
 	border: none;
-    word-wrap: break-word;
-    word-break: break-all;
+    /*word-wrap: break-word;*/
+    /*word-break: break-all;*/
 
 	line-height: 2.8rem;
 	width: 100%;
+	display: block;
 
 
 }
@@ -187,7 +188,8 @@
 
 @media screen and (max-width: 900px){
     .sm__title__container {
-    	padding-left: 0;
+    	padding-left: 1rem;
+		margin-left: 1rem;
 		width: 90%;
     }
 
@@ -203,6 +205,11 @@
 		width: 95%;
 	}
 
+	.sm__title__schedule__summary {
+
+	}
+
+
 	.sm__title__top_layer {
 		width: 100%;
     	padding-left: 3.5rem;	
@@ -215,18 +222,22 @@
 
 @media screen and (max-width: 700px){
     .sm__title__container {
-		width: 90%;
 
     }
 
+	.sm__title__schedule__title {
+		font-size: 1.8rem;
+	}
+
     .sm__title {
         padding-left: 2rem;
+		width: 100%;
 
     }
 
     .sm__schedule {
         padding-left: 2rem;
-
+		width: 100%;
     }
 
 	.sm__title__top_layer {
@@ -238,21 +249,24 @@
 
 @media screen and (max-width: 600px){
     .sm__title__container {
-    	padding-left: 1rem;
-
+    	padding-left: 0rem;
     }
 
+	.sm__title__schedule__title {
+		font-size: 1.6rem;
+	}
+
 	.sm__title {
-    	padding-left: 1rem;
+    	padding-left: 0rem;
 		font-size: 1.8rem;
 	}
 
 	.sm__schedule {
-    	padding-left: 1rem;	
+    	padding-left: 0rem;	
 	}
 
 	.sm__title__top_layer {
-    	padding-left: 1rem;	
+    	padding-left: 0rem;	
 		position: relative;
 		right: 0.5rem;
 	}

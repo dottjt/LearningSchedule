@@ -3,12 +3,9 @@
 
 
 .st__bottombar__container {
-    margin: 0 auto;
-    width: 600px;
-    height: 4rem;
-    border-top: 1px solid darkgrey;
-    position: relative;
-    left: 3.2rem;
+    /*border-top: 1px solid darkgrey;*/
+    /*position: relative;
+    left: 3.2rem;*/
 }
 
 .st__bottombar__links__container {

@@ -47,7 +47,9 @@ interface SITitlePassedProps {
 
 
 interface SITitleState {
-    fd: any
+    schedule_title_length: any
+    // schedule_url_length: number,
+    // schedule_summary_length: any
 }
 
 

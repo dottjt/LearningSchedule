@@ -27,10 +27,19 @@
         padding-left: 3.5rem;
     }
 
+    .sm__tag__text {
+        /*padding: 1rem;*/
+        width: 9rem;
+        font-size: 0.9rem;
+    }
+
+
 }
 
 @media screen and (max-width: 700px){
     .sm__tag__outer__container {
+        margin-top: 0.2rem;
+        margin-bottom: 1rem;
         padding-left: 2rem;
     }
 
@@ -39,7 +48,7 @@
 
 @media screen and (max-width: 600px){
     .sm__tag__outer__container {
-    	padding-left: 1rem;
+    	padding-left: 0rem;
     }
 
 }

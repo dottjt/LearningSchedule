@@ -32,6 +32,11 @@
     /*border-bottom: 1px solid #e0e0e0;*/
 }
 
+.sm__update__link__a {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
 .no__underline {
     /*border-bottom: 1px solid white;*/
     /*color: #e0e0e0;*/
@@ -79,11 +84,11 @@
 @media screen and (max-width: 900px){
     .sm__update__outer__container {
         padding-left: 3.5rem;
-		max-width: 600px;
+		width: 90%;
     }
 
 	.sm__update__text__container {
-        width: 95%;
+        width: 100%;
 	}       
 
 }
@@ -100,7 +105,8 @@
 
 @media screen and (max-width: 600px){
     .sm__update__outer__container {
-    	padding-left: 1rem;
+    	padding-left: 0rem;
+        margin-left: 0;
     }
 
 }

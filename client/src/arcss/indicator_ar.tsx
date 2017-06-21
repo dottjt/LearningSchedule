@@ -1,5 +1,5 @@
-import { put } from 'redux-saga/effects';
-import { SagaIterator } from 'redux-saga';
+// import { put } from 'redux-saga/effects';
+// import { SagaIterator } from 'redux-saga';
 // import { Map } from 'immutable';
 
 
@@ -24,20 +24,20 @@ export const initialIndicatorStateFailed = err => ({type: INITIAL_INDICATOR_STAT
 
 
 
-export function* initialIndicatorStateSaga(): SagaIterator {
+// export function* initialIndicatorStateSaga(): SagaIterator {
 
-  try {
+//   try {
 
-    yield put(requestInitialIndicatorState())
+//     yield put(requestInitialIndicatorState())
 
-    // yield put(initialIndicatorStateSucceeded());
-    // not too sure about how this is supposed to work. 
-  }
-  catch (err) {
-    yield put (initialIndicatorStateFailed(err))
-  }
+//     // yield put(initialIndicatorStateSucceeded());
+//     // not too sure about how this is supposed to work. 
+//   }
+//   catch (err) {
+//     yield put (initialIndicatorStateFailed(err))
+//   }
 
-}
+// }
 
 
 
