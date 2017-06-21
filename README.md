@@ -18,7 +18,7 @@ This project goes from being broken to fully functional as I implement new featu
 
 # Updates 
 
-**21-06-17** - Refactored more css. I now realise why it's taking so long - It's like I'm trying to create one standard set of css styles to work with 5 different views - 2 logged in, 2 logged out, homepage (as the app also features there). So while it feels like it's taking forever, once it's done, it's done for good. I also learnt a heap of Angular and Java today. Super keen to build something with it. 
+**21-06-17** - Refactored more css. I now realise why it's taking so long - It's like I'm trying to create one standard set of css styles to work for a billion different views - 1 for index, 1 for individual view, then whether you're logged in or logged out, and homepage (as the app also features there). So while it feels like it's taking forever, once it's done, it's done for good. I also learnt a heap of Angular and Java today. Super keen to build something with it. 
 
 **20-06-17** - Refactored more of the homepage, and started implementing word counters for the various fields. To be quite honest, I spent most of today learning Java/Spring Boot. I don't know why, I just really wanted to know more. 
 
