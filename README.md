@@ -2,7 +2,7 @@
 
 # LearningSchedule
 
-This is the repository for my online SaaS application, Learning Schedule. It is a fully featured application that includes user authentication, n' all that jazz. I imagine it won't be fully production ready until the end of 2017. It's absolutely massive.
+This is the repository for my online SaaS application, Learning Schedule. It is a fully featured application that includes user authentication, n' all that jazz. **I imagine it won't be fully production ready until the end of 2017.** It's absolutely massive.
 
 God knows how many versions/revisions I've created. I believe it's currently on it's 3rd major revision, which added unit testing and TypeScript.
 
@@ -17,6 +17,12 @@ This project goes from being broken to fully functional as I implement new featu
 - Provide a platform for employers to see what you are capable of.
 
 # Updates 
+
+**19-06-17** - Refactored more of the homepage, and started implementing word counters for the various fields. To be quite honest, I spent most of today learning Java/Spring Boot. I don't know why, I just really wanted to know more. 
+
+**19-06-17** - Refactor. Refactor. Refactor. I spent all of today refactoring my css, because my css was not DRY at all - which I don't blame myself for, given I didn't even know what it should have looked like. Still, inching my way towards mobile responsiveness. It's still not where I want it to be, but I'm close. Oh, and I also added a navbar on the homepage. 
+
+Now that this project is vaguely coming to a close, I'm super interested in perhaps doing something with clojure/reagent. Some kind of lisp imo. 
 
 **18-06-17** - Today I fixed up all the fonts on the website and made it look really good. Super happy with the direction of the brand for Learning Schedule. I also fixed up more mobile responsiveness issues. I also need to figure out how to combine the two sets of css styling for the individual and the index view, because there's too much overlap. 
 
