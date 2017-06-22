@@ -26,6 +26,7 @@ interface SITitleProps {
     initialValues: any,
     handleSubmit: any,
 
+    requestInitialIndicatorState(): any,
     requestRemoveSchedule(data: any): any,
     requestRemoveAllUpdates: any,
 
@@ -47,9 +48,9 @@ interface SITitlePassedProps {
 
 
 interface SITitleState {
-    schedule_title_length: any
-    // schedule_url_length: number,
-    // schedule_summary_length: any
+    schedule_title_length: number
+    schedule_url_length: number,
+    schedule_summary_length: number
 }
 
 

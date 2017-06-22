@@ -154,8 +154,9 @@ class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdat
                                 </div>
                             )
                         } else {
+
                             return (
-                                <div className="si__update__tag__inner" key={index}>
+                                <div className="si__update__tag__inner si__update__tag__none" key={index}>
 
                                 </div>
                             )

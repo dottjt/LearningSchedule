@@ -33,8 +33,102 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
 		this.createUpdateTagsProps = this.createUpdateTagsProps.bind(this);
 		// this.showEmojiPicker = this.showEmojiPicker.bind(this);
         this._onSubmit = this._onSubmit.bind(this);
-		this.state = {fd: "yolo", showEmoji: false}
+
+		// this.getSingleUpdateTitleLength = this.getSingleUpdateTitleLength.bind(this);
+		// this.getSingleUpdateTextLength = this.getSingleUpdateTextLength.bind(this);
+		// this.getSingleUpdateLinkLength = this.getSingleUpdateLinkLength.bind(this);
+		// this.getSingleUpdateSummaryLength = this.getSingleUpdateSummaryLength.bind(this);
+		// this.getSingleUpdateMilestoneLength = this.getSingleUpdateMilestoneLength.bind(this);
+
+		this.onSingleUpdateTitleLengthChange = this.onSingleUpdateTitleLengthChange.bind(this);
+		this.onSingleUpdateTextLengthChange= this.onSingleUpdateTextLengthChange.bind(this);
+		this.onSingleUpdateLinkLengthChange= this.onSingleUpdateLinkLengthChange.bind(this);
+		this.onSingleUpdateSummaryLengthChange = this.onSingleUpdateSummaryLengthChange.bind(this);
+		this.onSingleUpdateMilestoneLengthChange = this.onSingleUpdateMilestoneLengthChange.bind(this);
+        
+        this.state = {
+            fd: "yolo", 
+            showEmoji: false,
+            update_single_title_length: 0,
+            update_single_text_length: 0,
+            update_single_link_length: 0,
+            update_single_summary_length: 0,
+            update_single_milestone_length: 0
+        }
 	}
+
+
+    // getSingleUpdateTitleLength() {
+    //     // return this.props.initialValues.get('schedule_title').length // 40
+    // }
+
+    // getSingleUpdateTextLength() {
+
+    // }
+
+    // getSingleUpdateLinkLength() {
+
+    // }
+
+    // getSingleUpdateSummaryLength() {
+
+    // }
+
+    // getSingleUpdateMilestoneLength() {
+
+    // }
+
+
+    onSingleUpdateTitleLengthChange(values) {
+        let update_single_title = values.get('update_title').length
+		console.log(update_single_title);
+
+		this.setState({
+			update_single_title_length: update_single_title
+		})
+
+    }
+
+    onSingleUpdateTextLengthChange(values) {
+        let update_single_text = values.get('update_text').length
+		console.log(update_single_text);
+
+		this.setState({
+			update_single_text_length: update_single_text
+		})
+
+    }
+
+    onSingleUpdateLinkLengthChange(values) {
+        let update_single_link = values.get('update_text').length
+		console.log(update_single_link);
+
+		this.setState({
+			update_single_link_length: update_single_link
+		})
+    }
+
+    onSingleUpdateSummaryLengthChange(values) {
+        let update_single_summary = values.get('update_summary').length
+		console.log(update_single_summary);
+
+		this.setState({
+			update_single_summary_length: update_single_summary
+		})
+    }
+
+    onSingleUpdateMilestoneLengthChange(values) {
+        let update_single_milestone = values.get('update_text').length
+		console.log(update_single_milestone);
+
+		this.setState({
+			update_single_milestone_length: update_single_milestone
+		})
+
+    }
+
+
+
 
     addUpdate(values) { 
 
@@ -88,15 +182,17 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
     // }
 
     render() {
-
+		let { update_single_title_length, update_single_text_length, update_single_link_length, update_single_summary_length, update_single_milestone_length } = this.state;
         let { handleSubmit, login_status_var, update_type_value } = this.props;
 		let si__update__display__none, si__update__border__none, fieldDis;  // style to disable forms. 
-		
 		if (login_status_var === false) {
 			si__update__display__none = "si__update__display__none"; // this one for making div disappear?
             si__update__border__none = "si__update__border__none"; // this one for making border disappear?
 			fieldDis = true;
 		}
+
+            
+
 
 
 /*
@@ -114,14 +210,17 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
                     <div className="sm__update__text__container">
                         
                         <div id={si__update__display__none} className="si__update__select__container">
-                            <Field className="si__update__select" name="update_type" type="text" component="select" ref="update_type_ref">
-                                <option default value="text">Text</option>
-                                <option value="link">Link</option>
-                                <option value="milestone">Milestone</option>
-                            </Field>
+                            
+                            <div className="si__update__select__container__top">
+                                <Field className="si__update__select" name="update_type" type="text" component="select" ref="update_type_ref">
+                                    <option default value="text">Text</option>
+                                    <option value="link">Link</option>
+                                    <option value="milestone">Milestone</option>
+                                </Field>
 
-                        {/* SIUpdate Add Button */}
-                            <button className="si__update__add" type="button" onClick={handleSubmit(values => this.addUpdate(values))}>Add Update</button>
+                            {/* SIUpdate Add Button */}
+                                <button className="si__update__add" type="button" onClick={handleSubmit(values => this.addUpdate(values))}>Add Update</button>
+                            </div>
                             
 
                             {/* emoji things that I decided to get rid of */}
@@ -141,11 +240,14 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
                                 
                                 <Field className="update__single__title__field" 
                                         name="update_title" 
-                                        component="input" 
+                                        component="textarea" 
                                         type="text" 
                                         placeholder="Title."
-                                        maxLength={80}                                        
+                                        maxLength={80}    
+                                        onChange={handleSubmit(values => this.onSingleUpdateTitleLengthChange(values))}
                                         />
+                                <span>{update_single_title_length}</span>
+
 
                                 {(update_type_value === "text" || update_type_value === undefined) && 
 
@@ -157,7 +259,10 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
                                                 type="text"
                                                 placeholder="Text."
                                                 maxLength={400}
+                                                onChange={handleSubmit(values => this.onSingleUpdateTextLengthChange(values))}
+
                                                 />
+                                        <span>{update_single_text_length}</span>
 
                                     </div> 
                                 }
@@ -172,7 +277,9 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
                                                 type="text" 
                                                 placeholder="Link."
                                                 maxLength={350}
+                                                onChange={handleSubmit(values => this.onSingleUpdateLinkLengthChange(values))}
                                                 />
+                                        <span>{update_single_link_length}</span>
 
                                         <Field className="update__single__link__summary__field update__single__link__field__bottom" 
                                                 name="update_summary" 
@@ -180,7 +287,9 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
                                                 type="text" 
                                                 placeholder="Link Summary."
                                                 maxLength={200}
+                                                onChange={handleSubmit(values => this.onSingleUpdateSummaryLengthChange(values))}
                                                 />
+                                        <span>{update_single_summary_length}</span>
 
                                     </div>
                                 }
@@ -196,7 +305,9 @@ class SIUpdate extends React.Component<SIUpdateProps, SIUpdateState> {
                                             type="text" 
                                             placeholder="Milestone."
                                             maxLength={80}
+                                            onChange={handleSubmit(values => this.onSingleUpdateMilestoneLengthChange(values))}
                                             />
+                                        <span>{update_single_milestone_length}</span>
 
                                     </div> 
                                 }

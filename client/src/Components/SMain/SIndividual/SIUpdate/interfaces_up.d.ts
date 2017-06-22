@@ -25,7 +25,12 @@ interface SIUpdatePassedProps {
 
 interface SIUpdateState {
     fd: any,
-    showEmoji: any
+    showEmoji: any,
+    update_single_title_length: number,
+    update_single_text_length: number,
+    update_single_link_length: number,
+    update_single_summary_length: number,
+    update_single_milestone_length: number
 }
 
 
@@ -56,7 +61,12 @@ interface SIUpdateRenderPassedProps {
 }
 
 interface SIUpdateRenderState {
-    topbar_active: boolean
+    // topbar_active: boolean,
+    update_single_title_length: number,
+    update_single_text_length: number,
+    update_single_link_length: number,
+    update_single_summary_length: number,
+    update_single_milestone_length: number
 }
 
 

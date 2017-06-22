@@ -30,7 +30,73 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
         this.removeUpdate = this.removeUpdate.bind(this);
         this.requestChange = this.requestChange.bind(this);
         this.createUpdateTagRenderProps = this.createUpdateTagRenderProps.bind(this);
+
+		this.onSingleUpdateTitleLengthChange = this.onSingleUpdateTitleLengthChange.bind(this);
+		this.onSingleUpdateTextLengthChange= this.onSingleUpdateTextLengthChange.bind(this);
+		this.onSingleUpdateLinkLengthChange= this.onSingleUpdateLinkLengthChange.bind(this);
+		this.onSingleUpdateSummaryLengthChange = this.onSingleUpdateSummaryLengthChange.bind(this);
+		this.onSingleUpdateMilestoneLengthChange = this.onSingleUpdateMilestoneLengthChange.bind(this);
+
+        this.state = {
+            update_single_title_length: 0,
+            update_single_text_length: 0,
+            update_single_link_length: 0,
+            update_single_summary_length: 0,
+            update_single_milestone_length: 0
+        }
+
+
     }
+
+
+    onSingleUpdateTitleLengthChange(values) {
+        let update_single_title = values.get('update_title').length
+		console.log(update_single_title);
+
+		this.setState({
+			update_single_title_length: update_single_title
+		})
+
+    }
+
+    onSingleUpdateTextLengthChange(values) {
+        let update_single_text = values.get('update_text').length
+		console.log(update_single_text);
+
+		this.setState({
+			update_single_text_length: update_single_text
+		})
+
+    }
+
+    onSingleUpdateLinkLengthChange(values) {
+        let update_single_link = values.get('update_text').length
+		console.log(update_single_link);
+
+		this.setState({
+			update_single_link_length: update_single_link
+		})
+    }
+
+    onSingleUpdateSummaryLengthChange(values) {
+        let update_single_summary = values.get('update_summary').length
+		console.log(update_single_summary);
+
+		this.setState({
+			update_single_summary_length: update_single_summary
+		})
+    }
+
+    onSingleUpdateMilestoneLengthChange(values) {
+        let update_single_milestone = values.get('update_text').length
+		console.log(update_single_milestone);
+
+		this.setState({
+			update_single_milestone_length: update_single_milestone
+		})
+
+    }
+    
 
     removeUpdate(index) {
         const { requestRemoveUpdate, fields } = this.props;
@@ -69,7 +135,7 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                       */
 
     render() {
-
+		let { update_single_title_length, update_single_text_length, update_single_link_length, update_single_summary_length, update_single_milestone_length } = this.state;
         const {  si__update__display__none, si__update__border__none, fieldDis, login_status_var } = this.props;
         const { fields } = this.props;                                                                        
 
@@ -115,15 +181,35 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                 {fields.get(index).get('update_type') === "text" && 
                                     <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
                                         <div className="si__update__top_layer">
-                                            <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
+                                            <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} <span className="si__update__dash__disappear">-</span> </p>
                                             
-                                            <Field id={si__update__border__none} className="si__update__title__field si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_title" maxLength={50} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                            <Field id={si__update__border__none} 
+                                                   className="si__update__title__field si__update__title__field__relative" 
+                                                   name={`${update}.update_title`} 
+                                                   type="input" 
+                                                   component="input" 
+                                                   label="update_title" 
+                                                   maxLength={50} 
+                                                   onBlur={() => this.requestChange(index)} disabled={fieldDis}
+                                            />
+                                            <span>{update_single_title_length}</span>
+
                                         </div>
 
                                         <FieldArray name="update_tags" component={SIUpdateTagRender} props={this.createUpdateTagRenderProps(index)} />
 
                                         <div className="si__update__text__container">
-                                            <Field id={si__update__border__none} className="si__update__text__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={400} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                            <Field id={si__update__border__none} 
+                                                   className="si__update__text__field" 
+                                                   name={`${update}.update_text`} 
+                                                   type="textarea" 
+                                                   component="textarea" 
+                                                   label="update_text" 
+                                                   maxLength={400} 
+                                                   onBlur={() => this.requestChange(index)} disabled={fieldDis}
+                                            />
+                                            <span>{update_single_text_length}</span>
+
                                         </div>
                                         <div className="clear"></div>
                                     </div>
@@ -132,17 +218,48 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                 {/* LINK UPDATE */}
                                 {fields.get(index).get('update_type') === "link" && 
                                     <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
-                                        <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
-                                        
-                                        <Field id={si__update__border__none}  className="si__update__title__field si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
-
+                                        <div className="si__update__top_layer">                                        
+                                            <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} <span className="si__update__dash__disappear">-</span> </p>
+                                            
+                                            <Field id={si__update__border__none}  
+                                                className="si__update__title__field si__update__title__field__relative" 
+                                                name={`${update}.update_title`} 
+                                                type="text" 
+                                                component="textarea" 
+                                                label="update_text" 
+                                                maxLength={60} 
+                                                onBlur={() => this.requestChange(index)} disabled={fieldDis}
+                                            />
+                                            <span>{update_single_title_length}</span>
+                                        </div>
                                         <FieldArray name="update_tags" component={SIUpdateTagRender} props={this.createUpdateTagRenderProps(index)} />
 
                                         <div className="si__update__link__container">
-                                            <Field id={si__update__border__none}  className="si__update__link__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                            <div className="si__update__top_layer">                                                                                    
+                                                <Field id={si__update__border__none}  
+                                                    className="si__update__link__field" 
+                                                    name={`${update}.update_text`} 
+                                                    type="text" 
+                                                    component="textarea" 
+                                                    label="update_text" 
+                                                    maxLength={300} 
+                                                    onBlur={() => this.requestChange(index)} disabled={fieldDis}
+                                                />
+                                                <span>{update_single_link_length}</span>
+                                            </div>
                                         </div>
                                         <div className="si__update__link__summary__container">
-                                            <Field id={si__update__border__none}  className="si__update__link__summary__field" name={`${update}.update_summary`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                            <Field id={si__update__border__none}  
+                                                   className="si__update__link__summary__field" 
+                                                   name={`${update}.update_summary`} 
+                                                   type="text" 
+                                                   component="textarea" 
+                                                   label="update_text" 
+                                                   maxLength={300} 
+                                                   onBlur={() => this.requestChange(index)} disabled={fieldDis}
+                                            />
+                                            <span>{update_single_summary_length}</span>
+
                                         </div>
 
                                     </div>
@@ -151,14 +268,34 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                 {/* MILESTONE UPDATE */}
                                 {fields.get(index).get('update_type') === "milestone" && 
                                     <div className="si__update__top__container">  {/*className="si__update__date__underline" */} 
-                                        <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} - </p>
-                                        
-                                        <Field id={si__update__border__none} className="si__update__title__field si__update__title__field__relative" name={`${update}.update_title`} type="input" component="input" label="update_text" maxLength={60} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
-
+                                        <div className="si__update__top_layer">                                                                                    
+                                            <p className="si__update__date">{moment(fields.get(index).get('update_date')).format('DD MMM Y')} <span className="si__update__dash__disappear">-</span> </p>
+                                            
+                                            <Field id={si__update__border__none} 
+                                                className="si__update__title__field si__update__title__field__relative" 
+                                                name={`${update}.update_title`} 
+                                                type="text" 
+                                                component="textarea" 
+                                                label="update_text" 
+                                                maxLength={60} 
+                                                onBlur={() => this.requestChange(index)} disabled={fieldDis}
+                                            />
+                                            <span>{update_single_title_length}</span>
+                                        </div>
                                         <FieldArray name="update_tags" component={SIUpdateTagRender} props={this.createUpdateTagRenderProps(index)} />
 
                                         <div className="si__update__milestone__container">
-                                            <Field id={si__update__border__none} className="si__update__milestone__field" name={`${update}.update_text`} type="textarea" component="textarea" label="update_text" maxLength={300} onBlur={() => this.requestChange(index)} disabled={fieldDis}/>
+                                            <Field id={si__update__border__none} 
+                                                   className="si__update__milestone__field" 
+                                                   name={`${update}.update_text`} 
+                                                   type="text" 
+                                                   component="textarea" 
+                                                   label="update_text" 
+                                                   maxLength={300} 
+                                                   onBlur={() => this.requestChange(index)} disabled={fieldDis}
+                                            />
+                                            <span>{update_single_milestone_length}</span>
+
                                         </div>
                                     </div>
                                 }

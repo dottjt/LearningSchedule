@@ -4,7 +4,9 @@ import { SagaIterator } from 'redux-saga';
 import axios from 'axios';
 // import { Map } from 'immutable';
 
-import { initialIndicatorStateSucceeded, requestInitialIndicatorState, initialIndicatorStateFailed } from './indicator_ar';
+import { requestInitialIndicatorState,
+         initialIndicatorStateSucceeded, 
+         initialIndicatorStateFailed } from './indicator_ar';
 
 /* 
                     OVERVIEW
@@ -45,7 +47,7 @@ export function* initialSchedulesStateSaga(): SagaIterator {
 
   try {
        
-    yield put(requestInitialIndicatorState())   
+    yield put(requestInitialIndicatorState()) 
     
     let schedules = yield call(apiInitialSchedulesState);     
 
@@ -107,7 +109,9 @@ export function* addScheduleSaga(action): SagaIterator {
 
     // let token = localStorage.getItem('id_token') || null
     //    if (token) { }
-    
+
+    yield put(requestInitialIndicatorState()) 
+
     console.log("working")
     let username = action.data.get('username');
     let schedule_url = action.data.get('schedule_url');
@@ -116,6 +120,7 @@ export function* addScheduleSaga(action): SagaIterator {
 
    
     yield put(addScheduleSucceeded(action.data));
+    yield put(initialIndicatorStateSucceeded())
 
      // from action
 
@@ -125,8 +130,10 @@ export function* addScheduleSaga(action): SagaIterator {
   }
   catch (err) {
     yield put(addScheduleFailed(err));
+    yield put (initialIndicatorStateFailed(err));
   }
 }
+
 
 
 
@@ -159,8 +166,11 @@ export function apiRemoveSchedule(schedule_id: string) {
 }
 
 
+
 export function* removeScheduleSaga(action): SagaIterator {
   try {
+
+    yield put(requestInitialIndicatorState()) 
 
 //    let token = localStorage.getItem('id_token') || null
     // if (token) {    }
@@ -171,10 +181,13 @@ export function* removeScheduleSaga(action): SagaIterator {
 
     yield put(removeScheduleSucceeded(action.data));
     // from action   
+    yield put(initialIndicatorStateSucceeded())
 
   }
   catch (err) {
     yield put (removeScheduleFailed(err));
+    yield put (initialIndicatorStateFailed(err));
+
   }
 }
 
@@ -217,8 +230,13 @@ function redirectChangeScheduleUrl(username, schedule_url) {
     	return window.location.href = "/" + username + "/schedule/" + schedule_url;
 }
 
+
+
 export function* changeScheduleUrlSaga(action): SagaIterator {
+    
   try {
+
+    yield put(requestInitialIndicatorState()) 
 
 //    let token = localStorage.getItem('id_token') || null
 
@@ -236,6 +254,8 @@ export function* changeScheduleUrlSaga(action): SagaIterator {
     // since the json won't send. I don't know why. 
 
     yield put(changeScheduleUrlSucceeded(action.data));
+    yield put(initialIndicatorStateSucceeded())
+
     // from action
  
     // maybe the general rule is to simply update the reducer first, 
@@ -247,6 +267,7 @@ export function* changeScheduleUrlSaga(action): SagaIterator {
   }
   catch (err) {
     yield put (changeScheduleFailed(err));
+    yield put (initialIndicatorStateFailed(err));
   }
 }
 
@@ -291,8 +312,10 @@ export function apiChangeSchedule(schedule_title, schedule_summary, schedule_id)
 }
 
 
+
 export function* changeScheduleSaga(action): SagaIterator {
   try {
+    yield put(requestInitialIndicatorState()) 
 
 //    let token = localStorage.getItem('id_token') || null
 
@@ -311,6 +334,8 @@ export function* changeScheduleSaga(action): SagaIterator {
     // since the json won't send. I don't know why. 
 
     yield put(changeScheduleSucceeded(action.data));
+      yield put(initialIndicatorStateSucceeded())
+ 
     // from action
  
     // maybe the general rule is to simply update the reducer first, 
@@ -321,6 +346,7 @@ export function* changeScheduleSaga(action): SagaIterator {
   }
   catch (err) {
     yield put (changeScheduleFailed(err));
+    yield put (initialIndicatorStateFailed(err));
   }
 }
 

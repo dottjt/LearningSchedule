@@ -47,18 +47,18 @@ export const initialIndicatorStateFailed = err => ({type: INITIAL_INDICATOR_STAT
                                                 */
 
 
-export function indicator(state = "green", action) {
+export function indicator(state = "orange", action) {
     
     switch(action.type) {
-
+        
         case REQUEST_INITIAL_INDICATOR_STATE: 
             return state = "orange";
-
+        
         case INITIAL_INDICATOR_STATE_SUCCEEDED: 
             return state = "green";
 
         case INITIAL_INDICATOR_STATE_FAILED: 
-            return state = "orange";
+            return state = "red";
 
         default:
             return state;

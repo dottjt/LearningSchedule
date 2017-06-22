@@ -145,21 +145,25 @@
 	text-decoration: none;
 	outline: none;
 	border: none;
+	resize: none;
+	overflow:hidden; 
     /*word-wrap: break-word;*/
     /*word-break: break-all;*/
 
 	line-height: 2.8rem;
 	width: 100%;
 	display: block;
-
-
+	height: 3rem;
 }
 
-.sm__title__schedule_title__field:hover {
-	text-decoration: none;
-	color: black;
+.si__title__length {
+	display: none;
 }
 
+
+.sm__title__schedule__title:active .si__title__length{
+	display: block;
+}
 
 .sm__schedule {
 	/*margin-left: 5rem; */
@@ -253,7 +257,7 @@
     }
 
 	.sm__title__schedule__title {
-		font-size: 1.6rem;
+		/*font-size: 1.6rem;*/
 	}
 
 	.sm__title {
