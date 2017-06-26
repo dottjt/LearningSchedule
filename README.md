@@ -18,6 +18,10 @@ This project goes from being broken to fully functional as I implement new featu
 
 # Updates 
 
+**26-06-17** - Refactored more css. So, so, so, so, so close to making it responsive. Working with textarea elements is a nightmare, not to mention that the CMS is built into the presentation, so I have to figure out how to make it perfectly functional, as well as look nice for four different views. Nearly done though! You're mine, Wilkins. 
+
+**25-06-17** - Redux-Form is being a bit of a nightmare. Implementing input counters is proving difficult, because there's three level of abstraction I need to deal with, and having to continually update via the reducer is proving quite slow, even though it's uni-directional. Though I think the app needs a huge update to performance in general, given I haven't really paid much attention to it. 
+
 **24-06-17** - NA. More Angular and C#. Spent a heap of time learning about Observables, C# Razor templates and Entity Framework. Also, a heap of C# features. My gosh, talk about a progressive, static language. 
 
 **23-06-17** - NA. Decided to learning Angular and C# instead. Angular, while philosophically broken, clunky and largely devoid of actual Javascript - is a tooling wet dream. I think maybe that makes it worth it? C# and asp.net core is also incredibly nice. 
