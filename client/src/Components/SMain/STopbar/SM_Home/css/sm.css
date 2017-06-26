@@ -114,7 +114,13 @@
     font-weight: 100;
 }
 
+.sm__updatelink__outer__container {
+    margin-top: 4rem;
+}
+
 .sm__updatelink__inner__container {
+    display: flex;
+    flex-direction: column;
     width: 80%;
     margin: 0 auto; 
 }
@@ -125,6 +131,8 @@
     flex-wrap: wrap;
     width: 800px;
     margin: 0 auto;
+    margin-top: 4rem;
+
 }
 
 .sm__taglink__inner__container {
@@ -201,6 +209,23 @@
 }
 
 
+@media screen and (min-width: 1600px){
+
+    .sm__latest_schedules {
+        width: 55%;
+    }
+
+}
+
+
+@media screen and (min-width: 1200px){
+
+    .sm__latest_schedules {
+        width: 60%;
+    }
+
+}
+
 @media screen and (max-width: 900px){
 
     .sm__updatelink {
@@ -212,7 +237,8 @@
     }
 
     .sm__latest_schedules {
-        margin-top: 14rem;
+        margin-top: 5rem;
+        padding-left: 5rem;
         width: 85%;
     }
 
@@ -235,6 +261,9 @@
     .sm__see_more__link {
         padding: 2rem;
     
+    }
+    .sm__latest_schedules {
+        padding-left: 2rem;
     }
 }
 

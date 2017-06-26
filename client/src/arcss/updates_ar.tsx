@@ -92,7 +92,7 @@ export const addUpdateFailed = err => ({type: ADD_UPDATE_FAILED, err});
 
             // okay, so it sends an { updates: [array]}
             // need a helper funciton that sorts through the array and gets the right data. 
-export function apiAddUpdate(schedule_id, schedule_url, updates_id, update_id, update_title, update_text, update_summary, update_type, update_tags_id, username) {
+export function apiAddUpdate(schedule_id, schedule_url, updates_id, update_id, update_title, update_text, update_summary, update_type, update_tags_id, username, update__title__length, update__text__length, update__summary__length) {
     
     return axios({
             method: 'post',
@@ -107,7 +107,10 @@ export function apiAddUpdate(schedule_id, schedule_url, updates_id, update_id, u
                 update_summary,
                 update_type,
                 update_tags_id,
-                username
+                username,
+                update__title__length,
+                update__text__length,
+                update__summary__length
             }
             // headers: { 'Authorization': 'Bearer ' + token }
         });
@@ -135,7 +138,11 @@ export function* addUpdateSaga(action): SagaIterator {
     let update_summary = action.data.get('update_summary');
     let username = action.data.get('username');
 
-    yield call(apiAddUpdate, schedule_id, schedule_url, updates_id, update_id, update_title, update_text, update_summary, update_type, update_tags_id, username);
+    let update_title_length = action.data.get('update_title_length');
+    let update_text_length = action.data.get('update_text_length');
+    let update_summary_length = action.data.get('update_summary_length');
+
+    yield call(apiAddUpdate, schedule_id, schedule_url, updates_id, update_id, update_title, update_text, update_summary, update_type, update_tags_id, username, update_title_length, update_text_length, update_summary_length);
 
     yield put(addUpdateSucceeded(action.data));
 
@@ -144,6 +151,78 @@ export function* addUpdateSaga(action): SagaIterator {
     yield put (addUpdateFailed(err));
   }
 };
+
+
+
+
+
+
+/*
+
+            CHANGE_LENGTH_UPDATE_ACTION_CREATORS 
+                                                */
+
+
+
+
+
+export const REQUEST_CHANGE_LENGTH_UPDATE = 'REQUEST_CHANGE_LENGTH_UPDATE';
+export const CHANGE_LENGTH_UPDATE_SUCCEEDED = 'CHANGE_LENGTH_UPDATE_SUCCEEDED';
+export const CHANGE_LENGTH_UPDATE_FAILED = 'CHANGE_LENGTH_UPDATE_FAILED';
+
+export const requestChangeLengthUpdate = data => ({type: REQUEST_CHANGE_LENGTH_UPDATE, data});
+export const changeLengthUpdateSucceeded = data => ({type: CHANGE_LENGTH_UPDATE_SUCCEEDED, data});
+export const changeLengthUpdateFailed = err => ({type: CHANGE_LENGTH_UPDATE_FAILED, err});
+
+
+
+/*
+            ADD_UPDATE_ASYNC_ACTIONS
+                                                */
+
+
+
+            // okay, so it sends an { updates: [array]}
+            // need a helper funciton that sorts through the array and gets the right data. 
+// export function apiChangeLengthUpdate(schedule_id, schedule_url, updates_id, update_id, update_title, update_text, update_summary, update_type, update_tags_id, username) {
+    
+//     return axios({
+//             method: 'post',
+//             url: 'api/v1/updates',
+//             data: {
+//                 update__title__length,
+//                 update__text__length,
+//                 update__summary__length
+//             }
+//             // headers: { 'Authorization': 'Bearer ' + token }
+//         });
+// };
+
+export function* changeLengthUpdateSaga(action): SagaIterator {
+  try {
+
+
+    console.log("saga", action.data.toJS())
+    // console.log(action.data.toJS())
+
+    // let token = localStorage.getItem('id_token') || null
+    // if (token) {    }
+
+    // let update__title__length = action.data.get('update_text');
+    // let update__text__length = action.data.get('update_text');
+    // let update__summary__length = action.data.get('update_summary');
+    // let username = action.data.get('username');
+
+    // yield call(apiAddUpdate, schedule_id, schedule_url, updates_id, update_id, update_title, update_text, update_summary, update_type, update_tags_id, username);
+
+    yield put(changeLengthUpdateSucceeded(action.data));
+
+  }
+  catch (err) {
+    yield put (changeLengthUpdateFailed(err));
+  }
+};
+
 
 
 
@@ -296,7 +375,7 @@ export const changeUpdateFailed = err => ({type: CHANGE_UPDATE_FAILED, err});
                                                 */
 
 
-export function apiChangeUpdate(update_id: string, update_title: string, update_text: string, update_summary: string) {
+export function apiChangeUpdate(update_id: string, update_title: string, update_text: string, update_summary: string) { // update_title_length, update_text_length, update_summary_length
     // check to see if this is okay.
         axios({
             method: 'put',
@@ -305,6 +384,10 @@ export function apiChangeUpdate(update_id: string, update_title: string, update_
                update_title,
                update_text,
                update_summary
+
+              //  update_title_length, 
+              //  update_text_length, 
+              //  update_summary_length
             }
             // headers: { 'Authorization': 'Bearer ' + token }
         
@@ -316,16 +399,20 @@ export function* changeUpdateSaga(action) {
 
   // let token = localStorage.getItem('id_token') || null
   // if (token) {  }
+
   let update_id = action.data.get('update_id');
+
   let update_title = action.data.get('update_title');
   let update_text = action.data.get('update_text');
   let update_summary = action.data.get('update_summary');
 
-  console.log('this far? ')
-  yield call(apiChangeUpdate, update_id, update_title, update_text, update_summary);  
+  // let update_title_length = action.data.get('update_title_length');
+  // let update_text_length = action.data.get('update_text_length');
+  // let update_summary_length = action.data.get('update_summary_length');
+
+  yield call(apiChangeUpdate, update_id, update_title, update_text, update_summary); //  update_title_length, update_text_length, update_summary_length
 
   yield put(changeUpdateSucceeded(action.data));
-  // from action 
     
 }
   catch (err) {
@@ -350,13 +437,25 @@ export function updates(state = List(), action) {
         case INITIAL_UPDATES_STATE_SUCCEEDED: 
             return state = fromJS(action.updates);
 
-        case CHANGE_UPDATE_SUCCEEDED: 
+        case CHANGE_UPDATE_SUCCEEDED:
             return state = fromJS(state).map(update => {
                 if (update.get('update_id') === action.data.get('update_id')) {
                     return update.set('update_title', action.data.get('update_title'))
                                   .set('update_text', action.data.get('update_text'))
                                   .set('update_summary', action.data.get('update_summary'))
-                               
+                                  // .set('update_text_length', action.data.get('update_text_length'))
+                                  // .set('update_title_length', action.data.get('update_title_length'))
+                                  // .set('update_summary_length', action.data.get('update_summary_length'))
+                };
+                return update;
+            });
+
+        case CHANGE_LENGTH_UPDATE_SUCCEEDED: 
+            return state = fromJS(state).map(update => {
+                if (update.get('update_id') === action.data.get('update_id')) {
+                    return update.set('update__title__length', action.data.get('update__title__length'))
+                                  .set('update__text__length', action.data.get('update__text__length'))
+                                  .set('update__summary__length', action.data.get('update__summary__length'))
                 };
                 return update;
             });

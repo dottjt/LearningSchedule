@@ -1,7 +1,4 @@
 .si__tag__container {
-	display: flex;
-	flex-direction: column;
-
 	width: 800px;
 	margin: 0 auto;
 
@@ -12,23 +9,22 @@
 .si__tag__outer {
 	display: flex;
       flex-direction: row; 
-      
-      padding-left: 5rem;
+      flex-wrap: wrap;
+
+      margin-left: 5rem;
+      margin-bottom: 1rem;
       width: 700px;
 }
 
 .si__tag__inner {
-      margin-top: 0.1rem;
-}
-
-.si__tag__group {
-      float: left;
       border: 1px solid #242526;
       border-radius: 2px;
-      width: 9.5rem;
+      width: 11.2rem;
+      /* it can't be any less than 11.2rem, otherwise it'll collapse. */
       height: 1.4rem;
       margin: 2px;
 }
+
 
 
 .si__tag__title__field {
@@ -59,11 +55,22 @@
 
 }
 
+.si__tag__add__container {
+      border-radius: 2px;
+      border: 1px solid white;
+      width: 11.2rem;
+      height: 1.4rem;
+      margin: 2px;
+      display: flex;
+      align-items: center;
+
+}
+
+
 .si__tag__add {
-      margin-left: 0.2rem;
+      /*margin-left: 0.2rem;
       position: relative;
-      top: 0.2rem;
-      float: left;     
+      top: 0.2rem;*/
       outline: none;
 
       border-bottom: 1px solid darkgrey;
@@ -84,8 +91,8 @@
 }
 
 #si__tag__add__text {
-      position: relative;
-      top: 1px;
+      /*position: relative;
+      top: 1px;*/
 }
 
 #si__tag__display__none {
@@ -114,31 +121,40 @@
 
 
 @media screen and (max-width: 900px){
-    .si__tag__container {
-      padding-left: 0;
-      width: 100%;
-    }
+      .si__tag__container {
+            padding-left: 0;
+            width: 100%;
+      }
 
       .si__tag__outer {
-            padding-left: 3.5rem;
-            font-size: 2.2rem;
-            margin-top: 0;
-            width: 95%;
-            display: block;
+            margin-left: 3.5rem;
       }
+
+      .si__tag__add {
+            width: 100%;
+      }
+      
 }
 
 
 @media screen and (max-width: 700px){
     .si__tag__container {
-		width: 90%;
+		width: 92%;
 
     }
+      .si__tag__outer {
+            margin-left: 2rem;
+            font-size: 1.8rem;
+            margin-top: 0;
+            width: 95%;
 
-    .si__tag__outer {
-        padding-left: 2rem;
+      }
 
-    }
+      .si__tag__inner {
+            float: left; 
+      }
+
+
 }
 
 
@@ -146,9 +162,11 @@
       .si__tag__container {
             padding-left: 0rem;
       }
-
       .si__tag__outer {
-            padding-left: 0rem;
-            font-size: 1.8rem;
+            margin-left: 0rem;
+      }
+
+      #si__tag__add__text {
+            /*top: 0;*/
       }
 }

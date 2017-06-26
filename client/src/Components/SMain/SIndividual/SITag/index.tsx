@@ -32,7 +32,8 @@ class SITag extends React.Component<SITagProps & SITagPassedProps, undefined> {
 
 
     return (
-            <form id={login_status_var} className="si__tag__container">
+            <form id={login_status_var} className=""> 
+                {/*si__tag__container*/}
                 <FieldArray name="tags" component={SITagRender} props={propsObject}/>
             </form>
     )

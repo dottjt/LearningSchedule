@@ -96,7 +96,7 @@
 }
 
 .si__update__date {
-    width: 7rem;
+    width: 8rem;
     margin-left: 0.2rem;
     font-size: 1.05rem;
     line-height: 1.8rem; 
@@ -113,27 +113,31 @@
 }
 
 .si__update__title__field {
-    width: 30rem;
     font-size: 1.05rem;
     line-height: 1.8rem; 
-    outline: none;
-    resize: none;
-    overflow: hidden;
+    background: white;
     color: #242526;
     
     font-weight: 100;
+    width: 100%;
+    border: none;
+  	outline: none;
+    overflow: hidden;
+    resize: none;
+
+
+    width: 25rem;
     height: 1.6rem;
+
+    margin-bottom: 1rem;
+
     position: relative;
     bottom: 0.1rem;
-    margin-bottom: 1rem;
-}
-
-.si__update__title__field__relative {
-    position: relative;
     top: 0.5px;
+
 }
 
-.si__update__text__container {
+.si__update__generic__field__container {
     font-size: 1.05rem;
     line-height: 1.8rem; 
     outline: none;
@@ -146,14 +150,18 @@
     color: #242526;
     
     font-weight: 100;
+    /*width: 40.4rem;*/
+    width: 90%; 
 }
 
 
-.si__update__text__container:hover {
+.si__update__generic__field__container:hover {
     padding-left: 0px;
     border-left: 2px solid white;
     /* this has been turned off in favour for the other style*/
 }
+
+
 
 
 /*
@@ -162,83 +170,6 @@
                             */
 
 
-.si__update__link__container {
-    width: 44rem;
-    font-size: 1.05rem;
-    line-height: 1.8rem; 
-    float: left;
-    outline: none;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    margin-left: 0.2rem;
-
-    position: relative;
-    padding-left: 2px;
-
-    color: #242526;
-    
-    font-weight: 100;
-
-}
-
-.si__update__link__field {
-    font-size: 1.05rem;
-    line-height: 1.8rem; 
-    color: #242526;
-    
-
-    border:none;
-    background-image:none;
-    background-color:transparent;
-    box-shadow: none;
-    resize: none;
-
-    float: left; 
-    height: 1.8rem;
-    width: 40rem;
-    font-weight: 600;
-
-}
-
-
-
-
-.si__update__link__summary__container {
-    width: 44rem;
-    font-size: 1.05rem;
-    line-height: 1.8rem; 
-    float: left;
-    outline: none;
-    margin-bottom: 1.5rem;
-    margin-left: 0.2rem;
-
-    position: relative;
-    padding-left: 2px;
-
-    color: #242526;
-    
-    font-weight: 100;
-
-}
-
-.si__update__link__summary__field {
-    font-size: 1.05rem;
-    line-height: 1.8rem; 
-    color: #242526;
-    
-
-    border:none;
-    background-image:none;
-    background-color:transparent;
-    box-shadow: none;
-    resize: none;
-
-    float: left; 
-    height: 1.8rem;
-    width: 40rem;
-    font-weight: 100;
-
-}
 
 .si__update__select__container {
     display: flex;
@@ -273,37 +204,91 @@
 
 }
 
-
-
-
-
-
-
-
-.si__update__text__field {
+.si__update__generic__field {
     font-size: 1.05rem;
     line-height: 1.8rem; 
     background: white;
     color: #242526;
     
     font-weight: 100;
-
-    height: 8.5rem;
     width: 100%;
-
     border: none;
   	outline: none;
     overflow: hidden;
     resize: none;
+}
 
-    /*min-height: 6rem;
-    overflow: hidden;*/
+/*
+
+    SINGLE
+
+            */
+
+.update__single__title__field {
+    margin-top: 0.8rem;
+    height: 2rem;
+}
+
+.update__single__text__field {
+    height: 8.5rem;
+}
+
+.update__single__link__field {
+    height: 2rem;
+}
+
+.update__single__milestone__field {
+    height: 2rem;
+}
+
+.update__single__link__summary__field {
+    height: 5.4rem;
+
+}
+
+/*
+
+    OTHER
+
+            */
+
+.si__update__text__field {
+    height: 8.5rem;
+}
+
+.si__update__link__field {
+    background-image:none;
+    background-color:transparent;
+    box-shadow: none;
+
+    height: 1.8rem;
+    font-weight: 600;
+}
+
+.si__update__link__summary__field {
+    background-image:none;
+    background-color:transparent;
+    box-shadow: none;
+
+    height: 4rem;
+    font-weight: 100;
+}
+
+.si__update__milestone__field {
+    background-image:none;
+    background-color:transparent;
+    box-shadow: none;
+    resize: none;
+    height: 1.8rem;
+}
+
+.update__single__field__container {
+    border-bottom: 1px solid #dbdbdb;
 }
 
 .update__text__field:hover {
     text-decoration: underline;
 }
-
 
 .update__text__field:focus {
     text-decoration: none;
@@ -312,65 +297,6 @@
 .update__start__date {
     margin-left: 4rem; 
 	margin-bottom: 2rem; 
-
-}
-
-.update__start__date__field {
-   	font-size: 2rem;
-	width: 40rem; 
-}
-
-.header__title__single {
-    margin-left: 4rem;
-    width: 800px;
-    line-height: 1.6rem; 
-    float: left;
-    outline: none;
-    margin-bottom: 3.5rem;
-    
-    position: relative;
-    padding-left: 4rem;
-
-    
-    font-weight: 100;
-    font-size: 1.05rem;
-
-}
-
-
-
-
-
-
-
-.si__update__single__container {
-    /*border: 1px solid black;*/
-    /*border-radius: 2px;*/
-
-    width: 40.3rem;
-    margin-bottom: 2rem;
-
-}
-
-/*.update__single__field__container {
-    width: 40rem;
-    height: 12rem;
-    border-bottom: 1px solid #f8f8f8;
-}*/
-
-.update__single__title__field {
-    font-size: 1.05rem;
-    line-height: 1.8rem; 
-    color: #242526;
-    
-    font-weight: 100;
-    
-    resize: none;
-
-    margin-top: 0.8rem;
-    width: 100%;
-    height: 2rem;
-
 }
 
 
@@ -380,19 +306,10 @@
     height: 8rem;
 }
 
-.update__single__text__field {
-    font-size: 1.05rem;
-    line-height: 1.8rem; 
-    color: #242526;
+
+
+.update_single_text_length {
     
-    font-weight: 100;
-
-    width: 40rem;
-    height: 8.5rem;
-
-    overflow: none;
-    resize: none;
-    border: none;
 }
 
 
@@ -402,52 +319,6 @@
 
                             */
 
-.update__single__link__container {
-    float: left;
-    margin-top: 0.8rem;
-    width: 40.2rem;
-    height: 8rem;
-    /*display: flex;
-    align-items: center; 
-    justify-content: center;*/
-
-}
-
-
-
-.update__single__link__field {
-    float: left; 
-    font-size: 1.05rem;
-    line-height: 1.8rem; 
-    color: #242526;
-    
-    font-weight: 100;   
-    display: block; 
-
-    height: 2rem;
-    width: 40.8rem; 
-
-    resize: none;
-    border: none;
-}
-
-.update__single__link__summary__field {
-    float: left; 
-    font-size: 1.05rem;
-    line-height: 1.8rem; 
-    color: #242526;
-    
-    font-weight: 100;   
-    display: block; 
-
-    height: 5.4rem;
-    width: 40.8rem; 
-
-    resize: none;
-    border: none;
-    
-
-}
 
 
 .update__single__link__field__bottom {
@@ -462,73 +333,10 @@
 
 
 .update__single__milestone__container {
-    float: left;
-    margin-top: 0.8rem;
-    margin-left: 0.2rem;
-
-    width: 40.2rem;
     height: 8rem;
     display: flex;
     align-items: center; 
     justify-content: center;
-}
-
-.update__single__milestone__field {
-    font-size: 1.05rem;
-    line-height: 1.8rem; 
-    color: #242526;
-    
-    font-weight: 100;
-
-    float: left;
-    margin-top: 0.8rem;
-    width: 40rem;
-    height: 2rem;
-
-    resize: none;
-    border: none;
-
-}
-
-
-
-.si__update__milestone__container {
-    width: 44rem;
-    font-size: 1.05rem;
-    line-height: 1.8rem; 
-    float: left;
-    outline: none;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    margin-left: 0.2rem;
-    
-    position: relative;
-    padding-left: 2px;
-    color: #242526;
-    
-    font-weight: 100;
-
-}
-
-
-
-
-.si__update__milestone__field {
-    font-size: 1.05rem;
-    line-height: 1.8rem; 
-    color: #242526;
-    
-
-    border:none;
-    background-image:none;
-    background-color:transparent;
-    box-shadow: none;
-    resize: none;
-
-    float: left;
-    height: 1.8rem;
-    width: 40rem;
-
 }
 
 
@@ -600,9 +408,19 @@
 
 	.si__update__top_layer {
 		display: block;
-        width: 80%;
+        /*width: 100%;*/
         height: 5rem;
 	}
+
+    .si__update__link__field {
+        height: 3.5rem;
+    }
+
+    .si__update__text__field {
+        height: 12rem;
+    }
+
+
 
 }
 
@@ -625,9 +443,10 @@
     .update__single__text__field {
         width: 100%;
     }
+
     .si__update__title__field {
         margin-top: 1rem;
-        width: 100%; 
+        width: 90%; 
     }
 
     .si__update__tag__individual__container {
@@ -641,6 +460,14 @@
         display: none;
     }
 
+    .si__update__link__summary__field {
+        height: 13rem;
+    }
+
+    .si__update__text__field {
+        height: 15rem;
+    }
+
 
 }
 
@@ -648,6 +475,21 @@
 
 @media screen and (max-width: 600px){
 
+	.si__update__top_layer {
+
+	}
+
+    .si__update__text__field {
+        height: 20rem;
+    }
+
+}
+
+@media screen and (max-width: 500px){
+
+    .si__update__text__field {
+        height: 24rem;
+    }
 
 	.si__update__top_layer {
 
@@ -658,3 +500,15 @@
 }
 
 
+
+
+
+/* PAID FEATURES
+
+
+.update__start__date__field {
+   	font-size: 2rem;
+	width: 40rem; 
+}
+
+*/

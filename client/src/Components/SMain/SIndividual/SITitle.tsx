@@ -25,6 +25,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 		this.changeScheduleUrl = this.changeScheduleUrl.bind(this);
 		this.changeScheduleSummary = this.changeScheduleSummary.bind(this);
 		
+
 		this.getScheduleTitleLength = this.getScheduleTitleLength.bind(this);
 		this.getScheduleUrlLength = this.getScheduleUrlLength.bind(this);
 		this.getScheduleSummaryLength = this.getScheduleSummaryLength.bind(this);
@@ -164,8 +165,8 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 
 
 		return (
-				<form className="sm__title__container">
-					<div className="sm__title__top_layer">
+				<form> {/*className="sm__title__container"*/}
+					<div className="sm__title__top_layer sm__title__top_layer__padding">
 						{/* Display Profile Picture, Date and Username */}
 							{/* Profile Picture */}
 						<div className="sm__title__top_layer__left">
@@ -214,7 +215,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 									onBlur={handleSubmit(values => this.changeScheduleTitle(values))}
 									onChange={handleSubmit(values => this.onScheduleTitleLengthChange(values))}
 									/>
-							<span>{schedule_title_length}</span>
+							<span className="si__title__length">{schedule_title_length}</span>
 									
 						</div>
 
@@ -232,12 +233,12 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 									maxLength={60}
 									onBlur={handleSubmit(values => this.changeScheduleUrl(values))}
 									/>
-							<span>{schedule_url_length}</span>
+							<span className="si__url__length">{schedule_url_length}</span>
 
 						</div>
 
 						{/* Schedule Summary */}
-						<div className="sm__schedule">
+						<div className="sm__schedule sm__schedule__no__margin">
 
 							<Field id={si__title__border__none} className="sm__title__schedule__summary sm__title__schedule__summary__resize" 
 									name="schedule_summary" 
@@ -248,7 +249,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 									maxLength={300}
 									onBlur={handleSubmit(values => this.changeScheduleSummary(values))}
 									/>
-							<span>{schedule_summary_length}</span>
+							<span className="si__summary__length">{schedule_summary_length}</span>
 
 						</div>
 

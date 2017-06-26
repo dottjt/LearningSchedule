@@ -111,21 +111,20 @@ class SITagRender extends React.Component<SITagRenderProps & SITagRenderPassedPr
             <div className="si__tag__outer">
 
                 {fields.map((tag, index) =>//tags[2] etc.
-                    <div className="si__tag__inner" key={index}>
- 
-                        <div className={`si__tag__group ${si__tag__border__none}`}>
 
-                            <button id={si__tag__display__none} className="si__tag__remove" type="button" title="Remove Tag" onClick={() => this.removeTag(index)}>
-                                x
-                            </button>
+                    <div className={`si__tag__inner ${si__tag__border__none}`} key={index}>
 
-                            <Field id={`add_input_id`} className="si__tag__title__field" name={`${tag}.tag_text`} type="text" component="input" label="Tag Title" maxLength={18} disabled={fieldDis} onBlur={(event) => this.changeTag(event, index)}/>
+                        <button id={si__tag__display__none} className="si__tag__remove" type="button" title="Remove Tag" onClick={() => this.removeTag(index)}>
+                            x
+                        </button>
 
-                        </div>
-                    </div>
-                    
+                        <Field id={`add_input_id`} className="si__tag__title__field" name={`${tag}.tag_text`} type="text" component="input" label="Tag Title" maxLength={18} disabled={fieldDis} onBlur={(event) => this.changeTag(event, index)}/>
+
+                    </div>                    
                 )}
-                    <button className="si__tag__add" id={`${si__tag__display__none}`} type="text" onClick={(e) => this.addTag(e)}><span id="si__tag__add__text">Add Tag</span></button>
+                    <div className="si__tag__add__container">                
+                        <button className="si__tag__add" id={`${si__tag__display__none}`} type="text" onClick={(e) => this.addTag(e)}><span id="si__tag__add__text">Add Tag</span></button>
+                    </div>
             </div>
         )
     }

@@ -13,7 +13,10 @@ exports.seed = (knex, Promise) => {
         update_text: 'I feel like I finally understand react/redux, even though I’ve done it so many times before. Oh, and it’s the first time I managed to successfully build a functioning backend! I can also do async, though I know it’s not well enough. I also learnt SO MUCH vanilla javascript and how to work with objects and arrays, as well as all the nitty gritty details of Javascript. I’m not sure what I want to do anymore, maybe C#? I couldn’t do anymore functional FRP for a while now.',
         update_date: '2017-03-03',
         update_type: 'text',
-        update_tags_id: '1112'
+        update_tags_id: '1112',
+        update_title_length: 12,
+        update_text_length: 473,
+        update_summary_length: 0 
       });
     }).then(() => {
       return knex('update').insert({
@@ -27,7 +30,11 @@ exports.seed = (knex, Promise) => {
         update_date: '2017-03-30',
         update_type: 'link',
         update_summary: 'Explains how to do this thing really well',
-        update_tags_id: '1113'
+        update_tags_id: '1113',
+
+        update_title_length: 12,
+        update_text_length: 45,
+        update_summary_length: 41 
       });
     }).then(() => {
       return knex('update').insert({
@@ -40,7 +47,11 @@ exports.seed = (knex, Promise) => {
         update_text: 'Finished reading C# Advanced techniques!',
         update_date: '2017-03-02',
         update_type: 'milestone',
-        update_tags_id: '1114'
+        update_tags_id: '1114',
+
+        update_title_length: 12,
+        update_text_length: 40,
+        update_summary_length: 0 
       });
     }).then(() => {
         return knex('update').insert({
@@ -53,7 +64,11 @@ exports.seed = (knex, Promise) => {
         update_text: 'Holy Cow. My application officially works! The backend is perfectly connected with the front-end !!!!!! It’s like, the happiest day of my life. Still need to get user authentication to work though...',
         update_date: '2017-04-01',
         update_type: 'text',
-        update_tags_id: '1115'
+        update_tags_id: '1115',
+
+        update_title_length: 26,
+        update_text_length: 199,
+        update_summary_length: 0 
       });
     }).then(() => {
         return knex('update').insert({

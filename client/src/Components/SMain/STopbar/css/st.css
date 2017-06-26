@@ -57,9 +57,32 @@
         left: 1.2rem;
         width: 100%;
     }
+
     .st__bottombar__links__container {
-        display: none;
+        border-top: 1px solid #dbdbdb;
+        margin-top: 12rem;
+        /*display: none;
         width: 0;
-        height: 0;
+        height: 0;*/
     }
+
+
+}
+
+
+@media screen and (max-width: 600px){
+    
+    .st__bottombar__links__container {
+        display: flex; 
+        justify-content: space-around;
+
+    }
+    .st__bottombar__link {
+        margin: 0;
+    }
+
+    .st__bottombar__link--a {
+        font-size: 1rem;
+    }
+
 }

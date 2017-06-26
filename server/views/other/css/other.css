@@ -40,3 +40,15 @@
     font-family: 'Poiret One', sans-serif;
     font-size: 2.4rem;
 }
+
+@media screen and (max-width: 600px) {
+    .other__text__container {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .other__text__container {
+        width: 310px;
+    }
+}

@@ -8,13 +8,16 @@ exports.up = (knex, Promise) => {
       table.string('schedule_id').notNullable();
       table.string('updates_id').notNullable(); 
       table.string('update_id').notNullable().unique();
+      table.string('update_tags_id').notNullable();
 
       table.string('update_type') //.notNullable();
       table.string('update_title');
       table.text('update_text');
       table.text('update_summary');
 
-      table.string('update_tags_id').notNullable();
+      table.integer('update_title_length');
+      table.integer('update_text_length');
+      table.integer('update_summary_length');
 
 
       table.date('update_date').defaultTo(knex.raw('now()'));

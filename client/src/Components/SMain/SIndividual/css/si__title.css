@@ -1,3 +1,5 @@
+
+
 .si__individual__container {
 	display: flex;
 	flex-direction: column;
@@ -5,13 +7,11 @@
 	margin: 0 auto;
 	margin-top: 8rem;
 	margin-bottom: 3.5rem;
-
 }
 
 /*
 	  SI TITLE REMOVE BUTTON
 								*/
-
 
 
 .si__title__remove__schedule {
@@ -26,7 +26,6 @@
     width: 10rem;
     height: 2rem;
 	font-size: 0.9rem;
-
 }
 
 .si__title__remove__schedule:hover {
@@ -67,7 +66,7 @@
 	margin-top: 0.4rem;
 	margin-bottom: 2rem;
 	margin-left: 0.2rem;
-	padding-left: 5rem;
+	margin-left: 5rem;
 
 }
 
@@ -92,11 +91,20 @@
 
 	
 	font-weight: 300;
-
 }
 
+.si__url__length {
+	display: none;
+}
 
+.si__title__schedule_url:focus ~ .si__url__length {
+	display: block;
+}
 
+.si__title__input__resize {
+	width: 90%;
+	margin: 0;
+}
 
 /*
 		SCHEDULE SUMMARY FIELD
@@ -123,33 +131,51 @@
 }
 
 
+.sm__title__schedule__summary__resize {
+	margin-left: 5rem;
+}
 
 
 
 @media screen and (max-width: 900px){
+
     .si__individual__container {
+		margin-left: 2.5rem;
 		width: 85%;
 	}
 
 	.sm__title__schedule__summary__resize {
 		height: 6rem;
+        margin-left: 3.5rem;
 	}
 
 	.si__schedule__url {
-        padding-left: 3.5rem;
+        margin-left: 3.5rem;
+		margin-bottom: 1rem;
 		max-width: 600px;
     }
 
 	.si__title__input__resize {
-		width: 100%;
 		height: 5rem;
+		margin-bottom: 1rem;
 	}
+
 }
 
 @media screen and (max-width: 700px){
+
+    .si__individual__container {
+		margin-left: 1rem;
+	}
+	
     .si__schedule__url {
-        padding-left: 2rem;
+        margin-left: 2rem;
     }
+
+	.sm__title__schedule__summary__resize {
+        margin-left: 2rem;
+	}
+
 
 	.si__title__schedule_url {
 		width: 85%;
@@ -172,9 +198,11 @@
 
 @media screen and (max-width: 600px){
     .si__schedule__url {
-    	padding-left: 0rem;
+    	margin-left: 0rem;
     }
 
+	.sm__title__schedule__summary__resize {
+        margin-left: 0rem;
+	}
+
 }
-
-

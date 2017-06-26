@@ -273,13 +273,15 @@ class SIndividual extends React.Component<SIndividualProps & SIndividualPassedPr
             <ST_Navbar user={user} />
             <div className="sm__homelink">
                 <div className="si__individual__container">
+                    <div className="sm__title__container">
 
-                    {sititle}
+                        {sititle}
 
-                    {sitag}
+                        {sitag}
 
-                    {siupdate}
-
+                        {siupdate}
+                        
+                    </div>
                 </div>
             </div> 
         </div>  

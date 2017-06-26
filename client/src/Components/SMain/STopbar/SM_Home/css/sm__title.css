@@ -157,11 +157,12 @@
 }
 
 .si__title__length {
+	width: 2rem;
+	height: 2rem;
 	display: none;
 }
 
-
-.sm__title__schedule__title:active .si__title__length{
+.sm__title__schedule__title:focus ~ .si__title__length {
 	display: block;
 }
 
@@ -170,6 +171,10 @@
 	margin-bottom: 1.5rem; 
     padding-left: 5rem;	
 	width: 700px;
+}
+
+.sm__schedule__no__margin {
+	padding: 0;
 }
 
 
@@ -183,6 +188,15 @@
 	resize: none;
 	width: 100%;
 }
+
+.si__summary__length {
+	display: none;
+}
+
+.sm__title__schedule__summary:focus ~ .si__summary__length {
+	display: block;
+}
+
 
 .clear {
 	clear: both;
@@ -209,8 +223,8 @@
 		width: 95%;
 	}
 
-	.sm__title__schedule__summary {
-
+	.sm__schedule__no__margin {
+		padding: 0;
 	}
 
 
@@ -218,6 +232,10 @@
 		width: 100%;
     	padding-left: 3.5rem;	
 	}
+
+	/*.sm__title__top_layer__padding {
+		padding-left: 0rem;
+	}*/
 
 }
 
@@ -244,9 +262,19 @@
 		width: 100%;
     }
 
+	.sm__schedule__no__margin {
+		padding: 0;
+	}
+
 	.sm__title__top_layer {
         padding-left: 2rem;
 	}
+
+	/* used to counter-act the above */
+	/*.sm__title__top_layer__padding {
+		padding-left: 0rem;
+	}*/
+
 
 }
 
@@ -267,6 +295,10 @@
 
 	.sm__schedule {
     	padding-left: 0rem;	
+	}
+
+	.sm__schedule__no__margin {
+		padding: 0;
 	}
 
 	.sm__title__top_layer {

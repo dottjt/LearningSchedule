@@ -46,12 +46,14 @@ import { initialUpdatesStateSaga,
          addUpdateSaga,
          removeUpdateSaga,
          removeAllUpdatesSaga,
-         changeUpdateSaga } from './updates_ar';
+         changeUpdateSaga,
+         changeLengthUpdateSaga } from './updates_ar';
 
 import { REQUEST_ADD_UPDATE,
          REQUEST_REMOVE_UPDATE,
          REQUEST_CHANGE_UPDATE,
-         REQUEST_REMOVE_ALL_UPDATES } from './updates_ar';
+         REQUEST_REMOVE_ALL_UPDATES,
+         REQUEST_CHANGE_LENGTH_UPDATE } from './updates_ar';
 
 
 
@@ -145,6 +147,7 @@ export default function* rootSaga(): SagaIterator {
    takeLatest(REQUEST_REMOVE_UPDATE, removeUpdateSaga),
    takeLatest(REQUEST_REMOVE_ALL_UPDATES, removeAllUpdatesSaga),
    takeLatest(REQUEST_CHANGE_UPDATE, changeUpdateSaga),
+   takeLatest(REQUEST_CHANGE_LENGTH_UPDATE, changeLengthUpdateSaga),
 
    takeLatest(REQUEST_ADD_TAG, addTagSaga),
    takeLatest(REQUEST_REMOVE_TAG, removeTagSaga),

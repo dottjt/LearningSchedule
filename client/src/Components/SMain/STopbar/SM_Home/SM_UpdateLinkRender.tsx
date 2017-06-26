@@ -46,21 +46,24 @@ class SM_UpdateLinkRender extends React.Component<SM_UpdateLinkRenderProps, unde
 
             <h3 className="sm__latest_updates">Latest Updates</h3>
 
+            <div className="sm__updatelink__outer__container">
                 {updates.sort((a, b) => { return +new Date(b.get('update_date')) - +new Date(a.get('update_date')); }).map(update =>
                     
                     <div className="sm__updatelink__inner__container" key={update.get('update_id')}>
                         
                         <h3 className="sm__updatelink__schedule__name">
-                            {/*{this.getScheduleName(update.get('schedule_id')).getIn([0, 'schedule_title'])}*/}
                             {update.get('update_title')}
                         </h3>
 
                         <p className="sm__updatelink__update">
                             {moment(update.get('update_date')).format('MMM DD') + " - " +update.get('update_text')}
-                        </p>
+                        </p> 
+                            {/* I need to edit this so is shows milestones and links*/}
+
                     </div> 
 
                 )}
+            </div>
         </div> 
         )
 
