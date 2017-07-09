@@ -18,6 +18,13 @@ This project goes from being broken to fully functional as I implement new featu
 
 # Updates 
 
+**06-07-17** - I haven't been working on my app, at all. Though here's a basic overview of what's going down.
+- Had my anniversary weekend away in Hobart.
+- Been writing resumes, attending coding interviews etc. 
+- Also, I've been learning SOOOOOOO much CSS and Vanilla Javascript as of late, not to mention Wordpress. In fact, that what's I'm doing right now at 12:42pm, but I thought I'd write an update since it's been a while.
+
+**28-06-17** - So, I haven't been working on my app because I've been preparing for (and possibly attending) coding interviews. Super excited, because I've gotten to the last round which I think means I've got the job! My first development job! Yaaaaayyyyyyy!!!!
+
 **26-06-17** - Refactored more css. So, so, so, so, so close to making it responsive. Working with textarea elements is a nightmare, not to mention that the CMS is built into the presentation, so I have to figure out how to make it perfectly functional, as well as look nice for four different views. Nearly done though! You're mine, Wilkins. 
 
 **25-06-17** - Redux-Form is being a bit of a nightmare. Implementing input counters is proving difficult, because there's three level of abstraction I need to deal with, and having to continually update via the reducer is proving quite slow, even though it's uni-directional. Though I think the app needs a huge update to performance in general, given I haven't really paid much attention to it. 
