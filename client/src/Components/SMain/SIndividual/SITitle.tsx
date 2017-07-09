@@ -139,7 +139,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 
 
 	render() {
-		let { schedule_title_length, schedule_url_length, schedule_summary_length } = this.state;
+		// let { schedule_title_length, schedule_url_length, schedule_summary_length } = this.state;
 		const { initialValues, handleSubmit, user, login_status_var, requestRemoveSchedule, requestRemoveAllUpdates, form /* schedule_id */ } = this.props;
 
 		let si__title__display__none, si__title__border__none;  // style to disable forms. 
@@ -215,7 +215,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 									onBlur={handleSubmit(values => this.changeScheduleTitle(values))}
 									onChange={handleSubmit(values => this.onScheduleTitleLengthChange(values))}
 									/>
-							<span className="si__title__length">{schedule_title_length}</span>
+							{/*<span className="si__title__length">{schedule_title_length}</span>*/}
 									
 						</div>
 
@@ -233,7 +233,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 									maxLength={60}
 									onBlur={handleSubmit(values => this.changeScheduleUrl(values))}
 									/>
-							<span className="si__url__length">{schedule_url_length}</span>
+							{/*<span className="si__url__length">{schedule_url_length}</span>*/}
 
 						</div>
 
@@ -249,7 +249,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 									maxLength={300}
 									onBlur={handleSubmit(values => this.changeScheduleSummary(values))}
 									/>
-							<span className="si__summary__length">{schedule_summary_length}</span>
+							{/*<span className="si__summary__length">{schedule_summary_length}</span>*/}
 
 						</div>
 

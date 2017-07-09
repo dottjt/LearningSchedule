@@ -52,20 +52,6 @@ class SIUpdate extends React.Component<SIUpdateProps & SIUpdatePassedProps, SIUp
         }
 	}
 
-
-    // getSingleUpdateTitleLength() {
-    //     return this.props.initialValues.get('update_title').length // 
-    // }
-
-    // getSingleUpdateTextLength() {
-    //     return this.props.initialValues.get('update_text').length // 
-    // }
-
-    // getSingleUpdateSummaryLength() {
-    //     return this.props.initialValues.get('update_summary').length // 
-    // }
-
-
     onSingleUpdateTitleLengthChange(values) {
         let update_single_title = values.get('update_title').length
 		console.log(update_single_title);
@@ -208,7 +194,7 @@ class SIUpdate extends React.Component<SIUpdateProps & SIUpdatePassedProps, SIUp
     // }
 
     render() {
-		let { update_single_title_length, update_single_text_length, update_single_link_length, update_single_summary_length, update_single_milestone_length } = this.state;
+		// let { update_single_title_length, update_single_text_length, update_single_link_length, update_single_summary_length, update_single_milestone_length } = this.state;
         let { handleSubmit, login_status_var, update_type_value } = this.props;
 		let si__update__display__none, si__update__border__none, fieldDis;  // style to disable forms. 
 
@@ -274,7 +260,7 @@ class SIUpdate extends React.Component<SIUpdateProps & SIUpdatePassedProps, SIUp
                                         />
                                         {/*onFocus={handleSubmit(values => this.onSingleUpdateTitleLengthChange(values))}*/}
                                         
-                                <span>{update_single_title_length}</span>
+                                {/*<span>{update_single_title_length}</span>*/}
 
 
                                 {(update_type_value === "text" || update_type_value === undefined) && 
@@ -290,7 +276,7 @@ class SIUpdate extends React.Component<SIUpdateProps & SIUpdatePassedProps, SIUp
                                                 onChange={handleSubmit(values => this.changeLength(values))}
 
                                                 />
-                                        <span>{update_single_text_length}</span>
+                                        {/*<span>{update_single_text_length}</span>*/}
 
                                     </div> 
                                 }
@@ -307,7 +293,7 @@ class SIUpdate extends React.Component<SIUpdateProps & SIUpdatePassedProps, SIUp
                                                 maxLength={350}
                                                 onChange={handleSubmit(values => this.changeLength(values))}
                                                 />
-                                        <span>{update_single_link_length}</span>
+                                        {/*<span>{update_single_link_length}</span>*/}
 
                                         <Field className="update__single__link__summary__field si__update__generic__field update__single__link__field__bottom" 
                                                 name="update_summary" 
@@ -317,7 +303,7 @@ class SIUpdate extends React.Component<SIUpdateProps & SIUpdatePassedProps, SIUp
                                                 maxLength={200}
                                                 onChange={handleSubmit(values => this.changeLength(values))}
                                                 />
-                                        <span>{update_single_summary_length}</span>
+                                        {/*<span>{update_single_summary_length}</span>*/}
 
                                     </div>
                                 }
@@ -335,7 +321,7 @@ class SIUpdate extends React.Component<SIUpdateProps & SIUpdatePassedProps, SIUp
                                             maxLength={80}
                                             onChange={handleSubmit(values => this.changeLength(values))}
                                             />
-                                        <span>{update_single_milestone_length}</span>
+                                        {/*<span>{update_single_milestone_length}</span>*/}
 
                                     </div> 
                                 }

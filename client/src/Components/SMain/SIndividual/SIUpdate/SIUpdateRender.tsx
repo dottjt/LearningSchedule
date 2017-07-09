@@ -341,7 +341,7 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                             />*/}
                                             
                                             {/*<span className="update_single_title_length">{fields.get(index).get('update__title__length')}</span>*/}
-                                            <span className="update_single_title_length">{fields.get(index).get('update_title').length}</span>
+                                            {/*<span className="update_single_title_length">{fields.get(index).get('update_title').length}</span>*/} 
                                             {/*<span>{this.state.update_single_title_length}</span>*/}
 
                                         </div>
@@ -367,7 +367,7 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                                    component="input" 
                                                    disabled={fieldDis}                                            
                                             />*/}
-                                            <span className="update_single_text_length">{fields.get(index).get('update_text').length}</span>
+                                            {/*<span className="update_single_text_length">{fields.get(index).get('update_text').length}</span>*/}
                                             {/*<span>{fields.get(index).get('update_text').length}</span>*/}
 
                                         </div>
@@ -401,7 +401,7 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                                    disabled={fieldDis}                                            
                                             />*/}
                                             
-                                            <span className="update_single_title_length">{fields.get(index).get('update_title').length}</span>
+                                            {/*<span className="update_single_title_length">{fields.get(index).get('update_title').length}</span>*/}
                                             {/*<span>{fields.get(index).get('update_title').length}</span>*/}
                                             
                                         </div>
@@ -427,7 +427,7 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                                    disabled={fieldDis}                                            
                                             />*/}
                                                 
-                                                <span className="update_single_text_length">{fields.get(index).get('update_text_length').length}</span>
+                                                {/*<span className="update_single_text_length">{fields.get(index).get('update_text_length').length}</span>*/}
                                             {/*<span>{fields.get(index).get('update_text').length}</span>*/}
                                                 
                                             </div>
@@ -453,7 +453,7 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                             />*/}
                                             
                                             {/*<span className="update_single_link_summary_length">{fields.get(index).get('update__summary__length')}</span>*/}
-                                            <span className="update_single_summary_length">{fields.get(index).get('update_summary').length}</span>
+                                            {/*<span className="update_single_summary_length">{fields.get(index).get('update_summary').length}</span>*/}
 
                                         </div>
 
@@ -486,7 +486,7 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                             />*/}
                                             
                                             {/*<span className="update_single_milestone_title_length">{fields.get(index).get('update__title__length')}</span>*/}
-                                            <span className="update_single_summary_length">{fields.get(index).get('update_title').length}</span>
+                                            {/*<span className="update_single_summary_length">{fields.get(index).get('update_title').length}</span>*/}
                                             
                                         </div>
                                         <FieldArray name="update_tags" component={SIUpdateTagRender} props={this.createUpdateTagRenderProps(index)} />
@@ -511,7 +511,7 @@ class SIUpdateRender extends React.Component<SIUpdateRenderProps & SIUpdateRende
                                                    disabled={fieldDis}                                            
                                             />                                            */}
                                             {/*<span className="update_single_milestone_text_length">{fields.get(index).get('update__text__length')}</span>*/}
-                                            <span className="update_single_text_length">{fields.get(index).get('update_text').length}</span>
+                                            {/*<span className="update_single_text_length">{fields.get(index).get('update_text').length}</span>*/}
 
                                         </div>
                                     </div>

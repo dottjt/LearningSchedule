@@ -1,0 +1,69 @@
+.left__underlay {
+    position: absolute;
+    width: 100vw;
+}
+
+.right__underlay {
+    position: absolute;
+    width: 100vw;
+}
+
+.left__underlay__text {
+    width: 700px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 4rem;
+    font-size: 4rem;
+
+}
+
+.right__underlay__text {
+    width: 700px;
+    text-align: center;
+    margin: 0 auto;  
+    margin-top: 4rem;  
+    font-size: 4rem;
+    z-index: 300;
+
+}
+
+/*
+
+      RIGHT OVERLAY
+
+                        */
+/*
+.left__overlay-left {
+    position: absolute;
+    height: 100vh;
+    width: 50vw;
+    left: 50vw;
+}*/
+
+
+/*.left__overlay-right {
+    position: absolute;
+    height: 100vh;
+    width: 50vw;
+    left: 50vw;
+    background: white;
+}*/
+
+.right__overlay-left {
+    position: absolute;
+    height: 100vh;
+    width: 50vw;
+
+}
+
+.right__overlay-right {
+    position: absolute;
+    height: 100vh;
+    width: 50vw;
+    left: 50vw; 
+    top: 0;
+    background: white;
+
+}
+
+

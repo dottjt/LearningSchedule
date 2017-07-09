@@ -4,6 +4,7 @@ const router = express.Router();
 const user_queries = require('../queries/user_queries');
 const authHelpers = require('../auth/_helpers');
 
+const yolo = require('../views/other/yolo');
 const about = require('../views/other/about');
 const contact = require('../views/other/contact');
 const blog = require('../views/other/blog');
@@ -20,6 +21,8 @@ router.get('/:username', (req, res, next) => {
             return res.marko(about);
         case 'contact':
             return res.marko(contact);
+        case 'yolo':
+            return res.marko(yolo);
         case 'blog':
             return res.marko(blog);
         case 'login':

@@ -33,7 +33,7 @@ class SM_HomeLinkRender extends React.Component<SM_HomeLinkRenderProps, undefine
                                 tags={tags}
                                 />
 
-                            <Link className="sm__see_more__link" to={`${match.url}/schedule/` + schedule.get('schedule_url') } >
+                            <Link className="sm__see_more__link" to={`${match.url}schedule/` + schedule.get('schedule_url') } >
                                 See more...
                             </Link>
 

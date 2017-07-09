@@ -157,9 +157,9 @@
 }
 
 .si__title__length {
+	font-size: 1rem;
 	width: 2rem;
 	height: 2rem;
-	display: none;
 }
 
 .sm__title__schedule__title:focus ~ .si__title__length {
