@@ -18,7 +18,9 @@ This project goes from being broken to fully functional as I implement new featu
 
 # Updates 
 
-**10-07-17** - I've just been learning a heap of CSS lately, because I feel like that's what been limiting my progress on my app. I've started getting back into my app, but it's hard - ultimately because I feel like it's architecturally flawed. I didn't design it mobile responsive first, deciding not to use normalizer etc. I think the job hunt has also been quite disheartening, basically because there are a limited number of jobs out there and we're in recession - so it's hard to keep going, especially when you know you're already qualified. Eh. I wouldn't have made it this far if I were a quitter, so we soldier on! Fixed a heap of bugs, and responsive issues on the app. 
+**10-07-17** - Fixed so many layout issues on the application today. Only another 850 billion to go ;) 
+
+**09-07-17** - I've just been learning a heap of CSS lately, because I feel like that's what been limiting my progress on my app. I've started getting back into my app, but it's hard - ultimately because I feel like it's architecturally flawed. I didn't design it mobile responsive first, deciding not to use normalizer etc. I think the job hunt has also been quite disheartening, basically because there are a limited number of jobs out there and we're in recession - so it's hard to keep going, especially when you know you're already qualified. Eh. I wouldn't have made it this far if I were a quitter, so we soldier on! Fixed a heap of bugs, and responsive issues on the app. 
 
 **06-07-17** - I haven't been working on my app, at all. Though here's a basic overview of what's going down.
 - Had my anniversary weekend away in Hobart.
