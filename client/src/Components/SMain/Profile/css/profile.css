@@ -3,9 +3,10 @@
 }
 
 .profile__main {
+    margin: 0 auto;
     margin-top: 8rem;
-    margin-left: 7rem;
     
+    width: 80%;
     font-size: 1.8rem;
     font-weight: 100;
 
@@ -14,19 +15,23 @@
 .p__user__container {
     border: 1px solid black;
     width: 90%;
-    height: 20rem;
+    height: auto;
     margin-top: 3rem;
     padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
 
 }
 
 
 .p__user__details__container {
-    float: left; 
     width: 45%;
+    height: 20rem;
 }
 
 .p__user__field__title {
+    width: 14rem;
     margin-top: 1.5rem;
     font-size: 1.2rem;
 }
@@ -67,13 +72,15 @@
 
 
 .p__user__social__container {
-    float: left; 
     width: 45%;
+    height: 20rem;
 }
 
 .p__user__field__social {
     font-size: 1.1rem;
     width: 18rem;
+
+    margin-top: 0.4rem;
 }
 
 
@@ -186,4 +193,36 @@
 	top: 0.3rem;
     float: left; 
 	font-size: 1rem;
+}
+
+
+
+@media screen and (max-width: 900px) {
+
+    .p__user__field__username {
+        width: 14rem;
+    }
+
+    .p__user__field__social {
+        width: 14rem;
+    }
+
+
+}
+
+@media screen and (max-width: 700px) {
+    .p__user__container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .p__user__details__container {
+        height: 25rem;
+    }
+
+    .p__user__details__fields__container {
+        margin-left: 2rem;
+    }
+
+
 }

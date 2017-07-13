@@ -76,6 +76,9 @@
     /*border-bottom: 1px solid darkgrey;*/
     padding: 3px;
     height: 1.2rem;
+
+    text-decoration: underline;
+    color: black;
 }
 
 .st__navbar__profile__li__logout {
@@ -190,6 +193,9 @@
     width: 1.5rem;
     height: 2rem;
     float: right;
+
+/* this is put here so I can work on it at a different point in time. */
+    display: none;
 }
 
 
@@ -308,16 +314,19 @@
     margin-top: 0.2rem;
 	border: 1px solid darkgrey;
     float: left; 
+    width: 65%;
 }
 
 
 .popup__input__title {
 	font-size: 1.8rem;
-	width: 25rem;
+	/*width: 25rem;*/
+    width: 100%;
+    height: 2.1rem;
 	/*outline: none;*/
 	border-bottom: 1px solid white;
     border: 0;
-	
+
 	font-weight: 300;
     float: left;
     padding-bottom: -3px; 
@@ -429,19 +438,45 @@
 
 
 @media screen and (max-width: 900px){
+    
     .st__navbar__form__container {
-    display: none;
+        display: none;
     }
+
     .navbar-form {
         display: none;
     }
+
+    .popup__input__title {
+        font-size: 1rem;
+    }
+
+    .popup__container {
+        width: 80%;
+    }
+}
+
+
+.show-menu-item-600 {
+    display: none;
 }
 
 @media screen and (max-width: 600px){
+
+.show-menu-item-600 {
+    display: block;
+}
+
   .st__navbar__add__container {
     display: none;
   }
+  
   .st__saving__indicator__container {
     display: none;
   }
+
+  .popup__input__title__container {
+    width: 60%;
+  }
+
 }

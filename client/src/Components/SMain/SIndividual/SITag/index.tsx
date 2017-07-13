@@ -11,7 +11,7 @@ class SITag extends React.Component<SITagProps & SITagPassedProps, undefined> {
 
   render() {
 
-    const {schedule_url, schedule_id, username, form, login_status_var } = this.props;
+    const {schedule_url, schedule_id, user, form, login_status_var } = this.props;
     let si__tag__display__none, si__tag__border__none, fieldDis;
 
     if (login_status_var === false) {
@@ -23,7 +23,7 @@ class SITag extends React.Component<SITagProps & SITagPassedProps, undefined> {
     const propsObject = {
         schedule_url: schedule_url,
         schedule_id: schedule_id,
-        username: username,
+        username: user.get('username'),
         form: form, // tags_id 
         si__tag__display__none: si__tag__display__none,
         si__tag__border__none: si__tag__border__none,

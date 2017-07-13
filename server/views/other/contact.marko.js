@@ -29,7 +29,7 @@ function render(input, out) {
       _target: auth_navbar_template
     }, out);
 
-  out.w("<main class=\"other__container\"><h2 class=\"other__title\">Contact</h2><div class=\"other__text__container\"><p>If you would like to contact me, there are a few places you may seek.</p><a href=\"mailto:julius.reade@gmail.com\">julius.reade@gmail.com</a><a href=\"https://twitter.com/juliusreade\">twitter.</a><p>I also have a website that I'm sure you'd be real proud about.</p><a href=\"https://juliusreade.com/\">https://juliusreade.com/</a></div></main>");
+  out.w("<main class=\"other__container\"><h2 class=\"other__title\">Contact</h2><div class=\"other__text__container\"><p>If you would like to contact me, there are a few places you may seek.</p><a href=\"mailto:julius.reade@gmail.com\">julius.reade@gmail.com</a><a href=\"https://twitter.com/juliusreade\">twitter.</a><p>I also have a website that I'm sure would make you real proud.</p><a href=\"https://juliusreade.com/\">https://juliusreade.com/</a></div></main>");
 
   init_components_tag({}, out);
 

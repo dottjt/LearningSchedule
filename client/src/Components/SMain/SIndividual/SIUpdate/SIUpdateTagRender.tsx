@@ -36,9 +36,8 @@ class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdat
         let update_tags_id = currentUpdate.get('update_tags_id'); // will need this one.... 
         // let update_tags_id = fields.get(index).get('update_tags_id');
 
-        console.log(schedule_url)
 
-        requestAddTag(Map({
+        let payload = Map({
             schedule_id,
             schedule_url,
             username,
@@ -48,7 +47,11 @@ class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdat
             tag_index,
             update_tag,
             update_tags_id
-        }));
+        })
+
+        console.log("payload", payload.toJS())
+
+        requestAddTag(payload);
 
         fields.push(Map({tag_text: tag_text}));// need to put it in here!
 
@@ -59,6 +62,7 @@ class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdat
         e.preventDefault();
 
         let { fields, schedule_id, schedule_url, username, requestChangeTag } = this.props; 
+
 
         // currently there is no tag_index property 
         // also need tag_id
@@ -73,6 +77,8 @@ class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdat
         if (tag_text.length > 0 && tag_text.indexOf('#') !== 0 ) {
             tag_text = "#" + tag_text;
         }
+        console.log(fields.get(index).get('tag_text'))
+        console.log(tag_text)
         
         requestChangeTag(Map({
             schedule_id,
@@ -125,7 +131,7 @@ class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdat
 
         const { fields } = this.props; 
         const { currentUpdate } = this.props;
-        const { si__update__display__none, fieldDis } = this.props;
+        const { si__update__display__none, si__update__border__none, fieldDis } = this.props;
                 // si__update__border__none not used 
 /*  
              COMPONENT VIEW
@@ -143,7 +149,7 @@ class SIUpdateTagRender extends React.Component<SIUpdateTagRenderProps & SIUpdat
                         if (fields.get(index).get('update_tags_id') === currentUpdate.get('update_tags_id')) {
                             return (
                                 <div className="si__update__tag__inner" key={index}>
-                                    <div className="si__update__tag__group">
+                                    <div id={`${si__update__border__none}`} className={`si__update__tag__group`}>
                                         <button id={si__update__display__none} className="si__tag__remove" type="button" title="Remove Tag" onClick={() => this.removeTag(index)}>
                                             x
                                         </button>

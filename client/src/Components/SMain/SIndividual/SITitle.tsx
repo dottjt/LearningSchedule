@@ -45,15 +45,21 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 	// populate initial schedule_title_length etc. 
 
 	getScheduleTitleLength() {
-		return this.props.initialValues.get('schedule_title').length // 40
-	}
+		if (this.props.initialValues.get('schedule_title')) {
+			return this.props.initialValues.get('schedule_title').length // 40
+		}
+}
 
 	getScheduleUrlLength() {
-		return this.props.initialValues.get('schedule_url').length // 60
+		if (this.props.initialValues.get('schedule_url')) {
+			return this.props.initialValues.get('schedule_url').length // 60
+		}
 	}
 
 	getScheduleSummaryLength() {
-		return this.props.initialValues.get('schedule_summary').length // 300
+		if (this.props.initialValues.get('schedule_summary')) {
+			return this.props.initialValues.get('schedule_summary').length // 300
+		}
 	}
 
 
@@ -61,7 +67,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 
 	onScheduleTitleLengthChange(values) {
 		let schedule_title = values.get('schedule_title').length
-		console.log(schedule_title);
+		// console.log(schedule_title);
 
 		this.setState({
 			schedule_title_length: schedule_title
@@ -70,7 +76,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 
 	onScheduleUrlLengthChange(values) {
 		let schedule_url = values.get('schedule_url').length
-		console.log(schedule_url);
+		// console.log(schedule_url);
 
 		this.setState({
 			schedule_url_length: schedule_url
@@ -79,7 +85,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 
 	onScheduleSummaryLengthChange(values) {
 		let schedule_summary = values.get('schedule_summary').length
-		console.log(schedule_summary);
+		// console.log(schedule_summary);
 
 		this.setState({
 			schedule_summary_length: schedule_summary
@@ -117,16 +123,20 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 
 	changeScheduleUrl(values) {
 
-		let { requestChangeSchedule, requestInitialIndicatorState } = this.props;
+		let { requestChangeScheduleUrl } = this.props;
 
 		let old_schedule_url = window.location.href.split('/')[5];
 		let new_schedule_url = getSlug(values.get('schedule_url'));
 
+		console.log(old_schedule_url, new_schedule_url);
+
 		if (old_schedule_url !== new_schedule_url) {
 			values = values.set('schedule_url', new_schedule_url)
-			
-			requestInitialIndicatorState();
-			requestChangeSchedule(values);
+
+			console.log("values", values.toJS());
+
+			// requestInitialIndicatorState();
+			requestChangeScheduleUrl(values);
 		}
 	}
 
@@ -151,7 +161,9 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 			fieldDis = true; // true means you're logged in. s
 		}
 
-		if(initialValues !== undefined && this.state.schedule_url_length === 0) {
+		// console.log("initialValues", initialValues.toJS())
+
+		if(initialValues !== null && this.state.schedule_url_length === 0) {
 			this.setState({
 				schedule_title_length: this.getScheduleTitleLength(),
 				schedule_url_length: this.getScheduleUrlLength(), 
@@ -198,7 +210,23 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 						</div>
 					</div>
 
+{/* Schedule Url */}
+						<div id={si__title__display__none} className="si__schedule__url">
+							
+							<p className="si__schedule__url__pre">URL:</p>
 
+							<Field className="si__title__schedule_url" 
+									name="schedule_url" 
+									component="textarea" 
+									type="text" 
+									placeholder="Schedule Url."
+									disabled={fieldDis}
+									maxLength={60}
+									onBlur={handleSubmit(values => this.changeScheduleUrl(values))}
+									/>
+							{/*<span className="si__url__length">{schedule_url_length}</span>*/}
+
+						</div>
 
 
 						{/* Schedule Title */}
@@ -219,23 +247,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 									
 						</div>
 
-						{/* Schedule Url */}
-						<div id={si__title__display__none} className="si__schedule__url">
-							
-							<p className="si__schedule__url__pre">URL:</p>
-
-							<Field className="si__title__schedule_url" 
-									name="schedule_url" 
-									component="textarea" 
-									type="text" 
-									placeholder="Schedule Url."
-									disabled={fieldDis}
-									maxLength={60}
-									onBlur={handleSubmit(values => this.changeScheduleUrl(values))}
-									/>
-							{/*<span className="si__url__length">{schedule_url_length}</span>*/}
-
-						</div>
+						
 
 						{/* Schedule Summary */}
 						<div className="sm__schedule sm__schedule__no__margin">
@@ -265,7 +277,7 @@ class SITitle extends React.Component<SITitleProps & SITitlePassedProps, SITitle
 
                                       */
 
-import { requestChangeSchedule, requestRemoveSchedule } from '../../../arcss/schedules_ar';
+import { requestChangeSchedule, requestChangeScheduleUrl, requestRemoveSchedule } from '../../../arcss/schedules_ar';
 import { requestRemoveAllUpdates } from '../../../arcss/updates_ar';
 import { requestInitialIndicatorState } from '../../../arcss/indicator_ar';
 import { connect } from 'react-redux';
@@ -275,6 +287,7 @@ import { connect } from 'react-redux';
 const mapDispatchToProps = dispatch => { 
 	return { 
 		requestChangeSchedule: (data) => dispatch(requestChangeSchedule(data)),
+		requestChangeScheduleUrl: (data) => dispatch(requestChangeScheduleUrl(data)),
 		requestRemoveSchedule: (data) => dispatch(requestRemoveSchedule(data)),
 		requestRemoveAllUpdates: () => dispatch(requestRemoveAllUpdates()),
 		requestInitialIndicatorState: () => dispatch(requestInitialIndicatorState())

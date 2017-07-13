@@ -3,7 +3,8 @@
 .si__individual__container {
 	display: flex;
 	flex-direction: column;
-	width: 700px;
+	/*width: 700px;*/
+	width: 80%;
 	margin: 0 auto;
 	margin-top: 8rem;
 	margin-bottom: 3.5rem;
@@ -89,6 +90,8 @@
 	border: 0;
 	border-bottom: 1px solid white;
 
+	position: relative;
+	bottom: 0.2rem;
 	
 	font-weight: 300;
 }
@@ -102,8 +105,9 @@
 }
 
 .si__title__input__resize {
-	width: 90%;
+	width: 100%;
 	margin: 0;
+	height: 5rem;
 }
 
 /*
@@ -163,10 +167,6 @@
 }
 
 @media screen and (max-width: 700px){
-
-    .si__individual__container {
-		margin-left: 1rem;
-	}
 	
     .si__schedule__url {
         margin-left: 2rem;
@@ -206,3 +206,12 @@
 	}
 
 }
+
+@media screen and (max-width: 500px){
+
+    .si__individual__container {
+		margin-left: 1rem;
+	}
+
+}
+

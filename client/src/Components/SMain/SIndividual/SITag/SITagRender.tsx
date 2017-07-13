@@ -15,8 +15,11 @@ class SITagRender extends React.Component<SITagRenderProps & SITagRenderPassedPr
 	}
 
     addTag = (e) => {
-        let { fields, schedule_id, form, username, schedule_url, requestAddTag } = this.props; 
+        let { fields, schedule_id, username, schedule_url, requestAddTag, form } = this.props; 
 
+
+        console.log(username);
+        
         e.preventDefault();
 
         let tag_id = uuid();
@@ -28,9 +31,15 @@ class SITagRender extends React.Component<SITagRenderProps & SITagRenderPassedPr
 
         let update_tag = false;
         let update_tags_id = ""
+        // how to get this one... or is it generated here? Or is it not relevant? 
+        
         // let update_tags_id = fields.get(index).get('update_tags_id');
 
-        requestAddTag(Map({
+        // THAT is the issue.
+        // okay > need to figure out how to get the current index.
+        
+
+        let payload = Map({
             schedule_id,
             schedule_url,
             username,
@@ -40,7 +49,11 @@ class SITagRender extends React.Component<SITagRenderProps & SITagRenderPassedPr
             tag_index,
             update_tag,
             update_tags_id
-        }));
+        })
+
+        console.log("payload", payload.toJS())
+
+        requestAddTag(payload);
 
         fields.push(Map({tag_text: tag_text}));// need to put it in here!
 
@@ -52,7 +65,6 @@ class SITagRender extends React.Component<SITagRenderProps & SITagRenderPassedPr
 
         let { fields, schedule_id, schedule_url, username, requestChangeTag } = this.props; 
 
-        console.log(fields.get(index).toJS())
         // currently there is no tag_index property 
         // also need tag_id
         
@@ -63,11 +75,11 @@ class SITagRender extends React.Component<SITagRenderProps & SITagRenderPassedPr
         let update_tag = fields.get(index).get('update_tag');
         let update_tags_id = fields.get(index).get('update_tags_id');
         
-        console.log(tag_text.indexOf('#'))
-
         if (tag_text.length > 0 && tag_text.indexOf('#') !== 0 ) {
             tag_text = "#" + tag_text;
         }
+        console.log(fields.get(index).get('tag_text'))
+        console.log(tag_text)
 
         requestChangeTag(Map({
             schedule_id,

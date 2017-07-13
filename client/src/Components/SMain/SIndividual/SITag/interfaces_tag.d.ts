@@ -12,7 +12,7 @@ interface SITagProps {
 interface SITagPassedProps {
     form: any,
     schedule_id: any,
-    username: any,
+    user: any,
     schedule_url: any,
     login_status_var: any
 }

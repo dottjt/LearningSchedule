@@ -11,6 +11,9 @@
 
 }
 
+.si__update__dash__disappear {
+    display: none;
+}
 
 .si__update__top__container {
     display: flex;
@@ -24,7 +27,19 @@
 .si__update__top_layer {
     display: flex;
     width: 100%;
-    height: 4rem;
+    /*height: 4rem;*/
+}
+
+.si__update__top_layer__left {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.si__update__top_layer__left__thing {
+    /*display: block;*/
+    /*display: flex;*/
+    width: 100%;
 }
 
 .si__update__individual__container {
@@ -60,21 +75,22 @@
 
 
 .si__update__inner {
-    width: 43rem;
+    width: 100%;
+    /*width: 43rem;*/
     padding-bottom: 2rem;
-    border-bottom: 1px solid #dbdbdb;
+    border-top: 1px solid #dbdbdb;
 
 }
 
 .si__update__remove {
-    position: relative;
+    /*position: relative;*/
     font-size: 1.2rem;
     background: white;
     border: 1px solid darkgrey; 
     border-radius: 1px;
 
-    top: 3.55rem;
-    left: 39.8rem;
+    /*top: 3.55rem;*/
+    /*left: 39.8rem;*/
     width: 2.12rem;
     height: 2rem;
 }
@@ -96,8 +112,9 @@
 }
 
 .si__update__date {
-    width: 8rem;
+    width: 6.8rem;
     margin-left: 0.2rem;
+    margin-bottom: 0.5rem;
     font-size: 1.05rem;
     line-height: 1.8rem; 
     outline: none;
@@ -112,8 +129,10 @@
     text-decoration: underline;
 }
 
+
+
 .si__update__title__field {
-    font-size: 1.05rem;
+    font-size: 2rem;
     line-height: 1.8rem; 
     background: white;
     color: #242526;
@@ -126,14 +145,18 @@
     resize: none;
 
 
-    width: 25rem;
-    height: 1.6rem;
+    /*width: 25rem;*/
+    width: 90%; 
 
-    margin-bottom: 1rem;
+    height: 2.5rem;
+    /*height: 7.5rem;*/
+    line-height: 2.5rem;
 
+    /*margin-bottom: 1rem;*/
+    margin-top: 0.5rem;
     position: relative;
-    bottom: 0.1rem;
-    top: 0.5px;
+    /*bottom: 0.05rem;*/
+    /*top: 0.5px;*/
 
 }
 
@@ -141,8 +164,9 @@
     font-size: 1.05rem;
     line-height: 1.8rem; 
     outline: none;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    /*margin-top: 1.5rem;*/
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
     margin-left: 0rem;
 
     padding-left: 2px;
@@ -179,6 +203,7 @@
 }
 
 .si__update__select__container__top {
+    padding-top: 8px;
     width: 208px;
     border-top: 1px solid #dbdbdb;
 
@@ -186,7 +211,7 @@
 
 .si__update__select {
     float: left;
-    margin-left: 0.2rem;
+    margin-left: 0.1rem;
     position: relative;
     top: 0.1rem;
     float: left;     
@@ -216,6 +241,8 @@
   	outline: none;
     overflow: hidden;
     resize: none;
+
+    padding: 0;
 }
 
 /*
@@ -225,8 +252,9 @@
             */
 
 .update__single__title__field {
-    margin-top: 0.8rem;
+    margin-top: 1.8rem;
     height: 2rem;
+    font-size: 2rem;
 }
 
 .update__single__text__field {
@@ -263,6 +291,7 @@
 
     height: 1.8rem;
     font-weight: 600;
+    margin-top: 1rem;
 }
 
 .si__update__link__summary__field {
@@ -280,10 +309,12 @@
     box-shadow: none;
     resize: none;
     height: 1.8rem;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
 }
 
 .update__single__field__container {
-    border-bottom: 1px solid #dbdbdb;
+    /*border-bottom: 1px solid #dbdbdb;*/
 }
 
 .update__text__field:hover {
@@ -334,7 +365,7 @@
 
 
 .update__single__milestone__container {
-    height: 8rem;
+    height: 3rem;
     display: flex;
     align-items: center; 
     justify-content: center;
@@ -350,6 +381,9 @@
 .si__update__tag__individual__container {
     display: flex;
     width: 100%;
+    flex-wrap: wrap;
+    position: relative;
+    right: 0.15rem;
 }
 
 
@@ -363,7 +397,8 @@
       border-radius: 2px;
       width: 9.5rem;
       height: 1.4rem;
-      margin: 2px;
+      /*margin: 2px;*/
+      margin-top: 0.1rem;
 
 }
 
@@ -409,9 +444,17 @@
 
 	.si__update__top_layer {
 		display: block;
-        /*width: 100%;*/
-        height: 5rem;
+        width: 100%;
+        /*height: 5rem;*/
 	}
+
+    .si__update__title__field {
+        height: 2.5rem;
+    }
+
+    /*.si__update__top_layer__left {
+        width: 95%;
+    }*/
 
     .si__update__link__field {
         height: 3.5rem;
@@ -420,8 +463,6 @@
     .si__update__text__field {
         height: 12rem;
     }
-
-
 
 }
 
@@ -445,21 +486,6 @@
         width: 100%;
     }
 
-    .si__update__title__field {
-        margin-top: 1rem;
-        width: 90%; 
-    }
-
-    .si__update__tag__individual__container {
-        flex-direction: column;
-    }
-	.si__update__top_layer {
-
-	}
-
-    .si__update__dash__disappear {
-        display: none;
-    }
 
     .si__update__link__summary__field {
         height: 13rem;
@@ -467,6 +493,16 @@
 
     .si__update__text__field {
         height: 15rem;
+    }
+
+    .si__update__dash__disappear {
+        display: none;
+    }
+
+    .si__update__title__field {
+        /*margin-top: 1rem;*/
+        /*margin-top: 0.2rem;*/
+        height: 6rem;
     }
 
 

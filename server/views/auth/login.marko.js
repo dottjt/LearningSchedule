@@ -32,7 +32,7 @@ function render(input, out) {
       _target: auth_navbar_template
     }, out);
 
-  out.w("<section class=\"signup__container\"><h3 class=\"signup__header\">Login</h3><h5 class=\"signup__header__two\">Welcome back, sister.</h5><h3 class=\"signup__header__three " +
+  out.w("<section class=\"signup__container\"><h3 class=\"signup__header\">Login</h3><h5 class=\"signup__header__two\">Welcome back.</h5><h3 class=\"signup__header__three " +
     marko_escapeXmlAttr(data.show) +
     "\">" +
     marko_escapeXml(data.message) +

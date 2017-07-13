@@ -30,123 +30,126 @@ class SIUpdate extends React.Component<SIUpdateProps & SIUpdatePassedProps, SIUp
 	constructor() {
 	super();
 		this.addUpdate = this.addUpdate.bind(this);
-		this.changeLength = this.changeLength.bind(this);
+		// this.changeLength = this.changeLength.bind(this);
 		this.createUpdateTagsProps = this.createUpdateTagsProps.bind(this);
 		// this.showEmojiPicker = this.showEmojiPicker.bind(this);
         this._onSubmit = this._onSubmit.bind(this);
 
-		this.onSingleUpdateTitleLengthChange = this.onSingleUpdateTitleLengthChange.bind(this);
-		this.onSingleUpdateTextLengthChange= this.onSingleUpdateTextLengthChange.bind(this);
-		this.onSingleUpdateLinkLengthChange= this.onSingleUpdateLinkLengthChange.bind(this);
-		this.onSingleUpdateSummaryLengthChange = this.onSingleUpdateSummaryLengthChange.bind(this);
-		this.onSingleUpdateMilestoneLengthChange = this.onSingleUpdateMilestoneLengthChange.bind(this);
+		// this.onSingleUpdateTitleLengthChange = this.onSingleUpdateTitleLengthChange.bind(this);
+		// this.onSingleUpdateTextLengthChange= this.onSingleUpdateTextLengthChange.bind(this);
+		// this.onSingleUpdateLinkLengthChange= this.onSingleUpdateLinkLengthChange.bind(this);
+		// this.onSingleUpdateSummaryLengthChange = this.onSingleUpdateSummaryLengthChange.bind(this);
+		// this.onSingleUpdateMilestoneLengthChange = this.onSingleUpdateMilestoneLengthChange.bind(this);
         
-        this.state = {
-            fd: "yolo", 
-            showEmoji: false,
-            update_single_title_length: 0,
-            update_single_text_length: 0,
-            update_single_link_length: 0,
-            update_single_summary_length: 0,
-            update_single_milestone_length: 0
-        }
+        // this.state = {
+        //     fd: "yolo", 
+        //     showEmoji: false,
+        //     update_single_title_length: 0,
+        //     update_single_text_length: 0,
+        //     update_single_link_length: 0,
+        //     update_single_summary_length: 0,
+        //     update_single_milestone_length: 0
+        // }
 	}
 
-    onSingleUpdateTitleLengthChange(values) {
-        let update_single_title = values.get('update_title').length
-		console.log(update_single_title);
+    // onSingleUpdateTitleLengthChange(values) {
+    //     let update_single_title = values.get('update_title').length
+	// 	console.log(update_single_title);
 
-		this.setState({
-			update_single_title_length: update_single_title
-		})
+	// 	this.setState({
+	// 		update_single_title_length: update_single_title
+	// 	})
 
-    }
+    // }
 
-    onSingleUpdateTextLengthChange(values) {
-        let update_single_text = values.get('update_text').length
-		console.log(update_single_text);
+    // onSingleUpdateTextLengthChange(values) {
+    //     let update_single_text = values.get('update_text').length
+	// 	console.log(update_single_text);
 
-		this.setState({
-			update_single_text_length: update_single_text
-		})
+	// 	this.setState({
+	// 		update_single_text_length: update_single_text
+	// 	})
 
-    }
+    // }
 
-    onSingleUpdateLinkLengthChange(values) {
-        let update_single_link = values.get('update_text').length
-		console.log(update_single_link);
+    // onSingleUpdateLinkLengthChange(values) {
+    //     let update_single_link = values.get('update_text').length
+	// 	console.log(update_single_link);
 
-		this.setState({
-			update_single_link_length: update_single_link
-		})
-    }
+	// 	this.setState({
+	// 		update_single_link_length: update_single_link
+	// 	})
+    // }
 
-    onSingleUpdateSummaryLengthChange(values) {
-        let update_single_summary = values.get('update_summary').length
-		console.log(update_single_summary);
+    // onSingleUpdateSummaryLengthChange(values) {
+    //     let update_single_summary = values.get('update_summary').length
+	// 	console.log(update_single_summary);
 
-		this.setState({
-			update_single_summary_length: update_single_summary
-		})
-    }
+	// 	this.setState({
+	// 		update_single_summary_length: update_single_summary
+	// 	})
+    // }
 
-    onSingleUpdateMilestoneLengthChange(values) {
-        let update_single_milestone = values.get('update_text').length
-		console.log(update_single_milestone);
+    // onSingleUpdateMilestoneLengthChange(values) {
+    //     let update_single_milestone = values.get('update_text').length
+	// 	console.log(update_single_milestone);
 
-		this.setState({
-			update_single_milestone_length: update_single_milestone
-		})
+	// 	this.setState({
+	// 		update_single_milestone_length: update_single_milestone
+	// 	})
 
-    }
+    // }
 
-    changeLength(values) { 
+    // changeLength(values) { 
 
-        // const {schedule_url, schedule_id, user, form, requestChangeLengthUpdate } = this.props;
-        const { requestChangeLengthUpdate } = this.props;
+    //     // const {schedule_url, schedule_id, user, form, requestChangeLengthUpdate } = this.props;
+    //     const { requestChangeLengthUpdate } = this.props;
         
-        // console.log(values.toJS());
+    //     // console.log(values.toJS());
 
-        // let update_type; 
-        // if (this.props.update_type_value === undefined) {
-        //     update_type = "text";
-        // }
-
-
-        requestChangeLengthUpdate(Map({ 
-            // schedule_id: schedule_id, 
-            // updates_id: form, // form is updates_id
-            // schedule_url: schedule_url,
-            // username: user.get('username'),
-            update_id: values.get('update_id'),
-            // update_tags_id: uuid(),
-            // update_title: values.get('update_title'),
-            // update_text: values.get('update_text'),
-            // update_summary: values.get('update_summary'),
-            // update_type: update_type, // values.get('update_type') // need to get this... 
-            // figure out which ones you don't want.
+    //     // let update_type; 
+    //     // if (this.props.update_type_value === undefined) {
+    //     //     update_type = "text";
+    //     // }
 
 
-            // these might not work, given that they are
-            update__title__length: values.get('update_title').length,
-            update__text__length: values.get('update_text').length,
-            update__summary__length: values.get('update_summary').length
-        }));
+    //     requestChangeLengthUpdate(Map({ 
+    //         // schedule_id: schedule_id, 
+    //         // updates_id: form, // form is updates_id
+    //         // schedule_url: schedule_url,
+    //         // username: user.get('username'),
+    //         update_id: values.get('update_id'),
+    //         // update_tags_id: uuid(),
+    //         // update_title: values.get('update_title'),
+    //         // update_text: values.get('update_text'),
+    //         // update_summary: values.get('update_summary'),
+    //         // update_type: update_type, // values.get('update_type') // need to get this... 
+    //         // figure out which ones you don't want.
+
+
+    //         // these might not work, given that they are
+    //         update__title__length: values.get('update_title').length,
+    //         update__text__length: values.get('update_text').length,
+    //         update__summary__length: values.get('update_summary').length
+    //     }));
  
-    }
+    // }
 
 
     addUpdate(values) { 
 
         const {schedule_url, schedule_id, user, form, requestAddUpdate } = this.props;
 
-        // console.log(values.toJS())
+        console.log("values", values.toJS())
+
+        console.log(this.props.update_type_value);
 
         let update_type; 
         if (this.props.update_type_value === undefined) {
             update_type = "text";
+        } else {
+            update_type = this.props.update_type_value;
         }
-
 
         requestAddUpdate(Map({ 
             schedule_id: schedule_id, 
@@ -158,12 +161,7 @@ class SIUpdate extends React.Component<SIUpdateProps & SIUpdatePassedProps, SIUp
             update_title: values.get('update_title'),
             update_text: values.get('update_text'),
             update_summary: values.get('update_summary'),
-            update_type: update_type, // values.get('update_type') // need to get this... 
-
-            // these might not work, given that they are
-            update__title__length: values.get('update_title').length,
-            update__text__length: values.get('update_text').length,
-            update__summary__length: values.get('update_summary').length
+            update_type: update_type // values.get('update_type') // need to get this... 
         }));
  
     }
@@ -256,9 +254,9 @@ class SIUpdate extends React.Component<SIUpdateProps & SIUpdatePassedProps, SIUp
                                         type="text" 
                                         placeholder="Title."
                                         maxLength={80}    
-                                        onChange={handleSubmit(values => this.changeLength(values))}
                                         />
                                         {/*onFocus={handleSubmit(values => this.onSingleUpdateTitleLengthChange(values))}*/}
+                                        {/*onChange={handleSubmit(values => this.changeLength(values))}*/}
                                         
                                 {/*<span>{update_single_title_length}</span>*/}
 
@@ -273,10 +271,9 @@ class SIUpdate extends React.Component<SIUpdateProps & SIUpdatePassedProps, SIUp
                                                 type="text"
                                                 placeholder="Text."
                                                 maxLength={400}
-                                                onChange={handleSubmit(values => this.changeLength(values))}
-
                                                 />
                                         {/*<span>{update_single_text_length}</span>*/}
+                                        {/*onChange={handleSubmit(values => this.changeLength(values))}*/}
 
                                     </div> 
                                 }
@@ -291,9 +288,9 @@ class SIUpdate extends React.Component<SIUpdateProps & SIUpdatePassedProps, SIUp
                                                 type="text" 
                                                 placeholder="Link."
                                                 maxLength={350}
-                                                onChange={handleSubmit(values => this.changeLength(values))}
                                                 />
                                         {/*<span>{update_single_link_length}</span>*/}
+                                        {/*onChange={handleSubmit(values => this.changeLength(values))}*/}
 
                                         <Field className="update__single__link__summary__field si__update__generic__field update__single__link__field__bottom" 
                                                 name="update_summary" 
@@ -301,9 +298,9 @@ class SIUpdate extends React.Component<SIUpdateProps & SIUpdatePassedProps, SIUp
                                                 type="text" 
                                                 placeholder="Link Summary."
                                                 maxLength={200}
-                                                onChange={handleSubmit(values => this.changeLength(values))}
                                                 />
                                         {/*<span>{update_single_summary_length}</span>*/}
+                                        {/*onChange={handleSubmit(values => this.changeLength(values))}*/}
 
                                     </div>
                                 }
@@ -319,9 +316,9 @@ class SIUpdate extends React.Component<SIUpdateProps & SIUpdatePassedProps, SIUp
                                             type="text" 
                                             placeholder="Milestone."
                                             maxLength={80}
-                                            onChange={handleSubmit(values => this.changeLength(values))}
                                             />
                                         {/*<span>{update_single_milestone_length}</span>*/}
+                                        {/*onChange={handleSubmit(values => this.changeLength(values))}*/}
 
                                     </div> 
                                 }

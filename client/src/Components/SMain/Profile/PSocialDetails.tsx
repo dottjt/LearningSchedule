@@ -66,7 +66,8 @@ class PSocialDetails extends React.Component<PSocialDetailsProps & PSocialDetail
                             {/* Schedule Title */}
                             <div className="p__user__details__fields__container">
 
-                                <h3 className="p__user__field__title">Facebook username <span className="p__user__field__title__small">i.e. smithyj38</span></h3>
+                                <h3 className="p__user__field__title">Facebook username</h3> 
+                                {/*<span className="p__user__field__title__small">i.e. smithyj38</span>*/}
                                 <Field className="p__user__field__social" 
                                             name="facebook" 
                                             component="input" 

@@ -236,16 +236,15 @@ export function* changeScheduleUrlSaga(action): SagaIterator {
     
   try {
 
-    yield put(requestInitialIndicatorState()) 
+    // yield put(requestInitialIndicatorState()) 
 
 //    let token = localStorage.getItem('id_token') || null
+//    if (token) {    }
 
-   // omg, okay none of this is working because I'm using immutable JS...
    let schedule_url = action.data.get('schedule_url');
    let schedule_id = action.data.get('schedule_id');
    
-    console.log(action.data)
-//    if (token) {    }
+    console.log(schedule_url)
 
     yield call(apiChangeScheduleUrl, schedule_url, schedule_id);
     
@@ -315,34 +314,23 @@ export function apiChangeSchedule(schedule_title, schedule_summary, schedule_id)
 
 export function* changeScheduleSaga(action): SagaIterator {
   try {
-    yield put(requestInitialIndicatorState()) 
+    // yield put(requestInitialIndicatorState()) 
 
-//    let token = localStorage.getItem('id_token') || null
+    //    let token = localStorage.getItem('id_token') || null
+    //    if (token) {    }
 
-   // omg, okay none of this is working because I'm using immutable JS...
-   let schedule_title = action.data.get('schedule_title'); // the only thing from the 
+   let schedule_title = action.data.get('schedule_title');
    let schedule_summary = action.data.get('schedule_summary');
    let schedule_id = action.data.get('schedule_id');
    
-    console.log(action.data)
-//    if (token) {    }
+    console.log("action", action.data)
 
     yield call(apiChangeSchedule, schedule_title, schedule_summary, schedule_id);
     
-    // okay. new rule. I'm no longer retrieving info from the 
-    // server. Just going straight from the reducer :) 
-    // since the json won't send. I don't know why. 
-
     yield put(changeScheduleSucceeded(action.data));
-      yield put(initialIndicatorStateSucceeded())
+    
+    // yield put(initialIndicatorStateSucceeded())
  
-    // from action
- 
-    // maybe the general rule is to simply update the reducer first, 
-    // then the server? 
-    // I know this is wrong?, but for the time being, I don't 
-    // have a choice. 
-
   }
   catch (err) {
     yield put (changeScheduleFailed(err));

@@ -153,6 +153,7 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
                             <ul className="st__navbar__profile__ul">
                                 <Link to={"/" + user.get('username')}><li className="st__navbar__profile__li">Profile.</li></Link>
                                 <Link to={"/" + user.get('username') + "/profile"} ><li className="st__navbar__profile__li">Settings.</li></Link>
+                                <a className="show-menu-item-600" onClick={(e) => this.showPopUpFunction()}><li className="st__navbar__profile__li">New Sch.</li></a>
                                 {/*<li className="st__navbar__profile__li">Published.</li>*/}
                                 <li className="st__navbar__profile__li__logout"><STLogout/></li>
                             </ul>
@@ -192,18 +193,17 @@ class ST_Navbar extends React.Component<ST_NavbarProps & ST_NavbarPassedProps, S
                         
 
 
-                        <div className='navbar-form st__navbar__form__container'>
 
                             {/* STopbar Login Authentication */}
                                         {/*<STLogout/> */}
                                 {login_status_var ? ( 
                                         <div></div> 
                                     ) : (
+                                    <div className='navbar-form st__navbar__form__container'>
                                         <STLogin/>
+                                    </div>
                                     )
                                 }
-
-                        </div>
 
 
 

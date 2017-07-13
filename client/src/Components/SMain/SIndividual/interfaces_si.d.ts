@@ -28,6 +28,7 @@ interface SITitleProps {
 
     requestInitialIndicatorState(): any,
     requestRemoveSchedule(data: any): any,
+    requestChangeScheduleUrl(data: any): any,
     requestRemoveAllUpdates: any,
 
     display_name: string,
