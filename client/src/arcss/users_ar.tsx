@@ -278,22 +278,61 @@ export function* changeEditActiveSaga(action) {
 
 
 
-
-
-
 /*
             CHANGE_USER_DETAIS_ACTION_CREATORS 
                                                 */
 
 
-export const REQUEST_CHANGE_USER_DETAILS = 'REQUEST_CHANGE_USER_DETAILS';
-export const CHANGE_USER_DETAILS_SUCCEEDED = 'CHANGE_USER_DETAILS_SUCCEEDED';
-export const CHANGE_USER_DETAILS_FAILED = 'CHANGE_USER_DETAILS_FAILED';
+export const REQUEST_CHANGE_USER_EMAIL_DETAILS = 'REQUEST_CHANGE_USER_EMAIL_DETAILS';
+export const CHANGE_USER_EMAIL_DETAILS_SUCCEEDED = 'CHANGE_USER_EMAIL_DETAILS_SUCCEEDED';
+export const CHANGE_USER_EMAIL_DETAILS_FAILED = 'CHANGE_USER_EMAIL_DETAILS_FAILED';
 
 
-export const requestChangeUserDetails = (username, email) => ({type: REQUEST_CHANGE_USER_DETAILS, username, email});
-export const changeUserDetailsSucceeded = (username, email) => ({type: CHANGE_USER_DETAILS_SUCCEEDED, username, email});
-export const changeUserDetailsFailed = err => ({type: CHANGE_USER_DETAILS_FAILED, err});
+export const requestChangeUserEmailDetails = (email, username) => ({type: REQUEST_CHANGE_USER_EMAIL_DETAILS, email, username});
+export const changeUserEmailDetailsSucceeded = (email) => ({type: CHANGE_USER_EMAIL_DETAILS_SUCCEEDED, email});
+export const changeUserEmailDetailsFailed = err => ({type: CHANGE_USER_EMAIL_DETAILS_FAILED, err});
+
+
+export function apiChangeUserEmailDetails(email) {
+    // check to see if this is okay.
+        axios({
+            method: 'put',
+            url: 'api/v1/users_email',
+            data: {
+                email
+            }
+            // headers: { 'Authorization': 'Bearer ' + token }
+        
+        });
+};
+
+export function* requestChangeEmailDetailsSaga(action) {
+  try {
+
+    // let token = localStorage.getItem('id_token') || null;
+    // if (token) {    }
+
+    let email = action.data.email;
+    let username = action.data.username;
+    console.log(email)
+    console.log(username)
+    console.log(action.username)
+    console.log(action.data.username)
+
+    yield call(apiChangeUserEmailDetails, email)
+
+    yield put(changeUserEmailDetailsSucceeded(email));
+
+    yield call(reloadWebpage, username);
+
+}
+  catch (err) {
+      
+    yield put (changeUserUsernameDetailsFailed(err));
+  
+    }
+};
+
 
 
 
@@ -302,21 +341,39 @@ export const changeUserDetailsFailed = err => ({type: CHANGE_USER_DETAILS_FAILED
                                                 */
 
 
-export function apiChangeUserDetails(username, email) {
-    // check to see if this is okay.
-        axios({
-            method: 'put',
-            url: 'api/v1/users_username',
-            data: {
-                username,
-                email
-            }
-            // headers: { 'Authorization': 'Bearer ' + token }
-        
-        });
-};
 
-function changeUsernameEmail(username) {
+export const REQUEST_CHANGE_USER_USERNAME_DETAILS = 'REQUEST_CHANGE_USER_USERNAME_DETAILS';
+export const CHANGE_USER_USERNAME_DETAILS_SUCCEEDED = 'CHANGE_USER_USERNAME_DETAILS_SUCCEEDED';
+export const CHANGE_USER_USERNAME_DETAILS_FAILED = 'CHANGE_USER_USERNAME_DETAILS_FAILED';
+
+
+export const requestChangeUserUsernameDetails = (username) => ({type: REQUEST_CHANGE_USER_USERNAME_DETAILS, username});
+export const changeUserUsernameDetailsSucceeded = (username) => ({type: CHANGE_USER_USERNAME_DETAILS_SUCCEEDED, username});
+export const changeUserUsernameDetailsFailed = err => ({type: CHANGE_USER_USERNAME_DETAILS_FAILED, err});
+
+
+
+// export function apiChangeUserDetails(username, email) {
+//     // check to see if this is okay.
+//         axios({
+//             method: 'put',
+//             url: 'api/v1/users_username',
+//             data: {
+//                 username
+//             }
+//             // headers: { 'Authorization': 'Bearer ' + token }
+        
+//         });
+// };
+
+// export function apiChangeUser() { axios.put('api/v1/users') }  // this logs out the user. 
+export function apiUpdateUserSchedules() { axios.put('api/v1/users_schedules_update') }
+export function apiUpdateUserSummaries() { axios.put('api/v1/users_summaries_update') }
+export function apiUpdateUserUpdates() { axios.put('api/v1/users_updates_update') }
+export function apiUpdateUserTags() { axios.put('api/v1/users_tags_update') }
+export function apiUpdateUserUser() { axios.put('api/v1/users_user_update') }
+
+function reloadWebpage(username) {
     return window.location.href = "/" + username + "/profile";
 }
 
@@ -328,18 +385,23 @@ export function* requestChangeUserDetailsSaga(action) {
     // if (token) {    }
 
     let username = action.username;
-    let email = action.email;
 
-    yield call(apiChangeUserDetails, username, email);
+    yield call(apiUpdateUserSchedules, username)
+    yield call(apiUpdateUserSummaries, username)
+    yield call(apiUpdateUserUpdates, username)
+    yield call(apiUpdateUserTags, username)
+    yield call(apiUpdateUserUser, username)
 
-    yield put(changeUserDetailsSucceeded(action.username, action.email));
+    // yield call(apiChangeUserDetails, username);
 
-    yield call(changeUsernameEmail, username);
+    yield put(changeUserUsernameDetailsSucceeded(action.username));
+
+    yield call(reloadWebpage, username);
 
 }
   catch (err) {
       
-    yield put (changeUserDetailsFailed(err));
+    yield put (changeUserUsernameDetailsFailed(err));
   
     }
 };
@@ -395,7 +457,6 @@ export function* requestChangeSocialSaga(action) {
     let facebook = action.data.get('facebook');
     let twitter = action.data.get('twitter');
     let github = action.data.get('github');
-
 
     yield call(apiChangeSocial, facebook, twitter, github);
 
@@ -495,11 +556,11 @@ export const removeUserFailed = err => ({type: REMOVE_USER_FAILED, err});
 
 
 export function apiRemoveUser() { axios.delete('api/v1/users') }  // this logs out the user. 
-export function apiRemoveUserSchedules() { axios.delete('api/v1/users_schedules') }
-export function apiRemoveUserSummaries() { axios.delete('api/v1/users_summaries') }
-export function apiRemoveUserUpdates() { axios.delete('api/v1/users_updates') }
-export function apiRemoveUserTags() { axios.delete('api/v1/users_tags') }
-export function apiRemoveUserUser() { axios.delete('api/v1/users_user') }
+export function apiRemoveUserSchedules() { axios.delete('api/v1/users_schedules_delete') }
+export function apiRemoveUserSummaries() { axios.delete('api/v1/users_summaries_delete') }
+export function apiRemoveUserUpdates() { axios.delete('api/v1/users_updates_delete') }
+export function apiRemoveUserTags() { axios.delete('api/v1/users_tags_delete') }
+export function apiRemoveUserUser() { axios.delete('api/v1/users_user_delete') }
 export function redirect() { axios.get('api/v1/users_redirect') }
 
 
@@ -565,9 +626,11 @@ export function user(state = Map(), action) {
         case ADD_AVATAR_SUCCEEDED: 
             return state = state.set('avatar_url', action.data)
 
-        case CHANGE_USER_DETAILS_SUCCEEDED:
+        case CHANGE_USER_USERNAME_DETAILS_SUCCEEDED:
             return state = state.set('username', action.username)
-                                .set('email', action.email)
+
+        case CHANGE_USER_EMAIL_DETAILS_SUCCEEDED:
+            return state = state.set('email', action.email)
 
         case CHANGE_PASSWORD_SUCCEEDED: 
             return state = state.set('password', action.data.get('password'));

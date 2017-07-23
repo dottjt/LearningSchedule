@@ -14,7 +14,7 @@ class PUserDetails extends React.Component<PUserDetailsProps & PUserDetailsPasse
 
 	constructor() {
 	    super();
-		this.changeUserDetails = this.changeUserDetails.bind(this);
+		this.changeUserEmail = this.changeUserEmail.bind(this);
 		this.changePassword = this.changePassword.bind(this);
         this.showPopUpPasswordFunction = this.showPopUpPasswordFunction.bind(this);
         this.showPopUpRemoveFunction = this.showPopUpRemoveFunction.bind(this);
@@ -40,21 +40,30 @@ class PUserDetails extends React.Component<PUserDetailsProps & PUserDetailsPasse
 
     }
 
-	changeUserDetails(values) { // username
-
-		let { initialValues, requestChangeUserDetails } = this.props;
+    changeUserUsername(values) {
+		let { initialValues, requestChangeUserUsernameDetails } = this.props;
         
         let old_username = initialValues.get('username');
         let new_username = values.get('username').toLowerCase();
 
-        console.log(old_username)
-        console.log(new_username)
+		if (old_username !== new_username) {
+		    requestChangeUserUsernameDetails(new_username);
+		}
 
+    }
+
+	changeUserEmail(values) { // username
+		let { initialValues, requestChangeUserEmailDetails } = this.props;
+
+        let username = initialValues.get('username');
+        console.log(username)
         let old_email = initialValues.get('email');
         let new_email = values.get('email').toLowerCase();
+        console.log(old_email)
+        console.log(new_email)
 
-		if (old_username !== new_username || old_email !== new_email) {
-		    requestChangeUserDetails(new_username, new_email);
+		if (old_email !== new_email) {
+		    requestChangeUserEmailDetails(new_email, username);
 		}
 
 	}
@@ -102,7 +111,6 @@ class PUserDetails extends React.Component<PUserDetailsProps & PUserDetailsPasse
             return (
                     <form className="p__user__details__container">
                     
-                    
                             {/* Schedule Title */}
                             <div className="p__user__details__fields__container">
 
@@ -114,7 +122,7 @@ class PUserDetails extends React.Component<PUserDetailsProps & PUserDetailsPasse
                                             placeholder="username."
                                             disabled={fieldDis}
                                             maxLength={35}
-                                            onBlur={ handleSubmit(values => this.changeUserDetails(values) )}
+                                            onBlur={ handleSubmit(values => this.changeUserUsername(values))}
                                             />
                                             {/* must have at least one character && can't be the same as another one. && if no change, don't do anything*/}
 
@@ -126,7 +134,7 @@ class PUserDetails extends React.Component<PUserDetailsProps & PUserDetailsPasse
                                             placeholder="email."
                                             maxLength={35}
                                             disabled={fieldDis}
-                                            onBlur={ handleSubmit(values => this.changeUserDetails(values) )}
+                                            onBlur={ handleSubmit(values => this.changeUserEmail(values))}
                                             />
                                             {/* must have at least one character && valid email (confirmation perhaps?) && can't be the same as another one. && if no change, don't do anything*/}
 
@@ -195,17 +203,18 @@ class PUserDetails extends React.Component<PUserDetailsProps & PUserDetailsPasse
 
                                       */
 
-import { requestChangeUserDetails, requestChangePassword, requestRemoveUser } from '../../../arcss/users_ar';
+import { requestChangeUserUsernameDetails, requestChangeUserEmailDetails, requestChangePassword, requestRemoveUser } from '../../../arcss/users_ar';
 import { connect } from 'react-redux';
 // import { Map } from 'immutable';
 
 
-const mapDispatchToProps = dispatch => { 
-	return { 
-		requestChangeUserDetails: (username, email) => dispatch(requestChangeUserDetails(username, email)),
+const mapDispatchToProps = dispatch => {
+	return {
+		requestChangeUserUsernameDetails: (username) => dispatch(requestChangeUserUsernameDetails(username)),
+		requestChangeUserEmailDetails: (email, username) => dispatch(requestChangeUserEmailDetails(email, username)),
 		requestChangePassword: (data) => dispatch(requestChangePassword(data)),
 		requestRemoveUser: () => dispatch(requestRemoveUser())
-	} 
+	}
 };
 
 

@@ -223,7 +223,7 @@ class SIUpdate extends React.Component<SIUpdateProps & SIUpdatePassedProps, SIUp
                             
                             <div className="si__update__select__container__top">
                                 <Field className="si__update__select" name="update_type" type="text" component="select" ref="update_type_ref">
-                                    <option default value="text">Text</option>
+                                    <option default value="text"><span style={{color: "#6699FF"}}>Text</span></option>
                                     <option value="link">Link</option>
                                     <option value="milestone">Milestone</option>
                                 </Field>

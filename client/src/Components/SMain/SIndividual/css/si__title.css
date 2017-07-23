@@ -204,13 +204,13 @@
 	.sm__title__schedule__summary__resize {
         margin-left: 0rem;
 	}
-
 }
 
 @media screen and (max-width: 500px){
 
     .si__individual__container {
 		margin-left: 1rem;
+		width: 90%;
 	}
 
 }

@@ -85,6 +85,7 @@ import { initialUserStateSaga,
          addAvatarSaga,
          changeEditActiveSaga,
          requestRemoveUserSaga,
+         requestChangeEmailDetailsSaga,
          requestChangeUserDetailsSaga,
          requestChangePasswordSaga,
          requestChangeSocialSaga
@@ -95,7 +96,8 @@ import { REQUEST_CHANGE_WEBSITE,
          REQUEST_ADD_AVATAR,
          REQUEST_CHANGE_EDIT_ACTIVE,
          REQUEST_REMOVE_USER,
-         REQUEST_CHANGE_USER_DETAILS,
+         REQUEST_CHANGE_USER_USERNAME_DETAILS,
+         REQUEST_CHANGE_USER_EMAIL_DETAILS,
          REQUEST_CHANGE_PASSWORD,
          REQUEST_CHANGE_SOCIAL
          } from './users_ar';
@@ -130,7 +132,8 @@ export default function* rootSaga(): SagaIterator {
    
    takeLatest(REQUEST_REMOVE_USER, requestRemoveUserSaga),
    takeLatest(REQUEST_CHANGE_SOCIAL, requestChangeSocialSaga),
-   takeLatest(REQUEST_CHANGE_USER_DETAILS, requestChangeUserDetailsSaga),
+   takeLatest(REQUEST_CHANGE_USER_USERNAME_DETAILS, requestChangeUserDetailsSaga),
+   takeLatest(REQUEST_CHANGE_USER_EMAIL_DETAILS, requestChangeEmailDetailsSaga),
    takeLatest(REQUEST_CHANGE_WEBSITE, changeWebsiteSaga),
    takeLatest(REQUEST_CHANGE_DISPLAY, changeDisplaySaga),
    takeLatest(REQUEST_CHANGE_SUMMARY, changeSummarySaga),

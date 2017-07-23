@@ -37,9 +37,12 @@ function updateSummaryUsername(username, updates) {
   return Summaries().where('username', username).update(updates);
 }
 
-
 function deleteAllSummariesOfUser(username) {
   return Summaries().where('username', username).del();
+}
+
+function changeUsernameAllSummariesOfUser(username, updates) {
+  return Summaries().update('username', username).update(updates);
 }
 
 
@@ -54,5 +57,6 @@ module.exports = {
   deleteSummary: deleteSummary,
   deleteAllSummariesOfUser: deleteAllSummariesOfUser,
   updateSummary: updateSummary,
-  updateSummaryUsername: updateSummaryUsername
+  updateSummaryUsername: updateSummaryUsername,
+  changeUsernameAllSummariesOfUser: changeUsernameAllSummariesOfUser
 };

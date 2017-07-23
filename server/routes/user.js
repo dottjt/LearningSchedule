@@ -57,6 +57,13 @@ router.put('/users', authHelpers.loginAccessUser, function(req, res, next) {
 });
 
 
+router.put('/users_username', authHelpers.loginAccessUser, function(req, res, next) {
+  return schedule_queries.deleteAllSchedulesOfUser(req.session.username)
+    .then(() => {
+        return res.status(200);
+    })
+});
+
 
 // U
 router.put('/users_username', authHelpers.loginAccessUser, function(req, res, next) {
@@ -113,6 +120,70 @@ router.put('/users_password', authHelpers.loginAccessUser, function(req, res, ne
 });
 
 
+router.put('/users_email', authHelpers.loginAccessUser, function(req, res, next) {
+  console.log(req.session.username)
+  console.log(req.body)
+
+  return user_queries.updateUser(req.session.username, req.body)
+    .then(() => {
+        return res.status(200);
+    })
+});
+
+
+
+
+
+
+
+router.put('/users_schedules_update', authHelpers.loginAccessUser, function(req, res, next) {
+    let updates = {username: req.body.username};
+
+    return schedule_queries.changeUsernameAllSchedulesOfUser(req.body.username, req.body)
+        .then(() => {
+            return res.status(200);
+        })
+});
+
+
+router.put('/users_summaries_update', authHelpers.loginAccessUser, function(req, res, next) {
+
+    return summary_queries.changeUsernameAllSummariesOfUser(req.session.username, req.body)
+        .then(() => {
+            return res.status(200);
+        })
+});
+
+
+router.put('/users_updates_update', authHelpers.loginAccessUser, function(req, res, next) {
+
+    return update_queries.changeUsernameAllUpdatesOfUser(req.session.username, req.body)
+        .then(() => {
+            return res.status(200);
+        })
+});
+
+router.put('/users_tags_update', authHelpers.loginAccessUser, function(req, res, next) {
+
+    return tag_queries.changeUsernameAllTagsOfUser(req.session.username, req.body)
+        .then(() => {
+            return res.status(200);
+        })
+});
+
+router.put('/users_user_update', authHelpers.loginAccessUser, function(req, res, next) {
+        
+    return user_queries.changeUsernameAllUserInformation(req.session.username, req.body)
+        .then(() => {
+            req.session.username = req.body.username; 
+        }).then(() => {
+            return res.sendFile(path.resolve(__dirname, '..', 'views', 'index.html'));
+        })
+});
+
+
+
+
 
 
 
@@ -124,7 +195,8 @@ router.delete('/users', authHelpers.loginAccessUser, function(req, res, next) {
 });
 
 
-router.delete('/users_schedules', authHelpers.loginAccessUser, function(req, res, next) {
+
+router.delete('/users_schedules_delete', authHelpers.loginAccessUser, function(req, res, next) {
   return schedule_queries.deleteAllSchedulesOfUser(req.session.username)
     .then(() => {
         return res.status(200);
@@ -132,7 +204,7 @@ router.delete('/users_schedules', authHelpers.loginAccessUser, function(req, res
 });
 
 
-router.delete('/users_summaries', authHelpers.loginAccessUser, function(req, res, next) {
+router.delete('/users_summaries_delete', authHelpers.loginAccessUser, function(req, res, next) {
 
   return summary_queries.deleteAllSummariesOfUser(req.session.username)
     .then(() => {
@@ -141,7 +213,7 @@ router.delete('/users_summaries', authHelpers.loginAccessUser, function(req, res
 });
 
 
-router.delete('/users_updates', authHelpers.loginAccessUser, function(req, res, next) {
+router.delete('/users_updates_delete', authHelpers.loginAccessUser, function(req, res, next) {
 
   return update_queries.deleteAllUpdatesOfUser(req.session.username)
     .then(() => {
@@ -149,14 +221,14 @@ router.delete('/users_updates', authHelpers.loginAccessUser, function(req, res, 
     })
 });
 
-router.delete('/users_tags', authHelpers.loginAccessUser, function(req, res, next) {
+router.delete('/users_tags_delete', authHelpers.loginAccessUser, function(req, res, next) {
   return tag_queries.deleteAllTagsOfUser(req.session.username)
     .then(() => {
         return res.status(200);
     })
 });
 
-router.delete('/users_user', authHelpers.loginAccessUser, function(req, res, next) {
+router.delete('/users_user_delete', authHelpers.loginAccessUser, function(req, res, next) {
   return user_queries.deleteAllUserInformation(req.session.username)
     .then(() => {
         return res.sendFile(path.resolve(__dirname, '..', 'views', 'index.html'));

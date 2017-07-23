@@ -42,10 +42,11 @@ function deleteAllTagsOfUser(username) {
   return Tags().where('username', username).del();
 }
 
+function changeUsernameAllTagsOfUser(username) {
+  return Tags().update('username', username);
+}
 
 
-
-// deleteAllTags? 
 
 module.exports = {
   getAllTags: getAllTags,
@@ -55,5 +56,6 @@ module.exports = {
   addTag: addTag,
   deleteTag: deleteTag,
   deleteAllTagsOfUser: deleteAllTagsOfUser,
-  updateTag: updateTag
+  updateTag: updateTag,
+  changeUsernameAllTagsOfUser: changeUsernameAllTagsOfUser
 };

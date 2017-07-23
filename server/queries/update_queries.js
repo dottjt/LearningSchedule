@@ -45,6 +45,12 @@ function deleteAllUpdatesOfUser(username) {
 }
 
 
+function changeUsernameAllUpdatesOfUser(username, updates) {
+  return Updates().update('username', username).update(updates);
+}
+
+
+
 // deleteAllUpdates? 
 
 module.exports = {
@@ -57,5 +63,6 @@ module.exports = {
   deleteUpdate: deleteUpdate,
   deleteAllUpdatesOfUser: deleteAllUpdatesOfUser,
   updateUpdate: updateUpdate,
-  updateUpdateUsername: updateUpdateUsername
+  updateUpdateUsername: updateUpdateUsername,
+  changeUsernameAllUpdatesOfUser: changeUsernameAllUpdatesOfUser
 };

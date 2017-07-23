@@ -4,7 +4,8 @@ interface ProfilePassedProps {
 
 
 interface PUserDetailsProps {
-    requestChangeUserDetails(username, password): any,
+    requestChangeUserUsernameDetails(username: any): any,
+    requestChangeUserEmailDetails(email: any, username: any): any,
     requestChangePassword(data: any): any,
     requestRemoveUser(): any
 }

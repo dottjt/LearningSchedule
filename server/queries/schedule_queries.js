@@ -36,9 +36,12 @@ function updateScheduleUsername(username, updates) {
   return Schedules().where('username', username).update(updates, 'schedule_id');
 }
 
-
 function deleteAllSchedulesOfUser(username) {
   return Schedules().where('username', username).del();
+}
+
+function changeUsernameAllSchedulesOfUser(username, updates) {
+  return Schedules().update('username', username).update(updates);
 }
  
 
@@ -51,5 +54,6 @@ module.exports = {
   deleteSchedule: deleteSchedule,
   deleteAllSchedulesOfUser: deleteAllSchedulesOfUser,
   updateSchedule: updateSchedule,
-  updateScheduleUsername: updateScheduleUsername
+  updateScheduleUsername: updateScheduleUsername,
+  changeUsernameAllSchedulesOfUser: changeUsernameAllSchedulesOfUser
 };

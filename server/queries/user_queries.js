@@ -56,7 +56,9 @@ function getVerificationBoolean(email) {
   return Users().where('email', email).select('verification_boolean')
 }
 
-
+function changeUsernameAllUserInformation(username, updates) {
+  return Users().update('username', username).update(updates);
+}
 
 
 module.exports = {
@@ -73,6 +75,8 @@ module.exports = {
     getResetToken: getResetToken,
 
     setVerificationBoolean: setVerificationBoolean,
-    getVerificationBoolean: getVerificationBoolean
+    getVerificationBoolean: getVerificationBoolean,
+
+    changeUsernameAllUserInformation: changeUsernameAllUserInformation
 };
 
