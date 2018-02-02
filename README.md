@@ -1,8 +1,8 @@
-
+Note: This project is unfinished and will remain unfinished. It's the very first full-stack web application I ever built, and considering I had literally zero idea how to build one, is a bit of a mess.
 
 # LearningSchedule
 
-This is the repository for my online SaaS application, Learning Schedule. It is a fully featured application that includes user authentication, n' all that jazz. **I imagine it won't be fully production ready until the end of 2017.** It's absolutely massive.
+This is the repository for my online SaaS application, Learning Schedule. It is a fully featured application that includes user authentication, n' all that jazz. 
 
 God knows how many versions/revisions I've created. I believe it's currently on it's 3rd major revision, which added unit testing and TypeScript.
 
