@@ -1,4 +1,4 @@
-Note: This project is unfinished and will remain unfinished. It's the very first full-stack web application I ever built, and considering I had literally zero idea how to build one, is a bit of a mess.
+**Note: This project is unfinished and will remain unfinished. It's the very first full-stack web application I ever built, and considering I had literally zero idea how to build one, is a bit of a mess.**
 
 # LearningSchedule
 
