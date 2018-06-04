@@ -1,6 +1,8 @@
-**Note: This project is unfinished and will remain unfinished.** It's the very first full-stack web application I ever built, and considering I had literally zero idea how to build one, is a bit of a mess.
-
 # LearningSchedule
+
+https://learningschedule.com
+
+> Typescript, React, Redux, ImmutableJS, Node.js, Express.js
 
 This is the repository for my online SaaS application, Learning Schedule. It is a fully featured application that includes user authentication, n' all that jazz. 
 
@@ -8,7 +10,7 @@ God knows how many versions/revisions I've created. I believe it's currently on 
 
 This project goes from being broken to fully functional as I implement new features, so I apologise if you happen to come across it when it's broken.
 
-**08-06-17** - Website/Application now in early alpha https://learningschedule.com 
+**08-06-17** - Website/Application now in early alpha.
 
 
 # Learning Schedule aims to serve a number of purposes:
